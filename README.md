@@ -1,6 +1,6 @@
 # Angular Signal Examples
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0-next.7.
+View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 
 ## Development server
 
