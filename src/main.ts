@@ -1,7 +1,13 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
-
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { ROUTES } from './app-routings';
+bootstrapApplication(AppComponent, {
+  providers: [provideRouter(ROUTES)],
+})
+  .then(() => {
+    console.log('Standalone app initiazed');
+  })
+  .catch(() => {
+    console.log('application initiazed failed');
+  });
