@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './signal-example1.component.html',
   styleUrls: ['./signal-example1.component.scss'],
 })
-export default class SignalExample1Component {}
+export default class SignalExample1Component {
+  count = signal<number>(1);
+
+  increaseCount() {
+    this.count.update((count) => count + 1);
+  }
+
+  decreaseCount() {
+    this.count.update((count) => count - 1);
+  }
+}
