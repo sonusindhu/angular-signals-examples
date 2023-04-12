@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngv16",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -36,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/prod",
               "budgets": [
                 {
                   "type": "initial",
