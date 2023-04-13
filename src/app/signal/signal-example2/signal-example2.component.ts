@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './signal-example2.component.html',
   styleUrls: ['./signal-example2.component.scss'],
 })
-export default class SignalExample2Component {}
+export default class SignalExample2Component {
+  count = signal(0);
+
+  constructor() {
+    setInterval(() => this.count.set(this.count() + 1), 1000);
+  }
+}
