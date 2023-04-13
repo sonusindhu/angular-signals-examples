@@ -1,1 +1,15 @@
+<div class="navbar">
+
+  <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+  <div class="dropdown">
+    <button class="dropbtn">Signals Example
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/signal/signal-example1']" routerLinkActive="active">Signal Example1</a>
+      <a [routerLink]="['/signal/signal-example2']" routerLinkActive="active">Signal Example2</a>
+    </div>
+  </div>
+
+</div>
 <router-outlet />
