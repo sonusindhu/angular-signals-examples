@@ -1,0 +1,23 @@
+:host {
+  display: contents;
+  .item {
+    display: flex;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 3px;
+    text-decoration: none;
+    width: 23%;
+    border: 1px solid #c2c2c2;
+    border-radius: 10px;
+    height: 200px;
+    margin: 10px;
+  }
+  .mat-mdc-card.mdc-card {
+    width: 100%;
+    box-shadow: none;
+  }
+  .mat-mdc-card-header {
+    padding: 8px 16px 8px 16px;
+    border-bottom: 1px solid #c2c2c2;
+  }
+}

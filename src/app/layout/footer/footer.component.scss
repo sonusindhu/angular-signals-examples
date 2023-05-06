@@ -1,0 +1,43 @@
+:host {
+  .footer {
+    padding: 12px;
+    font-size: 12px;
+    background: #3f51b5;
+    color: #fff;
+  }
+
+  .footer-list {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 8px;
+  }
+
+  .footer-logo {
+    flex: 1;
+  }
+
+  .footer-version {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .footer-copyright {
+    margin-top: 0;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    flex-direction: column;
+    min-width: 225px;
+    margin-top: 16px;
+  }
+
+  .footer a {
+    font-size: 16px;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+}
