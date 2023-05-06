@@ -3,6 +3,6 @@
     display: flex;
     flex-wrap: wrap;
     padding: 16px;
-    min-height: 76vh;
+    min-height: calc(100vh - 166px);
   }
 }
