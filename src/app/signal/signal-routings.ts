@@ -31,6 +31,11 @@ const ROUTES: Route[] = [
         loadComponent: () =>
           import('./signal-example4/signal-example4.component'),
       },
+      {
+        path: 'signal-example5',
+        loadComponent: () =>
+          import('./signal-example5/signal-example5.component'),
+      },
     ],
   },
 ];

@@ -28,6 +28,11 @@ const EXAMPLES: ExampleModel[] = [
     content: 'Computed signal value',
     routerLink: '/signal/signal-example4',
   },
+  {
+    title: 'Example 5',
+    content: 'todo list with signal',
+    routerLink: '/signal/signal-example5',
+  },
 ];
 
 @Component({
