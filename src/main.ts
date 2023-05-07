@@ -11,6 +11,7 @@ bootstrapApplication(AppComponent, {
         eventCoalescing: true,
         runCoalescing: true,
     }),
+    provideAnimations(),
     provideAnimations()
 ],
 })
