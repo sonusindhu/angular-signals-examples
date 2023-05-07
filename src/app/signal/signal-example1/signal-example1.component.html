@@ -1,6 +1,15 @@
 <h2>Example 1 - Count Increment/Decrement</h2>
 <p>Count is: {{ count() }}</p>
 <p>
-  <button class="counterButton" (click)="increaseCount()">Increase</button>
-  <button class="counterButton" (click)="decreaseCount()">Decrease</button>
+  <button
+    mat-raised-button
+    color="primary"
+    style="margin-right: 1rem"
+    (click)="increaseCount()"
+  >
+    Increase
+  </button>
+  <button mat-raised-button color="primary" (click)="decreaseCount()">
+    Decrease
+  </button>
 </p>
