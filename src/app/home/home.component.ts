@@ -33,6 +33,11 @@ const EXAMPLES: ExampleModel[] = [
     content: 'todo list with signal',
     routerLink: '/signal/signal-example5',
   },
+  {
+    title: 'Example 6',
+    content: 'Input text field using the ngModel',
+    routerLink: '/signal/signal-example6',
+  },
 ];
 
 @Component({
