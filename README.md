@@ -1,5 +1,7 @@
 # Angular Signal Examples
 
+This repo is explains to Angular signals and real time examples how to create and update signals, use effects, convert from observable and create computed values.
+
 View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 
 ## Development server
