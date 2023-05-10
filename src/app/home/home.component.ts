@@ -38,6 +38,11 @@ const EXAMPLES: ExampleModel[] = [
     content: 'Input text field using the ngModel',
     routerLink: '/signal/signal-example6',
   },
+  {
+    title: 'Example 7',
+    content: 'converts an observable to a signal',
+    routerLink: '/signal/signal-example7',
+  },
 ];
 
 @Component({
