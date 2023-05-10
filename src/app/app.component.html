@@ -1,6 +1,9 @@
 <app-header />
 
 <main class="main-container">
+
+  <div *ngIf="loading()" class="loading">Loading&#8230;</div>
+
   <router-outlet />
 </main>
 
