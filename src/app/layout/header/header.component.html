@@ -3,23 +3,15 @@
 
   <span class="example-spacer"></span>
 
-  <div class="nav-menu">
-    <button mat-button [routerLink]="['/']" routerLinkActive="active">
-      Home
-    </button>
+  <button mat-button [routerLink]="['/']" routerLinkActive="active">
+    Home
+  </button>
 
-    <!-- <button mat-button [matMenuTriggerFor]="menu" #trigger="matMenuTrigger" (mouseenter)="trigger.openMenu()">
-      Examples
-    </button>
+  <span class="menu-spacer"></span>
 
-    <mat-menu #menu="matMenu" direction="down" yPosition="below">
-      <div (mouseleave)="trigger.closeMenu()">
-        <button mat-menu-item [routerLink]="['/signal/signal-example1']" routerLinkActive="active">Example 1</button>
-        <button mat-menu-item [routerLink]="['/signal/signal-example2']" routerLinkActive="active">Example 2</button>
-        <button mat-menu-item [routerLink]="['/signal/signal-example3']" routerLinkActive="active">Example 3</button>
-        <button mat-menu-item [routerLink]="['/signal/signal-example4']" routerLinkActive="active">Example 4</button>
-      </div>
-    </mat-menu> -->
-  </div>
+  <a mat-icon-button target="_blank" aria-label="Github Repo link"
+    href="https://github.com/sonusindhu/angular-signals-examples">
+    <img src="/assets/images/github-icon.svg">
+  </a>
 
 </mat-toolbar>
