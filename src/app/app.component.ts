@@ -25,6 +25,10 @@ export class AppComponent {
     this.router.events
       .pipe(
         startWith(this.router.events),
+        filter(
+          (event) =>
+            event instanceof NavigationEnd || event instanceof NavigationStart
+        ),
         tap(() => this.loading.set(true)),
         filter((event) => event instanceof NavigationEnd),
         tap(() => this.loading.set(false))
