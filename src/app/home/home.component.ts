@@ -43,6 +43,11 @@ const EXAMPLES: ExampleModel[] = [
     content: 'converts an observable to a signal',
     routerLink: '/signal/signal-example7',
   },
+  {
+    title: 'Example 8',
+    content: 'use signal with side effects',
+    routerLink: '/signal/signal-example8',
+  },
 ];
 
 @Component({
