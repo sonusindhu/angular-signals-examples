@@ -13,7 +13,7 @@
 
 <div>
 
-  <div style="padding: 10px;">
+  <div class="summary">
     <p>Total Summary;-</p>
     <p>Total VAT: {{ totalVat() }}</p>
     <p><b>Total Price:</b> {{ total() }}</p>
@@ -22,20 +22,21 @@
   <button mat-raised-button color="primary" (click)="save()">
     Save
   </button>
+
   <hr />
-
-
-  <table *ngIf="listing()?.length" style="min-width: 250px;">
+  <table *ngIf="listing()?.length">
     <thead>
       <tr>
         <th>Price</th>
-        <th>VAT</th>
-        <th>Total</th>
+        <th>VAT(%)</th>
+        <th>Total VAT</th>
+        <th>Total Price</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let entry of listing()">
         <td>{{ entry.price }}</td>
+        <td>{{ entry.vatPercent }}%</td>
         <td>{{ entry.vat }}</td>
         <td>{{ entry.total }}</td>
       </tr>

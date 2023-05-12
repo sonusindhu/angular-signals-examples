@@ -45,6 +45,7 @@ export default class SignalExample9Component {
     this.listing.update((history: any[]) => {
       const item = {
         price: this.price(),
+        vatPercent: this.vatInPercent(),
         vat: this.totalVat(),
         total: this.total(),
       };
