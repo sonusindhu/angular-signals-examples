@@ -1,4 +1,4 @@
-# Angular Signal Examples
+# Angular Signals Examples(Angular signals demos)
 
 This repo is explains to Angular signals and real time examples how to create and update signals, use effects, convert from observable and create computed values.
 
