@@ -53,6 +53,11 @@ const EXAMPLES: ExampleModel[] = [
     content: 'Simple VAT calculator with angular signals',
     routerLink: '/signal/signal-example9',
   },
+  {
+    title: 'Example 10',
+    content: 'List of products and searching with angular signals',
+    routerLink: '/signal/signal-example10',
+  },
 ];
 
 @Component({
