@@ -1,8 +1,20 @@
-# Angular Signal Examples
+# Angular Signals Examples(Angular signals demos)
 
 This repo is explains to Angular signals and real time examples how to create and update signals, use effects, convert from observable and create computed values.
 
 View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
+
+## Examples
+1. Count Increment/Decrement [Example 1](https://angular-signal-examples.netlify.app/signal/signal-example1)
+2. Auto increment count [Example 2](https://angular-signal-examples.netlify.app/signal/signal-example2)
+3. Update name using the input [Example 3](https://angular-signal-examples.netlify.app/signal/signal-example3)
+4. computed signals [Example 4](https://angular-signal-examples.netlify.app/signal/signal-example4)
+5. Todo List [Example 5](https://angular-signal-examples.netlify.app/signal/signal-example5)
+6. input with ngModel [Example 6](https://angular-signal-examples.netlify.app/signal/signal-example6)
+7. converts an observable to a signal [Example 7](https://angular-signal-examples.netlify.app/signal/signal-example7)
+8. use signal with side effects [Example 8](https://angular-signal-examples.netlify.app/signal/signal-example8)
+9. Simple VAT calculator with angular signals [Example 9](https://angular-signal-examples.netlify.app/signal/signal-example9)
+10. List of products and searching with angular signals [Example 10](https://angular-signal-examples.netlify.app/signal/signal-example10)
 
 ## Development server
 

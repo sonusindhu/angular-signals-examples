@@ -1,0 +1,12 @@
+<h2>Example 8 - use signal with side effect</h2>
+
+<p>
+  Side effects mean code that calls an API or do any operation not related to the signal.
+  for that, we can use an effect().
+</p>
+
+<p>Count - {{ count() }}</p>
+
+<button mat-raised-button color="primary" (click)="updateCount()">
+  Update Count
+</button>

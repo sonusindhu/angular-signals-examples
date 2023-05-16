@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './signal-example4.component.html',
   styleUrls: ['./signal-example4.component.scss'],
   imports: [FormsModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample4Component {
   count = signal(0);
