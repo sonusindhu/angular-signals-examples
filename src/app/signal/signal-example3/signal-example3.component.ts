@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-signal-example3',
   standalone: true,
   templateUrl: './signal-example3.component.html',
   styleUrls: ['./signal-example3.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample3Component {
   name = signal('Sonu Sindhu');
