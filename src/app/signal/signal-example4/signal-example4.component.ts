@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './signal-example4.component.html',
   styleUrls: ['./signal-example4.component.scss'],
   imports: [FormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample4Component {
   count = signal(0);

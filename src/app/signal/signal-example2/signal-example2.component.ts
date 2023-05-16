@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './signal-example2.component.html',
   styleUrls: ['./signal-example2.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample2Component {
   count = signal(0);
