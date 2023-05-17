@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './signal-example8.component.html',
   styleUrls: ['./signal-example8.component.scss'],
   imports: [MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample8Component {
   count = signal(1000);

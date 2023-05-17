@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { interval, take } from 'rxjs';
 
@@ -7,6 +7,7 @@ import { interval, take } from 'rxjs';
   standalone: true,
   templateUrl: './signal-example7.component.html',
   styleUrls: ['./signal-example7.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample5Component {
   counter$ = interval(1000);
