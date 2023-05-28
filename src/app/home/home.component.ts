@@ -58,6 +58,11 @@ const EXAMPLES: ExampleModel[] = [
     content: 'List of products and searching with angular signals',
     routerLink: '/signal/signal-example10',
   },
+  {
+    title: 'Example 11',
+    content: 'Signal as input',
+    routerLink: '/signal/signal-example11',
+  },
 ];
 
 @Component({
