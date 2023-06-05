@@ -15,6 +15,7 @@ View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 8. use signal with side effects [Example 8](https://angular-signal-examples.netlify.app/signal/signal-example8)
 9. Simple VAT calculator with angular signals [Example 9](https://angular-signal-examples.netlify.app/signal/signal-example9)
 10. List of products and searching with angular signals [Example 10](https://angular-signal-examples.netlify.app/signal/signal-example10)
+11. with input signals [Example 11](https://angular-signal-examples.netlify.app/signal/signal-example11)
 
 ## Development server
 
