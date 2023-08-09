@@ -25,6 +25,10 @@ export default class SignalExample5Component {
 
   addTodo(todo: HTMLInputElement): void {
     this.todos.update((todos) => [todo.value, ...todos]);
+    this.resetAndFocus(todo);
+  }
+
+  resetAndFocus(todo: HTMLInputElement){
     todo.value = '';
     todo.focus();
   }
