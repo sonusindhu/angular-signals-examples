@@ -24,8 +24,13 @@ export default class SignalExample5Component {
   todos: WritableSignal<string[]> = signal([]);
 
   addTodo(todo: HTMLInputElement): void {
-    this.todos.update((todos) => [todo.value, ...todos]);
+    const item = todo.value;
+    this.updateTodos(item);
     this.resetAndFocus(todo);
+  }
+
+  updateTodos(todo: string){
+    this.todos.update((todos) => [todo, ...todos]);
   }
 
   resetAndFocus(todo: HTMLInputElement){
