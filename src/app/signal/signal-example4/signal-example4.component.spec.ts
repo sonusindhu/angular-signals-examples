@@ -14,7 +14,7 @@ describe('Example 4', () => {
   });
 
 
-  it('should initialize example 3', () => {
+  it('should initialize example 4', () => {
     expect(component).toBeTruthy();
   });
 
