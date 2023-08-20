@@ -68,6 +68,11 @@ const EXAMPLES: ExampleModel[] = [
     content: 'untracked signal - even if the signal changes, the context is not notified of its change',
     routerLink: '/signal/signal-example12',
   },
+  {
+    title: 'Example 13',
+    content: 'Using Signals to list products and add to cart, update total price',
+    routerLink: '/signal/signal-example13',
+  },
 ];
 
 @Component({
