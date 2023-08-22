@@ -17,6 +17,7 @@ View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 10. List of products and searching with angular signals [Example 10](https://angular-signal-examples.netlify.app/signal/signal-example10)
 11. with input signals [Example 11](https://angular-signal-examples.netlify.app/signal/signal-example11)
 12. untracked signal [Example 12](https://angular-signal-examples.netlify.app/signal/signal-example12)
+13. untracked signal [Example 13](https://angular-signal-examples.netlify.app/signal/signal-example13)
 
 ## Development server
 
