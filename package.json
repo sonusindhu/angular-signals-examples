@@ -1,5 +1,5 @@
 {
-  "name": "ngv16",
+  "name": "angular-signals-examples",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
