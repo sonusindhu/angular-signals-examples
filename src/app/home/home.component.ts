@@ -73,6 +73,11 @@ const EXAMPLES: ExampleModel[] = [
     content: 'Using Signals to list products and add to cart, update total price',
     routerLink: '/signal/signal-example13',
   },
+  {
+    title: 'Example 14',
+    content: 'Using Signals to list products and perform the virtual scroll',
+    routerLink: '/signal/signal-example14',
+  },
 ];
 
 @Component({
