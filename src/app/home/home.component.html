@@ -1,4 +1,5 @@
-<a class="item" *ngFor="let item of examples()" [routerLink]="item.routerLink">
+@for (item of examples(); track item) {
+<a class="item" [routerLink]="item.routerLink">
   <mat-card>
     <mat-card-header>
       <mat-card-title>{{ item.title }}</mat-card-title>
@@ -8,9 +9,6 @@
         {{ item.content }}
       </p>
     </mat-card-content>
-    <!-- <mat-card-actions>
-      <button mat-button>View Live</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions> -->
   </mat-card>
 </a>
+}
