@@ -2,12 +2,16 @@
 
 <mat-form-field>
   <mat-label>Todo Name</mat-label>
-  <input matInput name="todo" #todo>
+  <input matInput name="todo" #todo />
 </mat-form-field>
 
-<button mat-raised-button color="primary" (click)="addTodo(todo)">Add Todo</button>
+<button mat-raised-button color="primary" (click)="addTodo(todo)">
+  Add Todo
+</button>
 <ul>
-  <li *ngFor="let item of todos()">
+  @for (item of todos(); track item) {
+  <li>
     {{ item }}
   </li>
+  }
 </ul>
