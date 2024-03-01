@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [CommonModule, MatButtonModule],
   templateUrl: './signal-example1.component.html',
-  styleUrls: ['./signal-example1.component.scss'],
+  styleUrl: './signal-example1.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample1Component {

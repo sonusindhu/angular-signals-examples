@@ -18,6 +18,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule,
   ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {}

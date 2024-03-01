@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-signal-example9',
   standalone: true,
   templateUrl: './signal-example9.component.html',
-  styleUrls: ['./signal-example9.component.scss'],
+  styleUrl: './signal-example9.component.scss',
   imports: [
     NgIf,
     NgFor,

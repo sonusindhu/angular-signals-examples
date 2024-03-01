@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-signal-example3',
   standalone: true,
   templateUrl: './signal-example3.component.html',
-  styleUrls: ['./signal-example3.component.scss'],
+  styleUrl: './signal-example3.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatFormFieldModule, MatInputModule]
 })

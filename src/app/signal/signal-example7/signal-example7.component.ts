@@ -6,7 +6,7 @@ import { interval, take } from 'rxjs';
   selector: 'app-signal-example7',
   standalone: true,
   templateUrl: './signal-example7.component.html',
-  styleUrls: ['./signal-example7.component.scss'],
+  styleUrl: './signal-example7.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample5Component {

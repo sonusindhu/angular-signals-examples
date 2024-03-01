@@ -10,7 +10,7 @@ import { products } from './products';
   selector: 'app-signal-example10',
   standalone: true,
   templateUrl: './signal-example10.component.html',
-  styleUrls: ['./signal-example10.component.scss'],
+  styleUrl: './signal-example10.component.scss',
   imports: [
     NgIf,
     NgFor,

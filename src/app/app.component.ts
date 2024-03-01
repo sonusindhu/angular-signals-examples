@@ -15,7 +15,7 @@ import { NgIf } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   imports: [NgIf, RouterModule, HeaderComponent, FooterComponent],
 })
 export class AppComponent {

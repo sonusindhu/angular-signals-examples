@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './signal-example2.component.html',
-  styleUrls: ['./signal-example2.component.scss'],
+  styleUrl: './signal-example2.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample2Component {

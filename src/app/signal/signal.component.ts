@@ -7,6 +7,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './signal.component.html',
-  styleUrls: ['./signal.component.scss'],
+  styleUrl: './signal.component.scss',
 })
 export default class SignalComponent {}
