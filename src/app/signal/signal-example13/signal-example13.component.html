@@ -1,24 +1,22 @@
 <h2>Example 13 - My Cart(Add/Remove Product)</h2>
 
 <ul>
-  <li *ngFor="let product of products()">
+  @for (product of products(); track product) {
+  <li>
     {{ product.name }} - ${{ product.price }}
 
-    <button
-      mat-raised-button
-      color="warn"
-      (click)="removeFromCart(product)"
-      *ngIf="selectProductsIds().includes(product.id); else addProductTemp"
-    >
+    @if (selectProductsIds().includes(product.id)) {
+
+    <button mat-raised-button color="warn" (click)="removeFromCart(product)">
       Remove
     </button>
-
-    <ng-template #addProductTemp>
-      <button mat-raised-button color="primary" (click)="addToCart(product)">
-        Add
-      </button>
-    </ng-template>
+    } @else {
+    <button mat-raised-button color="primary" (click)="addToCart(product)">
+      Add
+    </button>
+    }
   </li>
+  }
 </ul>
 
 <p>

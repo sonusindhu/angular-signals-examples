@@ -2,12 +2,15 @@
 
 <mat-form-field>
   <mat-label>Search by title</mat-label>
-  <input matInput [ngModel]="searchInput()" (ngModelChange)="searchProduct($event)">
+  <input
+    matInput
+    [ngModel]="searchInput()"
+    (ngModelChange)="searchProduct($event)"
+  />
 </mat-form-field>
 
 <div>
-
-  <table style="width: 100%;">
+  <table style="width: 100%">
     <thead>
       <tr>
         <th>title</th>
@@ -18,6 +21,7 @@
       </tr>
     </thead>
     <tbody>
+      @for (product of filteredProducts(); track product) {}
       <tr *ngFor="let product of filteredProducts()">
         <td>{{ product.title }}</td>
         <td>{{ product.category }}</td>
@@ -28,7 +32,21 @@
     </tbody>
   </table>
 
-  <button mat-raised-button color="primary" [disabled]="currentPage() === 1" (click)="goToPrevPage()">Prev</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="currentPage() === 1"
+    (click)="goToPrevPage()"
+  >
+    Prev
+  </button>
   {{ currentPage() }}
-  <button mat-raised-button color="primary" [disabled]="isNextPageNotAvailable()" (click)="goToNextPage()">Next</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="isNextPageNotAvailable()"
+    (click)="goToNextPage()"
+  >
+    Next
+  </button>
 </div>

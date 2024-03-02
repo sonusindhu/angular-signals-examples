@@ -2,29 +2,39 @@
 
 <mat-form-field>
   <mat-label>Price</mat-label>
-  <input matInput type="number" min="0" oninput="validity.valid || (value = 0);" (input)="onInputUpdate($event)"
-    [value]="price()">
+  <input
+    matInput
+    type="number"
+    min="0"
+    oninput="validity.valid || (value = 0);"
+    (input)="onInputUpdate($event)"
+    [value]="price()"
+  />
 </mat-form-field>
 
 <mat-form-field>
   <mat-label>VAT(%)</mat-label>
-  <input matInput type="number" min="0" (input)="onInputVat($event)" [value]="vatInPercent()">
+  <input
+    matInput
+    type="number"
+    min="0"
+    (input)="onInputVat($event)"
+    [value]="vatInPercent()"
+  />
 </mat-form-field>
 
 <div>
-
   <div class="summary">
     <p>Total Summary;-</p>
     <p>Total VAT: {{ totalVat() }}</p>
     <p><b>Total Price:</b> {{ total() }}</p>
   </div>
 
-  <button mat-raised-button color="primary" (click)="save()">
-    Save
-  </button>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
 
   <hr />
-  <table *ngIf="listing()?.length">
+  @if (listing().length) {
+  <table>
     <thead>
       <tr>
         <th>Price</th>
@@ -42,6 +52,5 @@
       </tr>
     </tbody>
   </table>
-
-
+  }
 </div>
