@@ -1,0 +1,171 @@
+<div>
+  <button mat-button [matMenuTriggerFor]="chooseColumn">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #chooseColumn="matMenu">
+    <button
+      mat-menu-item
+      *ngFor="let column of columnsToDisplay; let i = index"
+    >
+      <mat-checkbox
+        [checked]="!hiddenColumns.includes(column)"
+        (change)="toggleColumn(column)"
+        >{{ column }}</mat-checkbox
+      >
+    </button>
+  </mat-menu>
+</div>
+
+<section class="example-container mat-elevation-z8" tabindex="0">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    multiTemplateDataRows
+    class="mat-elevation-z8"
+    matSort
+    (matSortChange)="announceSortChange($event)"
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select" sticky>
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="$event ? toggleAllRows() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+          [aria-label]="checkboxLabel()"
+        >
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)"
+          [aria-label]="checkboxLabel(row)"
+        >
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container
+      matColumnDef="{{ column }}"
+      *ngFor="let column of columnsToDisplay; let i = index"
+    >
+      <th mat-header-cell *matHeaderCellDef [resizeColumn]="true" [index]="i">
+        <div class="header-title" mat-sort-header cdkDrag>
+          {{ column }}
+        </div>
+        <div class="header-filter">
+          <mat-form-field>
+            <input
+              matInput
+              (keyup)="applyFilter($event, column)"
+              placeholder="Searcg"
+            />
+          </mat-form-field>
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-icon-button
+          aria-label="expand row"
+          (click)="
+            expandedElement = expandedElement === element ? null : element;
+            $event.stopPropagation()
+          "
+        >
+          <mat-icon *ngIf="expandedElement !== element"
+            >keyboard_arrow_down</mat-icon
+          >
+          <mat-icon *ngIf="expandedElement === element"
+            >keyboard_arrow_up</mat-icon
+          >
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td
+        mat-cell
+        *matCellDef="let element"
+        [attr.colspan]="columnsToDisplayWithExpand.length"
+      >
+        <div
+          class="example-element-detail"
+          [@detailExpand]="
+            element == expandedElement ? 'expanded' : 'collapsed'
+          "
+        >
+          <div class="example-element-diagram">
+            <div class="example-element-position">{{ element.position }}</div>
+            <div class="example-element-symbol">{{ element.symbol }}</div>
+            <div class="example-element-name">{{ element.name }}</div>
+            <div class="example-element-weight">{{ element.weight }}</div>
+          </div>
+          <div class="example-element-description">
+            {{ element.description }}
+            <span class="example-element-description-attribution">
+              -- Wikipedia
+            </span>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="columnsToDisplayWithExpand; sticky: true"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let element; columns: columnsToDisplayWithExpand"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['expandedDetail']"
+      class="example-detail-row"
+    ></tr>
+
+    <ng-container matColumnDef="option" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-button
+          [matMenuTriggerFor]="menu"
+          [matMenuTriggerData]="{ $implicit: element }"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" [attr.colspan]="columnsToDisplayWithExpand.length">
+        No data
+      </td>
+    </tr>
+  </table>
+</section>
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>
+<mat-menu #menu="matMenu">
+  <ng-template matMenuContent let-dataItem>
+    <button mat-menu-item>Edit</button>
+    <button mat-menu-item>Delete</button>
+  </ng-template>
+</mat-menu>
