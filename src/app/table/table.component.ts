@@ -70,13 +70,19 @@ import { ResizeColumnDirective } from './resize-column.directive';
 })
 export default class TableExpandableRowsExample {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
-  columnsToDisplayWithExpand = [
-    'select',
-    ...this.columnsToDisplay,
-    'expand',
-    'option',
+  columns = ['name', 'weight', 'symbol', 'position', 'address', 'company'];
+  columnsToDisplay = ['select', ...this.columns, 'option'];
+  filterColumns = [
+    'select-filter',
+    'name-filter',
+    'weight-filter',
+    'symbol-filter',
+    'position-filter',
+    'address-filter',
+    'company-filter',
+    'option-filter',
   ];
+
   expandedElement: PeriodicElement | null = null;
   hiddenColumns: string[] = [];
   selection = new SelectionModel<PeriodicElement>(true, []);
@@ -140,18 +146,9 @@ export default class TableExpandableRowsExample {
 
   drop(event: any) {
     // CdkDragDrop<string[]>
-    moveItemInArray(
-      this.columnsToDisplay,
-      event.previousIndex,
-      event.currentIndex
-    );
+    moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
 
-    this.columnsToDisplayWithExpand = [
-      'select',
-      ...this.columnsToDisplay,
-      'expand',
-      'option',
-    ];
+    this.columnsToDisplay = ['select', ...this.columns, 'expand', 'option'];
   }
 
   filteredValues: any = { name: '', position: '', weight: '', symbol: '' };
@@ -191,10 +188,9 @@ export default class TableExpandableRowsExample {
       this.hiddenColumns = this.hiddenColumns.filter((c) => c != column);
     }
 
-    this.columnsToDisplayWithExpand = [
+    this.columnsToDisplay = [
       'select',
-      ...this.columnsToDisplay.filter((i) => !this.hiddenColumns.includes(i)),
-      'expand',
+      ...this.columns.filter((i) => !this.hiddenColumns.includes(i)),
       'option',
     ];
   }
