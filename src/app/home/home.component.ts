@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 
 import { EXAMPLES } from '../shared/consts/examples.const';
+import { ExampleModel } from '../shared/models/example.model';
 
 @Component({
   selector: 'app-home',
@@ -13,5 +14,5 @@ import { EXAMPLES } from '../shared/consts/examples.const';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  examples = signal(EXAMPLES);
+  examples: WritableSignal<ExampleModel[]> = signal(EXAMPLES);
 }
