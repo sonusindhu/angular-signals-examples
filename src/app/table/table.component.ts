@@ -70,9 +70,9 @@ import { ResizeColumnDirective } from './resize-column.directive';
 })
 export default class TableExpandableRowsExample {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  columns = ['name', 'weight', 'symbol', 'position', 'address', 'company'];
-  columnsToDisplay = ['select', ...this.columns, 'option'];
-  filterColumns = [
+  columns: string[] = ['name', 'weight', 'symbol', 'position', 'address', 'company'];
+  columnsToDisplay: string[] = ['select', ...this.columns, 'option'];
+  filterColumns: string[] = [
     'select-filter',
     'name-filter',
     'weight-filter',
@@ -99,7 +99,6 @@ export default class TableExpandableRowsExample {
   @ViewChild(MatTable, { read: ElementRef }) private matTableRef!: ElementRef;
 
   ngAfterViewInit() {
-    console.log(this.sort);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
