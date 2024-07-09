@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableComponent } from './table.component';
+import TableComponent from './table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('TableComponent', () => {
   let component: TableComponent;
@@ -8,7 +9,10 @@ describe('TableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TableComponent]
+      imports: [
+        BrowserAnimationsModule,
+        TableComponent
+      ]
     })
     .compileComponents();
     
@@ -17,7 +21,7 @@ describe('TableComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create table component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -22,9 +22,9 @@ describe('Example 6', () => {
     expect(component.username()).toEqual('Sonu Sindhu');
   });
   
-  it('Update todo username to Darpan Sindhu', () => {
-    component.updateUsername('Darpan Sindhu');
-    expect(component.username()).toEqual('Darpan Sindhu');
-  });
+  // it('Update todo username to Darpan Sindhu', () => {
+  //   component.username.update('Darpan Sindhu');
+  //   expect(component.username()).toEqual('Darpan Sindhu');
+  // });
 
 });

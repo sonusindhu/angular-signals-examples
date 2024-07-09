@@ -68,7 +68,7 @@ import { ResizeColumnDirective } from './resize-column.directive';
     ResizeColumnDirective,
   ],
 })
-export default class TableExpandableRowsExample {
+export default class TableComponent {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   columns: string[] = ['name', 'weight', 'symbol', 'position', 'address', 'company'];
   columnsToDisplay: string[] = ['select', ...this.columns, 'option'];
