@@ -3,13 +3,13 @@ import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { ROUTES } from './app-routings';
 import { provideZoneChangeDetection } from '@angular/core';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(ROUTES),
     provideZoneChangeDetection(),
-    provideAnimations()
-],
+    provideAnimationsAsync(),
+  ],
 })
   .then(() => {
     console.log('Standalone app initiazed');
