@@ -73,4 +73,9 @@ export const EXAMPLES: ExampleModel[] = [
     content: 'Using Signals to list products and perform the virtual scroll',
     routerLink: '/signal/signal-example14',
   },
+  {
+    title: 'Example 15',
+    content: 'show/hide a loading spinner',
+    routerLink: '/signal/signal-example15',
+  },
 ];
