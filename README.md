@@ -18,7 +18,8 @@ View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 11. with input signals [Example 11](https://angular-signal-examples.netlify.app/signal/signal-example11)
 12. untracked signal [Example 12](https://angular-signal-examples.netlify.app/signal/signal-example12)
 13. My Cart(Add/Remove Product) [Example 13](https://angular-signal-examples.netlify.app/signal/signal-example13)
-13. Products - Virtual scroll [Example 14](https://angular-signal-examples.netlify.app/signal/signal-example14)
+14. Products - Virtual scroll [Example 14](https://angular-signal-examples.netlify.app/signal/signal-example14)
+15. show/hide a loading spinner [Example 15](https://angular-signal-examples.netlify.app/signal/signal-example15)
 
 ## Development server
 
