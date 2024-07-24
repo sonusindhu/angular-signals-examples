@@ -1,20 +1,20 @@
 import { TestBed } from '@angular/core/testing';
-import SignalExample14Component from './signal-example15.component';
+import SignalExample15Component from './signal-example15.component';
 
-describe('Example 14', () => {
-  let component: SignalExample14Component;
+describe('Example 15', () => {
+  let component: SignalExample15Component;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SignalExample14Component],
+      imports: [SignalExample15Component],
     }).compileComponents();
 
     component = TestBed.createComponent(
-      SignalExample14Component
+      SignalExample15Component
     ).componentInstance;
   });
 
-  it('Example 14 component Intialized', () => {
+  it('Example 15 component Intialized', () => {
     expect(component).toBeTruthy();
   });
 });
