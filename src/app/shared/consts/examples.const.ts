@@ -78,4 +78,9 @@ export const EXAMPLES: ExampleModel[] = [
     content: 'show/hide a loading spinner',
     routerLink: '/signal/signal-example15',
   },
+  {
+    title: 'Example 16',
+    content: `Read Only Signals - .asReadonly()`,
+    routerLink: '/signal/signal-example16',
+  },
 ];
