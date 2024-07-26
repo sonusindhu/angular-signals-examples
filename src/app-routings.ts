@@ -14,4 +14,8 @@ export const ROUTES: Route[] = [
     path: 'table',
     loadComponent: () => import('./app/table/table.component'),
   },
+  {
+    path: '**',
+    redirectTo: ''
+  },
 ];
