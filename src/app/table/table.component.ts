@@ -39,34 +39,30 @@ import { ResizeColumnDirective } from './resize-column.directive';
  * @title Table with expandable rows
  */
 @Component({
-  selector: 'app-table',
-  styleUrl: 'table.component.scss',
-  templateUrl: 'table.component.html',
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition(
-        'expanded <=> collapsed',
-        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-      ),
-    ]),
-  ],
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatIconModule,
-    MatCheckboxModule,
-    MatSortModule,
-    MatMenuModule,
-    MatButtonModule,
-    DragDropModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ResizeColumnDirective,
-  ],
+    selector: 'app-table',
+    styleUrl: 'table.component.scss',
+    templateUrl: 'table.component.html',
+    animations: [
+        trigger('detailExpand', [
+            state('collapsed', style({ height: '0px', minHeight: '0' })),
+            state('expanded', style({ height: '*' })),
+            transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatIconModule,
+        MatCheckboxModule,
+        MatSortModule,
+        MatMenuModule,
+        MatButtonModule,
+        DragDropModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ResizeColumnDirective,
+    ]
 })
 export default class TableComponent {
   dataSource = new MatTableDataSource(ELEMENT_DATA);

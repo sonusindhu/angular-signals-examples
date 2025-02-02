@@ -4,11 +4,10 @@ import { MatInputModule } from '@angular/material/input';
 import { InputSignalComponent } from './input-signal-title.component';
 
 @Component({
-  selector: 'app-signal-example11',
-  standalone: true,
-  templateUrl: './signal-example11.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatFormFieldModule, MatInputModule, InputSignalComponent],
+    selector: 'app-signal-example11',
+    templateUrl: './signal-example11.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatFormFieldModule, MatInputModule, InputSignalComponent]
 })
 export default class SignalExample11Component {
   searchInput = signal('');

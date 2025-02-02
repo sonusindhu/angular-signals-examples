@@ -4,12 +4,11 @@ import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
-  selector: 'app-signal-example4',
-  standalone: true,
-  templateUrl: './signal-example4.component.html',
-  styleUrl: './signal-example4.component.scss',
-  imports: [FormsModule, MatButtonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-signal-example4',
+    templateUrl: './signal-example4.component.html',
+    styleUrl: './signal-example4.component.scss',
+    imports: [FormsModule, MatButtonModule],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample4Component {
   count = signal(0);

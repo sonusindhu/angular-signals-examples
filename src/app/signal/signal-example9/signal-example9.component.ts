@@ -6,19 +6,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-signal-example9',
-  standalone: true,
-  templateUrl: './signal-example9.component.html',
-  styleUrl: './signal-example9.component.scss',
-  imports: [
-    NgIf,
-    NgFor,
-    FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-signal-example9',
+    templateUrl: './signal-example9.component.html',
+    styleUrl: './signal-example9.component.scss',
+    imports: [
+        NgIf,
+        NgFor,
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample9Component {
   price = signal<number>(0);

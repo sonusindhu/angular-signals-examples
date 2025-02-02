@@ -13,12 +13,11 @@ interface Product {
 }
 
 @Component({
-  selector: 'signal-example14',
-  standalone: true,
-  templateUrl: `./signal-example14.component.html`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ScrollingModule],
-  styles: `
+    selector: 'signal-example14',
+    templateUrl: `./signal-example14.component.html`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [ScrollingModule],
+    styles: `
       .products{
         height: 300px; 
         overflow-y: scroll;
@@ -32,7 +31,7 @@ interface Product {
         }
       }
       
-    `,
+    `
 })
 export default class SignalExample14Component {
   products: WritableSignal<Product[]> = signal(

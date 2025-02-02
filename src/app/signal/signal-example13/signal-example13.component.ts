@@ -20,20 +20,19 @@ const PRODUCTS: Product[] = [
 ];
 
 @Component({
-  selector: 'signal-example13',
-  standalone: true,
-  templateUrl: `./signal-example13.component.html`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatButtonModule, NgFor, NgIf],
-  styles: [
-    `
+    selector: 'signal-example13',
+    templateUrl: `./signal-example13.component.html`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatButtonModule, NgFor, NgIf],
+    styles: [
+        `
       ul {
         li {
           padding: 10px;
         }
       }
     `,
-  ],
+    ]
 })
 export default class SignalExample13Component {
   // Define a signal for the list of items

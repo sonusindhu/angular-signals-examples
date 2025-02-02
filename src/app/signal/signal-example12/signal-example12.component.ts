@@ -2,11 +2,10 @@ import { ChangeDetectionStrategy, Component, effect, signal, untracked } from '@
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'signal-example12',
-  standalone: true,
-  templateUrl: `./signal-example12.component.html`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatButtonModule]
+    selector: 'signal-example12',
+    templateUrl: `./signal-example12.component.html`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatButtonModule]
 })
 export default class SignalExample12Component {
   counter1 = signal(1);

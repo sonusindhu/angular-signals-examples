@@ -7,20 +7,19 @@ import { MatInputModule } from '@angular/material/input';
 import { products } from './products';
 
 @Component({
-  selector: 'app-signal-example10',
-  standalone: true,
-  templateUrl: './signal-example10.component.html',
-  styleUrl: './signal-example10.component.scss',
-  imports: [
-    NgIf,
-    NgFor,
-    FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    CurrencyPipe
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-signal-example10',
+    templateUrl: './signal-example10.component.html',
+    styleUrl: './signal-example10.component.scss',
+    imports: [
+        NgIf,
+        NgFor,
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        CurrencyPipe
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample10Component {
   readonly firstPage = 1;

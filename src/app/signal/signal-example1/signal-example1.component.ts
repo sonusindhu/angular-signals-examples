@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-signal-example1',
-  standalone: true,
-  imports: [CommonModule, MatButtonModule],
-  templateUrl: './signal-example1.component.html',
-  styleUrl: './signal-example1.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-signal-example1',
+    imports: [CommonModule, MatButtonModule],
+    templateUrl: './signal-example1.component.html',
+    styleUrl: './signal-example1.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample1Component {
   count = signal<number>(1);

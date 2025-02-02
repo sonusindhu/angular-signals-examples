@@ -6,18 +6,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-signal-example5',
-  standalone: true,
-  templateUrl: './signal-example5.component.html',
-  styleUrl: './signal-example5.component.scss',
-  imports: [
-    FormsModule,
-    NgFor,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-signal-example5',
+    templateUrl: './signal-example5.component.html',
+    styleUrl: './signal-example5.component.scss',
+    imports: [
+        FormsModule,
+        NgFor,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample5Component {
   todoName = '';

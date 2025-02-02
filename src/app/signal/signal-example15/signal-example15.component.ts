@@ -4,13 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'signal-example15',
-  standalone: true,
-  templateUrl: `./signal-example15.component.html`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatButtonModule, MatProgressSpinnerModule, NgIf],
-  styles: [
-    `
+    selector: 'signal-example15',
+    templateUrl: `./signal-example15.component.html`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatButtonModule, MatProgressSpinnerModule, NgIf],
+    styles: [
+        `
       button.loading {
         background: #f14e4e;
       }
@@ -18,7 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         margin-top: 20px;
       }
     `,
-  ],
+    ]
 })
 export default class SignalExample15Component {
   loading = signal(false);
