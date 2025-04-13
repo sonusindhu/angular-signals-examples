@@ -1,0 +1,29 @@
+<div class="container">
+
+    <h1>Shopping Cart</h1>
+  
+    <div class="form-control">
+  
+      <mat-form-field>
+        <mat-label>Select Course</mat-label>
+        <mat-select [(ngModel)]="selectedCourseId" name="food">
+            <mat-option>Clear</mat-option>
+            @for (course of courses(); track course.id) {
+                <mat-option [value]="course.id">{{ course.title }}</mat-option>
+            }
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  
+    <div class="form-control">
+
+        <mat-form-field class="example-full-width">
+        <mat-label>Quantity</mat-label>
+        <input matInput placeholder="Enter custom quantity" [value]="quantity()" 
+          (change)="onQuantityChanged(input.value)" #input>
+        </mat-form-field>
+  
+    </div>
+  
+  </div>

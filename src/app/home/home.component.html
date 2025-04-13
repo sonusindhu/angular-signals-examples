@@ -1,14 +1,43 @@
-@for (item of examples(); track item) {
-<a class="item" [routerLink]="item.routerLink">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ item.title }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        {{ item.content }}
-      </p>
-    </mat-card-content>
-  </mat-card>
-</a>
-}
+<div class="flex flex-col sm:flex-row w-full gap-4">
+  <div class="w-full">
+    <h2 class="text-2xl font-bold">Signal Examples</h2>
+    @for (item of examples(); track item) {
+      <a class="item" [routerLink]="item.routerLink">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              {{ item.title }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ item.content }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </div>
+
+  <div class="block sm:hidden border w-full h-px border-solid border-[gray]"></div>
+
+  <div class="w-full">
+    <h2 class="text-2xl font-bold m-r-4">Linked Signal Examples</h2>
+    @for (item of linkedSignalExamples(); track item) {
+      <a class="item" [routerLink]="item.routerLink">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{ item.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ item.content }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </div>
+</div>
+
+
