@@ -15,6 +15,10 @@ const LINKED_ROUTES: Route[] = [
         path: 'example1',
         loadComponent: () => import('./ls-example1/ls-example1.component'),
       },
+      {
+        path: 'example2',
+        loadComponent: () => import('./ls-example2/ls-example2.component').then(c => c.LsExample2Component),
+      },
     ],
   },
 ];
