@@ -4,7 +4,7 @@ This repo is explains to Angular signals and real time examples how to create an
 
 View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 
-## Examples
+## Examples - Signals
 1. Count Increment/Decrement [Example 1](https://angular-signal-examples.netlify.app/signal/signal-example1)
 2. Auto increment count [Example 2](https://angular-signal-examples.netlify.app/signal/signal-example2)
 3. Update name using the input [Example 3](https://angular-signal-examples.netlify.app/signal/signal-example3)
@@ -21,6 +21,10 @@ View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 14. Products - Virtual scroll [Example 14](https://angular-signal-examples.netlify.app/signal/signal-example14)
 15. show/hide a loading spinner [Example 15](https://angular-signal-examples.netlify.app/signal/signal-example15)
 15. Read Only Signals - .asReadonly() [Example 16](https://angular-signal-examples.netlify.app/signal/signal-example16)
+
+## Examples - LinkedSignal 
+1. Default Course Quantity [Example 1](https://angular-signal-examples.netlify.app/linked-signal/example1)
+2. Total Price Calculator [Example 2](https://angular-signal-examples.netlify.app/linked-signal/example2)
 
 ## Development server
 
