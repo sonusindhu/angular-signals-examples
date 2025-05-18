@@ -15,7 +15,7 @@ import { NgIf } from '@angular/common';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [NgIf, RouterModule, HeaderComponent, FooterComponent]
+    imports: [RouterModule, HeaderComponent, FooterComponent]
 }) 
 export class AppComponent {
   router = inject(Router);

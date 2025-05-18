@@ -1,0 +1,25 @@
+<div class="calc-container">
+  <h2>🧮 Total Price Calculator - linkedSignal</h2>
+
+  <label>
+    Base Price:
+    <input
+      type="number"
+      [ngModel]="basePrice()"
+      (ngModelChange)="basePrice.set($event)"
+      min="0"
+    />
+  </label>
+
+  <label>
+    Quantity:
+    <input
+      type="number"
+      [ngModel]="quantity()"
+      (ngModelChange)="quantity.set($event)"
+      min="1"
+    />
+  </label>
+
+  <p>Total with Tax (18%): <strong>{{ totalPrice() | number: '1.2-2' }}</strong></p>
+</div>

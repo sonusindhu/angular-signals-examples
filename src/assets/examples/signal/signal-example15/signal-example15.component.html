@@ -1,0 +1,11 @@
+<h2>Example 15 - show/hide a loading spinner</h2>
+
+<button mat-raised-button color="primary" (click)="toggleLoader()" 
+  [class.loading]="loading()" >
+  {{ loading() ? 'Hide' : 'Show' }} Loader
+</button>
+
+<div *ngIf="loading()" class="loader-area">
+  <mat-spinner></mat-spinner>
+</div>
+

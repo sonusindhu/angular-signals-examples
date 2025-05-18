@@ -1,0 +1,17 @@
+<h2>Example 5 - Todo List</h2>
+
+<mat-form-field>
+  <mat-label>Todo Name</mat-label>
+  <input matInput name="todo" #todo />
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="addTodo(todo)">
+  Add Todo
+</button>
+<ul>
+  @for (item of todos(); track item) {
+  <li>
+    {{ item }}
+  </li>
+  }
+</ul>

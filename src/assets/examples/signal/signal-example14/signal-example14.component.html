@@ -1,0 +1,10 @@
+<h2>Example 14 - Product List with Virtual Scrolling</h2>
+
+<cdk-virtual-scroll-viewport
+  itemSize="50"
+  class="products"
+>
+  <div class="product" *cdkVirtualFor="let product of products(); let i = index" style="height: 50px;">
+    {{ product.name }} - ${{ product.price }}
+  </div>
+</cdk-virtual-scroll-viewport>

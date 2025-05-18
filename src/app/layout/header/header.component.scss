@@ -1,17 +1,58 @@
-:host ::ng-deep {
+mat-toolbar {
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1976d2; // fallback for color="primary"
+  color: #fff;
+
   .app-logo {
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
   }
 
-  button {
-    &.mat-mdc-button {
-      padding: 10px;
-      margin: 10px;
-      font-size: 16px;
-    }
+  .example-spacer {
+    flex: 1;
   }
 
   .menu-spacer {
-    flex: 1 1 auto;
+    width: 16px;
+  }
+
+  button[mat-button] {
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    padding: 6px 12px;
+
+    &.active {
+      border-bottom: 2px solid #fff;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  a[mat-icon-button] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+
+    img {
+      height: 24px;
+      width: 24px;
+      filter: brightness(0) invert(1); // makes it white
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
   }
 }

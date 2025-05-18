@@ -1,7 +1,143 @@
 @import "tailwindcss";
 
 /* You can add global styles to this file, and also import other style files */
-// @import url('./theme.scss');
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Root layout setup */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #ffffff;
+}
 
+/* Root Angular component */
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Content area that grows as needed */
+.main-container {
+  flex: 1 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Optional: Footer styles */
+app-footer {
+  flex-shrink: 0;
+  padding: 16px 24px;
+  background-color: #f3f3f3;
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
+
+
+
+// app{
+//     display: block;
+//     width: 100%;
+// }
+
+.mat-mdc-tab-body.mat-mdc-tab-body-active{
+    .mat-mdc-tab-body-content{
+        padding: 20px;
+        background: #f5f5f5;
+    }
+}
+
+.markdown-clipboard-button{
+    background: black;
+    border-radius: 20px;
+    color: white;
+    padding: 6px 40px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+pre {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow: auto;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  color: #263238;
+}
+
+
+/* Entire tab group box */
+.mat-tab-group {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+/* Tab header container */
+.mat-tab-header {
+  background-color: #f5f7fa; // subtle contrast on white
+  border-bottom: 1px solid #ddd;
+  padding: 0 8px;
+}
+
+.mat-mdc-tab-label-container{
+  .mat-mdc-tab-labels{
+    display: inline-flex;
+  }
+}
+
+/* Tab label base */
+.mat-tab-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  padding: 12px 20px;
+  margin-right: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-radius: 6px 6px 0 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.mat-tab-label:hover {
+  background-color: #e3edf8;
+  color: #1976d2;
+}
+
+/* Active tab */
+.mat-tab-label.mat-tab-label-active {
+  background-color: #ffffff;
+  color: #1976d2;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+}
+
+/* Hide ink bar (if you're using background color switching) */
+.mat-ink-bar {
+  display: none;
+}
+
+/* Content area */
+.mat-tab-body-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  overflow: auto;
+}

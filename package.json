@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build -c production",
+    "prebuild": "node tools/copy-examples.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -21,6 +22,8 @@
     "@angular/platform-browser-dynamic": "^19.2.6",
     "@angular/router": "^19.2.6",
     "@tailwindcss/postcss": "^4.1.3",
+    "clipboard": "^2.0.11",
+    "ngx-markdown": "^19.1.1",
     "postcss": "^8.5.3",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.1.3",

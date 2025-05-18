@@ -39,7 +39,9 @@
               "src/theme.scss",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/clipboard/dist/clipboard.min.js"
+            ],
             "browser": "src/main.ts"
           },
           "configurations": {

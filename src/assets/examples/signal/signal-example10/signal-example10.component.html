@@ -1,0 +1,52 @@
+<h2>Example 10 - Product list with filtering</h2>
+
+<mat-form-field>
+  <mat-label>Search by title</mat-label>
+  <input
+    matInput
+    [ngModel]="searchInput()"
+    (ngModelChange)="searchProduct($event)"
+  />
+</mat-form-field>
+
+<div>
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th>title</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of filteredProducts(); track product) {}
+      <tr *ngFor="let product of filteredProducts()">
+        <td>{{ product.title }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.brand }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.rating }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="currentPage() === 1"
+    (click)="goToPrevPage()"
+  >
+    Prev
+  </button>
+  {{ currentPage() }}
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="isNextPageNotAvailable()"
+    (click)="goToNextPage()"
+  >
+    Next
+  </button>
+</div>
