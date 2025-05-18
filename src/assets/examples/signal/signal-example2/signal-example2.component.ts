@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
     selector: 'app-signal-example2',
-    imports: [CommonModule],
+    imports: [CommonModule, MatTabsModule, MarkdownComponent],
     templateUrl: './signal-example2.component.html',
     styleUrl: './signal-example2.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
