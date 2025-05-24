@@ -11,4 +11,9 @@ export const LINKED_SIGNAL_EXAMPLES: ExampleModel[] = [
     content: '🧮 Total Price Calculator',
     routerLink: '/linked-signal/example2',
   },
+  {
+    title: 'Example 3',
+    content: 'Dynamic Pricing Based on User & Product ID',
+    routerLink: '/linked-signal/example3',
+  },
 ];
