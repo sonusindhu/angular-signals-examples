@@ -1,0 +1,35 @@
+
+
+<h2>Final Price: ${{ price() }}</h2>
+
+
+<h3>Select a Product</h3>
+<mat-form-field appearance="fill">
+  <mat-label>Product</mat-label>
+  <mat-select [value]="productId()" (selectionChange)="updateProduct($event)">
+    @for (product of products(); track $index) {
+        <mat-option [value]="product.id">
+          {{ product.name }}
+        </mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+<h3>Select User Type</h3>
+<mat-form-field appearance="fill">
+  <mat-label>User Type</mat-label>
+  <mat-select [value]="userType()" (selectionChange)="updateUserType($event)">
+    <mat-option value="regular">Regular</mat-option>
+    <mat-option value="premium">Premium</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<h3>Update Custom Price</h3>
+<mat-form-field appearance="fill">
+  <mat-label>Custom Price</mat-label>  
+  <input matInput placeholder="Custom Price" 
+    type="number"
+    [value]="price()" 
+    (input)="updateCustomPrice($event)">
+
+</mat-form-field>
