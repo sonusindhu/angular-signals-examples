@@ -15,6 +15,10 @@ export const ROUTES: Route[] = [
     loadChildren: () => import('./app/examples/linked-signal/linked-signal-routings'),
   },
   {
+    path: 'resource-api',
+    loadChildren: () => import('./app/examples/resource-api/resource-api-routings'),
+  },
+  {
     path: 'table',
     loadComponent: () => import('./app/table/table.component'),
   },
