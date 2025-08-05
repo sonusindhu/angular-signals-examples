@@ -3,8 +3,12 @@
 
   <span class="example-spacer"></span>
 
-  <button mat-button [routerLink]="['/']" routerLinkActive="active">
+  <button mat-button [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
     Home
+  </button>
+
+  <button mat-button [routerLink]="['/resource-api']" routerLinkActive="active">
+    Resource API
   </button>
 
   <span class="menu-spacer"></span>
