@@ -29,10 +29,14 @@ View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 2. Total Price Calculator [Example 2](https://angular-signal-examples.netlify.app/linked-signal/example2)
 3.  Dynamic Pricing Based on User & Product ID  [Example 3](https://angular-signal-examples.netlify.app/linked-signal/example3)
 
+
 ## Examples - Resource API
 1. Basic Fetch using resource [Resource Example 1](https://angular-signal-examples.netlify.app/resource-api/resource-api-example1)
 2. List Resources using rxResource [rxResource Example 2](https://angular-signal-examples.netlify.app/resource-api/resource-api-example2)
 3. Fetch Resource using httpResource [httpResource Example 3](https://angular-signal-examples.netlify.app/resource-api/resource-api-example3)
+4. Fetch random user using resource [Resource Example 4](https://angular-signal-examples.netlify.app/resource-api/resource-api-example4)
+5. List public GitHub repositories using rxResource [rxResource Example 5](https://angular-signal-examples.netlify.app/resource-api/resource-api-example5)
+6. Fetch a random joke using httpResource [httpResource Example 6](https://angular-signal-examples.netlify.app/resource-api/resource-api-example6)
 
 ## Development server
 
