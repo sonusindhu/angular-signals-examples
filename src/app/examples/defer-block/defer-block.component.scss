@@ -1,0 +1,52 @@
+:host {
+  display: contents;
+  
+  .item {
+    display: flex;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: 1px solid #c2c2c2;
+    border-radius: 10px;
+    margin: 0;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  .mat-mdc-card.mdc-card {
+    width: 100%;
+    box-shadow: none;
+    height: 100%;
+  }
+  
+  .mat-mdc-card-header {
+    padding: 10px 16px;
+    border-bottom: 1px solid #c2c2c2;
+    background-color: #c2c2c2;
+  }
+
+  .mat-mdc-card-content {
+    padding: 10px 16px;
+    flex-grow: 1;
+  }
+
+  @media (max-width: 768px) {
+    .item {
+      min-width: 100% !important;
+      flex: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .item {
+      min-width: 100% !important;
+      max-width: 100%;
+      min-height: 100px;
+      max-height: 150px;
+    }
+  }
+}

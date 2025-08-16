@@ -1,0 +1,22 @@
+.content-area {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-section {
+  margin-top: 2rem;
+  
+  h3 {
+    margin: 2rem 0 1rem 0;
+    color: #1976d2;
+  }
+  
+  mat-card {
+    margin-bottom: 1rem;
+    
+    mat-card-content {
+      padding: 1.5rem;
+    }
+  }
+}

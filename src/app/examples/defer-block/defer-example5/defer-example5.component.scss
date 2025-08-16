@@ -1,0 +1,155 @@
+.content-area {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-section {
+  margin-top: 2rem;
+  
+  h3 {
+    margin: 2rem 0 1rem 0;
+    color: #1976d2;
+  }
+}
+
+.controls-section {
+  margin-bottom: 3rem;
+  
+  mat-card {
+    background: linear-gradient(135deg, #e8eaf6 0%, #f3e5f5 100%);
+    border: 2px solid #673ab7;
+    
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .status-chips {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.multi-trigger-section,
+.conditional-section,
+.error-section {
+  margin: 3rem 0;
+  
+  mat-card {
+    &.success-card {
+      background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+      border: 2px solid #4caf50;
+    }
+    
+    &.conditional-card {
+      background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+      border: 2px solid #ff9800;
+    }
+    
+    &.error-card {
+      background: linear-gradient(135deg, #ffebee 0%, #fce4ec 100%);
+      border: 2px solid #f44336;
+    }
+    
+    &.placeholder {
+      background-color: #f5f5f5;
+      border: 2px dashed #ccc;
+      
+      .progress-indicator {
+        margin-top: 1rem;
+        width: 100%;
+        height: 4px;
+        background-color: #e0e0e0;
+        border-radius: 2px;
+        overflow: hidden;
+        
+        .progress-bar {
+          height: 100%;
+          background: linear-gradient(90deg, #2196f3, #21cbf3);
+          animation: progress 5s linear infinite;
+          width: 0%;
+        }
+      }
+    }
+    
+    &.loading {
+      background-color: #e3f2fd;
+      border: 2px solid #2196f3;
+      
+      mat-card-content {
+        text-align: center;
+        font-style: italic;
+      }
+    }
+    
+    mat-card-content {
+      padding: 1.5rem;
+      
+      ul {
+        margin-top: 1rem;
+        text-align: left;
+        
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+      
+      code {
+        background-color: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+
+.info-section {
+  margin-top: 3rem;
+  
+  mat-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+      
+      .feature {
+        padding: 1rem;
+        background-color: white;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        
+        h5 {
+          margin: 0 0 0.5rem 0;
+          color: #1976d2;
+          font-weight: 600;
+        }
+        
+        p {
+          margin: 0;
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

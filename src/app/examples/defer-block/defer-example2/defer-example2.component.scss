@@ -1,0 +1,49 @@
+.content-area {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-section {
+  margin-top: 2rem;
+  
+  h3 {
+    margin: 2rem 0 1rem 0;
+    color: #1976d2;
+  }
+}
+
+.deferred-content {
+  margin-top: 2rem;
+  
+  mat-card {
+    margin-top: 1rem;
+    
+    &.placeholder {
+      background-color: #f5f5f5;
+      border: 2px dashed #ccc;
+    }
+    
+    &.loading {
+      background-color: #e3f2fd;
+      border: 2px solid #2196f3;
+      
+      mat-card-content {
+        text-align: center;
+        font-style: italic;
+      }
+    }
+    
+    mat-card-content {
+      padding: 1.5rem;
+      
+      ul {
+        margin-top: 1rem;
+        
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}

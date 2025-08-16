@@ -1,0 +1,27 @@
+<h2>Example 3 - Defer on Viewport</h2>
+      <p>This example demonstrates a defer block that loads content when it enters the viewport.</p>
+      
+      <div class="spacer">
+        <mat-card>
+          <mat-card-content>
+            <p>📄 Keep scrolling down to see the deferred content load when it enters the viewport...</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
+      <div class="viewport-trigger" #viewportTrigger>
+        @defer (on viewport(viewportTrigger)) {
+          <mat-card class="deferred-card">
+            <mat-card-content>
+              <h4>👁️ Content loaded when entering viewport!</h4>
+              <p>This content was deferred and only loaded when it entered the viewport.</p>
+            </mat-card-content>
+          </mat-card>
+        } @placeholder {
+          <mat-card class="placeholder">
+            <mat-card-content>
+              <p>👀 Placeholder - Content will load when this area enters the viewport</p>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>

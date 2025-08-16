@@ -1,0 +1,164 @@
+<mat-tab-group mat-stretch-tabs>
+  <mat-tab label="Demo">
+    <div class="content-area">
+      <h2>Example 5 - Advanced Defer with Multiple Triggers</h2>
+      <p>This example demonstrates defer blocks with multiple triggers and advanced features including when conditions and error handling.</p>
+      
+      <div class="demo-section">
+        <div class="controls-section">
+          <mat-card>
+            <mat-card-content>
+              <h3>🎛️ Control Panel</h3>
+              <div class="button-group">
+                <button mat-raised-button color="primary" #interactionTrigger (click)="triggerManualLoad()">
+                  Trigger Manual Load
+                </button>
+                <button mat-raised-button color="warn" (click)="resetDemo()">
+                  Reset Demo
+                </button>
+              </div>
+              <div class="status-chips">
+                <mat-chip [highlighted]="manualTrigger()">
+                  Manual Trigger: {{ manualTrigger() ? 'Active' : 'Inactive' }}
+                </mat-chip>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <!-- Defer with multiple triggers -->
+        <div class="multi-trigger-section">
+          <h3>🔄 Multiple Triggers (Interaction OR Timer)</h3>
+          @defer (on interaction(interactionTrigger); on timer(5s)) {
+            <mat-card class="success-card">
+              <mat-card-content>
+                <h4>✅ Content loaded with multiple triggers!</h4>
+                <p>This content loaded because either:</p>
+                <ul>
+                  <li>You clicked the "Trigger Manual Load" button, OR</li>
+                  <li>5 seconds passed since page load</li>
+                </ul>
+                <p>Multiple triggers use the semicolon (;) separator and work with OR logic.</p>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <mat-card class="placeholder">
+              <mat-card-content>
+                <p>⏳ Waiting for interaction OR 5-second timer...</p>
+                <div class="progress-indicator">
+                  <div class="progress-bar"></div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          } @loading (minimum 300ms) {
+            <mat-card class="loading">
+              <mat-card-content>
+                <p>🔄 Loading content...</p>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+        
+        <!-- Defer with when condition -->
+        <div class="conditional-section">
+          <h3>🎯 Conditional Defer (with 'when')</h3>
+          @defer (when manualTrigger()) {
+            <mat-card class="conditional-card">
+              <mat-card-content>
+                <h4>🎯 Conditionally loaded content!</h4>
+                <p>This content only loads when the manual trigger signal becomes true.</p>
+                <p>The 'when' condition provides fine-grained control over when content should load.</p>
+                <p>Current trigger state: <strong>{{ manualTrigger() }}</strong></p>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <mat-card class="placeholder">
+              <mat-card-content>
+                <p>🎯 Click "Trigger Manual Load" to see conditional content</p>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+        
+        <!-- Defer with error handling -->
+        <div class="error-section">
+          <h3>⚠️ Defer with Error Handling</h3>
+          @defer (on timer(2s)) {
+            <mat-card class="success-card">
+              <mat-card-content>
+                <h4>📦 Heavy Component Loaded</h4>
+                <p>This represents a complex component that might fail to load.</p>
+                <p>In real scenarios, this could be:</p>
+                <ul>
+                  <li>📊 Complex data visualization</li>
+                  <li>🎮 Game components</li>
+                  <li>🗺️ Map widgets</li>
+                  <li>📹 Video players</li>
+                </ul>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <mat-card class="placeholder">
+              <mat-card-content>
+                <p>⏳ Loading heavy component in 2 seconds...</p>
+              </mat-card-content>
+            </mat-card>
+          } @loading (minimum 500ms) {
+            <mat-card class="loading">
+              <mat-card-content>
+                <p>📦 Loading heavy component...</p>
+              </mat-card-content>
+            </mat-card>
+          } @error {
+            <mat-card class="error-card">
+              <mat-card-content>
+                <h4>❌ Failed to load component</h4>
+                <p>The component failed to load. This could happen due to:</p>
+                <ul>
+                  <li>Network issues</li>
+                  <li>Component errors</li>
+                  <li>Missing dependencies</li>
+                </ul>
+                <button mat-raised-button color="primary" (click)="resetDemo()">
+                  Retry Loading
+                </button>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+        
+        <div class="info-section">
+          <mat-card>
+            <mat-card-content>
+              <h4>🎓 Advanced Defer Features</h4>
+              <div class="feature-grid">
+                <div class="feature">
+                  <h5>Multiple Triggers</h5>
+                  <p>Use semicolons to separate multiple triggers: <code>on interaction(btn); on timer(5s)</code></p>
+                </div>
+                <div class="feature">
+                  <h5>When Conditions</h5>
+                  <p>Use reactive conditions: <code>when mySignal()</code></p>
+                </div>
+                <div class="feature">
+                  <h5>Error Handling</h5>
+                  <p>Handle loading failures with <code>&#64;error</code> blocks</p>
+                </div>
+                <div class="feature">
+                  <h5>Loading States</h5>
+                  <p>Control loading duration with <code>minimum</code> option</p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example5/defer-example5-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example5/defer-example5.component.ts'"></markdown>
+  </mat-tab>
+</mat-tab-group>

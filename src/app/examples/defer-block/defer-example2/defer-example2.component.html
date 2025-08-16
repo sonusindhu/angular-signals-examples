@@ -1,0 +1,51 @@
+<mat-tab-group mat-stretch-tabs>
+  <mat-tab label="Demo">
+    <div class="content-area">
+      <h2>Example 2 - Defer on Interaction</h2>
+      <p>This example demonstrates a defer block that loads content when the user interacts with a trigger element.</p>
+      
+      <div class="demo-section">
+        <h3>Interactive Trigger</h3>
+        <button mat-raised-button color="primary" #triggerBtn (click)="onButtonClick()">
+          Click me to load deferred content! (Clicked: {{ clickCount() }} times)
+        </button>
+        
+        <div class="deferred-content">
+          @defer (on interaction(triggerBtn)) {
+            <mat-card>
+              <mat-card-content>
+                <h4>🎯 Content loaded after interaction!</h4>
+                <p>This content was deferred and only loaded when you clicked the button above.</p>
+                <p>The defer block listened for an interaction event on the trigger button.</p>
+                <p>Current click count: {{ clickCount() }}</p>
+                <ul>
+                  <li>✅ Reduces initial bundle size</li>
+                  <li>✅ Improves Time to Interactive (TTI)</li>
+                  <li>✅ Loads content only when needed</li>
+                </ul>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <mat-card class="placeholder">
+              <mat-card-content>
+                <p>👆 Click the button above to load the deferred content</p>
+              </mat-card-content>
+            </mat-card>
+          } @loading (minimum 500ms) {
+            <mat-card class="loading">
+              <mat-card-content>
+                <p>🔄 Loading content...</p>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example2/defer-example2-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example2/defer-example2.component.ts'"></markdown>
+  </mat-tab>
+</mat-tab-group>
