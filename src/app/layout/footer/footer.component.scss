@@ -1,0 +1,143 @@
+.footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin-top: auto;
+  width: 100%;
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 1rem;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+  
+  .footer-info {
+    h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    p {
+      margin: 0 0 1.5rem 0;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+    
+    .about-me {
+      h4 {
+        margin: 0 0 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #fff;
+      }
+      
+      p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+    }
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+  
+  .link-section {
+    h4 {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        
+        .icon {
+          width: 16px;
+          height: 16px;
+          fill: rgba(255, 255, 255, 0.6);
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+        
+        a {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          transition: all 0.2s ease;
+          font-size: 0.9rem;
+          
+          &:hover {
+            color: #fff;
+            text-decoration: underline;
+            transform: translateX(2px);
+          }
+        }
+        
+        &:hover .icon {
+          fill: #fff;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  }
+}
