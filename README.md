@@ -5,7 +5,7 @@
 [![Angular](https://img.shields.io/badge/Angular-20+-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.io/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Live Demo](https://img.shields.io/badge/Live-Demo-00D9FF?style=for-the-badge&logo=netlify&logoColor=white)](https://angular-signal-examples.netlify.app/)
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue?style=for-the-badge)](http://unlicense.org/)
 
 ### 🚀 A comprehensive collection of Angular Signals examples showcasing modern reactive programming
 
@@ -234,7 +234,16 @@ We welcome contributions! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is released into the **Public Domain**. You can use it anywhere, for any purpose, without any restrictions whatsoever.
+
+**No rights reserved.** Feel free to:
+- ✅ Use commercially
+- ✅ Modify freely  
+- ✅ Distribute without attribution
+- ✅ Create derivative works
+- ✅ Use in proprietary software
+
+This is educational content meant to help the Angular community learn and grow! 🚀
 
 ---
 
