@@ -48,6 +48,10 @@ Angular's defer blocks provide declarative lazy loading for better performance b
 5. Advanced Defer - Multiple triggers, conditions, and error handling [Defer Example 5](https://angular-signal-examples.netlify.app/defer-block/defer-example5)
 6. Defer on Hover - Triggers loading when mouse hovers over element [Defer Example 6](https://angular-signal-examples.netlify.app/defer-block/defer-example6)
 7. Defer on Immediate - Loads content immediately after non-deferred content [Defer Example 7](https://angular-signal-examples.netlify.app/defer-block/defer-example7)
+8. Multiple Triggers & Prefetch - Advanced performance optimization strategies [Defer Example 8](https://angular-signal-examples.netlify.app/defer-block/defer-example8)
+9. Error Handling & Retry - Robust error handling with retry mechanisms [Defer Example 9](https://angular-signal-examples.netlify.app/defer-block/defer-example9)
+10. Loading States with Timing - Professional timing controls to prevent flickering [Defer Example 10](https://angular-signal-examples.netlify.app/defer-block/defer-example10)
+11. Real-world Dashboard Widget - Production-ready dashboard with smart loading [Defer Example 11](https://angular-signal-examples.netlify.app/defer-block/defer-example11)
 
 ## Development server
 
