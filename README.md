@@ -46,6 +46,8 @@ Angular's defer blocks provide declarative lazy loading for better performance b
 3. Defer on Viewport - Loads content when it enters the viewport [Defer Example 3](https://angular-signal-examples.netlify.app/defer-block/defer-example3)
 4. Defer with Timer - Loads content after specified time delay [Defer Example 4](https://angular-signal-examples.netlify.app/defer-block/defer-example4)
 5. Advanced Defer - Multiple triggers, conditions, and error handling [Defer Example 5](https://angular-signal-examples.netlify.app/defer-block/defer-example5)
+6. Defer on Hover - Triggers loading when mouse hovers over element [Defer Example 6](https://angular-signal-examples.netlify.app/defer-block/defer-example6)
+7. Defer on Immediate - Loads content immediately after non-deferred content [Defer Example 7](https://angular-signal-examples.netlify.app/defer-block/defer-example7)
 
 ## Development server
 

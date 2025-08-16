@@ -26,4 +26,14 @@ export const DEFER_BLOCK_EXAMPLES: ExampleModel[] = [
     content: 'Advanced Defer - Multiple triggers, conditions, and error handling',
     routerLink: '/defer-block/defer-example5',
   },
+  {
+    title: 'Example 6',
+    content: 'Defer on Hover - Triggers loading when mouse hovers over element',
+    routerLink: '/defer-block/defer-example6',
+  },
+  {
+    title: 'Example 7',
+    content: 'Defer on Immediate - Loads content immediately after non-deferred content',
+    routerLink: '/defer-block/defer-example7',
+  },
 ];
