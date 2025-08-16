@@ -1,6 +1,6 @@
-# Angular Signals Examples(Angular signals demos)
+# Angular Signals Examples (Angular signals demos)
 
-This repo is explains to Angular signals and real time examples how to create and update signals, use effects, convert from observable and create computed values.
+This repo explains Angular signals and real-time examples showing how to create and update signals, use effects, convert from observables, create computed values, and demonstrates Angular's new defer block functionality for optimized loading strategies.
 
 View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 
@@ -37,6 +37,15 @@ View Live at [Netlify App URL](https://angular-signal-examples.netlify.app/)
 4. Fetch random user using resource [Resource Example 4](https://angular-signal-examples.netlify.app/resource-api/resource-api-example4)
 5. List public GitHub repositories using rxResource [rxResource Example 5](https://angular-signal-examples.netlify.app/resource-api/resource-api-example5)
 6. Fetch a random joke using httpResource [httpResource Example 6](https://angular-signal-examples.netlify.app/resource-api/resource-api-example6)
+
+## Examples - Defer Block
+Angular's defer blocks provide declarative lazy loading for better performance by deferring the loading of parts of your template until specific conditions are met.
+
+1. Basic Defer on Idle - Loads content when browser becomes idle [Defer Example 1](https://angular-signal-examples.netlify.app/defer-block/defer-example1)
+2. Defer on Interaction - Triggers loading when user interacts with element [Defer Example 2](https://angular-signal-examples.netlify.app/defer-block/defer-example2)
+3. Defer on Viewport - Loads content when it enters the viewport [Defer Example 3](https://angular-signal-examples.netlify.app/defer-block/defer-example3)
+4. Defer with Timer - Loads content after specified time delay [Defer Example 4](https://angular-signal-examples.netlify.app/defer-block/defer-example4)
+5. Advanced Defer - Multiple triggers, conditions, and error handling [Defer Example 5](https://angular-signal-examples.netlify.app/defer-block/defer-example5)
 
 ## Development server
 

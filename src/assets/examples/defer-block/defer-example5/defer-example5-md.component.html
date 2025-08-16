@@ -1,0 +1,56 @@
+
+      <h2>Example 5 - Advanced Defer with Multiple Triggers</h2>
+      <p>This example demonstrates defer blocks with multiple triggers and advanced features.</p>
+      
+      <div class="controls-section">
+        <mat-card>
+          <mat-card-content>
+            <h3>🎛️ Control Panel</h3>
+            <button mat-raised-button color="primary" #interactionTrigger (click)="triggerManualLoad()">
+              Trigger Manual Load
+            </button>
+            <mat-chip [highlighted]="manualTrigger()">
+              Manual Trigger: {{ manualTrigger() ? 'Active' : 'Inactive' }}
+            </mat-chip>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
+      <!-- Defer with multiple triggers -->
+      <div class="multi-trigger-section">
+        <h3>🔄 Multiple Triggers (Interaction OR Timer)</h3>
+        @defer (on interaction(interactionTrigger); on timer(5s)) {
+          <mat-card class="success-card">
+            <mat-card-content>
+              <h4>✅ Content loaded with multiple triggers!</h4>
+              <p>This content loaded because either you clicked the button OR 5 seconds passed.</p>
+            </mat-card-content>
+          </mat-card>
+        } @placeholder {
+          <mat-card class="placeholder">
+            <mat-card-content>
+              <p>⏳ Waiting for interaction OR 5-second timer...</p>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+      
+      <!-- Defer with when condition -->
+      <div class="conditional-section">
+        <h3>🎯 Conditional Defer (When Signal)</h3>
+        @defer (when manualTrigger()) {
+          <mat-card class="conditional-card">
+            <mat-card-content>
+              <h4>🎯 Content loaded when condition is true!</h4>
+              <p>This defer block uses the when condition with a signal.</p>
+            </mat-card-content>
+          </mat-card>
+        } @placeholder {
+          <mat-card class="placeholder">
+            <mat-card-content>
+              <p>⏳ Waiting for manual trigger signal to become true...</p>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+    

@@ -1,0 +1,88 @@
+<mat-tab-group mat-stretch-tabs>
+  <mat-tab label="Demo">
+    <div class="content-area">
+      <h2>Example 3 - Defer on Viewport</h2>
+      <p>This example demonstrates a defer block that loads content when it enters the viewport (intersection observer).</p>
+      
+      <div class="demo-section">
+        <h3>Scroll down to trigger viewport-based loading</h3>
+        
+        <div class="spacer">
+          <mat-card>
+            <mat-card-content>
+              <p>📄 This is regular content that loads immediately.</p>
+              <p>Keep scrolling down to see the deferred content load when it enters the viewport...</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <div class="spacer">
+          <mat-card>
+            <mat-card-content>
+              <p>📄 More regular content...</p>
+              <p>The deferred content below will only load when you scroll it into view.</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <div class="spacer">
+          <mat-card>
+            <mat-card-content>
+              <p>📄 Keep scrolling...</p>
+              <p>Almost there! The deferred content is just below.</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <div class="viewport-trigger" #viewportTrigger>
+          @defer (on viewport(viewportTrigger)) {
+            <mat-card class="deferred-card">
+              <mat-card-content>
+                <h4>👁️ Content loaded when entering viewport!</h4>
+                <p>This content was deferred and only loaded when it entered the viewport.</p>
+                <p>This pattern is perfect for:</p>
+                <ul>
+                  <li>🖼️ Image galleries</li>
+                  <li>📊 Charts and data visualizations</li>
+                  <li>🎬 Video players</li>
+                  <li>📱 Social media feeds</li>
+                  <li>🛒 Product recommendations</li>
+                </ul>
+                <p>It helps improve initial page load performance by only loading content when it's actually needed!</p>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <mat-card class="placeholder">
+              <mat-card-content>
+                <p>👀 Placeholder - Content will load when this area enters the viewport</p>
+                <div class="placeholder-box"></div>
+              </mat-card-content>
+            </mat-card>
+          } @loading (minimum 300ms) {
+            <mat-card class="loading">
+              <mat-card-content>
+                <p>🔄 Loading viewport content...</p>
+                <div class="loading-spinner"></div>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+        
+        <div class="spacer">
+          <mat-card>
+            <mat-card-content>
+              <p>📄 Content after the deferred section.</p>
+              <p>Great! You've seen how viewport-based defer blocks work.</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example3/defer-example3-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example3/defer-example3.component.ts'"></markdown>
+  </mat-tab>
+</mat-tab-group>
