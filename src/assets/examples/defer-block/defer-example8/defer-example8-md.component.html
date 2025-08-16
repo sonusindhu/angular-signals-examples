@@ -1,0 +1,131 @@
+```html
+<!-- Smart Prefetch Demo -->
+<div class="trigger-demo" #triggerElement>
+  <mat-card class="interactive-card" (mouseenter)="onPrefetch()">
+    <mat-card-header>
+      <mat-card-title>🚀 Smart Loading Card</mat-card-title>
+      <mat-card-subtitle>Hover to prefetch, click to load</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>This card uses advanced defer strategies:</p>
+      <ul>
+        <li><strong>Prefetch on hover:</strong> Downloads resources when you hover</li>
+        <li><strong>Load on interaction:</strong> Displays content when you click</li>
+        <li><strong>Multiple fallbacks:</strong> Timer as backup trigger</li>
+      </ul>
+      
+      <button mat-raised-button color="primary">
+        Click to Load Content
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  @defer (on interaction(triggerElement); on timer(10s); prefetch on hover(triggerElement)) {
+    <div class="deferred-content">
+      <mat-card class="content-card">
+        <mat-card-header>
+          <mat-card-title>✨ Prefetched Content</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>This content was prefetched when you hovered!</p>
+          <div class="performance-info">
+            <mat-chip-set>
+              <mat-chip highlighted>
+                <mat-icon>flash_on</mat-icon>
+                Instant Load
+              </mat-chip>
+              <mat-chip highlighted>
+                <mat-icon>speed</mat-icon>
+                Pre-optimized
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @placeholder {
+    <div class="placeholder">
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>💭 Ready to load... (hover to prefetch)</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @loading (after 100ms; minimum 500ms) {
+    <div class="loading">
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>⚡ Loading instantly from prefetch...</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @error {
+    <div class="error">
+      <mat-card class="error-card">
+        <mat-card-content>
+          <mat-icon>error</mat-icon>
+          <p>Failed to load content</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>
+
+<!-- Multiple Triggers Demo -->
+<div class="multiple-triggers-demo" #multiTrigger>
+  <mat-card class="demo-card">
+    <mat-card-header>
+      <mat-card-title>🎯 Multiple Triggers</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>This section demonstrates multiple triggers working together:</p>
+      <ul>
+        <li>Viewport entry (scroll into view)</li>
+        <li>Interaction (click this card)</li>
+        <li>Timer fallback (15 seconds)</li>
+      </ul>
+      <p><strong>Prefetch strategy:</strong> Hover to preload resources</p>
+    </mat-card-content>
+  </mat-card>
+
+  @defer (on viewport(multiTrigger); on interaction(multiTrigger); on timer(15s); prefetch on hover(multiTrigger)) {
+    <div class="deferred-content">
+      <mat-card class="success-card">
+        <mat-card-content>
+          <h4>🎉 Multi-trigger Success!</h4>
+          <p>Loaded via one of multiple triggers with prefetch optimization</p>
+          <div class="trigger-info">
+            <p><strong>Possible triggers:</strong></p>
+            <mat-chip-set>
+              <mat-chip>Viewport</mat-chip>
+              <mat-chip>Interaction</mat-chip>
+              <mat-chip>Timer (15s)</mat-chip>
+              <mat-chip highlighted>Prefetch on Hover</mat-chip>
+            </mat-chip-set>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @placeholder {
+    <div class="placeholder">
+      <mat-card>
+        <mat-card-content>
+          <p>📋 Multiple triggers ready...</p>
+          <small>Scroll, click, or wait 15 seconds</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @loading (minimum 300ms) {
+    <div class="loading">
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>🔄 Multi-trigger loading...</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>
+```

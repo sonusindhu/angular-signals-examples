@@ -1,0 +1,195 @@
+<div class="content-area">
+  <h2>Defer Block Example 9: Error Handling & Retry</h2>
+  <p>
+    This example demonstrates robust error handling with defer blocks, including retry mechanisms
+    and graceful fallbacks when content fails to load.
+  </p>
+</div>
+
+<mat-tab-group>
+  <mat-tab label="Demo">
+    <div class="demo-section">
+      <div class="main-content">
+        <h3>Error Handling Demo</h3>
+        <p>Click to trigger loading with simulated error scenarios:</p>
+        
+        <div class="controls">
+          <button mat-raised-button color="accent" (click)="simulateNetworkError()">
+            Toggle Error Mode: {{ shouldFail() ? 'ON' : 'OFF' }}
+          </button>
+          <span class="retry-info">Retries: {{ retryCount() }}/{{ maxRetries }}</span>
+        </div>
+      </div>
+
+      <div class="error-demo" #errorTrigger>
+        <mat-card class="trigger-card">
+          <mat-card-header>
+            <mat-card-title>⚠️ Error-Prone Content Loader</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>This demonstrates real-world error scenarios:</p>
+            <ul>
+              <li>Network timeouts</li>
+              <li>Server errors (5xx)</li>
+              <li>Missing resources</li>
+              <li>Authentication failures</li>
+            </ul>
+            
+            <button mat-raised-button color="primary">
+              Load Content (May Fail)
+            </button>
+          </mat-card-content>
+        </mat-card>
+
+        @defer (on interaction(errorTrigger)) {
+          <div class="deferred-content">
+            @if (shouldFail() && retryCount() < maxRetries) {
+              <!-- Simulate error condition -->
+              <div style="display: none;">{{ throwError() }}</div>
+            } @else {
+              <mat-card class="success-card">
+                <mat-card-header>
+                  <mat-card-title>✅ Content Loaded Successfully</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Content loaded after {{ retryCount() }} retry attempts!</p>
+                  
+                  <div class="success-info">
+                    <h4>Error Recovery Strategies:</h4>
+                    <ul>
+                      <li>Automatic retry with exponential backoff</li>
+                      <li>Fallback content when max retries reached</li>
+                      <li>User-friendly error messages</li>
+                      <li>Manual retry options</li>
+                      <li>Progress indicators during retries</li>
+                    </ul>
+                  </div>
+
+                  <div class="best-practices">
+                    <h4>Production Best Practices:</h4>
+                    <ul>
+                      <li>Log errors for monitoring</li>
+                      <li>Implement circuit breaker patterns</li>
+                      <li>Provide meaningful error messages</li>
+                      <li>Offer alternative actions</li>
+                      <li>Cache successful responses</li>
+                    </ul>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            }
+          </div>
+        } @placeholder {
+          <div class="placeholder">
+            <mat-card>
+              <mat-card-content>
+                <p>Click above to load content with error handling demonstration...</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        } @loading (after 200ms; minimum 800ms) {
+          <div class="loading">
+            <mat-card>
+              <mat-card-content>
+                <div class="loading-content">
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                  <p>Attempting to load content...</p>
+                  @if (retryCount() > 0) {
+                    <small>Retry attempt {{ retryCount() + 1 }} of {{ maxRetries + 1 }}</small>
+                  }
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        } @error {
+          <div class="error-state">
+            <mat-card class="error-card">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>error_outline</mat-icon>
+                  Loading Failed
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Failed to load content (Attempt {{ retryCount() + 1 }} of {{ maxRetries + 1 }})</p>
+                
+                <div class="error-details">
+                  <h4>Possible causes:</h4>
+                  <ul>
+                    <li>Network connectivity issues</li>
+                    <li>Server temporarily unavailable</li>
+                    <li>Content not found</li>
+                    <li>Authentication required</li>
+                  </ul>
+                </div>
+
+                <div class="error-actions">
+                  @if (retryCount() < maxRetries) {
+                    <button mat-raised-button color="warn" (click)="retryLoad()">
+                      <mat-icon>refresh</mat-icon>
+                      Retry ({{ maxRetries - retryCount() }} attempts left)
+                    </button>
+                  } @else {
+                    <button mat-stroked-button (click)="retryLoad()">
+                      <mat-icon>refresh</mat-icon>
+                      Reset and Try Again
+                    </button>
+                  }
+                  
+                  <button mat-button color="primary">
+                    <mat-icon>help</mat-icon>
+                    Contact Support
+                  </button>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        }
+      </div>
+
+      <div class="error-patterns">
+        <h3>Common Error Handling Patterns</h3>
+        <div class="pattern-grid">
+          <mat-card class="pattern-card">
+            <mat-card-header>
+              <mat-card-title>Exponential Backoff</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Increase delay between retries: 1s, 2s, 4s, 8s...</p>
+              <code>setTimeout(&#40;&#41; => retry&#40;&#41;, Math.pow&#40;2, attempt&#41; * 1000&#41;</code>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="pattern-card">
+            <mat-card-header>
+              <mat-card-title>Circuit Breaker</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Stop retrying after repeated failures to prevent system overload</p>
+              <code>if (failureCount > threshold) return fallbackContent</code>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="pattern-card">
+            <mat-card-header>
+              <mat-card-title>Graceful Degradation</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Provide alternative content when primary loading fails</p>
+              <code>&#64;error &#123; &lt;fallback-component /&gt; &#125;</code>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example9/defer-example9-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example9/defer-example9.component.ts'"></markdown>
+  </mat-tab>
+  <mat-tab label="SCSS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example9/defer-example9.component.scss'"></markdown>
+  </mat-tab>
+</mat-tab-group>

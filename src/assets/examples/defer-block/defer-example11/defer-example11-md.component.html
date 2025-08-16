@@ -1,0 +1,244 @@
+```html
+<!-- Dashboard Container -->
+<div class="dashboard-container">
+  <!-- High Priority Widget: Immediate Load -->
+  <div class="widget-section">
+    <h4>🚀 High Priority (Immediate)</h4>
+    @defer (on immediate) {
+      <mat-card class="widget high-priority">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>assessment</mat-icon>
+            Key Metrics
+          </mat-card-title>
+          <mat-card-subtitle>Load immediately - critical business data</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="metrics-grid">
+            <div class="metric">
+              <span class="value">${{ salesData().revenue.toLocaleString() }}</span>
+              <span class="label">Revenue</span>
+            </div>
+            <div class="metric">
+              <span class="value">{{ salesData().growth }}%</span>
+              <span class="label">Growth</span>
+            </div>
+            <div class="metric">
+              <span class="value">{{ salesData().orders }}</span>
+              <span class="label">Orders</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    } @loading {
+      <mat-card class="widget loading-state">
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>Loading critical metrics...</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+
+  <!-- User Content: Conditional Load -->
+  <div class="widget-section">
+    <h4>👤 User Content (Conditional)</h4>
+    @defer (on immediate; when loadUserDataSignal()) {
+      <mat-card class="widget user-content">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>person</mat-icon>
+            User Dashboard
+          </mat-card-title>
+          <mat-card-subtitle>Loaded when user data available</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="user-info">
+            <p><strong>Welcome back!</strong></p>
+            <p>Role: {{ userRole() | titlecase }}</p>
+            <p>Last login: {{ formatDate(nowDate()) }}</p>
+          </div>
+          
+          @if (userRole() === 'admin') {
+            <div class="admin-section">
+              <h5>Admin Controls</h5>
+              <div class="admin-buttons">
+                <button mat-button color="primary">
+                  <mat-icon>settings</mat-icon>
+                  System Settings
+                </button>
+                <button mat-button color="accent">
+                  <mat-icon>people</mat-icon>
+                  User Management
+                </button>
+              </div>
+            </div>
+          }
+        </mat-card-content>
+      </mat-card>
+    } @placeholder {
+      <mat-card class="widget placeholder-state">
+        <mat-card-content>
+          <p>📋 Click "Load User Data" to see personalized content</p>
+        </mat-card-content>
+      </mat-card>
+    } @loading {
+      <mat-card class="widget loading-state">
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>Loading user dashboard...</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+
+  <!-- Viewport Widget: Load when scrolled into view -->
+  <div class="widget-section viewport-section" #viewportWidget>
+    <h4>📊 Analytics (Viewport)</h4>
+    @defer (on viewport(viewportWidget); prefetch on hover(viewportWidget)) {
+      <mat-card class="widget analytics">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>trending_up</mat-icon>
+            Analytics Chart
+          </mat-card-title>
+          <mat-card-subtitle>Heavy chart component - loads when visible</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="chart-placeholder">
+            <div class="chart-bars">
+              @for (bar of [65, 45, 80, 30, 90, 55, 75]; track $index) {
+                <div class="chart-bar" [style.height.%]="bar">
+                  <span class="bar-value">{{ bar }}%</span>
+                </div>
+              }
+            </div>
+            <p class="chart-description">
+              Performance metrics for the last 7 days
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    } @placeholder {
+      <mat-card class="widget placeholder-state">
+        <mat-card-content>
+          <p>📊 Scroll down to load analytics chart</p>
+          <small>Chart will prefetch on hover</small>
+        </mat-card-content>
+      </mat-card>
+    } @loading (after 100ms; minimum 800ms) {
+      <mat-card class="widget loading-state">
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>Loading analytics data...</p>
+          <small>Heavy chart component loading</small>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+
+  <!-- Interaction Widget: Load on demand -->
+  <div class="widget-section" #interactionWidget>
+    <h4>⚙️ Advanced Tools (Interaction)</h4>
+    @defer (on interaction(interactionWidget); prefetch on hover(interactionWidget)) {
+      <mat-card class="widget tools">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>build</mat-icon>
+            Advanced Tools
+          </mat-card-title>
+          <mat-card-subtitle>Feature-rich tools - load on interaction</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="tools-grid">
+            <div class="tool-item">
+              <mat-icon>cloud_download</mat-icon>
+              <span>Export Data</span>
+            </div>
+            <div class="tool-item">
+              <mat-icon>schedule</mat-icon>
+              <span>Schedule Reports</span>
+            </div>
+            <div class="tool-item">
+              <mat-icon>security</mat-icon>
+              <span>Security Audit</span>
+            </div>
+            <div class="tool-item">
+              <mat-icon>backup</mat-icon>
+              <span>Data Backup</span>
+            </div>
+          </div>
+          
+          @if (userRole() === 'admin') {
+            <mat-divider></mat-divider>
+            <div class="admin-tools">
+              <h5>Admin Tools</h5>
+              <button mat-raised-button color="warn">
+                <mat-icon>delete_forever</mat-icon>
+                Danger Zone
+              </button>
+            </div>
+          }
+        </mat-card-content>
+      </mat-card>
+    } @placeholder {
+      <mat-card class="widget placeholder-state interactive">
+        <mat-card-content>
+          <p>🔧 Click to load advanced tools</p>
+          <small>Tools will prefetch on hover for instant response</small>
+        </mat-card-content>
+      </mat-card>
+    } @loading (after 150ms; minimum 600ms) {
+      <mat-card class="widget loading-state">
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>Loading advanced tools...</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+
+  <!-- Timer Widget: Background load -->
+  <div class="widget-section">
+    <h4>📰 News Feed (Timer)</h4>
+    @defer (on timer(3s); prefetch on immediate) {
+      <mat-card class="widget news-feed">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>article</mat-icon>
+            Latest News
+          </mat-card-title>
+          <mat-card-subtitle>Auto-loads after 3 seconds</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="news-items">
+            @for (news of newsItems; track news.id) {
+              <div class="news-item">
+                <h6>{{ news.title }}</h6>
+                <p>{{ news.summary }}</p>
+                <small>{{ formatDate(news.date) }}</small>
+              </div>
+            }
+          </div>
+        </mat-card-content>
+      </mat-card>
+    } @placeholder {
+      <mat-card class="widget placeholder-state">
+        <mat-card-content>
+          <p>📰 News feed will load automatically in 3 seconds</p>
+          <div class="timer-indicator">
+            <mat-progress-bar mode="determinate" [value]="timerProgress()"></mat-progress-bar>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    } @loading (minimum 500ms) {
+      <mat-card class="widget loading-state">
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>Loading latest news...</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</div>
+```

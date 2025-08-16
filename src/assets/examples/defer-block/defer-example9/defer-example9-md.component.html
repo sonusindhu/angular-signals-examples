@@ -1,0 +1,174 @@
+```html
+<!-- Error Handling Demo -->
+<div class="error-demo" #errorTrigger>
+  <mat-card class="trigger-card">
+    <mat-card-header>
+      <mat-card-title>⚠️ Error-Prone Content Loader</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>This demonstrates real-world error scenarios:</p>
+      <ul>
+        <li>Network timeouts</li>
+        <li>Server errors (5xx)</li>
+        <li>Missing resources</li>
+        <li>Authentication failures</li>
+      </ul>
+      
+      <button mat-raised-button color="primary">
+        Load Content (May Fail)
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  @defer (on interaction(errorTrigger)) {
+    <div class="deferred-content">
+      @if (shouldFail() && retryCount() < maxRetries) {
+        <!-- Simulate error condition -->
+        <div style="display: none;">{{ throwError() }}</div>
+      } @else {
+        <mat-card class="success-card">
+          <mat-card-header>
+            <mat-card-title>✅ Content Loaded Successfully!</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>After {{ retryCount() }} attempts, content loaded successfully!</p>
+            <div class="success-info">
+              <mat-icon>check_circle</mat-icon>
+              <span>Resilient loading with error recovery</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  } @placeholder {
+    <div class="placeholder">
+      <mat-card>
+        <mat-card-content>
+          <p>📋 Ready to load... (click to attempt)</p>
+          <small>May fail to demonstrate error handling</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @loading (after 100ms; minimum 800ms) {
+    <div class="loading">
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>🔄 Loading content...</p>
+          <small>Attempt {{ retryCount() + 1 }}/{{ maxRetries + 1 }}</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @error {
+    <div class="error">
+      <mat-card class="error-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>error</mat-icon>
+            Load Failed
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Failed to load content after {{ retryCount() }} attempts.</p>
+          <div class="error-actions">
+            <button mat-raised-button color="warn" (click)="retryLoad()">
+              <mat-icon>refresh</mat-icon>
+              Retry ({{ maxRetries - retryCount() }} left)
+            </button>
+            <button mat-button (click)="resetDemo()">
+              Reset Demo
+            </button>
+          </div>
+          <div class="error-details">
+            <small>
+              <strong>Error types covered:</strong><br>
+              • Network timeouts<br>
+              • Server errors (500, 502, 503)<br>
+              • Resource not found (404)<br>
+              • Authentication failures (401, 403)
+            </small>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>
+
+<!-- Graceful Degradation Demo -->
+<div class="degradation-demo" #gracefulTrigger>
+  <mat-card class="demo-card">
+    <mat-card-header>
+      <mat-card-title>🛡️ Graceful Degradation</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Shows fallback content when primary content fails:</p>
+      <button mat-raised-button color="accent">
+        Load with Fallback
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  @defer (on interaction(gracefulTrigger)) {
+    <div class="deferred-content">
+      @if (shouldFail()) {
+        <!-- Simulate consistent failure -->
+        <div style="display: none;">{{ throwError() }}</div>
+      } @else {
+        <mat-card class="success-card">
+          <mat-card-content>
+            <h4>🎉 Premium Content Loaded</h4>
+            <p>This is the ideal user experience when everything works!</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  } @placeholder {
+    <div class="placeholder">
+      <mat-card>
+        <mat-card-content>
+          <p>📋 Loading premium content...</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @loading (minimum 500ms) {
+    <div class="loading">
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>🔄 Loading premium content...</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @error {
+    <div class="error">
+      <mat-card class="fallback-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>info</mat-icon>
+            Basic Content Available
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Premium content is currently unavailable, but here's basic content:</p>
+          <div class="fallback-content">
+            <ul>
+              <li>✓ Core functionality available</li>
+              <li>✓ Basic features working</li>
+              <li>✓ Data still accessible</li>
+              <li>⚠ Enhanced features temporarily disabled</li>
+            </ul>
+          </div>
+          <div class="fallback-actions">
+            <button mat-button color="primary">
+              Continue with Basic Version
+            </button>
+            <button mat-button (click)="retryLoad()">
+              Try Premium Again
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>
+```

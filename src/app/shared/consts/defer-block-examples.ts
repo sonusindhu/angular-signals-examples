@@ -23,17 +23,37 @@ export const DEFER_BLOCK_EXAMPLES: ExampleModel[] = [
   },
   {
     title: 'Example 5',
-    content: 'Defer with When Condition - Manual trigger control with boolean conditions',
+    content: 'Advanced Defer - Multiple triggers, conditions, and error handling',
     routerLink: '/defer-block/defer-example5',
   },
   {
     title: 'Example 6',
-    content: 'Defer on Hover - Loads content when hovering over specific elements',
+    content: 'Defer on Hover - Triggers loading when mouse hovers over element',
     routerLink: '/defer-block/defer-example6',
   },
   {
     title: 'Example 7',
-    content: 'Defer Immediate - Loads content immediately for code organization',
+    content: 'Defer on Immediate - Loads content immediately after non-deferred content',
     routerLink: '/defer-block/defer-example7',
+  },
+  {
+    title: 'Example 8',
+    content: 'Multiple Triggers & Prefetch - Advanced performance optimization strategies',
+    routerLink: '/defer-block/defer-example8',
+  },
+  {
+    title: 'Example 9',
+    content: 'Error Handling & Retry - Robust error handling with retry mechanisms',
+    routerLink: '/defer-block/defer-example9',
+  },
+  {
+    title: 'Example 10',
+    content: 'Loading States with Timing - Professional timing controls to prevent flickering',
+    routerLink: '/defer-block/defer-example10',
+  },
+  {
+    title: 'Example 11',
+    content: 'Real-world Dashboard Widget - Production-ready dashboard with smart loading',
+    routerLink: '/defer-block/defer-example11',
   },
 ];

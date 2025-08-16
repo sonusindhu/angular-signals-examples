@@ -1,0 +1,220 @@
+<div class="content-area">
+  <h2>Defer Block Example 10: Loading States with Timing</h2>
+  <p>
+    This example demonstrates advanced timing controls for loading states to prevent flickering
+    and provide smooth user experiences with professional loading indicators.
+  </p>
+</div>
+
+<mat-tab-group>
+  <mat-tab label="Demo">
+    <div class="demo-section">
+      <div class="main-content">
+        <h3>Professional Loading States</h3>
+        <p>Configure timing parameters to prevent UI flickering:</p>
+      </div>
+
+      <div class="timing-controls">
+        <h4>Compare Different Timing Settings</h4>
+        <p>Use the sliders to see how different static timing values would behave:</p>
+        <div class="controls-grid">
+          <div class="control-group">
+            <label>Recommended Loading Delay: {{ loadingDelay() }}ms</label>
+            <mat-slider min="0" max="1000" step="100">
+              <input matSliderThumb [value]="loadingDelay()" (valueChange)="loadingDelay.set($event || 0)">
+            </mat-slider>
+            <small>Optimal delay before showing loading indicator</small>
+          </div>
+
+          <div class="control-group">
+            <label>Recommended Loading Minimum: {{ loadingMinimum() }}ms</label>
+            <mat-slider min="500" max="3000" step="250">
+              <input matSliderThumb [value]="loadingMinimum()" (valueChange)="loadingMinimum.set($event || 500)">
+            </mat-slider>
+            <small>Minimum time to show loading state</small>
+          </div>
+
+          <div class="control-group">
+            <label>Recommended Placeholder Minimum: {{ placeholderMinimum() }}ms</label>
+            <mat-slider min="0" max="2000" step="100">
+              <input matSliderThumb [value]="placeholderMinimum()" (valueChange)="placeholderMinimum.set($event || 0)">
+            </mat-slider>
+            <small>Minimum time to show placeholder</small>
+          </div>
+        </div>
+        
+        <div class="timing-note">
+          <mat-card>
+            <mat-card-content>
+              <p><strong>Note:</strong> Defer block timing parameters must be static values. The sliders above show recommended values, while the examples below demonstrate different static timing configurations.</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+      <div class="demo-grid">
+        <!-- Basic Timing Demo -->
+        <div class="timing-demo" #basicTrigger>
+          <mat-card class="demo-card">
+            <mat-card-header>
+              <mat-card-title>Basic Timing Control</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Standard loading with timing parameters:</p>
+              <button mat-raised-button color="primary">
+                Load with Basic Timing
+              </button>
+            </mat-card-content>
+          </mat-card>
+
+          @defer (on interaction(basicTrigger)) {
+            <div class="deferred-content">
+              <mat-card class="success-card">
+                <mat-card-content>
+                  <h4>✅ Content Loaded</h4>
+                  <p>Loaded with professional timing controls!</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          } @placeholder (minimum 500ms) {
+            <div class="placeholder">
+              <mat-card>
+                <mat-card-content>
+                  <p>📋 Placeholder (min 500ms)</p>
+                  <small>Prevents immediate flash</small>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          } @loading (after 200ms; minimum 1s) {
+            <div class="loading">
+              <mat-card>
+                <mat-card-content>
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                  <p>⏳ Loading (after 200ms, min 1s)</p>
+                  <small>Smooth loading transition</small>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          }
+        </div>
+
+        <!-- Advanced Timing Demo -->
+        <div class="timing-demo" #advancedTrigger>
+          <mat-card class="demo-card">
+            <mat-card-header>
+              <mat-card-title>No Timing Constraints</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Immediate transitions without timing controls:</p>
+              <button mat-raised-button color="accent">
+                Load Without Timing
+              </button>
+              <div class="config-display">
+                <p><strong>Your Recommended Settings:</strong></p>
+                <ul>
+                  <li>Loading delay: {{ loadingDelay() }}ms</li>
+                  <li>Loading minimum: {{ loadingMinimum() }}ms</li>
+                  <li>Placeholder minimum: {{ placeholderMinimum() }}ms</li>
+                </ul>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          @defer (on interaction(advancedTrigger)) {
+            <div class="deferred-content">
+              <mat-card class="success-card">
+                <mat-card-content>
+                  <h4>🎯 Instant Content</h4>
+                  <p>This loaded without any timing constraints, which can cause:</p>
+                  <ul>
+                    <li>Loading state flickers</li>
+                    <li>UI jumpiness</li>
+                    <li>Poor user experience</li>
+                  </ul>
+                  <p>Compare with the example above that uses proper timing!</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          } @placeholder {
+            <div class="placeholder">
+              <mat-card>
+                <mat-card-content>
+                  <p>� No Minimum Placeholder</p>
+                  <small>May flash briefly</small>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          } @loading {
+            <div class="loading">
+              <mat-card>
+                <mat-card-content>
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                  <p>⚡ Instant Loading</p>
+                  <small>No delay, no minimum duration</small>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="timing-explanation">
+        <h3>Timing Parameters Explained</h3>
+        <div class="explanation-grid">
+          <mat-card class="explanation-card">
+            <mat-card-header>
+              <mat-card-title>&#64;loading (after Xms)</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p><strong>Purpose:</strong> Prevents loading spinner flash for fast loads</p>
+              <p><strong>Use case:</strong> If content loads in under Xms, skip loading state</p>
+              <p><strong>Best practice:</strong> 100-200ms for most cases</p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="explanation-card">
+            <mat-card-header>
+              <mat-card-title>&#64;loading (minimum Xms)</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p><strong>Purpose:</strong> Ensures loading state is visible long enough</p>
+              <p><strong>Use case:</strong> Prevents jarring quick flash of spinner</p>
+              <p><strong>Best practice:</strong> 500ms-1s for smooth UX</p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="explanation-card">
+            <mat-card-header>
+              <mat-card-title>&#64;placeholder (minimum Xms)</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p><strong>Purpose:</strong> Stabilizes initial layout</p>
+              <p><strong>Use case:</strong> Prevents immediate content shift</p>
+              <p><strong>Best practice:</strong> 300-500ms for layout stability</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="best-practices">
+          <h4>Production Best Practices</h4>
+          <ul>
+            <li><strong>Fast networks:</strong> Use higher "after" delays (200-300ms)</li>
+            <li><strong>Slow networks:</strong> Use lower "after" delays (50-100ms)</li>
+            <li><strong>Critical content:</strong> Shorter minimum times</li>
+            <li><strong>Background content:</strong> Longer minimum times for stability</li>
+            <li><strong>Mobile devices:</strong> Consider touch interaction delays</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example10/defer-example10-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example10/defer-example10.component.ts'"></markdown>
+  </mat-tab>
+  <mat-tab label="SCSS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example10/defer-example10.component.scss'"></markdown>
+  </mat-tab>
+</mat-tab-group>

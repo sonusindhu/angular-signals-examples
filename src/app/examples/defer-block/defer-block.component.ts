@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { ExampleModel } from '../../shared/models/example.model';
-import { DEFER_BLOCK_EXAMPLES } from './example-data/defer-block-examples';
+import { DEFER_BLOCK_EXAMPLES } from '../../shared/consts/defer-block-examples';
 
 @Component({
     selector: 'app-defer-block',
