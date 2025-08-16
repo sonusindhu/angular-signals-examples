@@ -41,6 +41,26 @@ const ROUTES: Route[] = [
     loadComponent: () =>
       import('./defer-example7/defer-example7.component'),
   },
+  {
+    path: 'defer-example8',
+    loadComponent: () =>
+      import('./defer-example8/defer-example8.component'),
+  },
+  {
+    path: 'defer-example9',
+    loadComponent: () =>
+      import('./defer-example9/defer-example9.component'),
+  },
+  {
+    path: 'defer-example10',
+    loadComponent: () =>
+      import('./defer-example10/defer-example10.component'),
+  },
+  {
+    path: 'defer-example11',
+    loadComponent: () =>
+      import('./defer-example11/defer-example11.component'),
+  },
 ];
 
 export default ROUTES;

@@ -1,0 +1,126 @@
+```html
+<!-- Timing Controls -->
+<div class="timing-controls">
+  <h4>Timing Configuration</h4>
+  <div class="controls-grid">
+    <div class="control-group">
+      <label>Loading Delay (after): {{ loadingDelay() }}ms</label>
+      <mat-slider min="0" max="1000" step="100">
+        <input matSliderThumb [value]="loadingDelay()" (valueChange)="loadingDelay.set($event || 0)">
+      </mat-slider>
+      <small>Wait before showing loading indicator</small>
+    </div>
+
+    <div class="control-group">
+      <label>Loading Minimum: {{ loadingMinimum() }}ms</label>
+      <mat-slider min="500" max="3000" step="250">
+        <input matSliderThumb [value]="loadingMinimum()" (valueChange)="loadingMinimum.set($event || 500)">
+      </mat-slider>
+      <small>Minimum time to show loading state</small>
+    </div>
+
+    <div class="control-group">
+      <label>Placeholder Minimum: {{ placeholderMinimum() }}ms</label>
+      <mat-slider min="0" max="2000" step="100">
+        <input matSliderThumb [value]="placeholderMinimum()" (valueChange)="placeholderMinimum.set($event || 0)">
+      </mat-slider>
+      <small>Minimum time to show placeholder</small>
+    </div>
+  </div>
+</div>
+
+<!-- Basic Timing Demo -->
+<div class="timing-demo" #basicTrigger>
+  <mat-card class="demo-card">
+    <mat-card-header>
+      <mat-card-title>Basic Timing Control</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Standard loading with timing parameters:</p>
+      <button mat-raised-button color="primary">
+        Load with Basic Timing
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  @defer (on interaction(basicTrigger)) {
+    <div class="deferred-content">
+      <mat-card class="success-card">
+        <mat-card-content>
+          <h4>✅ Content Loaded</h4>
+          <p>Loaded with professional timing controls!</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @placeholder (minimum 500ms) {
+    <div class="placeholder">
+      <mat-card>
+        <mat-card-content>
+          <p>📋 Placeholder (min 500ms)</p>
+          <small>Prevents immediate flash</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @loading (after 200ms; minimum 1s) {
+    <div class="loading">
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>⏳ Loading (after 200ms, min 1s)</p>
+          <small>Smooth loading transition</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>
+
+<!-- Advanced Timing Demo -->
+<div class="timing-demo" #advancedTrigger>
+  <mat-card class="demo-card">
+    <mat-card-header>
+      <mat-card-title>Custom Timing</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Uses your configured timing settings:</p>
+      <button mat-raised-button color="accent">
+        Load with Custom Timing
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  @defer (on interaction(advancedTrigger)) {
+    <div class="deferred-content">
+      <mat-card class="success-card">
+        <mat-card-content>
+          <h4>🎯 Advanced Content</h4>
+          <p>Configuration:</p>
+          <ul>
+            <li>Loading delay: {{ loadingDelay() }}ms</li>
+            <li>Loading minimum: {{ loadingMinimum() }}ms</li>
+            <li>Placeholder minimum: {{ placeholderMinimum() }}ms</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @placeholder {
+    <div class="placeholder">
+      <mat-card>
+        <mat-card-content>
+          <p>🔧 Custom Placeholder</p>
+          <small>Min: {{ placeholderMinimum() }}ms</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  } @loading {
+    <div class="loading">
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          <p>⚙️ Custom Loading</p>
+          <small>After: {{ loadingDelay() }}ms, Min: {{ loadingMinimum() }}ms</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>
+```

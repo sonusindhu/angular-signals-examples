@@ -1,0 +1,159 @@
+<div class="content-area">
+  <h2>Defer Block Example 8: Multiple Triggers & Prefetch Strategy</h2>
+  <p>
+    This example demonstrates combining multiple triggers with prefetch strategy for optimal performance.
+    Content is prefetched on hover but loaded on interaction, providing instant response when clicked.
+  </p>
+</div>
+
+<mat-tab-group>
+  <mat-tab label="Demo">
+    <div class="demo-section">
+      <div class="main-content">
+        <h3>Smart Prefetch Demo</h3>
+        <p>Hover to prefetch, click to load instantly:</p>
+        
+        <div class="status-chips">
+          <mat-chip-set>
+            <mat-chip [highlighted]="prefetchStatus() === 'prefetched' || prefetchStatus() === 'loaded'">
+              <mat-icon>cloud_download</mat-icon>
+              Prefetched: {{ prefetchStatus() !== 'none' ? 'Yes' : 'No' }}
+            </mat-chip>
+            <mat-chip [highlighted]="prefetchStatus() === 'loaded'">
+              <mat-icon>check_circle</mat-icon>
+              Loaded: {{ prefetchStatus() === 'loaded' ? 'Yes' : 'No' }}
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+      </div>
+
+      <div class="trigger-demo" #triggerElement>
+        <mat-card class="interactive-card" (mouseenter)="onPrefetch()">
+          <mat-card-header>
+            <mat-card-title>🚀 Smart Loading Card</mat-card-title>
+            <mat-card-subtitle>Hover to prefetch, click to load</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>This card uses advanced defer strategies:</p>
+            <ul>
+              <li><strong>Prefetch on hover:</strong> Downloads resources when you hover</li>
+              <li><strong>Load on interaction:</strong> Displays content when you click</li>
+              <li><strong>Multiple fallbacks:</strong> Timer as backup trigger</li>
+            </ul>
+            
+            <button mat-raised-button color="primary">
+              Click to Load Content
+            </button>
+          </mat-card-content>
+        </mat-card>
+
+        @defer (on interaction(triggerElement); on timer(10s); prefetch on hover(triggerElement)) {
+          <div class="deferred-content" (ngAfterViewInit)="onLoad()">
+            <mat-card class="success-card">
+              <mat-card-header>
+                <mat-card-title>✨ Prefetched & Loaded Content</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>This content loaded instantly because it was prefetched!</p>
+                
+                <div class="performance-info">
+                  <h4>Prefetch Benefits:</h4>
+                  <ul>
+                    <li>Resources downloaded on hover</li>
+                    <li>Instant loading on interaction</li>
+                    <li>Better user experience</li>
+                    <li>Reduced perceived loading time</li>
+                  </ul>
+                </div>
+
+                <div class="multiple-triggers">
+                  <h4>Multiple Trigger Strategy:</h4>
+                  <div class="trigger-list">
+                    <mat-chip-set>
+                      <mat-chip>
+                        <mat-icon>touch_app</mat-icon>
+                        Primary: Interaction
+                      </mat-chip>
+                      <mat-chip>
+                        <mat-icon>timer</mat-icon>
+                        Fallback: 10s Timer
+                      </mat-chip>
+                      <mat-chip>
+                        <mat-icon>cloud_download</mat-icon>
+                        Prefetch: Hover
+                      </mat-chip>
+                    </mat-chip-set>
+                  </div>
+                </div>
+
+                <div class="use-cases">
+                  <h4>Perfect for:</h4>
+                  <ul>
+                    <li>E-commerce product details</li>
+                    <li>Modal dialogs and overlays</li>
+                    <li>Media galleries</li>
+                    <li>Interactive forms</li>
+                    <li>Dashboard widgets</li>
+                  </ul>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        } @placeholder {
+          <div class="placeholder">
+            <mat-card>
+              <mat-card-content>
+                <p>Hover over the card above to prefetch content, then click to load instantly...</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        } @loading (after 100ms; minimum 500ms) {
+          <div class="loading">
+            <mat-card>
+              <mat-card-content>
+                <div class="loading-spinner">
+                  <mat-icon>cached</mat-icon>
+                  <p>Loading prefetched content...</p>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        }
+      </div>
+
+      <div class="additional-examples">
+        <h3>More Prefetch Patterns</h3>
+        <div class="pattern-grid">
+          <mat-card class="pattern-card">
+            <mat-card-header>
+              <mat-card-title>Pattern 1: E-commerce</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <code>&#64;defer (on interaction; prefetch on hover)</code>
+              <p>Perfect for product details and cart interactions</p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="pattern-card">
+            <mat-card-header>
+              <mat-card-title>Pattern 2: Progressive Loading</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <code>&#64;defer (on viewport; prefetch on idle)</code>
+              <p>Load when visible, prefetch when browser is idle</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example8/defer-example8-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example8/defer-example8.component.ts'"></markdown>
+  </mat-tab>
+  <mat-tab label="SCSS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example8/defer-example8.component.scss'"></markdown>
+  </mat-tab>
+</mat-tab-group>

@@ -1,4 +1,4 @@
-import { ExampleModel } from '../../../shared/models/example.model';
+import { ExampleModel } from '../models/example.model';
 
 export const DEFER_BLOCK_EXAMPLES: ExampleModel[] = [
   {
@@ -35,5 +35,25 @@ export const DEFER_BLOCK_EXAMPLES: ExampleModel[] = [
     title: 'Example 7',
     content: 'Defer on Immediate - Loads content immediately after non-deferred content',
     routerLink: '/defer-block/defer-example7',
+  },
+  {
+    title: 'Example 8',
+    content: 'Multiple Triggers & Prefetch - Advanced performance optimization strategies',
+    routerLink: '/defer-block/defer-example8',
+  },
+  {
+    title: 'Example 9',
+    content: 'Error Handling & Retry - Robust error handling with retry mechanisms',
+    routerLink: '/defer-block/defer-example9',
+  },
+  {
+    title: 'Example 10',
+    content: 'Loading States with Timing - Professional timing controls to prevent flickering',
+    routerLink: '/defer-block/defer-example10',
+  },
+  {
+    title: 'Example 11',
+    content: 'Real-world Dashboard Widget - Production-ready dashboard with smart loading',
+    routerLink: '/defer-block/defer-example11',
   },
 ];
