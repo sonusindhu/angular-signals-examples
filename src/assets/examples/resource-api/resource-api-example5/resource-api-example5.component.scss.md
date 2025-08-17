@@ -1,30 +1,10 @@
-# Resource API Example 5: SCSS Styles
-
-```scss
+```code
 :host {
   display: block;
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
   padding: 2rem 0;
   width: 100%;
-}
-
-.example-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  
-  mat-tab-group {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 
-      0 10px 40px rgba(0, 0, 0, 0.08),
-      0 4px 20px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    overflow: hidden;
-  }
 }
 
 .content-area {
@@ -66,6 +46,27 @@
 .demo-section {
   margin-top: 2rem;
   
+  h3 {
+    margin: 2rem 0 1.5rem 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #374151;
+    position: relative;
+    padding-left: 1rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+      border-radius: 2px;
+    }
+  }
+  
   mat-card {
     margin-bottom: 2rem;
     background: #ffffff;
@@ -75,6 +76,8 @@
       0 4px 20px rgba(0, 0, 0, 0.08),
       0 2px 10px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
     
     &:hover {
       transform: translateY(-4px);
@@ -85,26 +88,47 @@
   }
 }
 
-.controls {
+.demo-actions {
   display: flex;
   gap: 1rem;
-  align-items: center;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.repo-card {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  transition: all 0.3s ease;
   
-  button {
-    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .repo-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
     
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.9rem;
+      color: #6c757d;
+      
+      mat-icon {
+        font-size: 1rem;
+        width: 1rem;
+        height: 1rem;
+      }
     }
   }
 }
@@ -112,48 +136,45 @@
 .loading-state, .error-state {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.75rem;
   padding: 2rem;
   text-align: center;
-  justify-content: center;
   
   mat-icon {
-    font-size: 2rem;
-    width: 2rem;
-    height: 2rem;
+    font-size: 1.5rem;
   }
 }
 
-.data-table {
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    
-    th, td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    
-    th {
-      background: #f8fafc;
-      font-weight: 600;
-      color: #374151;
-    }
-    
-    .status {
-      padding: 0.25rem 0.75rem;
-      border-radius: 12px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      background: #fef3c7;
-      color: #92400e;
-      
-      &.completed {
-        background: #d1fae5;
-        color: #065f46;
-      }
-    }
+.error-state {
+  color: #dc3545;
+}
+
+button {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  margin: 0.5rem;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .repos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .demo-actions {
+    flex-direction: column;
   }
 }
 ```

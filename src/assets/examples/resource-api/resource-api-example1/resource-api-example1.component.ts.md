@@ -1,12 +1,8 @@
-# Resource API Example 1: TypeScript Component
-
 ```typescript
 import { Component, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MarkdownComponent } from 'ngx-markdown';
 import { resource } from '@angular/core';
 
 interface ResourceData {
@@ -23,7 +19,7 @@ function fetchResourceApi(limit = 10): Promise<ResourceData[] | null> {
 
 @Component({
   selector: 'app-resource-api-example1',
-  imports: [MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  imports: [MatButtonModule, MatCardModule, MatIconModule],
   templateUrl: './resource-api-example1.component.html',
   styleUrl: './resource-api-example1.component.scss'
 })

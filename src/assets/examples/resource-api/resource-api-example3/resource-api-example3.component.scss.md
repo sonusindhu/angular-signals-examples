@@ -1,5 +1,3 @@
-# Resource API Example 3: SCSS Styles
-
 ```scss
 :host {
   display: block;
@@ -13,18 +11,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
-  
-  mat-tab-group {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 
-      0 10px 40px rgba(0, 0, 0, 0.08),
-      0 4px 20px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    overflow: hidden;
-  }
 }
 
 .content-area {

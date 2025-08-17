@@ -1,7 +1,5 @@
-<div class="example-container">
-  <mat-tab-group>
-    <mat-tab label="Demo">
-      <div class="content-area">
+    ```code
+    <div class="content-area">
         <h2>Resource API Example 1: Basic Fetch (resource)</h2>
         <p>This example demonstrates the basic usage of Angular's resource API for fetching data with automatic loading states and error handling.</p>
       </div>
@@ -74,15 +72,3 @@
           </mat-card-content>
         </mat-card>
       </div>
-    </mat-tab>
-    <mat-tab label="HTML">
-      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example1/resource-api-example1.component.html'"></markdown>
-    </mat-tab>
-    <mat-tab label="TS">
-      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example1/resource-api-example1.component.ts.md'"></markdown>
-    </mat-tab>
-    <mat-tab label="SCSS">
-      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example1/resource-api-example1.component.scss.md'"></markdown>
-    </mat-tab>
-  </mat-tab-group>
-</div>
