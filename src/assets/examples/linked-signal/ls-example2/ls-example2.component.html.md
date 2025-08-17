@@ -1,23 +1,20 @@
+```code
 <div class="content-area">
   <h2>Example 2 - Total Price Calculator</h2>
   <p>This example demonstrates a real-time total price calculator using linkedSignal with automatic tax calculation.</p>
-  
   <div class="demo-section">
     <div class="calc-container">
       <h3>🧮 Total Price Calculator - linkedSignal</h3>
-
       <div class="form-row">
         <mat-form-field>
           <mat-label>Base Price ($)</mat-label>
           <input matInput type="number" [ngModel]="basePrice()" (ngModelChange)="basePrice.set($event)" min="0">
         </mat-form-field>
-
         <mat-form-field>
           <mat-label>Quantity</mat-label>
           <input matInput type="number" [ngModel]="quantity()" (ngModelChange)="quantity.set($event)" min="1">
         </mat-form-field>
       </div>
-
       <div class="calculation-display">
         <mat-card>
           <mat-card-content>

@@ -1,3 +1,4 @@
+```typescript
 import { Component, effect, linkedSignal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -7,7 +8,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownComponent } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
-
 
 interface Course {
   id: number;
@@ -70,3 +70,4 @@ export default class LsExample1Component {
     return this.getSelectedCourse()?.defaultQuantity || 'N/A';
   }
 }
+```

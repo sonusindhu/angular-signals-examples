@@ -1,31 +1,36 @@
-<mat-tab-group mat-stretch-tabs>
-  <mat-tab label="Demo">
-    <div class="content-area">
-      <h2>Example 1 - Count Increment/Decrement</h2>
-      <p>Count is: {{ count() }}</p>
-      <p>
-          <button mat-raised-button 
-            style="margin-right: 1rem" color="primary" (click)="decreaseCount()">
-            Decrease -
-          </button>
-          <button
-            mat-raised-button
-            color="primary"
-            (click)="increaseCount()"
-          >
-            Increase +
-          </button>
-       
-      </p>
-    </div>
 
-  </mat-tab>
-  <mat-tab label="HTML">
-    <markdown clipboard [src]="'assets/examples/signal/signal-example1/signal-example1-md.component.html'"></markdown>
-  </mat-tab>
-  <mat-tab label="TS">
-    <markdown clipboard [src]="'assets/examples/signal/signal-example1/signal-example1.component.ts'"></markdown>
-  </mat-tab>
-</mat-tab-group>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 1 - Counter</h2>
+        <p>This example demonstrates a simple counter using Angular signals with increment and decrement functionality.</p>
+        <div class="demo-section">
+          <div class="counter-container">
+            <h3>🔢 Signal Counter</h3>
+            <div class="controls">
+              <button mat-raised-button color="primary" (click)="decreaseCount()">-</button>
+              <span class="count">{{ count() }}</span>
+              <button mat-raised-button color="primary" (click)="increaseCount()">+</button>
+            </div>
+            <div class="info-section">
+              <p>Current value: <strong>{{ count() }}</strong></p>
+              <p>The counter uses Angular's signal for reactive state updates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example1/signal-example1-md.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example1/signal-example1.component.ts.md'" ></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example1/signal-example1.component.scss.md'" ></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
 
 

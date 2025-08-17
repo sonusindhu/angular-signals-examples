@@ -1,3 +1,4 @@
+```typescript
 import { Component, linkedSignal, signal } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -19,10 +20,8 @@ export class LsExample3Component {
     { id: 'p002', name: 'Phone' },
     { id: 'p003', name: 'Tablet' }
   ]);
-
   productId = signal('p001');
   userType = signal<'regular' | 'premium'>('regular');
-
   price = linkedSignal<[string, 'regular' | 'premium'], number>({
     source:() => [this.productId(), this.userType()],
     computation: (source, prev) => {
@@ -30,32 +29,26 @@ export class LsExample3Component {
       return this.getPriceFromRules(id, type);
     }
   });
-
   private getPriceFromRules(productId: string, userType: string): number {
     // Simulate pricing logic
     const basePrice = productId === 'p001' ? 100 : 200;
     return userType === 'premium' ? basePrice * 0.9 : basePrice;
   }
-
   updateProduct(event: MatSelectChange<any>) {
     this.productId.set(event.value);
   }
-
   updateUserType(event: MatSelectChange<any>) {
     this.userType.set(event.value as 'regular' | 'premium');
   }
-
   updateCustomPrice(event: Event){
     const input = event.target as HTMLInputElement;
     if (input.value) {
       this.price.set(+input.value);
     }
   }
-
   getProductName() {
     return this.products().find(p => p.id === this.productId())?.name || 'Unknown';
   }
-
   getBasePrice() {
     const prices: Record<string, number> = {
       'p001': 1200, // Laptop
@@ -64,9 +57,9 @@ export class LsExample3Component {
     };
     return prices[this.productId()] || 500;
   }
-
   getDiscountText() {
     const discount = this.userType() === 'premium' ? '10% Premium Discount' : 'No Discount';
     return discount;
   }
 }
+```
