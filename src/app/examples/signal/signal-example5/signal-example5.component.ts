@@ -1,3 +1,5 @@
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, WritableSignal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +16,8 @@ import { MatInputModule } from '@angular/material/input';
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
+        MatTabsModule,
+        MarkdownComponent,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

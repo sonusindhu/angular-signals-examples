@@ -1,17 +1,43 @@
-<h2>Example 5 - Todo List</h2>
 
-<mat-form-field>
-  <mat-label>Todo Name</mat-label>
-  <input matInput name="todo" #todo />
-</mat-form-field>
-
-<button mat-raised-button color="primary" (click)="addTodo(todo)">
-  Add Todo
-</button>
-<ul>
-  @for (item of todos(); track item) {
-  <li>
-    {{ item }}
-  </li>
-  }
-</ul>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 5 - Todo List</h2>
+        <p>This example demonstrates a todo list managed with Angular signals.</p>
+        <div class="demo-section">
+          <div class="todo-container">
+            <h3>📝 Todo List</h3>
+            <div class="controls">
+              <mat-form-field appearance="fill">
+                <mat-label>Todo Name</mat-label>
+                <input matInput name="todo" #todo />
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="addTodo(todo)">
+                Add Todo
+              </button>
+            </div>
+            <div class="info-section">
+              <ul>
+                @for (item of todos(); track item) {
+                <li>
+                  {{ item }}
+                </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example5/signal-example5.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example5/signal-example5.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example5/signal-example5.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

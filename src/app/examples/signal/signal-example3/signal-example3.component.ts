@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
     selector: 'app-signal-example3',
     templateUrl: './signal-example3.component.html',
     styleUrl: './signal-example3.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatFormFieldModule, MatInputModule]
+    imports: [MatFormFieldModule, MatInputModule, MatTabsModule, MarkdownComponent]
 })
 export default class SignalExample3Component {
   name = signal('Sonu Sindhu');

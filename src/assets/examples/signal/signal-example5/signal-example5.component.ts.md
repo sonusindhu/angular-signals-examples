@@ -1,3 +1,4 @@
+```code
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, WritableSignal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
