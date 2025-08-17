@@ -1,37 +1,283 @@
 :host {
-  display: contents;
-  .item {
-    display: flex;
-    text-decoration: none;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: 1px solid #c2c2c2;
-    border-radius: 10px;
-    margin: 10px 0;
-    overflow: hidden;
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #667eea 50%, #f093fb 75%, #f5576c 100%);
+  background-size: 400% 400%;
+  animation: oceanWave 18s ease infinite;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(240, 147, 251, 0.3) 0%, transparent 50%),
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="ocean-waves" width="60" height="30" patternUnits="userSpaceOnUse"><path d="M0,15 Q15,5 30,15 T60,15" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><path d="M0,20 Q15,10 30,20 T60,20" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/></pattern></defs><rect width="100" height="100" fill="url(%23ocean-waves)"/></svg>');
+    opacity: 0.8;
   }
-  .mat-mdc-card.mdc-card {
-    width: 100%;
-    box-shadow: none;
+}
+
+@keyframes oceanWave {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 25%; }
+  50% { background-position: 100% 75%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.section {
+  flex: 1;
+  
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    position: relative;
+    text-align: center;
     
-  }
-  .mat-mdc-card-header {
-    padding: 10px 16px;
-    border-bottom: 1px solid #c2c2c2;
-    background-color: #c2c2c2;
-  }
-
-  .mat-mdc-card-content {
-    padding: 10px 16px;
-  }
-
-  @media (max-width: 480px) {
-    .item {
-      min-width: 94%;
-      max-width: 100%;
-      min-height: 100px;
-      max-height: 150px;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(45deg, #667eea, #f093fb);
+      border-radius: 2px;
+      box-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
     }
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+  }
+}
+
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  margin: 1rem 0;
+  
+  @media (min-width: 1024px) {
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    margin: 0 1rem;
+  }
+}
+
+.card-item {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  transform-style: preserve-3d;
+  
+  mat-card {
+    height: 100%;
+    min-height: 160px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 18px;
+    box-shadow: 
+      0 10px 35px rgba(102, 126, 234, 0.15),
+      0 5px 18px rgba(240, 147, 251, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+      opacity: 0;
+      transition: all 0.4s ease;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.2) 0%, 
+        rgba(118, 75, 162, 0.2) 25%, 
+        rgba(240, 147, 251, 0.2) 50%, 
+        rgba(245, 87, 108, 0.2) 75%,
+        rgba(102, 126, 234, 0.2) 100%
+      );
+      border-radius: 20px;
+      opacity: 0;
+      transition: all 0.6s ease;
+      z-index: -1;
+      filter: blur(1px);
+    }
+    
+    &:hover {
+      transform: translateY(-15px) scale(1.04) rotateX(2deg);
+      box-shadow: 
+        0 25px 60px rgba(102, 126, 234, 0.25),
+        0 12px 30px rgba(240, 147, 251, 0.2),
+        0 0 0 2px rgba(118, 75, 162, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.7);
+      border-color: rgba(118, 75, 162, 0.6);
+      background: rgba(255, 255, 255, 0.96);
+      
+      &::before {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+      
+      &::after {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+    }
+  }
+  
+  .mat-mdc-card-header {
+    padding: 1.5rem 1.5rem 1rem;
+    background: transparent;
+    border: none;
+    flex-shrink: 0;
+    
+    .mat-mdc-card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2d3748;
+      line-height: 1.4;
+      margin: 0;
+      transition: all 0.3s ease;
+      letter-spacing: -0.01em;
+    }
+  }
+  
+  .mat-mdc-card-content {
+    padding: 0 1.5rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    p {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+      font-weight: 400;
+    }
+  }
+  
+  &:hover {
+    .mat-mdc-card-title {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transform: translateX(2px);
+    }
+    
+    .mat-mdc-card-content p {
+      color: #475569;
+      transform: translateX(2px);
+    }
+  }
+}
+
+// Progressive ocean colors for each section
+.section:nth-child(1) .card-item mat-card::before { 
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea); 
+}
+.section:nth-child(3) .card-item mat-card::before { 
+  background: linear-gradient(90deg, #764ba2, #f093fb, #764ba2); 
+}
+.section:nth-child(5) .card-item mat-card::before { 
+  background: linear-gradient(90deg, #f093fb, #f5576c, #f093fb); 
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .section {
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+  }
+  
+  .card-item mat-card {
+    min-height: 140px;
+    
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .section .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-container {
+    gap: 2rem;
   }
 }
     
