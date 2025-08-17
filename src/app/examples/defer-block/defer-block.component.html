@@ -1,23 +1,21 @@
-<div class="flex flex-col w-full gap-4">
-  <div class="w-full">
-    <h2 class="text-2xl font-bold">Defer Block Examples</h2>
-    <div class="flex flex-wrap gap-4">
-      @for (item of deferBlockExamples(); track item) {
-        <a class="item flex-none w-[calc(25%-12px)]" [routerLink]="item.routerLink">
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>
-                {{ item.title }}
-              </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>
-                {{ item.content }}
-              </p>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      }
-    </div>
+<div class="container">
+  <h2>Defer Block Examples</h2>
+  <div class="card-grid">
+    @for (item of deferBlockExamples(); track item) {
+      <a class="card-item" [routerLink]="item.routerLink">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              {{ item.title }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ item.content }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
   </div>
 </div>
