@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   color: white;
   margin-top: auto;
   width: 100%;
@@ -138,6 +138,6 @@
 // Dark mode support
 @media (prefers-color-scheme: dark) {
   .footer {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -12,7 +12,29 @@ import { MatButtonModule } from '@angular/material/button';
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
+  @ViewChild('performanceChart', { static: false }) performanceChart?: ElementRef;
+  
+  ngAfterViewInit() {
+    // Trigger chart animations when component loads
+    setTimeout(() => {
+      this.animateChart();
+    }, 500);
+  }
+  
+  animateChart() {
+    if (this.performanceChart) {
+      const chartElement = this.performanceChart.nativeElement;
+      const bars = chartElement.querySelectorAll('.bar');
+      
+      bars.forEach((bar: HTMLElement, index: number) => {
+        setTimeout(() => {
+          bar.classList.add('animate');
+        }, index * 500);
+      });
+    }
+  }
+
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

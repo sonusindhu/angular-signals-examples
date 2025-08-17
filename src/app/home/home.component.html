@@ -81,91 +81,51 @@
 
     <div class="features-grid">
       <div class="feature-card" [routerLink]="['/signal']">
-        <div class="card-image">
-          <div class="icon-container signals">
-            <mat-icon>timeline</mat-icon>
-          </div>
-          <div class="card-overlay"></div>
+        <div class="feature-number">01</div>
+        <div class="feature-icon">
+          <mat-icon>timeline</mat-icon>
         </div>
-        <div class="card-content">
-          <h3 class="card-title">Signal Examples</h3>
-          <p class="card-description">16 comprehensive examples from basic state management to advanced reactive patterns</p>
-          <div class="feature-tags">
-            <span class="tag">State Management</span>
-            <span class="tag">Computed Values</span>
-            <span class="tag">Side Effects</span>
-          </div>
-          <div class="card-footer">
-            <span class="example-count">16 Examples</span>
-            <mat-icon class="arrow-icon">arrow_forward</mat-icon>
-          </div>
-        </div>
+        <h3 class="feature-title">Signal Examples</h3>
+        <p class="feature-description">16 comprehensive examples from basic state management to advanced reactive patterns with computed values and side effects</p>
+        <button class="feature-button">
+          Explore Signals
+        </button>
       </div>
 
       <div class="feature-card" [routerLink]="['/linked-signal']">
-        <div class="card-image">
-          <div class="icon-container linked">
-            <mat-icon>account_tree</mat-icon>
-          </div>
-          <div class="card-overlay"></div>
+        <div class="feature-number">02</div>
+        <div class="feature-icon">
+          <mat-icon>account_tree</mat-icon>
         </div>
-        <div class="card-content">
-          <h3 class="card-title">LinkedSignal Examples</h3>
-          <p class="card-description">Advanced source tracking with automatic updates and complex business logic</p>
-          <div class="feature-tags">
-            <span class="tag">Source Tracking</span>
-            <span class="tag">Tuple Sources</span>
-            <span class="tag">Complex Logic</span>
-          </div>
-          <div class="card-footer">
-            <span class="example-count">3 Examples</span>
-            <mat-icon class="arrow-icon">arrow_forward</mat-icon>
-          </div>
-        </div>
+        <h3 class="feature-title">LinkedSignal Examples</h3>
+        <p class="feature-description">Advanced source tracking with automatic updates and complex business logic for professional applications</p>
+        <button class="feature-button">
+          Discover LinkedSignals
+        </button>
       </div>
 
       <div class="feature-card" [routerLink]="['/resource-api']">
-        <div class="card-image">
-          <div class="icon-container resource">
-            <mat-icon>cloud_sync</mat-icon>
-          </div>
-          <div class="card-overlay"></div>
+        <div class="feature-number">03</div>
+        <div class="feature-icon">
+          <mat-icon>cloud_sync</mat-icon>
         </div>
-        <div class="card-content">
-          <h3 class="card-title">Resource API</h3>
-          <p class="card-description">Modern async data loading with reactive state management and error handling</p>
-          <div class="feature-tags">
-            <span class="tag">HTTP Requests</span>
-            <span class="tag">Loading States</span>
-            <span class="tag">Error Handling</span>
-          </div>
-          <div class="card-footer">
-            <span class="example-count">6 Examples</span>
-            <mat-icon class="arrow-icon">arrow_forward</mat-icon>
-          </div>
-        </div>
+        <h3 class="feature-title">Resource API</h3>
+        <p class="feature-description">Modern data fetching with reactive state management, loading states, and error handling patterns</p>
+        <button class="feature-button">
+          Learn Resource API
+        </button>
       </div>
 
       <div class="feature-card" [routerLink]="['/defer-block']">
-        <div class="card-image">
-          <div class="icon-container defer">
-            <mat-icon>schedule</mat-icon>
-          </div>
-          <div class="card-overlay"></div>
+        <div class="feature-number">04</div>
+        <div class="feature-icon">
+          <mat-icon>schedule</mat-icon>
         </div>
-        <div class="card-content">
-          <h3 class="card-title">Defer Blocks</h3>
-          <p class="card-description">Performance optimization through lazy loading and intelligent deferred rendering</p>
-          <div class="feature-tags">
-            <span class="tag">Lazy Loading</span>
-            <span class="tag">Performance</span>
-            <span class="tag">Optimization</span>
-          </div>
-          <div class="card-footer">
-            <span class="example-count">11 Examples</span>
-            <mat-icon class="arrow-icon">arrow_forward</mat-icon>
-          </div>
-        </div>
+        <h3 class="feature-title">Defer Blocks</h3>
+        <p class="feature-description">Performance optimization through lazy loading and intelligent deferred rendering techniques</p>
+        <button class="feature-button">
+          Explore Defer Blocks
+        </button>
       </div>
     </div>
   </section>
@@ -206,18 +166,18 @@
         </div>
       </div>
       <div class="benefits-visual">
-        <div class="performance-chart">
+        <div class="performance-chart" #performanceChart>
           <div class="chart-header">
             <h4>Performance Comparison</h4>
             <span class="chart-subtitle">Change Detection Cycles</span>
           </div>
           <div class="chart-bars">
             <div class="bar-group">
-              <div class="bar traditional" style="height: 80%"></div>
+              <div class="bar traditional" data-height="80"></div>
               <span class="bar-label">Traditional</span>
             </div>
             <div class="bar-group">
-              <div class="bar signals" style="height: 25%"></div>
+              <div class="bar signals" data-height="25"></div>
               <span class="bar-label">Signals</span>
             </div>
           </div>
