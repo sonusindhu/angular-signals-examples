@@ -3,13 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 interface Course {
   id: number;
   title: string;
   defaultQuantity: number;
-};
+}
 
 const COURSES: Course[] = [
   {
@@ -31,7 +32,7 @@ const COURSES: Course[] = [
 
 @Component({
   selector: 'app-ls-example1',
-  imports: [FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatCardModule],
   templateUrl: './ls-example1.component.html',
   styleUrl: './ls-example1.component.scss'
 })
@@ -39,12 +40,13 @@ export default class LsExample1Component {
   courses = signal<Course[]>(COURSES);
   selectedCourseId = signal<number | null>(1);
 
+  // 🔗 LinkedSignal automatically updates quantity based on selected course
   quantity = linkedSignal({
     source: () => ({ selectedCourseId: this.selectedCourseId }),
     computation: (source, previous) => {
-      const course = this.courses().find(c => c.id == source.selectedCourseId());
+      const course = this.courses().find(c => c.id === source.selectedCourseId());
       if(course){
-        return this.courses().find(c => c.id === source.selectedCourseId())?.defaultQuantity;
+        return course.defaultQuantity;
       }
       return this.courses()[0].defaultQuantity;
     }
@@ -52,5 +54,17 @@ export default class LsExample1Component {
 
   onQuantityChanged(quantity: string) {
     this.quantity.set(parseInt(quantity));
+  }
+
+  getSelectedCourse() {
+    return this.courses().find(c => c.id === this.selectedCourseId());
+  }
+
+  getSelectedCourseTitle() {
+    return this.getSelectedCourse()?.title || 'None';
+  }
+
+  getSelectedCourseDefaultQuantity() {
+    return this.getSelectedCourse()?.defaultQuantity || 'N/A';
   }
 }

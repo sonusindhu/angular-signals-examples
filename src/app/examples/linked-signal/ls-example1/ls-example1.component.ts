@@ -3,6 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MarkdownComponent } from 'ngx-markdown';
+import { CommonModule } from '@angular/common';
 
 
 interface Course {
@@ -31,7 +35,7 @@ const COURSES: Course[] = [
 
 @Component({
   selector: 'app-ls-example1',
-  imports: [FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatTabsModule, MatCardModule, MarkdownComponent],
   templateUrl: './ls-example1.component.html',
   styleUrl: './ls-example1.component.scss'
 })
@@ -52,5 +56,17 @@ export default class LsExample1Component {
 
   onQuantityChanged(quantity: string) {
     this.quantity.set(parseInt(quantity));
+  }
+
+  getSelectedCourse() {
+    return this.courses().find(c => c.id === this.selectedCourseId());
+  }
+
+  getSelectedCourseTitle() {
+    return this.getSelectedCourse()?.title || 'None';
+  }
+
+  getSelectedCourseDefaultQuantity() {
+    return this.getSelectedCourse()?.defaultQuantity || 'N/A';
   }
 }
