@@ -6,6 +6,8 @@ import {
   signal,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 
 interface Product {
   id: number;
@@ -23,16 +25,8 @@ const PRODUCTS: Product[] = [
     selector: 'signal-example13',
     templateUrl: `./signal-example13.component.html`,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatButtonModule],
-    styles: [
-        `
-      ul {
-        li {
-          padding: 10px;
-        }
-      }
-    `,
-    ]
+    styleUrl: `./signal-example13.component.scss`,
+    imports: [MatButtonModule, MatTabsModule, MarkdownComponent],
 })
 export default class SignalExample13Component {
   // Define a signal for the list of items
