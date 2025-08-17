@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, effect, signal, untracked } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
     selector: 'signal-example12',
     templateUrl: `./signal-example12.component.html`,
+    styleUrl: `./signal-example12.component.scss`,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatButtonModule]
+    standalone: true,
+    imports: [MatButtonModule, MatTabsModule, MarkdownComponent]
 })
 export default class SignalExample12Component {
   counter1 = signal(1);

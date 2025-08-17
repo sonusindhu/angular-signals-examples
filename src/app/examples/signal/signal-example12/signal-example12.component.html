@@ -1,21 +1,37 @@
-<h2>Example 12 - untracked signal</h2>
-
-<div>
-  <p>Counter 1 - {{ counter1() }}</p>
-  <button mat-raised-button color="primary" (click)="updateCounter1()">
-    Update Counter 1
-  </button>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 12 - Untracked Signal</h2>
+        <p>This example demonstrates using <code>untracked()</code> to avoid triggering effects on certain signal updates.</p>
+        <div class="demo-section">
+          <div class="untracked-container">
+            <h3>🔄 Untracked Signal</h3>
+            <div class="info-section">
+              <div>
+                <p>Counter 1 - {{ counter1() }}</p>
+                <button mat-raised-button color="primary" (click)="updateCounter1()">Update Counter 1</button>
+              </div>
+              <div style="margin-top: 2rem;">
+                <p>Counter 2 - {{ counter2() }}</p>
+                <button mat-raised-button color="primary" (click)="updateCounter2()">Update Counter 2</button>
+              </div>
+              <b style="display:block; margin-top:2rem;">
+                To review the changes, view the console. Updating counter 1 triggers the effect, but updating counter 2 does not (due to <code>untracked()</code>).
+              </b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example12/signal-example12.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example12/signal-example12.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example12/signal-example12.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
 </div>
-
-<div>
-  <p>Counter 2 - {{ counter2() }}</p>
-  <button mat-raised-button color="primary" (click)="updateCounter2()">
-    Update Counter 2
-  </button>
-</div>
-
-<b>
-  To review the changes, view the console, if we update the counter 1 then we
-  are using effect to loging the update but in case of the counter 2 update then
-  we are untrack the updates.
-</b>
