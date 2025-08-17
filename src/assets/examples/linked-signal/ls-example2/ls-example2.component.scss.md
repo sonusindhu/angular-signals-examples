@@ -1,3 +1,4 @@
+```code
 .calc-container {
   max-width: 400px;
   margin: 2rem auto;
@@ -6,11 +7,9 @@
   border-radius: 8px;
   background-color: #f9fafb;
   font-family: Arial, sans-serif;
-
   label {
     display: block;
     margin-bottom: 1rem;
-
     input {
       width: 100%;
       padding: 0.5rem;
@@ -19,10 +18,10 @@
       border: 1px solid #ccc;
     }
   }
-
   p {
     font-weight: bold;
     font-size: 1.25rem;
     color: #2c7a7b;
   }
 }
+```

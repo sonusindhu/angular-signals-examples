@@ -1,33 +1,29 @@
+```code
 <mat-tab-group mat-stretch-tabs>
   <mat-tab label="Demo">
     <div class="content-area">
       <h2>Example 1 - Default Course Quantity</h2>
       <p>This example demonstrates how to use LinkedSignal to automatically update a quantity field based on the selected course's default quantity.</p>
-      
       <div class="demo-section">
         <div class="container">
           <h3>Shopping Cart</h3>
-        
           <div class="form-control">
             <mat-form-field>
               <mat-label>Select Course</mat-label>
               <mat-select [(ngModel)]="selectedCourseId" name="course">
-                  <mat-option>Clear</mat-option>
-                  @for (course of courses(); track course.id) {
-                      <mat-option [value]="course.id">{{ course.title }}</mat-option>
-                  }
+                <mat-option>Clear</mat-option>
+                @for (course of courses(); track course.id) {
+                  <mat-option [value]="course.id">{{ course.title }}</mat-option>
+                }
               </mat-select>
             </mat-form-field>
           </div>
-        
           <div class="form-control">
-              <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width">
               <mat-label>Quantity (Auto-updates based on course)</mat-label>
-              <input matInput placeholder="Enter custom quantity" [value]="quantity()" 
-                (change)="onQuantityChanged(input.value)" #input>
-              </mat-form-field>
+              <input matInput placeholder="Enter custom quantity" [value]="quantity()" (change)="onQuantityChanged(input.value)" #input>
+            </mat-form-field>
           </div>
-
           <div class="info-section">
             <mat-card>
               <mat-card-content>
@@ -43,13 +39,5 @@
       </div>
     </div>
   </mat-tab>
-  <mat-tab label="HTML">
-    <markdown clipboard [src]="'assets/examples/linked-signal/ls-example1/ls-example1-md.component.html'"></markdown>
-  </mat-tab>
-  <mat-tab label="TS">
-    <markdown clipboard [src]="'assets/examples/linked-signal/ls-example1/ls-example1.component.ts'"></markdown>
-  </mat-tab>
-  <mat-tab label="CSS">
-    <markdown clipboard [src]="'assets/examples/linked-signal/ls-example1/ls-example1.component.scss'"></markdown>
-  </mat-tab>
 </mat-tab-group>
+```

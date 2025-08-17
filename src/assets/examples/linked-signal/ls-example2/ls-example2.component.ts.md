@@ -1,3 +1,4 @@
+```typescript
 import { CommonModule } from '@angular/common';
 import { Component, signal, linkedSignal, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -25,3 +26,4 @@ export class LsExample2Component {
     return subtotal * (1 + this.taxRate);
   });
 }
+```
