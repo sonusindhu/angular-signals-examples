@@ -1,8 +1,32 @@
-<h2>Example 16 - readonly signal (asReadonly)</h2>
 
-<p>Read Only Name: {{ readOnlyName() }}</p>
-
-<button mat-raised-button color="primary" (click)="updateName('Aman Kumar')" >
-  Update Name
-</button>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 16 - Readonly Signal (asReadonly)</h2>
+        <p>
+          This example demonstrates using <code>asReadonly()</code> to expose a readonly signal.<br>
+          <strong>Writable signals</strong> can be updated and read, while <strong>readonly signals</strong> (created with <code>asReadonly()</code>) can only be read.<br>
+          This is useful for sharing state with other components or templates without allowing them to modify it directly.<br>
+          <span style="color:#3b82f6;">Try clicking the button to update the writable signal. The readonly signal will reflect the change, but cannot be updated directly.</span>
+        </p>
+        <div class="demo-section">
+          <p class="readonly-label">Read Only Name: <span class="readonly-value">{{ readOnlyName() }}</span></p>
+          <button mat-raised-button color="primary" (click)="updateName('Aman Kumar')">
+            Update Name
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example16/signal-example16.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example16/signal-example16.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example16/signal-example16.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
 

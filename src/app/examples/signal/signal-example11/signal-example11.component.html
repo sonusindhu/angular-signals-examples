@@ -1,8 +1,33 @@
-<h2>Example 11 - With input signal</h2>
-
-<mat-form-field>
-  <mat-label>Username</mat-label>
-  <input matInput #keyword (input)="searchProduct(keyword.value)">
-</mat-form-field>
-
-<input-signal-title [title]="searchInput" />
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 11 - With Input Signal</h2>
+        <p>This example demonstrates using a signal as input and updating it in real time.</p>
+        <div class="demo-section">
+          <div class="inputsignal-container">
+            <h3>🔤 Input Signal</h3>
+            <div class="controls">
+              <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput #keyword (input)="searchProduct(keyword.value)">
+              </mat-form-field>
+            </div>
+            <div class="info-section">
+              <input-signal-title [title]="searchInput" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example11/signal-example11.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example11/signal-example11.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example11/signal-example11.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

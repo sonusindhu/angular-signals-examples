@@ -1,3 +1,4 @@
+```code
 import { NgFor, NgIf } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -6,8 +7,6 @@ import {
   signal,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MarkdownComponent } from 'ngx-markdown';
 
 interface Product {
   id: number;
@@ -25,8 +24,16 @@ const PRODUCTS: Product[] = [
     selector: 'signal-example13',
     templateUrl: `./signal-example13.component.html`,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    styleUrl: `./signal-example13.component.scss`,
-    imports: [MatButtonModule, MatTabsModule, MarkdownComponent],
+    imports: [MatButtonModule],
+    styles: [
+        `
+      ul {
+        li {
+          padding: 10px;
+        }
+      }
+    `,
+    ]
 })
 export default class SignalExample13Component {
   // Define a signal for the list of items

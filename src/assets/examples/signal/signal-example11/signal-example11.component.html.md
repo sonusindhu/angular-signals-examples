@@ -1,0 +1,9 @@
+```code
+<h2>Example 11 - With input signal</h2>
+
+<mat-form-field>
+  <mat-label>Username</mat-label>
+  <input matInput #keyword (input)="searchProduct(keyword.value)">
+</mat-form-field>
+
+<input-signal-title [title]="searchInput" />

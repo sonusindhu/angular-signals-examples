@@ -1,0 +1,12 @@
+```code
+:host {
+  .summary {
+    padding: 10px;
+  }
+  table {
+    min-width: 320px;
+  }
+  table th {
+    text-align: left;
+  }
+}

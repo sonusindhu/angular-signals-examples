@@ -1,11 +1,31 @@
-<h2>Example 15 - show/hide a loading spinner</h2>
 
-<button mat-raised-button color="primary" (click)="toggleLoader()" 
-  [class.loading]="loading()" >
-  {{ loading() ? 'Hide' : 'Show' }} Loader
-</button>
-
-<div *ngIf="loading()" class="loader-area">
-  <mat-spinner></mat-spinner>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 15 - Show/Hide a Loading Spinner</h2>
+        <p>This example demonstrates toggling a loading spinner using signals and Angular Material components.</p>
+        <div class="demo-section">
+          <button mat-raised-button color="primary" (click)="toggleLoader()" [class.loading]="loading()">
+            {{ loading() ? 'Hide' : 'Show' }} Loader
+          </button>
+          @if(loading()){
+            <div class="loader-area">
+              <mat-spinner></mat-spinner>
+            </div>
+          }
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example15/signal-example15.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example15/signal-example15.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example15/signal-example15.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 

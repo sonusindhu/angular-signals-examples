@@ -1,8 +1,33 @@
-<h2>Example 6 - input with ngModel</h2>
-<div>
-  <p>User Name - {{ username() }}</p>
-  <mat-form-field>
-    <mat-label>User Name</mat-label>
-    <input matInput [(ngModel)]="username">
-  </mat-form-field>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 6 - Input with ngModel</h2>
+        <p>This example demonstrates two-way binding with ngModel and signals.</p>
+        <div class="demo-section">
+          <div class="input-container">
+            <h3>📝 Username Input</h3>
+            <div class="controls">
+              <mat-form-field appearance="fill">
+                <mat-label>User Name</mat-label>
+                <input matInput [(ngModel)]="username">
+              </mat-form-field>
+            </div>
+            <div class="info-section">
+              <p>User Name: <strong>{{ username() }}</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example6/signal-example6.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example6/signal-example6.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example6/signal-example6.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
 </div>

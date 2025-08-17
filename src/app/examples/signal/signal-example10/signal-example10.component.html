@@ -1,52 +1,57 @@
-<h2>Example 10 - Product list with filtering</h2>
-
-<mat-form-field>
-  <mat-label>Search by title</mat-label>
-  <input
-    matInput
-    [ngModel]="searchInput()"
-    (ngModelChange)="searchProduct($event)"
-  />
-</mat-form-field>
-
-<div>
-  <table style="width: 100%">
-    <thead>
-      <tr>
-        <th>title</th>
-        <th>Category</th>
-        <th>Brand</th>
-        <th>Price</th>
-        <th>Rating</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (product of filteredProducts(); track product) {}
-      <tr *ngFor="let product of filteredProducts()">
-        <td>{{ product.title }}</td>
-        <td>{{ product.category }}</td>
-        <td>{{ product.brand }}</td>
-        <td>{{ product.price | currency }}</td>
-        <td>{{ product.rating }}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <button
-    mat-raised-button
-    color="primary"
-    [disabled]="currentPage() === 1"
-    (click)="goToPrevPage()"
-  >
-    Prev
-  </button>
-  {{ currentPage() }}
-  <button
-    mat-raised-button
-    color="primary"
-    [disabled]="isNextPageNotAvailable()"
-    (click)="goToNextPage()"
-  >
-    Next
-  </button>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 10 - Product List with Filtering</h2>
+        <p>This example demonstrates a product list with search and pagination using Angular signals.</p>
+        <div class="demo-section">
+          <div class="productlist-container">
+            <h3>🛒 Product List</h3>
+            <div class="controls">
+              <mat-form-field appearance="fill">
+                <mat-label>Search by title</mat-label>
+                <input matInput [ngModel]="searchInput()" (ngModelChange)="searchProduct($event)" />
+              </mat-form-field>
+            </div>
+            <div class="info-section">
+              <table style="width: 100%">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of filteredProducts()">
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.brand }}</td>
+                    <td>{{ product.price | currency }}</td>
+                    <td>{{ product.rating }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="pagination-controls">
+                <button mat-raised-button color="primary" [disabled]="currentPage() === 1" (click)="goToPrevPage()">Prev</button>
+                <span>{{ currentPage() }}</span>
+                <button mat-raised-button color="primary" [disabled]="isNextPageNotAvailable()" (click)="goToNextPage()">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example10/signal-example10.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example10/signal-example10.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example10/signal-example10.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
 </div>

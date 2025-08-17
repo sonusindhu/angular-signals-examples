@@ -1,5 +1,4 @@
-import { MatTabsModule } from '@angular/material/tabs';
-import { MarkdownComponent } from 'ngx-markdown';
+```code
 import { NgIf, NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,13 +11,12 @@ import { MatInputModule } from '@angular/material/input';
     templateUrl: './signal-example9.component.html',
     styleUrl: './signal-example9.component.scss',
     imports: [
+       
         NgFor,
         FormsModule,
         MatButtonModule,
         MatFormFieldModule,
         MatInputModule,
-        MatTabsModule,
-        MarkdownComponent,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

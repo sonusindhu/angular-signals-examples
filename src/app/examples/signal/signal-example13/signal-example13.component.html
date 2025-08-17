@@ -1,24 +1,38 @@
-<h2>Example 13 - My Cart(Add/Remove Product)</h2>
 
-<ul>
-  @for (product of products(); track product) {
-  <li>
-    {{ product.name }} - ${{ product.price }}
-
-    @if (selectProductsIds().includes(product.id)) {
-
-    <button mat-raised-button color="warn" (click)="removeFromCart(product)">
-      Remove
-    </button>
-    } @else {
-    <button mat-raised-button color="primary" (click)="addToCart(product)">
-      Add
-    </button>
-    }
-  </li>
-  }
-</ul>
-
-<p>
-  Total Price: <b>${{ totalPrice() }}</b>
-</p>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 13 - My Cart (Add/Remove Product)</h2>
+        <p>This example demonstrates using signals to manage a shopping cart, with add/remove actions and a computed total price.</p>
+        <div class="demo-section">
+          <ul>
+            @for (product of products(); track product) {
+              <li>
+                {{ product.name }} - ${{ product.price }}
+                @if (selectProductsIds().includes(product.id)) {
+                  <button mat-raised-button color="warn" (click)="removeFromCart(product)">Remove</button>
+                } @else {
+                  <button mat-raised-button color="primary" (click)="addToCart(product)">Add</button>
+                }
+              </li>
+            }
+          </ul>
+          <div class="total-price">
+            <span class="label">Total Price:</span>
+            <span class="value">${{ totalPrice() }}</span>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example13/signal-example13.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example13/signal-example13.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example13/signal-example13.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

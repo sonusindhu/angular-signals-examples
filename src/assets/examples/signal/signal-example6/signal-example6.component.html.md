@@ -1,0 +1,9 @@
+```code
+<h2>Example 6 - input with ngModel</h2>
+<div>
+  <p>User Name - {{ username() }}</p>
+  <mat-form-field>
+    <mat-label>User Name</mat-label>
+    <input matInput [(ngModel)]="username">
+  </mat-form-field>
+</div>

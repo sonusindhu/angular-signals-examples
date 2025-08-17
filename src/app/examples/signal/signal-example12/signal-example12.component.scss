@@ -1,3 +1,4 @@
+
 :host {
   display: block;
   min-height: 100vh;
@@ -104,7 +105,7 @@
   margin-top: 2rem;
 }
 
-.effect-container {
+.untracked-container {
   background: rgba(255,255,255,0.95);
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(59,130,246,0.07), 0 1.5px 8px rgba(139,92,246,0.04);
@@ -125,12 +126,9 @@
   text-align: center;
   color: #64748b;
   font-size: 1rem;
-  p {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-    color: #1e293b;
-  }
-  button {
-    margin-top: 1.5rem;
-  }
+  margin-top: 1.5rem;
+}
+
+button[mat-raised-button] {
+  margin-top: 0.5rem;
 }
