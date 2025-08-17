@@ -1,10 +1,27 @@
-<h2>Example 14 - Product List with Virtual Scrolling</h2>
 
-<cdk-virtual-scroll-viewport
-  itemSize="50"
-  class="products"
->
-  <div class="product" *cdkVirtualFor="let product of products(); let i = index" style="height: 50px;">
-    {{ product.name }} - ${{ product.price }}
-  </div>
-</cdk-virtual-scroll-viewport>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 14 - Product List with Virtual Scrolling</h2>
+        <p>This example demonstrates a large product list rendered efficiently using Angular CDK virtual scrolling and signals.</p>
+        <div class="demo-section">
+          <cdk-virtual-scroll-viewport itemSize="50" class="products">
+            <div class="product" *cdkVirtualFor="let product of products(); let i = index">
+              {{ product.name }} - ${{ product.price }}
+            </div>
+          </cdk-virtual-scroll-viewport>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example14/signal-example14.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example14/signal-example14.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example14/signal-example14.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

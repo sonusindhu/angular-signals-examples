@@ -1,4 +1,6 @@
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -15,23 +17,9 @@ interface Product {
 @Component({
     selector: 'signal-example14',
     templateUrl: `./signal-example14.component.html`,
+    styleUrl: `./signal-example14.component.scss`,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [ScrollingModule],
-    styles: `
-      .products{
-        height: 300px; 
-        overflow-y: scroll;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        .product{
-          height: 50px;
-          display: flex;
-          align-items: center;
-        }
-      }
-      
-    `
+    imports: [ScrollingModule, MatTabsModule, MarkdownComponent],
 })
 export default class SignalExample14Component {
   products: WritableSignal<Product[]> = signal(
