@@ -1,3 +1,4 @@
+```code
 <h2>Example 11 - With input signal</h2>
 
 <mat-form-field>

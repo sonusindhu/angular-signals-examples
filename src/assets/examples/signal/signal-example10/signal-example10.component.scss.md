@@ -1,3 +1,4 @@
+```code
 :host {
   .summary {
     padding: 10px;

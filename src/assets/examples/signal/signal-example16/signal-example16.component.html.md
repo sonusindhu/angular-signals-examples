@@ -1,3 +1,4 @@
+```code
 <h2>Example 16 - readonly signal (asReadonly)</h2>
 
 <p>Read Only Name: {{ readOnlyName() }}</p>

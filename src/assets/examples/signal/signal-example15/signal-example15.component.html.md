@@ -1,3 +1,4 @@
+```code
 <h2>Example 15 - show/hide a loading spinner</h2>
 
 <button mat-raised-button color="primary" (click)="toggleLoader()" 

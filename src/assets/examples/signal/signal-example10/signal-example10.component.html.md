@@ -1,3 +1,4 @@
+```code
 <h2>Example 10 - Product list with filtering</h2>
 
 <mat-form-field>

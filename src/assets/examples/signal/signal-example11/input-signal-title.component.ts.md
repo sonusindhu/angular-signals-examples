@@ -1,3 +1,4 @@
+```code
 import {
   ChangeDetectionStrategy,
   Component,

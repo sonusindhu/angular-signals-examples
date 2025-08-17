@@ -1,3 +1,4 @@
+```code
 <h2>Example 14 - Product List with Virtual Scrolling</h2>
 
 <cdk-virtual-scroll-viewport

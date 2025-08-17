@@ -1,3 +1,4 @@
+```code
 import { NgFor, NgIf } from '@angular/common';
 import {
   ChangeDetectionStrategy,

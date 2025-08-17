@@ -1,3 +1,4 @@
+```code
 <h2>Example 12 - untracked signal</h2>
 
 <div>

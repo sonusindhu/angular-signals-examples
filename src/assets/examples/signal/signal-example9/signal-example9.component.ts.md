@@ -1,3 +1,4 @@
+```code
 import { NgIf, NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';

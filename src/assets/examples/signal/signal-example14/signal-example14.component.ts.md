@@ -1,3 +1,4 @@
+```code
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {
   ChangeDetectionStrategy,

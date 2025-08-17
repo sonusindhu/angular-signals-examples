@@ -1,3 +1,4 @@
+```code
 <h2>Example 9 - Simple VAT calculator</h2>
 
 <mat-form-field>
