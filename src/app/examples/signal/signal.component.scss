@@ -2,3 +2,41 @@
     display: block;
     width: 100%;
 }
+
+.item {
+  text-decoration: none;
+  
+  mat-card {
+    height: 100%;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    }
+  }
+  
+  mat-card-content {
+    padding-top: 0;
+    
+    p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .item {
+    width: calc(50% - 8px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    width: 100% !important;
+  }
+}

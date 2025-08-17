@@ -1,22 +1,103 @@
-<div class="flex flex-col w-full gap-4">
-  <div class="w-full">
-    <h2 class="text-2xl font-bold">Signal Examples</h2>
-    @for (item of examples(); track item) {
-      <a class="item" [routerLink]="item.routerLink">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>
-              {{ item.title }}
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ item.content }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    }
+<div class="landing-page">
+  <div class="hero-section">
+    <h1 class="hero-title">Angular Signals Examples</h1>
+    <p class="hero-subtitle">
+      Explore comprehensive examples of Angular's new reactivity model including Signals, LinkedSignals, Resource API, and Defer Blocks
+    </p>
+  </div>
+
+  <div class="features-grid">
+    <a class="feature-card" [routerLink]="['/signal']">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>timeline</mat-icon>
+            Signal Examples
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>16 comprehensive examples covering basic to advanced Signal usage patterns</p>
+          <ul>
+            <li>Count operations & state management</li>
+            <li>Computed signals & reactive calculations</li>
+            <li>Observable integration & side effects</li>
+            <li>Real-world applications & patterns</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </a>
+
+    <a class="feature-card" [routerLink]="['/linked-signal']">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>link</mat-icon>
+            LinkedSignal Examples
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>3 advanced examples showcasing LinkedSignal capabilities</p>
+          <ul>
+            <li>Source tracking & automatic updates</li>
+            <li>Mathematical computations & calculations</li>
+            <li>Complex business logic & pricing engines</li>
+            <li>Tuple sources & manual overrides</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </a>
+
+    <a class="feature-card" [routerLink]="['/resource-api']">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>cloud_download</mat-icon>
+            Resource API Examples
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Modern async data loading and state management</p>
+          <ul>
+            <li>HTTP request handling</li>
+            <li>Loading & error states</li>
+            <li>Reactive data fetching</li>
+            <li>Cache management</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </a>
+
+    <a class="feature-card" [routerLink]="['/defer-block']">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>schedule</mat-icon>
+            Defer Block Examples
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Optimize performance with lazy loading and deferred rendering</p>
+          <ul>
+            <li>Conditional rendering</li>
+            <li>Performance optimization</li>
+            <li>User interaction triggers</li>
+            <li>Loading strategies</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+
+  <div class="info-section">
+    <mat-card>
+      <mat-card-content>
+        <h3>About Angular Signals</h3>
+        <p>
+          Angular Signals represent a new reactivity model that provides a more predictable and performant way to handle state changes in Angular applications. 
+          This collection demonstrates practical implementations and real-world usage patterns to help you master these powerful features.
+        </p>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
 
