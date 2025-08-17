@@ -3,31 +3,44 @@
     <a class="logo" [routerLink]="['/']">
       🚀 Angular Signals
     </a>
-    
-    <nav>
-      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        Home
-      </a>
-      <a [routerLink]="['/signal']" routerLinkActive="active">
-        Signal
-      </a>
-      <a [routerLink]="['/linked-signal']" routerLinkActive="active">
-        LinkedSignal
-      </a>
-      <a [routerLink]="['/resource-api']" routerLinkActive="active">
-        Resource API
-      </a>
-      <a [routerLink]="['/defer-block']" routerLinkActive="active">
-        Defer Block
-      </a>
-      <a
-        target="_blank"
-        aria-label="Github Repo link"
-        href="https://github.com/sonusindhu/angular-signals-examples"
-        class="github-link"
-      >
+
+    <!-- Desktop nav: always visible on desktop -->
+    <nav class="desktop-nav">
+      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a [routerLink]="['/signal']" routerLinkActive="active">Signal</a>
+      <a [routerLink]="['/linked-signal']" routerLinkActive="active">LinkedSignal</a>
+      <a [routerLink]="['/resource-api']" routerLinkActive="active">Resource API</a>
+      <a [routerLink]="['/defer-block']" routerLinkActive="active">Defer Block</a>
+      <a target="_blank" aria-label="Github Repo link" href="https://github.com/sonusindhu/angular-signals-examples" class="github-link">
         <img src="/assets/images/github-icon.svg" alt="GitHub" />
       </a>
+    </nav>
+
+    <!-- Hamburger for mobile -->
+    <button class="nav-toggle" aria-label="Open navigation menu" (click)="openNav()" [class.hide-when-open]="navOpen">
+      <span class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <!-- Mobile nav overlay -->
+    <div class="nav-overlay" *ngIf="navOpen" (click)="closeNav()"></div>
+
+    <!-- Mobile nav: only visible when navOpen -->
+    <nav class="mobile-nav" [class.open]="navOpen" [attr.aria-hidden]="!navOpen">
+      <button class="close-nav" aria-label="Close navigation menu" (click)="closeNav()">&times;</button>
+      <div class="nav-links">
+        <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNav()">Home</a>
+        <a [routerLink]="['/signal']" routerLinkActive="active" (click)="closeNav()">Signal</a>
+        <a [routerLink]="['/linked-signal']" routerLinkActive="active" (click)="closeNav()">LinkedSignal</a>
+        <a [routerLink]="['/resource-api']" routerLinkActive="active" (click)="closeNav()">Resource API</a>
+        <a [routerLink]="['/defer-block']" routerLinkActive="active" (click)="closeNav()">Defer Block</a>
+        <a target="_blank" aria-label="Github Repo link" href="https://github.com/sonusindhu/angular-signals-examples" class="github-link" (click)="closeNav()">
+          <img src="/assets/images/github-icon.svg" alt="GitHub" />
+        </a>
+      </div>
     </nav>
   </div>
 </header>

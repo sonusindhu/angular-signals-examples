@@ -19,4 +19,30 @@ import { MatMenuModule } from '@angular/material/menu';
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss'
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  navOpen = false;
+
+  openNav() {
+    this.navOpen = true;
+    setTimeout(() => {
+      const firstLink = document.querySelector('.nav-links a');
+      if (firstLink) (firstLink as HTMLElement).focus();
+    }, 100);
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeNav() {
+    this.navOpen = false;
+    document.body.style.overflow = '';
+  }
+
+  onKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && this.navOpen) {
+      this.closeNav();
+    }
+  }
+
+  constructor() {
+    // Optionally, listen for route changes to close nav
+  }
+}
