@@ -1,7 +1,7 @@
+```code
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-
 
 @Component({
     selector: 'app-signal-example4',
@@ -18,3 +18,4 @@ export default class SignalExample4Component {
     this.count.update(() => this.count() + 1);
   }
 }
+```

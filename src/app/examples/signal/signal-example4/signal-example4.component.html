@@ -1,8 +1,31 @@
-<h2>Example 4 - computed</h2>
-<button mat-raised-button color="primary"  (click)="increaseCount()">Increase</button>
-<p>
-  count -> {{ count() }}
-</p>
-<p>
-  Computed count = {{ count() }} + 2 -> {{ doubleCount() }}
-</p>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 4 - Computed</h2>
+        <p>This example demonstrates a computed signal that derives its value from another signal.</p>
+        <div class="demo-section">
+          <div class="counter-container">
+            <h3>🧮 Computed Signal</h3>
+            <div class="controls">
+              <button mat-raised-button color="primary" (click)="increaseCount()">Increase</button>
+            </div>
+            <div class="info-section">
+              <p>Count: <strong>{{ count() }}</strong></p>
+              <p>Computed count = {{ count() }} + 2 → <strong>{{ doubleCount() }}</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example4/signal-example4.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example4/signal-example4.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example4/signal-example4.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

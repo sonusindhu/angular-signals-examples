@@ -1,3 +1,4 @@
+```code
 :host {
   display: block;
   min-height: 100vh;
@@ -137,3 +138,4 @@
     margin: 0.5rem 0;
   }
 }
+```

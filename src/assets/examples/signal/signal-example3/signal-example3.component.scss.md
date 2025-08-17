@@ -1,3 +1,4 @@
+```code
 :host {
   display: block;
   min-height: 100vh;
@@ -127,6 +128,14 @@
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
+  .count {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    min-width: 48px;
+    text-align: center;
+    display: inline-block;
+  }
 }
 
 .info-section {
