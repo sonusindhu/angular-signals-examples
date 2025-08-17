@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MarkdownComponent } from 'ngx-markdown';
 import { httpResource } from '@angular/common/http';
 
 @Component({
   selector: 'app-resource-api-example6',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <h2>httpResource Example 6: Fetch a Random Joke</h2>
-    <button (click)="jokeSignal.reload()">reload Joke</button>
-    <div *ngIf="jokeSignal.isLoading()">Loading...</div>
-    <div *ngIf="jokeSignal.error()">Error: {{ jokeSignal.error()?.message }}</div>
-    <div *ngIf="jokeSignal.value() as joke">
-      <pre>{{ joke | json }}</pre>
-    </div>
-  `
+  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  templateUrl: './resource-api-example6.component.html',
+  styleUrl: './resource-api-example6.component.scss'
 })
 
 export class ResourceApiExample6Component {

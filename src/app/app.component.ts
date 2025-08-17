@@ -21,6 +21,16 @@ export class AppComponent {
   router = inject(Router);
   loading = signal(false);
   ngOnInit() {
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // 👈 smooth scroll
+        });
+      }
+    });
+    
     this.router.events
       .pipe(
         startWith(this.router.events),

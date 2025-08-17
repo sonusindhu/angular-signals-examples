@@ -2,18 +2,18 @@ import { ExampleModel } from '../models/example.model';
 
 export const LINKED_SIGNAL_EXAMPLES: ExampleModel[] = [
   {
-    title: 'Example 1',
-    content: 'Default Course Quanity',
+    title: 'Smart Course Quantity',
+    content: 'Master linkedSignal fundamentals with intelligent course quantity management. Automatic source tracking with seamless reactive updates.',
     routerLink: '/linked-signal/example1',
   },
   {
-    title: 'Example 2',
-    content: '🧮 Total Price Calculator',
+    title: 'Dynamic Tax Calculator',
+    content: 'Build a sophisticated real-time tax computation system. Simplified linkedSignal syntax with immediate price calculations and tax adjustments.',
     routerLink: '/linked-signal/example2',
   },
   {
-    title: 'Example 3',
-    content: 'Dynamic Pricing Based on User & Product ID',
+    title: 'Advanced Pricing Engine',
+    content: 'Create complex multi-factor business logic with professional-grade pricing. Tuple sources, manual overrides, and enterprise-level calculations.',
     routerLink: '/linked-signal/example3',
   },
 ];

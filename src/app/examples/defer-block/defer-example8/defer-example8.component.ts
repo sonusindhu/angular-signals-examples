@@ -12,6 +12,7 @@ import { MarkdownComponent } from 'ngx-markdown';
     standalone: true,
     imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatIconModule, MatChipsModule, MarkdownComponent],
     templateUrl: './defer-example8-md.component.html',
+    styleUrl: './defer-example8.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class DeferExample8Component {

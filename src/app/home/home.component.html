@@ -1,43 +1,210 @@
-<div class="flex flex-col sm:flex-row w-full gap-4">
-  <div class="w-full">
-    <h2 class="text-2xl font-bold">Signal Examples</h2>
-    @for (item of examples(); track item) {
-      <a class="item" [routerLink]="item.routerLink">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>
-              {{ item.title }}
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ item.content }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    }
-  </div>
+<div class="modern-landing">
+  <!-- Hero Section with Animated Background -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+      </div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="gradient-text">Angular Signals</span>
+          <br>
+          <span class="subtitle-text">Reactivity Reimagined</span>
+        </h1>
+        <p class="hero-description">
+          Master Angular's revolutionary reactivity model with comprehensive examples, 
+          interactive demos, and real-world patterns that transform how you build applications.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Examples</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Interactive</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <button mat-raised-button color="primary" class="cta-button primary" [routerLink]="['/signal']">
+            <mat-icon>play_arrow</mat-icon>
+            Start Exploring
+          </button>
+          <button mat-stroked-button class="cta-button secondary" [routerLink]="['/linked-signal']">
+            <mat-icon>auto_awesome</mat-icon>
+            Advanced Features
+          </button>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="code-preview">
+          <div class="code-header">
+            <div class="code-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="code-title">signal.component.ts</span>
+          </div>
+          <div class="code-content">
+            <pre><code class="typescript">
+<span class="keyword">import</span> <span class="punctuation">&#123;</span> <span class="function">signal</span><span class="punctuation">,</span> <span class="function">computed</span> <span class="punctuation">&#125;</span> <span class="keyword">from</span> <span class="string">'&#64;angular/core'</span><span class="punctuation">;</span>
 
-  <div class="block sm:hidden border w-full h-px border-solid border-[gray]"></div>
+<span class="comment">// Create reactive signals</span>
+<span class="keyword">const</span> <span class="variable">count</span> <span class="operator">=</span> <span class="function">signal</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">);</span>
+<span class="keyword">const</span> <span class="variable">doubled</span> <span class="operator">=</span> <span class="function">computed</span><span class="punctuation">(</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=></span> <span class="variable">count</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">*</span> <span class="number">2</span><span class="punctuation">);</span>
 
-  <div class="w-full">
-    <h2 class="text-2xl font-bold m-r-4">Linked Signal Examples</h2>
-    @for (item of linkedSignalExamples(); track item) {
-      <a class="item" [routerLink]="item.routerLink">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>{{ item.title }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ item.content }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    }
-  </div>
+<span class="comment">// Update signal values</span>
+<span class="variable">count</span><span class="punctuation">.</span><span class="function">set</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">);</span> <span class="comment">// doubled automatically becomes 10</span>
+            </code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2 class="section-title">Explore by Category</h2>
+      <p class="section-subtitle">Dive deep into Angular's reactive ecosystem with hands-on examples</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" [routerLink]="['/signal']">
+        <div class="feature-number">01</div>
+        <div class="feature-icon">
+          <mat-icon>timeline</mat-icon>
+        </div>
+        <h3 class="feature-title">Signal Examples</h3>
+        <p class="feature-description">16 comprehensive examples from basic state management to advanced reactive patterns with computed values and side effects</p>
+        <button class="feature-button">
+          Explore Signals
+        </button>
+      </div>
+
+      <div class="feature-card" [routerLink]="['/linked-signal']">
+        <div class="feature-number">02</div>
+        <div class="feature-icon">
+          <mat-icon>account_tree</mat-icon>
+        </div>
+        <h3 class="feature-title">LinkedSignal Examples</h3>
+        <p class="feature-description">Advanced source tracking with automatic updates and complex business logic for professional applications</p>
+        <button class="feature-button">
+          Discover LinkedSignals
+        </button>
+      </div>
+
+      <div class="feature-card" [routerLink]="['/resource-api']">
+        <div class="feature-number">03</div>
+        <div class="feature-icon">
+          <mat-icon>cloud_sync</mat-icon>
+        </div>
+        <h3 class="feature-title">Resource API</h3>
+        <p class="feature-description">Modern data fetching with reactive state management, loading states, and error handling patterns</p>
+        <button class="feature-button">
+          Learn Resource API
+        </button>
+      </div>
+
+      <div class="feature-card" [routerLink]="['/defer-block']">
+        <div class="feature-number">04</div>
+        <div class="feature-icon">
+          <mat-icon>schedule</mat-icon>
+        </div>
+        <h3 class="feature-title">Defer Blocks</h3>
+        <p class="feature-description">Performance optimization through lazy loading and intelligent deferred rendering techniques</p>
+        <button class="feature-button">
+          Explore Defer Blocks
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="benefits-container">
+      <div class="benefits-content">
+        <h2 class="benefits-title">Why Angular Signals?</h2>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <mat-icon>flash_on</mat-icon>
+            </div>
+            <div class="benefit-text">
+              <h4>Performance First</h4>
+              <p>Fine-grained reactivity ensures only necessary components update, dramatically improving performance</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <mat-icon>psychology</mat-icon>
+            </div>
+            <div class="benefit-text">
+              <h4>Predictable Updates</h4>
+              <p>Glitch-free updates with clear dependency tracking make debugging and reasoning about state changes easier</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <mat-icon>integration_instructions</mat-icon>
+            </div>
+            <div class="benefit-text">
+              <h4>Seamless Integration</h4>
+              <p>Works perfectly with existing Angular patterns while enabling new possibilities for reactive programming</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="benefits-visual">
+        <div class="performance-chart" #performanceChart>
+          <div class="chart-header">
+            <h4>Performance Comparison</h4>
+            <span class="chart-subtitle">Change Detection Cycles</span>
+          </div>
+          <div class="chart-bars">
+            <div class="bar-group">
+              <div class="bar traditional" data-height="80"></div>
+              <span class="bar-label">Traditional</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar signals" data-height="25"></div>
+              <span class="bar-label">Signals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to Transform Your Angular Apps?</h2>
+      <p class="cta-description">
+        Start with our comprehensive examples and master the future of Angular reactivity
+      </p>
+      <div class="cta-buttons">
+        <button mat-raised-button color="primary" class="cta-button large" [routerLink]="['/signal']">
+          <mat-icon>rocket_launch</mat-icon>
+          Begin Journey
+        </button>
+        <button mat-stroked-button class="cta-button large secondary" (click)="scrollToTop()">
+          <mat-icon>school</mat-icon>
+          Learn More
+        </button>
+      </div>
+    </div>
+  </section>
 </div>
 
 

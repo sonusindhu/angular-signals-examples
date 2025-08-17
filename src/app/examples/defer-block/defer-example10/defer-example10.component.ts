@@ -14,6 +14,7 @@ import { MarkdownComponent } from 'ngx-markdown';
     standalone: true,
     imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule, MatSliderModule, MatFormFieldModule, MatInputModule, MarkdownComponent],
     templateUrl: './defer-example10.component.html',
+    styleUrl: './defer-example10.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class DeferExample10Component {

@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MarkdownComponent } from 'ngx-markdown';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { of, from } from 'rxjs';
 
@@ -14,18 +19,9 @@ function fetchGithubRepos() {
 @Component({
   selector: 'app-resource-api-example5',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <h2>rxResource Example 5: List Angular GitHub Repos</h2>
-    <button (click)="reposSignal.reload()">Reload</button>
-    <div *ngIf="reposSignal.isLoading()">Loading...</div>
-    <div *ngIf="reposSignal.error()">Error: {{ reposSignal.error() }}</div>
-    <ul *ngIf="reposSignal.value() as repos">
-      <li *ngFor="let repo of repos; let index = index">
-        {{ index + 1 }}. <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
-      </li>
-    </ul>
-  `
+  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  templateUrl: './resource-api-example5.component.html',
+  styleUrl: './resource-api-example5.component.scss'
 })
 export class ResourceApiExample5Component {
   reposSignal = rxResource({ stream: fetchGithubRepos, defaultValue: [] });

@@ -1,0 +1,60 @@
+```code
+<div class="content-area">
+  <h2>Resource API Example 3: Pagination with httpResource</h2>
+  <p>This example demonstrates pagination functionality using httpResource with dynamic parameters for fetching paginated todo data.</p>
+</div>
+
+<div class="demo-section">
+  <h3>Demo Content</h3>
+  <mat-card>
+    <mat-card-content>
+      <div class="demo-actions">
+        <button mat-raised-button color="primary" (click)="previousPage()" [disabled]="params()._start === 0">
+          <mat-icon>navigate_before</mat-icon>
+          Previous Page
+        </button>
+        
+        <span class="page-info">
+          Page {{(params()._start / params()._limit) + 1}} (Items {{params()._start + 1}}-{{params()._start + params()._limit}})
+        </span>
+        
+        <button mat-raised-button color="primary" (click)="nextPage()">
+          <mat-icon>navigate_next</mat-icon>
+          Next Page
+        </button>
+      </div>
+      
+      <div class="todos-display" *ngIf="httpResourcesSignal.value() as todos">
+        <div class="todos-grid">
+          <mat-card class="todo-card" *ngFor="let todo of todos" [class.completed]="todo.completed">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon [color]="todo.completed ? 'primary' : 'warn'">
+                  {{todo.completed ? 'check_circle' : 'radio_button_unchecked'}}
+                </mat-icon>
+                Todo #{{todo.id}}
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="todo-title">{{todo.title}}</p>
+              <span class="status-badge" [class]="todo.completed ? 'completed' : 'pending'">
+                {{todo.completed ? 'Completed' : 'Pending'}}
+              </span>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      
+      <div *ngIf="httpResourcesSignal.isLoading()" class="loading-state">
+        <mat-icon>hourglass_empty</mat-icon>
+        Loading todos...
+      </div>
+      
+      <div *ngIf="httpResourcesSignal.error()" class="error-state">
+        <mat-icon>error</mat-icon>
+        Error loading todos
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+```

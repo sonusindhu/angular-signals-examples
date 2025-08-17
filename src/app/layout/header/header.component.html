@@ -1,28 +1,33 @@
-<mat-toolbar color="primary">
-  <span class="app-logo">Angular Signals</span>
-
-  <span class="example-spacer"></span>
-
-  <button mat-button [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-    Home
-  </button>
-
-  <button mat-button [routerLink]="['/resource-api']" routerLinkActive="active">
-    Resource API
-  </button>
-
-  <button mat-button [routerLink]="['/defer-block']" routerLinkActive="active">
-    Defer Block
-  </button>
-
-  <span class="menu-spacer"></span>
-
-  <a
-    mat-icon-button
-    target="_blank"
-    aria-label="Github Repo link"
-    href="https://github.com/sonusindhu/angular-signals-examples"
-  >
-    <img src="/assets/images/github-icon.svg" />
-  </a>
-</mat-toolbar>
+<header>
+  <div class="header-content">
+    <a class="logo" [routerLink]="['/']">
+      🚀 Angular Signals
+    </a>
+    
+    <nav>
+      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </a>
+      <a [routerLink]="['/signal']" routerLinkActive="active">
+        Signal
+      </a>
+      <a [routerLink]="['/linked-signal']" routerLinkActive="active">
+        LinkedSignal
+      </a>
+      <a [routerLink]="['/resource-api']" routerLinkActive="active">
+        Resource API
+      </a>
+      <a [routerLink]="['/defer-block']" routerLinkActive="active">
+        Defer Block
+      </a>
+      <a
+        target="_blank"
+        aria-label="Github Repo link"
+        href="https://github.com/sonusindhu/angular-signals-examples"
+        class="github-link"
+      >
+        <img src="/assets/images/github-icon.svg" alt="GitHub" />
+      </a>
+    </nav>
+  </div>
+</header>

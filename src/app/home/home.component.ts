@@ -1,22 +1,41 @@
-import { Component, WritableSignal, signal } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-
-import { EXAMPLES } from '../shared/consts/signal-examples.const';
-import { LINKED_SIGNAL_EXAMPLES } from '../shared/consts/linked-signal-examples.const';
-import { ExampleModel } from '../shared/models/example.model';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     selector: 'app-home',
-    imports: [CommonModule, RouterModule, MatCardModule, MatGridListModule, MatIconModule],
+    imports: [CommonModule, RouterModule, MatCardModule, MatGridListModule, MatIconModule, MatButtonModule],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  examples: WritableSignal<ExampleModel[]> = signal(EXAMPLES);
+export class HomeComponent implements AfterViewInit {
+  @ViewChild('performanceChart', { static: false }) performanceChart?: ElementRef;
+  
+  ngAfterViewInit() {
+    // Trigger chart animations when component loads
+    setTimeout(() => {
+      this.animateChart();
+    }, 500);
+  }
+  
+  animateChart() {
+    if (this.performanceChart) {
+      const chartElement = this.performanceChart.nativeElement;
+      const bars = chartElement.querySelectorAll('.bar');
+      
+      bars.forEach((bar: HTMLElement, index: number) => {
+        setTimeout(() => {
+          bar.classList.add('animate');
+        }, index * 500);
+      });
+    }
+  }
 
-  linkedSignalExamples: WritableSignal<ExampleModel[]> = signal(LINKED_SIGNAL_EXAMPLES);
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

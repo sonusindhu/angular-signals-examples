@@ -3,6 +3,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MarkdownComponent } from 'ngx-markdown';
 import { of, single } from 'rxjs';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { HttpClient } from '@angular/common/http';
@@ -14,46 +18,9 @@ interface ResourceData {
 }
 @Component({
   selector: 'app-resource-api-example2',
-  imports: [MatButtonModule],
-  template: `
-    <h2>Resource API Example 2: List Resources (rxResource)</h2>
-    
-
-    <button mat-button color="primary" (click)="rxResourcesSignal.reload()">ReLoad</button>
-
-    <button mat-button color="accent" [disabled]="params()._start === 0" (click)="previousPage()">Previous</button>
-    <button mat-button color="accent" (click)="nextPage()">Next</button>
-
-    @if (rxResourcesSignal.isLoading()) {
-      <div>Loading...</div>
-    }
-    @else if(rxResourcesSignal.error()) {
-      <div>Error: {{ rxResourcesSignal.error() }}</div>
-    }
-    @else {
-        <table width="100%">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Task</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            @let data = rxResourcesSignal.value();
-            @if(data) {
-              @for (r of data; track r.id) {
-                <tr>
-                  <td>{{ r.id }}</td>
-                  <td>{{ r.title }}</td>
-                  <td>{{ r.completed ? 'Completed' : 'Pending' }}</td>
-                </tr>
-              }
-            }
-          </tbody>
-        </table>
-    }
-  `
+  imports: [MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  templateUrl: './resource-api-example2.component.html',
+  styleUrl: './resource-api-example2.component.scss'
 })
 export class ResourceApiExample2Component {
   params = signal({

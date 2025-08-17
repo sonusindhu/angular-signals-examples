@@ -2,13 +2,13 @@ import { ExampleModel } from "src/app/shared/models/example.model";
 
 export const RX_RESOURCE_EXAMPLES: ExampleModel[] = [
     {
-        title: 'Rx Resource Example 1',
-        content: 'how to use rxResource() to create a resource',
+        title: 'RxJS Resource Integration',
+        content: 'Master rxResource() for powerful Observable-based data fetching. Combine RxJS operators with reactive resource management for advanced patterns.',
         routerLink: './resource-api-example2',
     },
     {
-        title: 'Rx Resource Example 2',
-        content: 'List public GitHub repositories using rxResource()',
+        title: 'rxResource with GitHub Repositories',
+        content: 'Use rxResource to fetch GitHub repository data with observables and display them in an interactive grid layout. Real-world API integration with reactive patterns.',
         routerLink: './resource-api-example5',
     }
 ];

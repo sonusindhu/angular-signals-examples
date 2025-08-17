@@ -7,12 +7,14 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
     selector: 'app-defer-example10',
     standalone: true,
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule, MatSliderModule, MatFormFieldModule, MatInputModule],
-    templateUrl: './defer-example10-md.component.html',
+    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule, MatSliderModule, MatFormFieldModule, MatInputModule, MarkdownComponent],
+    templateUrl: './defer-example10.component.html',
+    styleUrl: './defer-example10.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class DeferExample10Component {

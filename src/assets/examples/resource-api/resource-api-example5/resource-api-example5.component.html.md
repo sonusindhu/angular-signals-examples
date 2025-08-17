@@ -1,0 +1,60 @@
+```code
+<div class="content-area">
+  <h2>Resource API Example 5: rxResource with GitHub Repositories</h2>
+  <p>This example demonstrates using rxResource to fetch GitHub repository data with observables and displays them in an interactive grid layout.</p>
+</div>
+
+<div class="demo-section">
+  <h3>Demo Content</h3>
+  <mat-card>
+    <mat-card-content>
+      <div class="demo-actions">
+        <button mat-raised-button color="primary" (click)="reposSignal.reload()">
+          <mat-icon>refresh</mat-icon>
+          Refresh GitHub Repos
+        </button>
+      </div>
+      
+      <div class="repos-display" *ngIf="reposSignal.value() as repos">
+        <div class="repos-grid">
+          <mat-card class="repo-card" *ngFor="let repo of repos.slice(0, 6)">
+            <mat-card-header>
+              <mat-card-title>{{repo.name}}</mat-card-title>
+              <mat-card-subtitle>{{repo.language || 'No language'}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{repo.description || 'No description available'}}</p>
+              <div class="repo-stats">
+                <span class="stat">
+                  <mat-icon>star</mat-icon>
+                  {{repo.stargazers_count}}
+                </span>
+                <span class="stat">
+                  <mat-icon>call_split</mat-icon>
+                  {{repo.forks_count}}
+                </span>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <a mat-button color="primary" [href]="repo.html_url" target="_blank">
+                <mat-icon>open_in_new</mat-icon>
+                View on GitHub
+              </a>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+      
+      <div *ngIf="reposSignal.isLoading()" class="loading-state">
+        <mat-icon>hourglass_empty</mat-icon>
+        Loading GitHub repositories...
+      </div>
+      
+      <div *ngIf="reposSignal.error()" class="error-state">
+        <mat-icon>error</mat-icon>
+        Error loading GitHub repositories
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+```

@@ -1,62 +1,82 @@
-<div class="flex flex-col sm:flex-row w-full gap-4">
-  <div class="w-full">
-    <h2 class="text-2xl font-bold">Resource Examples</h2>
-    @for (item of resourceExamples(); track item) {
-      <a class="item" [routerLink]="item.routerLink">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>
-              {{ item.title }}
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ item.content }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    }
-  </div>
+<div class="container">
+  <div class="section-container">
+    <div class="section">
+      <h2>Resource Examples</h2>
+      <div class="card-grid">
+        @for (item of resourceExamples(); track item) {
+          <a class="card-item" [routerLink]="item.routerLink">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  {{ item.title }}
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  {{ item.content }}
+                </p>
+                <div class="demo-link">
+                  <span class="demo-text">View Demo</span>
+                  <span class="demo-arrow">→</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </a>
+        }
+      </div>
+    </div>
 
-  <div class="block sm:hidden border w-full h-px border-solid border-[gray]"></div>
+    <div class="section-divider"></div>
 
-  <div class="w-full">
-    <h2 class="text-2xl font-bold m-r-4">rxResource Examples</h2>
-    @for (item of rxResourceExamples(); track item) {
-      <a class="item" [routerLink]="item.routerLink">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>{{ item.title }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ item.content }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    }
-  </div>
+    <div class="section">
+      <h2>rxResource Examples</h2>
+      <div class="card-grid">
+        @for (item of rxResourceExamples(); track item) {
+          <a class="card-item" [routerLink]="item.routerLink">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>{{ item.title }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  {{ item.content }}
+                </p>
+                <div class="demo-link">
+                  <span class="demo-text">View Demo</span>
+                  <span class="demo-arrow">→</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </a>
+        }
+      </div>
+    </div>
 
-  <div class="block sm:hidden border w-full h-px border-solid border-[gray]"></div>
+    <div class="section-divider"></div>
 
-  <div class="w-full">
-    <h2 class="text-2xl font-bold m-r-4">httpResource Examples</h2>
-    @for (item of httpResoureExamples(); track item) {
-      <a class="item" [routerLink]="item.routerLink">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>{{ item.title }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ item.content }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    }
+    <div class="section">
+      <h2>httpResource Examples</h2>
+      <div class="card-grid">
+        @for (item of httpResoureExamples(); track item) {
+          <a class="card-item" [routerLink]="item.routerLink">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>{{ item.title }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  {{ item.content }}
+                </p>
+                <div class="demo-link">
+                  <span class="demo-text">View Demo</span>
+                  <span class="demo-arrow">→</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </a>
+        }
+      </div>
+    </div>
   </div>
 </div>
 
