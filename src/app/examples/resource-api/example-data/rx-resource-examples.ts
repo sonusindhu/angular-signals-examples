@@ -7,8 +7,8 @@ export const RX_RESOURCE_EXAMPLES: ExampleModel[] = [
         routerLink: './resource-api-example2',
     },
     {
-        title: 'GitHub Repository Explorer',
-        content: 'Create a GitHub repository browser with rxResource(). Real-world API integration showcasing public repository listing with reactive search capabilities.',
+        title: 'rxResource with GitHub Repositories',
+        content: 'Use rxResource to fetch GitHub repository data with observables and display them in an interactive grid layout. Real-world API integration with reactive patterns.',
         routerLink: './resource-api-example5',
     }
 ];

@@ -1,0 +1,73 @@
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Resource API Example 5: rxResource Integration</h2>
+        <p>This example shows how to integrate rxResource with observables for complex data flows.</p>
+      </div>
+
+      <div class="demo-section">
+        <h3>Demo Content</h3>
+        <mat-card>
+          <mat-card-content>
+            <div class="demo-actions">
+              <button mat-raised-button color="primary" (click)="reposSignal.reload()">
+                <mat-icon>refresh</mat-icon>
+                Refresh GitHub Repos
+              </button>
+            </div>
+            
+            <div class="repos-display" *ngIf="reposSignal.value() as repos">
+              <div class="repos-grid">
+                <mat-card class="repo-card" *ngFor="let repo of repos.slice(0, 6)">
+                  <mat-card-header>
+                    <mat-card-title>{{repo.name}}</mat-card-title>
+                    <mat-card-subtitle>{{repo.language || 'No language'}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>{{repo.description || 'No description available'}}</p>
+                    <div class="repo-stats">
+                      <span class="stat">
+                        <mat-icon>star</mat-icon>
+                        {{repo.stargazers_count}}
+                      </span>
+                      <span class="stat">
+                        <mat-icon>call_split</mat-icon>
+                        {{repo.forks_count}}
+                      </span>
+                    </div>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <a mat-button color="primary" [href]="repo.html_url" target="_blank">
+                      <mat-icon>open_in_new</mat-icon>
+                      View on GitHub
+                    </a>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+            
+            <div *ngIf="reposSignal.isLoading()" class="loading-state">
+              <mat-icon>hourglass_empty</mat-icon>
+              Loading GitHub repositories...
+            </div>
+            
+            <div *ngIf="reposSignal.error()" class="error-state">
+              <mat-icon>error</mat-icon>
+              Error loading GitHub repositories
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example5/resource-api-example5.component.html'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example5/resource-api-example5.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example5/resource-api-example5.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

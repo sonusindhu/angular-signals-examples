@@ -1,0 +1,96 @@
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Resource API Example 2: Reactive Parameters</h2>
+        <p>This example demonstrates how to use reactive parameters with resource API for dynamic data fetching based on user input.</p>
+      </div>
+
+      <div class="demo-section">
+        <h3>Paginated Data with rxResource</h3>
+        <mat-card>
+          <mat-card-content>
+            <div class="controls">
+              <button mat-raised-button color="primary" (click)="rxResourcesSignal.reload()">
+                <mat-icon>refresh</mat-icon>
+                Reload
+              </button>
+              <button mat-raised-button color="accent" [disabled]="params()._start === 0" (click)="previousPage()">
+                <mat-icon>navigate_before</mat-icon>
+                Previous
+              </button>
+              <button mat-raised-button color="accent" (click)="nextPage()">
+                <mat-icon>navigate_next</mat-icon>
+                Next
+              </button>
+              <p>Showing items {{ params()._start + 1 }}-{{ params()._start + params()._limit }}</p>
+            </div>
+
+            @if (rxResourcesSignal.isLoading()) {
+              <div class="loading-state">
+                <mat-icon>cached</mat-icon>
+                <p>Loading page data...</p>
+              </div>
+            }
+            @else if(rxResourcesSignal.error()) {
+              <div class="error-state">
+                <mat-icon>error</mat-icon>
+                <p>Error: {{ rxResourcesSignal.error() }}</p>
+              </div>
+            }
+            @else {
+              <div class="data-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Task</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @let data = rxResourcesSignal.value();
+                    @if(data) {
+                      @for (r of data; track r.id) {
+                        <tr>
+                          <td>{{ r.id }}</td>
+                          <td>{{ r.title }}</td>
+                          <td>
+                            <span class="status" [class.completed]="r.completed">
+                              {{ r.completed ? 'Completed' : 'Pending' }}
+                            </span>
+                          </td>
+                        </tr>
+                      }
+                    }
+                  </tbody>
+                </table>
+              </div>
+            }
+          </mat-card-content>
+        </mat-card>
+
+        <h3>Key Features</h3>
+        <mat-card>
+          <mat-card-content>
+            <ul>
+              <li><strong>Reactive Parameters:</strong> Automatically refetches when parameters change</li>
+              <li><strong>Pagination Support:</strong> Built-in support for paginated data</li>
+              <li><strong>rxResource:</strong> Integration with RxJS observables</li>
+              <li><strong>HTTP Client:</strong> Uses Angular HttpClient for network requests</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example2/resource-api-example2.component.html'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example2/resource-api-example2.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example2/resource-api-example2.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

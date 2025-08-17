@@ -1,0 +1,332 @@
+<div class="example-container">
+<mat-tab-group>
+  <mat-tab label="Demo">
+    <div class="content-area">
+      <h2>Defer Block Example 11: Complex Dashboard Loading</h2>
+      <p>
+        This example demonstrates a production-ready dashboard with smart loading strategies,
+        user permissions, and performance optimization using multiple defer patterns.
+      </p>
+    </div>
+
+    <div class="demo-section">
+      <div class="main-content">
+        <h3>Smart Dashboard Loading</h3>
+        <p>Experience a real-world dashboard with optimized loading strategies:</p>
+        
+        <div class="dashboard-controls">
+          <button mat-raised-button color="primary" (click)="toggleUserRole()">
+            Switch Role: {{ userRole() | titlecase }}
+          </button>
+          <button mat-raised-button color="accent" (click)="loadUserData()">
+            Load User Data: {{ loadUserDataSignal() ? 'Loaded' : 'Load Now' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="dashboard-container">
+        <!-- High Priority Widget: Immediate Load -->
+        <div class="widget-section">
+          <h4>🚀 High Priority (Immediate)</h4>
+          @defer (on immediate) {
+            <mat-card class="widget high-priority">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>assessment</mat-icon>
+                  Key Metrics
+                </mat-card-title>
+                <mat-card-subtitle>Load immediately - critical business data</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="metrics-grid">
+                  <div class="metric">
+                    <span class="value">${{ salesData().revenue.toLocaleString() }}</span>
+                    <span class="label">Revenue</span>
+                  </div>
+                  <div class="metric">
+                    <span class="value">{{ salesData().growth }}%</span>
+                    <span class="label">Growth</span>
+                  </div>
+                  <div class="metric">
+                    <span class="value">{{ salesData().orders }}</span>
+                    <span class="label">Orders</span>
+                  </div>
+                </div>
+                
+                <mat-chip-set>
+                  <mat-chip highlighted>
+                    <mat-icon>priority_high</mat-icon>
+                    Critical Data
+                  </mat-chip>
+                </mat-chip-set>
+              </mat-card-content>
+            </mat-card>
+          } @loading {
+            <div class="widget-loading">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+              <p>Loading critical metrics...</p>
+            </div>
+          }
+        </div>
+
+        <!-- Medium Priority Widget: Viewport + Prefetch -->
+        <div class="widget-section" #chartSection>
+          <h4>📊 Medium Priority (Viewport + Prefetch)</h4>
+          @defer (on viewport(chartSection); prefetch on idle) {
+            <mat-card class="widget medium-priority" (click)="loadWidget('sales-chart')">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>trending_up</mat-icon>
+                  Sales Analytics
+                </mat-card-title>
+                <mat-card-subtitle>Loads when visible, prefetches when idle</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="chart-container">
+                  <div class="chart-placeholder">
+                    <mat-icon style="font-size: 4rem; width: 4rem; height: 4rem;">bar_chart</mat-icon>
+                    <p>Interactive Sales Chart</p>
+                    <div class="chart-stats">
+                      <div class="stat">
+                        <span>{{ analyticsData().visitors.toLocaleString() }}</span>
+                        <small>Visitors</small>
+                      </div>
+                      <div class="stat">
+                        <span>{{ analyticsData().pageViews.toLocaleString() }}</span>
+                        <small>Page Views</small>
+                      </div>
+                      <div class="stat">
+                        <span>{{ analyticsData().bounceRate }}%</span>
+                        <small>Bounce Rate</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <mat-chip-set>
+                  <mat-chip>
+                    <mat-icon>visibility</mat-icon>
+                    Viewport Trigger
+                  </mat-chip>
+                  <mat-chip>
+                    <mat-icon>cloud_download</mat-icon>
+                    Prefetch Ready
+                  </mat-chip>
+                </mat-chip-set>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <div class="widget-placeholder">
+              <mat-card>
+                <mat-card-content>
+                  <mat-icon>trending_up</mat-icon>
+                  <p>Chart will load when scrolled into view...</p>
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          } @loading (after 100ms; minimum 600ms) {
+            <div class="widget-loading">
+              <mat-card>
+                <mat-card-content>
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                  <p>Loading analytics chart...</p>
+                  <small>Fetching latest data...</small>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          }
+        </div>
+
+        <!-- Admin-Only Widget: Conditional + Interaction -->
+        <div class="widget-section" #adminSection>
+          <h4>🔐 Admin Only (Conditional + Interaction)</h4>
+          @defer (on interaction(adminSection); when userRole() === 'admin') {
+            <mat-card class="widget admin-only" (click)="loadWidget('admin-panel')">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>admin_panel_settings</mat-icon>
+                  Admin Dashboard
+                </mat-card-title>
+                <mat-card-subtitle>Restricted access - click to load</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="admin-content">
+                  <div class="admin-actions">
+                    <button mat-button><mat-icon>settings</mat-icon> System Config</button>
+                    <button mat-button><mat-icon>people</mat-icon> User Management</button>
+                    <button mat-button><mat-icon>security</mat-icon> Security Logs</button>
+                  </div>
+                  
+                  <div class="admin-stats">
+                    <div class="stat-item">
+                      <mat-icon>storage</mat-icon>
+                      <span>Database: 85% capacity</span>
+                    </div>
+                    <div class="stat-item">
+                      <mat-icon>memory</mat-icon>
+                      <span>Memory: 12.3GB used</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <mat-chip-set>
+                  <mat-chip highlighted>
+                    <mat-icon>security</mat-icon>
+                    Admin Access
+                  </mat-chip>
+                  <mat-chip>
+                    <mat-icon>touch_app</mat-icon>
+                    Click to Load
+                  </mat-chip>
+                </mat-chip-set>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <div class="widget-placeholder">
+              <mat-card>
+                <mat-card-content>
+                  @if (userRole() !== 'admin') {
+                    <mat-icon>lock</mat-icon>
+                    <p>Admin access required</p>
+                    <small>Current role: {{ userRole() | titlecase }}</small>
+                  } @else {
+                    <mat-icon>admin_panel_settings</mat-icon>
+                    <p>Click to load admin controls...</p>
+                  }
+                </mat-card-content>
+              </mat-card>
+            </div>
+          } @loading {
+            <div class="widget-loading">
+              <mat-card>
+                <mat-card-content>
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                  <p>Loading admin dashboard...</p>
+                  <small>Verifying permissions...</small>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          }
+        </div>
+
+        <!-- User Data Widget: Data-Dependent -->
+        <div class="widget-section" #userDataSection>
+          <h4>👤 User Data (Data-Dependent)</h4>
+          @defer (when loadUserDataSignal(); on interaction(userDataSection)) {
+            <mat-card class="widget user-data" (click)="loadWidget('user-data')">
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>person</mat-icon>
+                  User Profile Data
+                </mat-card-title>
+                <mat-card-subtitle>Loads when user data is available</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="user-profile">
+                  <div class="profile-info">
+                    <mat-icon style="font-size: 3rem; width: 3rem; height: 3rem;">account_circle</mat-icon>
+                    <div>
+                      <h4>John Doe</h4>
+                      <p>{{ userRole() | titlecase }} User</p>
+                      <small>Last active: 2 minutes ago</small>
+                    </div>
+                  </div>
+                  
+                  <div class="user-stats">
+                    <div class="user-stat">
+                      <span>47</span>
+                      <small>Sessions</small>
+                    </div>
+                    <div class="user-stat">
+                      <span>2.3h</span>
+                      <small>Avg. Time</small>
+                    </div>
+                  </div>
+                </div>
+                
+                <mat-chip-set>
+                  <mat-chip>
+                    <mat-icon>data_usage</mat-icon>
+                    Data Loaded
+                  </mat-chip>
+                </mat-chip-set>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <div class="widget-placeholder">
+              <mat-card>
+                <mat-card-content>
+                  <mat-icon>person_outline</mat-icon>
+                  <p>Click "Load User Data" to load profile...</p>
+                  <small>Waiting for data dependency</small>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          } @loading {
+            <div class="widget-loading">
+              <mat-card>
+                <mat-card-content>
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                  <p>Loading user profile...</p>
+                  <small>Fetching preferences...</small>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="dashboard-summary">
+        <h3>Loading Strategy Summary</h3>
+        <div class="strategy-grid">
+          <mat-card class="strategy-card">
+            <mat-card-content>
+              <h4>🚀 Critical Data</h4>
+              <p><strong>Strategy:</strong> Immediate loading</p>
+              <p><strong>Use case:</strong> Key business metrics</p>
+              <code>&#64;defer (on immediate)</code>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="strategy-card">
+            <mat-card-content>
+              <h4>📊 Secondary Content</h4>
+              <p><strong>Strategy:</strong> Viewport + Prefetch</p>
+              <p><strong>Use case:</strong> Charts and analytics</p>
+              <code>&#64;defer (on viewport; prefetch on idle)</code>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="strategy-card">
+            <mat-card-content>
+              <h4>🔐 Restricted Access</h4>
+              <p><strong>Strategy:</strong> Permission + Interaction</p>
+              <p><strong>Use case:</strong> Admin-only features</p>
+              <code>&#64;defer (on interaction; when userRole() === 'admin')</code>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="strategy-card">
+            <mat-card-content>
+              <h4>👤 User Context</h4>
+              <p><strong>Strategy:</strong> Data-dependent loading</p>
+              <p><strong>Use case:</strong> Profile data</p>
+              <code>&#64;defer (when loadUserDataSignal(); on interaction)</code>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example11/defer-example11-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example11/defer-example11.component.ts'"></markdown>
+  </mat-tab>
+  <mat-tab label="SCSS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example11/defer-example11.component.scss'"></markdown>
+  </mat-tab>
+</mat-tab-group>
+</div>

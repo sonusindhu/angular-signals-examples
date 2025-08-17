@@ -1,0 +1,75 @@
+<div class="example-container">
+<mat-tab-group mat-stretch-tabs>
+  <mat-tab label="Demo">
+    <div class="content-area">
+      <h2>Example 7 - Defer on Immediate</h2>
+      <p>This example demonstrates a defer block that loads content immediately after the non-deferred content has finished rendering.</p>
+      
+      <div class="demo-section">
+        <div class="main-content">
+          <h3>This content loads immediately (non-deferred)</h3>
+          <p>This section appears right away when the component loads.</p>
+          <p>The immediate trigger is useful for content that should load right after the critical content has finished rendering.</p>
+        </div>
+
+        @defer (on immediate) {
+          <div class="deferred-content">
+            <mat-card class="immediate-card">
+              <mat-card-header>
+                <mat-card-title>✨ Immediately Deferred Content</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>This content was deferred with the 'immediate' trigger.</p>
+                <p>It loads right after the non-deferred content has finished rendering.</p>
+                <p>This is useful for non-critical content that can be loaded slightly later to improve initial page load performance.</p>
+                
+                <div class="feature-list">
+                  <h4>Use Cases for Immediate Defer:</h4>
+                  <ul>
+                    <li>Analytics scripts and tracking codes</li>
+                    <li>Non-critical widgets and components</li>
+                    <li>Social media embeds and share buttons</li>
+                    <li>Advertisement blocks</li>
+                    <li>Footer content and secondary information</li>
+                    <li>Chat widgets and support tools</li>
+                  </ul>
+                </div>
+                
+                <div class="performance-info">
+                  <h4>Performance Benefits:</h4>
+                  <p>By deferring non-critical content with 'immediate', you can:</p>
+                  <ul>
+                    <li>Improve initial page load times</li>
+                    <li>Prioritize above-the-fold content</li>
+                    <li>Reduce blocking JavaScript execution</li>
+                    <li>Better user experience with faster perceived loading</li>
+                  </ul>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        } @placeholder {
+          <div class="placeholder">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            <p>Preparing immediate content...</p>
+          </div>
+        } @loading (minimum 300ms) {
+          <div class="loading">
+            <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+            <p>🚀 Loading immediate content...</p>
+          </div>
+        }
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example7/defer-example7-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example7/defer-example7.component.ts'"></markdown>
+  </mat-tab>
+  <mat-tab label="SCSS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example7/defer-example7.component.scss'"></markdown>
+  </mat-tab>
+</mat-tab-group>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>LinkedSignal Examples</h2>
+  <div class="card-grid">
+    @for (item of linkedSignalExamples(); track item) {
+      <a class="card-item" [routerLink]="item.routerLink">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              {{ item.title }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ item.content }}
+            </p>
+            <div class="demo-link">
+              <span class="demo-text">View Demo</span>
+              <span class="demo-arrow">→</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </div>
+</div>

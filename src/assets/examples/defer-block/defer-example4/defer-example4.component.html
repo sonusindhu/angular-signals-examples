@@ -1,0 +1,96 @@
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 4 - Defer with Timer</h2>
+        <p>This example demonstrates a defer block that loads content after a specific time delay.</p>
+        
+        <div class="demo-section">
+          <div class="timer-section">
+            <mat-card>
+              <mat-card-content>
+                <h3>⏱️ Timer Demo</h3>
+                <p>The deferred content below will load after 3 seconds:</p>
+                @if (countdown() > 0) {
+                  <div class="countdown">
+                    <span class="countdown-number">{{ countdown() }}</span>
+                    <span class="countdown-text">seconds remaining...</span>
+                  </div>
+                } @else {
+                  <div class="countdown">
+                    <span class="countdown-text">✅ Timer completed!</span>
+                  </div>
+                }
+              </mat-card-content>
+            </mat-card>
+          </div>
+          
+          <div class="deferred-section">
+            @defer (on timer(3s)) {
+              <mat-card class="deferred-card">
+                <mat-card-content>
+                  <h4>⏰ Content loaded after 3 seconds!</h4>
+                  <p>This content was deferred and loaded automatically after a 3-second timer.</p>
+                  <p>Timer-based defer blocks are useful for:</p>
+                  <ul>
+                    <li>🎯 Progressive content loading</li>
+                    <li>📰 News feeds and updates</li>
+                    <li>💡 Tips and hints</li>
+                    <li>📊 Analytics widgets</li>
+                    <li>🔔 Non-critical notifications</li>
+                  </ul>
+                <p>This helps balance user experience with performance by loading secondary content after the main content has had time to render.</p>
+                
+                <button mat-raised-button color="primary" (click)="restartDemo()">
+                  🔄 Restart Demo
+                </button>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <mat-card class="placeholder">
+              <mat-card-content>
+                <div class="placeholder-content">
+                  <p>⏳ Waiting for timer to complete...</p>
+                  <div class="timer-bars">
+                    <div class="timer-bar" [style.animation-delay]="'0s'"></div>
+                    <div class="timer-bar" [style.animation-delay]="'0.5s'"></div>
+                    <div class="timer-bar" [style.animation-delay]="'1s'"></div>
+                    <div class="timer-bar" [style.animation-delay]="'1.5s'"></div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          } @loading (minimum 200ms) {
+            <mat-card class="loading">
+              <mat-card-content>
+                <p>🔄 Loading timed content...</p>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+        
+        <div class="info-section">
+          <mat-card>
+            <mat-card-content>
+                <h4>How Timer Defer Works</h4>
+                <p>The <code>&#64;defer (on timer(3s))</code> block waits for the specified duration before loading the content.</p>
+                <p>You can specify different time units:</p>
+                <ul>
+                  <li><code>timer(1s)</code> - 1 second</li>
+                  <li><code>timer(500ms)</code> - 500 milliseconds</li>
+                  <li><code>timer(2m)</code> - 2 minutes</li>
+                </ul>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/defer-block/defer-example4/defer-example4-md.component.html'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/defer-block/defer-example4/defer-example4.component.ts'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

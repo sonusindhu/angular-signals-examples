@@ -5,12 +5,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
     selector: 'app-defer-example9',
     standalone: true,
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatIconModule, MatProgressBarModule],
-    templateUrl: './defer-example9-md.component.html',
+    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatIconModule, MatProgressBarModule, MarkdownComponent],
+    templateUrl: './defer-example9.component.html',
+    styleUrl: './defer-example9.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class DeferExample9Component {

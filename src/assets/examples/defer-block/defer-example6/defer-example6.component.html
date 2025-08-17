@@ -1,0 +1,58 @@
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+  <mat-tab label="Demo">
+    <div class="content-area">
+      <h2>Example 6 - Defer on Hover</h2>
+      <p>This example demonstrates a defer block that loads content when you hover over the designated area.</p>
+      
+      <div class="demo-section">
+        <mat-card class="demo-card">
+          <mat-card-header>
+            <mat-card-title>Hover Trigger Demo</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="hover-area" #hoverTrigger>
+              <h3>🎯 Hover over this area to load content</h3>
+              <p>Move your mouse cursor over this card to trigger the defer block below.</p>
+              
+              @defer (on hover(hoverTrigger)) {
+                <div class="deferred-content">
+                  <mat-card class="success-card">
+                    <mat-card-content>
+                      <h4>✨ Content Loaded on Hover!</h4>
+                      <p>This content was loaded when you hovered over the trigger area above.</p>
+                      <p>The hover trigger is perfect for tooltips, previews, or additional information that should appear on demand.</p>
+                      <mat-button-toggle-group>
+                        <mat-button-toggle value="feature1">Feature 1</mat-button-toggle>
+                        <mat-button-toggle value="feature2">Feature 2</mat-button-toggle>
+                        <mat-button-toggle value="feature3">Feature 3</mat-button-toggle>
+                      </mat-button-toggle-group>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              } @placeholder {
+                <div class="placeholder">
+                  <p>💭 Hover over the area above to see the deferred content...</p>
+                </div>
+              } @loading (minimum 500ms) {
+                <div class="loading">
+                  <p>🔄 Loading hover content...</p>
+                </div>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example6/defer-example6-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example6/defer-example6.component.ts'"></markdown>
+  </mat-tab>
+  <mat-tab label="SCSS">
+    <markdown clipboard [src]="'assets/examples/defer-block/defer-example6/defer-example6.component.scss'"></markdown>
+  </mat-tab>
+</mat-tab-group>
+</div>

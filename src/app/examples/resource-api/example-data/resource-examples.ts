@@ -7,8 +7,8 @@ export const RESOURCE_EXAMPLES: ExampleModel[] = [
         routerLink: './resource-api-example1',
     },
     {
-        title: 'Random User Fetcher',
-        content: 'Build a dynamic user profile fetcher with resource(). Demonstrates real-world API integration with reactive state management and automatic updates.',
+        title: 'GitHub User Data with resource()',
+        content: 'Fetch random GitHub user profiles using the resource API with real-time data. Demonstrates GitHub API integration with profile interactions and data display.',
         routerLink: './resource-api-example4',
     }
 ];

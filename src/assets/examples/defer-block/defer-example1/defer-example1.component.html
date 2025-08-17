@@ -1,0 +1,42 @@
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 1 - Basic Defer on Idle</h2>
+        <p>This example demonstrates a defer block that loads content when the browser becomes idle.</p>
+        
+        <div class="demo-section">
+          <h3>Immediately Loaded Content</h3>
+          <mat-card>
+            <mat-card-content>
+              This content loads immediately when the component is rendered.
+            </mat-card-content>
+          </mat-card>
+          
+          <h3>Deferred Content (loads on idle)</h3>
+          @defer (on idle) {
+            <mat-card>
+              <mat-card-content>
+                <h4>🎉 This content was loaded when the browser became idle!</h4>
+                <p>This demonstrates the basic defer block functionality. The content inside this card was not loaded initially but only when the browser had idle time.</p>
+                <p>Defer blocks help improve initial page load performance by postponing non-critical content.</p>
+              </mat-card-content>
+            </mat-card>
+          } @placeholder {
+            <mat-card>
+              <mat-card-content>
+                <p>⏳ Loading deferred content when browser is idle...</p>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/defer-block/defer-example1/defer-example1-md.component.html'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/defer-block/defer-example1/defer-example1.component.ts'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

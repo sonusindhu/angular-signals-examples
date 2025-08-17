@@ -1,0 +1,88 @@
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Resource API Example 1: Basic Fetch (resource)</h2>
+        <p>This example demonstrates the basic usage of Angular's resource API for fetching data with automatic loading states and error handling.</p>
+      </div>
+
+      <div class="demo-section">
+        <h3>Basic Resource Usage</h3>
+        <mat-card>
+          <mat-card-content>
+            <div class="controls">
+              <button mat-raised-button color="primary" (click)="resourceSignal.reload()">
+                <mat-icon>refresh</mat-icon>
+                Refresh Data
+              </button>
+              <p>Current limit: {{ limit() }} items</p>
+            </div>
+
+            @if (resourceSignal.isLoading()) {
+              <div class="loading-state">
+                <mat-icon>cached</mat-icon>
+                <p>Loading tasks...</p>
+              </div>
+            }
+            @else if(resourceSignal.error()) {
+              <div class="error-state">
+                <mat-icon>error</mat-icon>
+                <p>Error: {{ resourceSignal.error() }}</p>
+              </div>
+            }
+            @else {
+              <div class="data-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Task</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @let data = resourceSignal.value();
+                    @if(data) {
+                      @for (r of data; track r.id) {
+                        <tr>
+                          <td>{{ r.id }}</td>
+                          <td>{{ r.title }}</td>
+                          <td>
+                            <span class="status" [class.completed]="r.completed">
+                              {{ r.completed ? 'Completed' : 'Pending' }}
+                            </span>
+                          </td>
+                        </tr>
+                      }
+                    }
+                  </tbody>
+                </table>
+              </div>
+            }
+          </mat-card-content>
+        </mat-card>
+
+        <h3>Key Features</h3>
+        <mat-card>
+          <mat-card-content>
+            <ul>
+              <li><strong>Automatic Loading States:</strong> Built-in loading and error handling</li>
+              <li><strong>Reactive Updates:</strong> Automatically refetches when parameters change</li>
+              <li><strong>Type Safety:</strong> Full TypeScript support with proper typing</li>
+              <li><strong>Simple API:</strong> Easy to use with minimal boilerplate</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example1/resource-api-example1.component.html'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example1/resource-api-example1.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/resource-api/resource-api-example1/resource-api-example1.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

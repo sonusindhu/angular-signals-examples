@@ -1,85 +1,70 @@
-<div class="pricing-engine">
-  <mat-card class="controls-section">
-    <mat-card-header>
-      <mat-card-title>Product Configuration</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="controls">
-        <mat-form-field>
-          <mat-label>Product</mat-label>
-          <mat-select [value]="selectedProduct()" (selectionChange)="onProductChange($event)">
-            <mat-option value="laptop">Gaming Laptop</mat-option>
-            <mat-option value="phone">Smartphone</mat-option>
-            <mat-option value="tablet">Tablet Pro</mat-option>
-          </mat-select>
-        </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Quantity</mat-label>
-          <input matInput type="number" [value]="quantity()" (input)="onQuantityChange($event)" min="1">
-        </mat-form-field>
+<mat-tab-group mat-stretch-tabs>
+  <mat-tab label="Demo">
+    <div class="content-area">
+      <h2>Example 3 - Dynamic Pricing Engine</h2>
+      <p>This advanced example demonstrates a dynamic pricing engine using linkedSignal with complex business logic based on multiple factors.</p>
+      
+      <div class="demo-section">
+        <div class="pricing-container">
+          <h3>🏷️ Dynamic Pricing Engine</h3>
 
-        <mat-form-field>
-          <mat-label>Customer Type</mat-label>
-          <mat-select [value]="customerType()" (selectionChange)="onCustomerTypeChange($event)">
-            <mat-option value="regular">Regular</mat-option>
-            <mat-option value="premium">Premium</mat-option>
-            <mat-option value="enterprise">Enterprise</mat-option>
-          </mat-select>
-        </mat-form-field>
+          <div class="controls-section">
+            <div class="form-row">
+              <mat-form-field appearance="fill">
+                <mat-label>Select Product</mat-label>
+                <mat-select [value]="productId()" (selectionChange)="updateProduct($event)">
+                  @for (product of products(); track $index) {
+                      <mat-option [value]="product.id">
+                        {{ product.name }}
+                      </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Manual Price Override</mat-label>
-          <input matInput type="number" [value]="manualPrice() || ''" (input)="onManualPriceChange($event)" placeholder="Leave empty for auto">
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-  </mat-card>
+              <mat-form-field appearance="fill">
+                <mat-label>User Type</mat-label>
+                <mat-select [value]="userType()" (selectionChange)="updateUserType($event)">
+                  <mat-option value="regular">Regular Customer</mat-option>
+                  <mat-option value="premium">Premium Customer</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
 
-  <mat-card class="pricing-breakdown">
-    <mat-card-header>
-      <mat-card-title>Pricing Breakdown</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="price-item">
-        <span class="price-label">Product:</span>
-        <span class="price-value">{{ getProductName() }}</span>
-      </div>
-      <div class="price-item">
-        <span class="price-label">Base Price:</span>
-        <span class="price-value">${{ getBasePrice() }}</span>
-      </div>
-      <div class="price-item">
-        <span class="price-label">Quantity:</span>
-        <span class="price-value">{{ quantity() }}</span>
-      </div>
-      <div class="price-item">
-        <span class="price-label">Customer Discount:</span>
-        <span class="price-value">{{ getDiscountText() }}</span>
-      </div>
-      @if (manualPrice()) {
-        <div class="price-item">
-          <span class="price-label">Manual Override:</span>
-          <span class="price-value">${{ manualPrice() }}</span>
-        </div>
-      }
-      <div class="price-item">
-        <span class="price-label">Final Price:</span>
-        <span class="price-value final-price">${{ finalPrice() }}</span>
-      </div>
+            <mat-form-field appearance="fill" class="custom-price-field">
+              <mat-label>Custom Price Override</mat-label>  
+              <input matInput type="number" placeholder="Enter custom price" 
+                (input)="updateCustomPrice($event)">
+              <mat-hint>Override the calculated price with a custom value</mat-hint>
+            </mat-form-field>
+          </div>
 
-      <div class="current-calculation">
-        <div class="calculation-title">Current Calculation:</div>
-        <div class="calculation-details">
-          @if (manualPrice()) {
-            Manual Override: ${{ manualPrice() }}
-          } @else {
-            Base: ${{ getBasePrice() }} × {{ quantity() }} = ${{ getBasePrice() * quantity() }}<br>
-            Discount: {{ getDiscountText() }}<br>
-            Final: ${{ finalPrice() }}
-          }
+          <div class="pricing-display">
+            <mat-card>
+              <mat-card-content>
+                <h4>💰 Pricing Breakdown</h4>
+                <div class="pricing-info">
+                  <p><strong>Selected Product:</strong> {{getProductName()}}</p>
+                  <p><strong>User Type:</strong> {{userType() | titlecase}}</p>
+                  <p><strong>Base Price:</strong> ${{getBasePrice()}}</p>
+                  <p><strong>Discount:</strong> {{getDiscountText()}}</p>
+                  <p class="final-price"><strong>Final Price: ${{price()}}</strong></p>
+                </div>
+                <p class="note">🔗 LinkedSignal automatically recalculates the price when product or user type changes!</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
         </div>
       </div>
-    </mat-card-content>
-  </mat-card>
-</div>
+    </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+    <markdown clipboard [src]="'assets/examples/linked-signal/ls-example3/ls-example3-md.component.html'"></markdown>
+  </mat-tab>
+  <mat-tab label="TS">
+    <markdown clipboard [src]="'assets/examples/linked-signal/ls-example3/ls-example3.component.ts'"></markdown>
+  </mat-tab>
+  <mat-tab label="CSS">
+    <markdown clipboard [src]="'assets/examples/linked-signal/ls-example3/ls-example3.component.scss'"></markdown>
+  </mat-tab>
+</mat-tab-group>
