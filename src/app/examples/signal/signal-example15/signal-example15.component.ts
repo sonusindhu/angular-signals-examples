@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -7,17 +8,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     selector: 'signal-example15',
     templateUrl: `./signal-example15.component.html`,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatButtonModule, MatProgressSpinnerModule, NgIf],
-    styles: [
-        `
-      button.loading {
-        background: #f14e4e;
-      }
-      .loader-area{
-        margin-top: 20px;
-      }
-    `,
-    ]
+    imports: [MatButtonModule, MatProgressSpinnerModule, MatTabsModule, MarkdownComponent],
+    styleUrl: `./signal-example15.component.scss`,
 })
 export default class SignalExample15Component {
   loading = signal(false);
