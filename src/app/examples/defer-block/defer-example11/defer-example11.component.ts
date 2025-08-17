@@ -30,6 +30,7 @@ interface NewsItem {
     standalone: true,
     imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatIconModule, MatProgressBarModule, MatChipsModule, MatGridListModule, MatDividerModule, MarkdownComponent],
     templateUrl: './defer-example11.component.html',
+    styleUrl: './defer-example11.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class DeferExample11Component implements OnInit {
