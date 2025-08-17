@@ -1,3 +1,4 @@
+```code
 <h2>Example 6 - input with ngModel</h2>
 <div>
   <p>User Name - {{ username() }}</p>

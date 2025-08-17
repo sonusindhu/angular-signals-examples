@@ -2,12 +2,14 @@ import { ChangeDetectionStrategy, Component, WritableSignal, model, signal } fro
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
     selector: 'app-signal-example6',
     templateUrl: './signal-example6.component.html',
     styleUrl: './signal-example6.component.scss',
-    imports: [FormsModule, MatFormFieldModule, MatInputModule],
+    imports: [FormsModule, MatFormFieldModule, MatInputModule, MatTabsModule, MarkdownComponent],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample5Component {

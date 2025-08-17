@@ -1,3 +1,4 @@
+```code
 import { ChangeDetectionStrategy, Component, WritableSignal, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,8 +13,4 @@ import { MatInputModule } from '@angular/material/input';
 })
 export default class SignalExample5Component {
   username = model('Sonu Sindhu');
-
-  // updateUsername(name: string) {
-  //   this.username.set(name);
-  // }
 }
