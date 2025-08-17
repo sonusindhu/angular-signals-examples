@@ -1,56 +1,52 @@
 ```code
-<mat-tab-group mat-stretch-tabs>
-  <mat-tab label="Demo">
-    <div class="content-area">
-      <h2>Example 3 - Dynamic Pricing Engine</h2>
-      <p>This advanced example demonstrates a dynamic pricing engine using linkedSignal with complex business logic based on multiple factors.</p>
-      <div class="demo-section">
-        <div class="pricing-container">
-          <h3>🏷️ Dynamic Pricing Engine</h3>
-          <div class="controls-section">
-            <div class="form-row">
-              <mat-form-field appearance="fill">
-                <mat-label>Select Product</mat-label>
-                <mat-select [value]="productId()" (selectionChange)="updateProduct($event)">
-                  @for (product of products(); track $index) {
-                    <mat-option [value]="product.id">
-                      {{ product.name }}
-                    </mat-option>
-                  }
-                </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>User Type</mat-label>
-                <mat-select [value]="userType()" (selectionChange)="updateUserType($event)">
-                  <mat-option value="regular">Regular Customer</mat-option>
-                  <mat-option value="premium">Premium Customer</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-            <mat-form-field appearance="fill" class="custom-price-field">
-              <mat-label>Custom Price Override</mat-label>
-              <input matInput type="number" placeholder="Enter custom price" (input)="updateCustomPrice($event)">
-              <mat-hint>Override the calculated price with a custom value</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="pricing-display">
-            <mat-card>
-              <mat-card-content>
-                <h4>💰 Pricing Breakdown</h4>
-                <div class="pricing-info">
-                  <p><strong>Selected Product:</strong> {{getProductName()}}</p>
-                  <p><strong>User Type:</strong> {{userType() | titlecase}}</p>
-                  <p><strong>Base Price:</strong> ${{getBasePrice()}}</p>
-                  <p><strong>Discount:</strong> {{getDiscountText()}}</p>
-                  <p class="final-price"><strong>Final Price: ${{price()}}</strong></p>
-                </div>
-                <p class="note">🔗 LinkedSignal automatically recalculates the price when product or user type changes!</p>
-              </mat-card-content>
-            </mat-card>
-          </div>
+<div class="content-area">
+  <h2>Example 3 - Dynamic Pricing Engine</h2>
+  <p>This advanced example demonstrates a dynamic pricing engine using linkedSignal with complex business logic based on multiple factors.</p>
+  <div class="demo-section">
+    <div class="pricing-container">
+      <h3>🏷️ Dynamic Pricing Engine</h3>
+      <div class="controls-section">
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Product</mat-label>
+            <mat-select [value]="productId()" (selectionChange)="updateProduct($event)">
+              @for (product of products(); track $index) {
+                <mat-option [value]="product.id">
+                  {{ product.name }}
+                </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>User Type</mat-label>
+            <mat-select [value]="userType()" (selectionChange)="updateUserType($event)">
+              <mat-option value="regular">Regular Customer</mat-option>
+              <mat-option value="premium">Premium Customer</mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
+        <mat-form-field appearance="fill" class="custom-price-field">
+          <mat-label>Custom Price Override</mat-label>
+          <input matInput type="number" placeholder="Enter custom price" (input)="updateCustomPrice($event)">
+          <mat-hint>Override the calculated price with a custom value</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="pricing-display">
+        <mat-card>
+          <mat-card-content>
+            <h4>💰 Pricing Breakdown</h4>
+            <div class="pricing-info">
+              <p><strong>Selected Product:</strong> {{getProductName()}}</p>
+              <p><strong>User Type:</strong> {{userType() | titlecase}}</p>
+              <p><strong>Base Price:</strong> ${{getBasePrice()}}</p>
+              <p><strong>Discount:</strong> {{getDiscountText()}}</p>
+              <p class="final-price"><strong>Final Price: ${{price()}}</strong></p>
+            </div>
+            <p class="note">🔗 LinkedSignal automatically recalculates the price when product or user type changes!</p>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </mat-tab>
-</mat-tab-group>
+  </div>
+</div>
 ```
