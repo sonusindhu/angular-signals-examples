@@ -1,4 +1,29 @@
-<h2>Example 7 - observable to a signal</h2>
-<p>Counter - {{ counter() }}</p>
-<p>Counter with intial value - {{ counterWithIntialValue() }}</p>
-<p>Counter to up 5 - {{ counterUpto5() }}</p>
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal Example 7 - Observable to Signal</h2>
+        <p>This example demonstrates converting RxJS observables to Angular signals using <code>toSignal</code>.</p>
+        <div class="demo-section">
+          <div class="observable-container">
+            <h3>🔄 Observable to Signal</h3>
+            <div class="info-section">
+              <p>Counter: <strong>{{ counter() }}</strong></p>
+              <p>Counter with initial value: <strong>{{ counterWithIntialValue() }}</strong></p>
+              <p>Counter up to 5: <strong>{{ counterUpto5() }}</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example7/signal-example7.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example7/signal-example7.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/signal/signal-example7/signal-example7.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

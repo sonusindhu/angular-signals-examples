@@ -1,3 +1,4 @@
+```code
 <h2>Example 8 - use signal with side effect</h2>
 
 <p>

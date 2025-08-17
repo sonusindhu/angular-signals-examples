@@ -1,3 +1,5 @@
+import { MatTabsModule } from '@angular/material/tabs';
+import { MarkdownComponent } from 'ngx-markdown';
 import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -5,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
     selector: 'app-signal-example8',
     templateUrl: './signal-example8.component.html',
     styleUrl: './signal-example8.component.scss',
-    imports: [MatButtonModule],
+    imports: [MatButtonModule, MatTabsModule, MarkdownComponent],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample8Component {

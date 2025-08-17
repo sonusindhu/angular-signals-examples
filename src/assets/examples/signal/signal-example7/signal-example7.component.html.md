@@ -1,3 +1,4 @@
+```code
 <h2>Example 7 - observable to a signal</h2>
 <p>Counter - {{ counter() }}</p>
 <p>Counter with intial value - {{ counterWithIntialValue() }}</p>

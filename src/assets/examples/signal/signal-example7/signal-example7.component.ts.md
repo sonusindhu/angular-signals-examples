@@ -1,3 +1,4 @@
+```code
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { interval, take } from 'rxjs';
