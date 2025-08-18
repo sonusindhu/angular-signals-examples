@@ -93,6 +93,7 @@
 | 1 | **Default Course Quantity** | Basic linked signal implementation | • Default values<br>• Reactive updates | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/example1) |
 | 2 | **Total Price Calculator** | Dynamic price calculations | • Mathematical operations<br>• Real-time computation | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/example2) |
 | 3 | **Dynamic Pricing Engine** | Advanced pricing based on user & product | • Complex business logic<br>• Multi-factor calculations | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/example3) |
+| 4 | **Unit Converter (Celsius ↔ Fahrenheit)** | Two-way unit conversion with linkedSignal | • Bi-directional binding<br>• Real-world scenario | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/example4) |
 
 ## 📡 Examples - Resource API
 
