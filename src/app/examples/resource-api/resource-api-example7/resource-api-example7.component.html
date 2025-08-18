@@ -1,0 +1,51 @@
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 7 - Real-Time Weather Resource</h2>
+        <p>This example demonstrates a resource that fetches and displays real-time weather data for a selected city, including temperature, humidity, and weather conditions. The resource is reactive and updates when the city changes.</p>
+        <div class="demo-section">
+          <div class="weather-resource-card">
+            <h3>🌚 Weather Resource</h3>
+            <div class="weather-controls">
+              <mat-form-field appearance="fill">
+                <mat-label>Select City</mat-label>
+                <mat-select [value]="city()" (selectionChange)="updateCity($event)">
+                  <ng-container *ngFor="let c of cities(); let i = index">
+                    <mat-option [value]="c">{{c}}</mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-card *ngIf="weatherResource.value()">
+              <mat-card-content>
+                <h4>🌚 Weather Details</h4>
+                <div class="weather-info">
+                  <p><strong>City:</strong> {{city()}}</p>
+                  <p><strong>Temperature:</strong> {{weatherResource.value()?.temp}} °C</p>
+                  <p><strong>Humidity:</strong> {{weatherResource.value()?.humidity}}%</p>
+                  <p><strong>Condition:</strong> {{weatherResource.value()?.condition}}</p>
+                </div>
+              </mat-card-content>
+            </mat-card>
+            <mat-card *ngIf="weatherResource.isLoading()">
+              <mat-card-content>Loading weather data...</mat-card-content>
+            </mat-card>
+            <mat-card *ngIf="weatherResource.error()">
+              <mat-card-content>Error loading weather data.</mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/resource-api/resource-api-example7/resource-api-example7.component.html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TypeScript">
+      <markdown src="assets/examples/resource-api/resource-api-example7/resource-api-example7.component.ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown src="assets/examples/resource-api/resource-api-example7/resource-api-example7.component.scss.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

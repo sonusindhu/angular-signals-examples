@@ -10,5 +10,10 @@ export const RESOURCE_EXAMPLES: ExampleModel[] = [
         title: 'GitHub User Data with resource()',
         content: 'Fetch random GitHub user profiles using the resource API with real-time data. Demonstrates GitHub API integration with profile interactions and data display.',
         routerLink: './resource-api-example4',
+    },
+    {
+        title: 'Real-Time Weather Resource',
+        content: 'Fetches and displays real-time weather data for a selected city using a free public API. Demonstrates live resource() integration and error handling.',
+        routerLink: './resource-api-example7',
     }
 ];
