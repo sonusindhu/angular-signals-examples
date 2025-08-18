@@ -1,0 +1,52 @@
+<div class="example-container">
+  <mat-tab-group mat-stretch-tabs>
+  <mat-tab label="Demo">
+    <div class="content-area">
+        <h2>Example 4 - Unit Converter (Celsius ↔ Fahrenheit)</h2>
+        <p>This example demonstrates a two-way unit converter using <code>linkedSignal</code> for Celsius and Fahrenheit.</p>
+        <div class="demo-section">
+          <div class="center-flex">
+            <div class="unit-converter-card">
+            <h3>🌡️ Unit Converter</h3>
+            <div class="controls-section">
+              <div class="form-row">
+                <mat-form-field appearance="fill">
+                  <mat-label>Celsius</mat-label>
+                  <input matInput type="number" [value]="celsius()" (input)="setCelsius($any($event.target).value)" step="any" />
+                </mat-form-field>
+                <span class="arrow">&#8646;</span>
+                <mat-form-field appearance="fill">
+                  <mat-label>Fahrenheit</mat-label>
+                  <input matInput type="number" [value]="fahrenheit()" (input)="setFahrenheit($any($event.target).value)" step="any" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="converter-display">
+              <mat-card>
+                <mat-card-content>
+                  <h4>🔗 Conversion Result</h4>
+                  <div class="converter-info">
+                    <p><strong>Celsius:</strong> {{ celsius() }} °C</p>
+                    <p><strong>Fahrenheit:</strong> {{ fahrenheit() }} °F</p>
+                    <p><strong>Reverse:</strong> {{ fahrenheit() }} °F = {{ fahrenheitToCelsius }} °C</p>
+                  </div>
+                  <p class="note">🔗 linkedSignal keeps both values in sync automatically!</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </mat-tab>
+  <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/linked-signal/ls-example4/ls-example4.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/linked-signal/ls-example4/ls-example4.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/linked-signal/ls-example4/ls-example4.component.scss.md'"></markdown>
+    </mat-tab>
+</mat-tab-group>
+</div>
