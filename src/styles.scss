@@ -134,3 +134,69 @@ code {
   font-size: 14px;
   overflow: auto;
 }
+
+
+
+/* Responsive, mobile-friendly tab group and container for all resource API examples */
+.example-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: calc(100vh - 160px);
+
+  @media (max-width: 600px) {
+    max-width: 100vw;
+    padding: 0;
+    border-radius: 0;
+    background: #fff;
+  }
+
+  .mat-mdc-tab-group, mat-tab-group {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+
+    @media (max-width: 600px) {
+      border-radius: 0;
+      box-shadow: none;
+      width: 100vw;
+      min-width: 0;
+    }
+
+    .mat-mdc-tab-header, .mat-tab-header {
+      .mat-mdc-tab-label-container, .mat-tab-label-container {
+        .mat-mdc-tab-list, .mat-tab-list {
+          .mat-mdc-tab-labels, .mat-tab-labels {
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+        }
+      }
+      .mat-ink-bar, .mat-mdc-ink-bar {
+        background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+        height: 3px;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .content-area {
+    padding: 16px 8px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+
+    @media (max-width: 600px) {
+      padding: 8px 2px;
+    }
+  }
+
+  .demo-section {
+    padding: 16px 8px;
+    @media (max-width: 600px) {
+      padding: 8px 2px;
+    }
+  }
+}
