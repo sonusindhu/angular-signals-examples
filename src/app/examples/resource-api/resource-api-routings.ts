@@ -47,5 +47,10 @@ const RESOURCE_API_ROUTES: Route[] = [
     loadComponent: () =>
       import('./resource-api-example8/resource-api-example8.component').then(x => x.ResourceApiExample8Component),
   },
+  {
+    path: 'resource-api-example9',
+    loadComponent: () =>
+      import('./resource-api-example9/resource-api-example9.component').then(x => x.ResourceApiExample9Component),
+  },
 ]
 export default RESOURCE_API_ROUTES;
