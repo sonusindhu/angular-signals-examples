@@ -145,7 +145,6 @@ code {
   min-width: 320px;
   margin: 0 auto;
   padding: 8px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: calc(100vh - 160px);
   box-sizing: border-box;
 
@@ -161,9 +160,11 @@ code {
     width: 100%;
     min-width: 0;
     max-width: 100%;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08), 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
 
     @media (max-width: 600px) {
