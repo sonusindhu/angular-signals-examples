@@ -1,0 +1,49 @@
+```code
+<div class="example-container">
+  <div class="content-area">
+    <h2>Resource API Example 8: Country Info with rxResource</h2>
+    <p>This example demonstrates using <code>rxResource()</code> to fetch live country information from the REST Countries API. Select a country to view its details.</p>
+  </div>
+  <div class="demo-section">
+    <mat-card>
+      <mat-card-content>
+        <div class="demo-actions">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Country</mat-label>
+            <mat-select [value]="country()" (selectionChange)="updateCountry($event)">
+              <ng-container *ngFor="let c of countries(); let i = index">
+                <mat-option [value]="c">{{c}}</mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="country-display" *ngIf="countryResource.value() as country">
+          <mat-card class="country-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>public</mat-icon>
+                Country Details
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="country-text"><strong>Name:</strong> {{country.name.common}}</p>
+              <p class="country-text"><strong>Capital:</strong> {{country.capital?.[0]}}</p>
+              <p class="country-text"><strong>Region:</strong> {{country.region}}</p>
+              <p class="country-text"><strong>Population:</strong> {{country.population | number}}</p>
+              <img *ngIf="country.flags?.svg" [src]="country.flags.svg" alt="Flag" class="country-flag" />
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div *ngIf="countryResource.isLoading()" class="loading-state">
+          <mat-icon>hourglass_empty</mat-icon>
+          Loading country data...
+        </div>
+        <div *ngIf="countryResource.error()" class="error-state">
+          <mat-icon>error</mat-icon>
+          Error loading country data
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+```
