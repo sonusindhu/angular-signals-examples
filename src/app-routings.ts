@@ -23,6 +23,10 @@ export const ROUTES: Route[] = [
     loadChildren: () => import('./app/examples/defer-block/defer-block-routings'),
   },
   {
+    path: 'control-flow',
+    loadChildren: () => import('./app/examples/control-flow/control-flow-routings'),
+  },
+  {
     path: 'table',
     loadComponent: () => import('./app/table/table.component'),
   },

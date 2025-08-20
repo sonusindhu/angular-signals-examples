@@ -1,0 +1,47 @@
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>&#64;switch Block Example 1: Basic Usage</h2>
+        <p>This example demonstrates the new Angular <code>&#64;switch</code> block for conditional branching, using signals for state.</p>
+      </div>
+      <div class="demo-section">
+        <mat-card>
+          <mat-card-content>
+            <div class="controls">
+              <label>
+                Select status:
+                <select [value]="status()" (change)="onStatusChange($event)">
+                  <option value="pending">Pending</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </label>
+              <button mat-stroked-button (click)="onStatusChange('pending')" style="margin-left:1rem;">Reset</button>
+            </div>
+            @switch (status()) {
+              @case ('pending') {
+                <div class="status">⏳ Waiting for approval...</div>
+              }
+              @case ('approved') {
+                <div class="status">✅ Approved!</div>
+              }
+              @case ('rejected') {
+                <div class="status">❌ Rejected.</div>
+              }
+            }
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/control-flow/switch-section/switch-example-1/switch-example-1.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/control-flow/switch-section/switch-example-1/switch-example-1.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/control-flow/switch-section/switch-example-1/switch-example-1.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

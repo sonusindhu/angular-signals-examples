@@ -1,0 +1,15 @@
+```code
+:host {
+  display: contents;
+  .if-demo {
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  
+  .result {
+    font-weight: bold;
+    color: #1976d2;
+  }
+}

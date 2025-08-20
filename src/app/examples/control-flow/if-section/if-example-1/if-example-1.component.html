@@ -1,0 +1,36 @@
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>&#64;if Block Example 1: Basic Usage</h2>
+        <p>This example demonstrates the new Angular <code>&#64;if</code> block for conditional rendering, using signals for state.</p>
+      </div>
+      <div class="demo-section">
+        <mat-card>
+          <mat-card-content>
+            <div class="controls">
+              <label>
+                <input type="checkbox" [checked]="show()" (change)="onToggle($event)" />
+                Show secret message
+              </label>
+            </div>
+            @if (show()) {
+              <div class="result">
+                🎉 The message is visible!
+              </div>
+            }
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/control-flow/if-section/if-example-1/if-example-1.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/control-flow/if-section/if-example-1/if-example-1.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/control-flow/if-section/if-example-1/if-example-1.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

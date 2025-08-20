@@ -180,8 +180,8 @@ code {
         .mat-mdc-tab-list, .mat-tab-list {
           .mat-mdc-tab-labels, .mat-tab-labels {
             justify-content: center;
-            flex-wrap: wrap;
-            width: 100%;
+            // flex-wrap: wrap;
+            // width: 100%;
             min-width: 0;
             max-width: 100%;
           }
