@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import ResourceApiComponent from './resource-api.component';
 
 const RESOURCE_API_ROUTES: Route[] = [
   {

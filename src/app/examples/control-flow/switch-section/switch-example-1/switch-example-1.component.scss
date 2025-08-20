@@ -1,0 +1,55 @@
+
+:host {
+  display: contents;
+
+  .demo-section {
+    padding: 1.5rem 1rem;
+    background: #f8fafc;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px 0 rgba(60,60,60,0.06);
+    transition: box-shadow 0.2s;
+  }
+  .demo-section:hover {
+    box-shadow: 0 4px 16px 0 rgba(60,60,60,0.12);
+  }
+
+  .controls {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  .icon-controls button.mat-icon-button {
+    border: 2px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .icon-controls .active-pending {
+    border-color: #1976d2;
+    background: #e3f2fd;
+  }
+  .icon-controls .active-approved {
+    border-color: #388e3c;
+    background: #e8f5e9;
+  }
+  .icon-controls .active-rejected {
+    border-color: #d32f2f;
+    background: #ffebee;
+  }
+
+  .status {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(60,60,60,0.04);
+    color: #333;
+    display: inline-block;
+  }
+}
+
