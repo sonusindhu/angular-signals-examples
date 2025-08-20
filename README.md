@@ -86,7 +86,7 @@
 
 ## 🔗 Examples - LinkedSignal
 
-> 🔄 **3 powerful examples** demonstrating Angular's LinkedSignal for reactive computed state
+> 🔄 **4 powerful examples** demonstrating Angular's LinkedSignal for reactive computed state
 
 | # | Example | Description | Key Features | Live Demo |
 |---|---------|-------------|--------------|-----------|
@@ -95,9 +95,22 @@
 | 3 | **Dynamic Pricing Engine** | Advanced pricing based on user & product | • Complex business logic<br>• Multi-factor calculations | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/example3) |
 | 4 | **Unit Converter (Celsius ↔ Fahrenheit)** | Two-way unit conversion with linkedSignal | • Bi-directional binding<br>• Real-world scenario | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/example4) |
 
-## 📡 Examples - Resource API
 
-> 🌐 **6 comprehensive examples** showcasing Angular's new Resource API for data fetching
+
+## 🔀 Examples - Control Flow
+
+> 🧩 **3 practical examples** demonstrating Angular's new control flow blocks: `@if`, `@for`, and `@switch`
+
+| # | Block | Example | Description | Live Demo |
+|---|-------|---------|-------------|-----------|
+| 1 | **@if** | If Block | Show/hide content with signals | [🔗 Demo](https://angular-signal-examples.netlify.app/control-flow/if-section/if-example-1) |
+| 2 | **@for** | For Block | List rendering with signals | [🔗 Demo](https://angular-signal-examples.netlify.app/control-flow/for-section/for-example-1) |
+| 3 | **@switch** | Switch Block | Switch-case rendering with signals | [🔗 Demo](https://angular-signal-examples.netlify.app/control-flow/switch-section/switch-example-1) |
+
+
+## � Examples - Resource API
+
+> 🌐 **9 comprehensive examples** showcasing Angular's new Resource API for data fetching and real-world scenarios
 
 | # | Example | API Type | Description | Live Demo |
 |---|---------|----------|-------------|-----------|
@@ -107,6 +120,9 @@
 | 4 | **Random User API** | `resource()` | Real-world API integration | [🔗 Demo](https://angular-signal-examples.netlify.app/resource-api/resource-api-example4) |
 | 5 | **GitHub Repositories** | `rxResource()` | Complex data transformations | [🔗 Demo](https://angular-signal-examples.netlify.app/resource-api/resource-api-example5) |
 | 6 | **Random Jokes** | `httpResource()` | Error handling & retry logic | [🔗 Demo](https://angular-signal-examples.netlify.app/resource-api/resource-api-example6) |
+| 7 | **Weather API** | `resource()` | Weather data fetching | [🔗 Demo](https://angular-signal-examples.netlify.app/resource-api/resource-api-example7) |
+| 8 | **Crypto Prices** | `rxResource()` | Live crypto price updates | [🔗 Demo](https://angular-signal-examples.netlify.app/resource-api/resource-api-example8) |
+| 9 | **News Headlines** | `resource()` | Latest news from API | [🔗 Demo](https://angular-signal-examples.netlify.app/resource-api/resource-api-example9) |
 
 ## ⏳ Examples - Defer Block
 
