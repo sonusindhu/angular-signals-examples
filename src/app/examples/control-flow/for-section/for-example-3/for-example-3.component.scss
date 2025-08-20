@@ -1,0 +1,40 @@
+:host {
+  display: contents;
+  .demo-section {
+    padding: 1.5rem 1rem;
+    background: #f8fafc;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px 0 rgba(60,60,60,0.06);
+    transition: box-shadow 0.2s;
+  }
+  .demo-section:hover {
+    box-shadow: 0 4px 16px 0 rgba(60,60,60,0.12);
+  }
+  .controls {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+  .controls input[type="number"] {
+    width: 60px;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid #bdbdbd;
+    font-size: 1rem;
+  }
+  .list-item {
+    margin: 0.5rem 0;
+    color: #388e3c;
+    font-weight: 500;
+    background: #e8f5e9;
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    box-shadow: 0 1px 2px 0 rgba(56,142,60,0.04);
+    letter-spacing: 0.01em;
+  }
+}
