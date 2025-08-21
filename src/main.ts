@@ -5,11 +5,16 @@ import { ROUTES } from './app-routings';
 import { provideZoneChangeDetection, SecurityContext } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CLIPBOARD_OPTIONS, provideMarkdown } from 'ngx-markdown';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ClipboardButtonComponent } from './app/shared/component/clipboard-button/clipboard-button.component';
+import { httpCacheInterceptor } from './app/shared/http-cache/http-cache.interceptor';
 bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(),
+    provideHttpClient(
+      withInterceptors(
+        [httpCacheInterceptor] // Register the HTTP cache interceptor
+      )
+    ),
     provideRouter(ROUTES),
     provideZoneChangeDetection(),
     provideAnimationsAsync(),
