@@ -1,0 +1,95 @@
+:host {
+  display: contents;
+
+  .light-bg {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+    border-radius: 18px;
+    margin-bottom: 2rem;
+    padding: 2.2rem 2rem 1.2rem 2rem;
+    box-shadow: 0 2px 16px #e0e7ef80;
+  }
+
+  .headline-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+    .headline-icon {
+      font-size: 2.8rem;
+      filter: drop-shadow(0 2px 8px #4f46e540);
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin: 0.2rem 0 0 0;
+    }
+  }
+
+  .explanation-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #e0e7ef60;
+    margin-bottom: 0.5rem;
+    .explanation-details {
+      h4 {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.18rem;
+        margin-bottom: 1rem;
+        color: #3b3b4f;
+      }
+      .explanation-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.2rem 0;
+        li {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          font-size: 1.05rem;
+          margin-bottom: 0.7rem;
+          color: #374151;
+          background: #f3f6fa;
+          border-radius: 8px;
+          padding: 0.5rem 0.8rem;
+        }
+        mat-icon {
+          font-size: 1.2rem;
+        }
+      }
+      .why-share-replay {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.7rem;
+        background: linear-gradient(90deg, #fef9c3 0%, #fceabb 100%);
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        font-size: 1.05rem;
+        color: #7c4700;
+        margin-bottom: 0.2rem;
+        mat-icon {
+          font-size: 1.3rem;
+        }
+        b {
+          color: #b45309;
+        }
+      }
+    }
+  }
+
+  mat-card {
+    background: #fff;
+    color: #222;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px #0001;
+  }
+
+  ul {
+    margin: 1rem 0 0 0;
+    padding: 0 0 0 1.5rem;
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
