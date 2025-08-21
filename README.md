@@ -155,7 +155,16 @@ Angular's defer blocks provide **declarative lazy loading** for better performan
 | 10 | **Loading States with Timing** | Professional UX | Anti-flicker timing controls | [🔗 Demo](https://angular-signal-examples.netlify.app/defer-block/defer-example10) |
 | 11 | **Real-world Dashboard** | Production-ready | Complete dashboard widget | [🔗 Demo](https://angular-signal-examples.netlify.app/defer-block/defer-example11) |
 
-## 🛠️ Development
+## � Examples - Advanced
+
+> 🧠 **2 advanced examples** demonstrating real-world Angular patterns with signals, RxJS, and HTTP caching
+
+| # | Example | Key Concepts | Description | Live Demo |
+|---|---------|-------------|-------------|-----------|
+| 1 | **Signal-based HTTP Resource** | Signals, resource(), HTTP, error handling | Modern HTTP data fetching with signals | [🔗 Demo](https://angular-signal-examples.netlify.app/advanced/advanced-example-1) |
+| 2 | **HTTP Caching with shareReplay** | RxJS shareReplay, HTTP caching, signals, refresh | Efficient HTTP caching using RxJS shareReplay and signals | [🔗 Demo](https://angular-signal-examples.netlify.app/advanced/advanced-example-2) |
+
+## �🛠️ Development
 
 
 ### 📋 Prerequisites
