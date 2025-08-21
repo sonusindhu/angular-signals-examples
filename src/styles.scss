@@ -45,11 +45,14 @@ app-root {
 }
 
 .markdown-clipboard-button{
+    position: absolute;
     background: black;
     border-radius: 20px;
     color: white;
-    padding: 6px 40px;
-    margin-top: 5px;
+    padding: 6px 20px;
+    margin-top: 2px;
+    right: 5px;
+    top: 2px;
     cursor: pointer;
 }
 

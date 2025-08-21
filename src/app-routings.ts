@@ -27,6 +27,10 @@ export const ROUTES: Route[] = [
     loadChildren: () => import('./app/examples/control-flow/control-flow-routings'),
   },
   {
+    path: 'advanced',
+    loadChildren: () => import('./app/examples/advanced/advanced-routings'),
+  },
+  {
     path: 'table',
     loadComponent: () => import('./app/table/table.component'),
   },

@@ -1,0 +1,114 @@
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 1: HTTP cache with interceptors</h2>
+        <p>This example demonstrates the use of HTTP interceptors for caching API responses.</p>
+      </div>
+
+      <div class="demo-section">
+        <h3>Basic Usage</h3>
+        <mat-card>
+          <mat-card-content>
+            <div class="controls">
+
+              <label for="useCache">Use Cache:</label>
+              <input type="checkbox" name="useCache" id="useCache" [checked]="useCache()" (change)="toggleUseCache()">
+
+
+              <button mat-raised-button color="primary" (click)="todos.reload()">
+                <mat-icon>refresh</mat-icon>
+                Refresh Data
+              </button>
+              <p>Current limit: {{ limit() }} items</p>
+            </div>
+
+            @if (todos.isLoading()) {
+              <div class="loading-state">
+                <mat-icon>cached</mat-icon>
+                <p>Loading tasks...</p>
+              </div>
+            }
+            @else if(todos.error()) {
+              <div class="error-state">
+                <mat-icon>error</mat-icon>
+                <p>Error: {{ todos.error() }}</p>
+              </div>
+            }
+            @else {
+              <div class="data-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Task</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @let data = todos.value();
+                    @if(data) {
+                      @for (r of data; track r.id) {
+                        <tr>
+                          <td>{{ r.id }}</td>
+                          <td>{{ r.title }}</td>
+                          <td>
+                            <span class="status" [class.completed]="r.completed">
+                              {{ r.completed ? 'Completed' : 'Pending' }}
+                            </span>
+                          </td>
+                        </tr>
+                      }
+                    }
+                  </tbody>
+                </table>
+              </div>
+            }
+          </mat-card-content>
+        </mat-card>
+
+        <h3>Key Features</h3>
+        <mat-card>
+          <mat-card-content>
+            
+            <ul>
+              <li>🔄 Automatic caching of API responses</li>
+              <li>⏳ Configurable cache expiration</li>
+              <li>📊 Optimized for performance and user experience</li>
+              <li>📚 Easily extendable for other API endpoints</li>
+            </ul>
+            <p>This example uses a simple HTTP interceptor to cache GET requests and improve performance.</p>
+            <p>It demonstrates how to manage API data efficiently in Angular applications.</p> 
+            <pre><code>
+              const data$ = this.http.get('/sensitive/data', &#123;
+                context: new HttpContext().set(CACHING_CONFIG, &#123;
+                  enabled: true,
+                  maxAge: 300000 // 5 minutes
+                &#125;),
+              &#125;);
+              </code></pre>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Interceptor">
+      <markdown clipboard [src]="'assets/examples/advanced/example1/http-cache.interceptor.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="Service">
+      <markdown clipboard [src]="'assets/examples/advanced/example1/http-cache.service.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="Models">
+      <markdown clipboard [src]="'assets/examples/advanced/example1/http-cache.model.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/advanced/example1/example1.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/advanced/example1/example1.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/advanced/example1/example1.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

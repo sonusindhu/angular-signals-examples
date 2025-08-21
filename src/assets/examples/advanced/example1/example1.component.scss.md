@@ -1,0 +1,79 @@
+```scss
+:host{
+  display: contents;
+  .demo-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .data-table {
+    overflow-x: auto;
+    margin-top: 1rem;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    font-size: 15px;
+  }
+  
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+  }
+  
+  th {
+    background: #f5f5f5;
+    font-weight: 600;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  tr:not(:last-child) td {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    background: #fff3cd;
+    color: #856404;
+    &.completed {
+      background: #e8f5e8;
+      color: #2e7d2e;
+    }
+  }
+  
+  .loading-state, .error-state {
+    text-align: center;
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+  }
+  
+  .loading-state {
+    color: #2196f3;
+  }
+  
+  .error-state {
+    color: #f44336;
+  }
+}
+// Only unique, demo-specific styles for resource-api-example1 should remain here.
