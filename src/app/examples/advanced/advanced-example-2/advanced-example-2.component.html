@@ -1,0 +1,106 @@
+<div class="example-container">
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area light-bg">
+        <div class="headline-row">
+          <mat-icon class="headline-icon" color="primary">cached</mat-icon>
+          <div>
+            <h2>Example 2: HTTP caching with RxJS <code>shareReplay</code></h2>
+            <p class="subtitle">
+              Efficiently cache HTTP requests in a service using <code>shareReplay</code> for blazing-fast, network-friendly Angular apps.
+            </p>
+          </div>
+        </div>
+        <mat-card class="explanation-card">
+          <mat-card-content>
+            <div class="explanation-details">
+              <h4><mat-icon color="accent">info</mat-icon> How does the caching work?</h4>
+              <ul class="explanation-list">
+                <li><mat-icon color="primary">search</mat-icon> <b>Check cache:</b> <code>getUsers()</code> checks if a cached observable <code>users$</code> exists.</li>
+                <li><mat-icon color="primary">cloud_download</mat-icon> <b>First request:</b> If not, it performs an HTTP GET and pipes the result through <code>shareReplay(1)</code>.</li>
+                <li><mat-icon color="primary">link</mat-icon> <b>Share result:</b> <code>shareReplay(1)</code> ensures all subscribers share the same HTTP response and only one network request is made.</li>
+                <li><mat-icon color="primary">repeat</mat-icon> <b>Reuse:</b> The observable is stored in the service, so repeated calls return cached data without new HTTP requests.</li>
+                <li><mat-icon color="primary">refresh</mat-icon> <b>Refresh:</b> Clicking <b>Refresh Users</b> will re-invoke <code>getUsers()</code> and demonstrate the cache in action.</li>
+              </ul>
+              <div class="why-share-replay">
+                <mat-icon color="warn">star</mat-icon>
+                <b>Why use <code>shareReplay</code>?</b>
+                <span>
+                  It is ideal for caching HTTP responses in Angular services, especially for data that doesn't change often.<br>
+                  <b>Prevents duplicate network calls</b> and <b>improves performance</b> for your users.
+                </span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="demo-section">
+        <h3>Basic Usage</h3>
+        <mat-card>
+          <mat-card-content>
+            <div class="controls">
+              <button mat-raised-button color="primary" (click)="refresh()">
+                <mat-icon>refresh</mat-icon>
+                Refresh Users
+              </button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngIf="users$ | async as users; else loading">
+                    <tr *ngFor="let user of users">
+                      <td>{{ user.id }}</td>
+                      <td>{{ user.name }}</td>
+                      <td>{{ user.email }}</td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+              <ng-template #loading>
+                <tr>
+                  <td colspan="3" class="loading-state">
+                    <mat-icon>cached</mat-icon>
+                    Loading users...
+                  </td>
+                </tr>
+              </ng-template>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <h3>Key Features</h3>
+        <mat-card>
+          <mat-card-content>
+            <ul>
+              <li>⚡ Efficient HTTP caching with <code>shareReplay</code></li>
+              <li>🔄 Single network request reused by all subscribers</li>
+              <li>🚀 Great for data that rarely changes</li>
+              <li>🧩 Simple, service-based implementation</li>
+            </ul>
+            <p>This example uses <code>shareReplay(1)</code> to cache the HTTP response and share it across all consumers.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Service">
+      <markdown clipboard [src]="'assets/examples/advanced/advanced-example-2/advanced-example-2.service.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/advanced/advanced-example-2/advanced-example-2.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/advanced/advanced-example-2/advanced-example-2.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/advanced/advanced-example-2/advanced-example-2.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
