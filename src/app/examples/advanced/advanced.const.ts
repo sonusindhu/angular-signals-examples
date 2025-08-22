@@ -10,5 +10,10 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         title: 'HTTP Caching with RxJS shareReplay',
         content: 'Cache HTTP requests in a service using RxJS shareReplay for efficient data reuse.',
         routerLink: 'example2',
+    },
+    {
+        title: 'Real-World ng-template Use Cases',
+        content: 'Explore advanced and practical uses of ng-template in Angular, including conditional rendering, template outlets, context passing, and custom structural directives.',
+        routerLink: 'example3',
     }
 ];
