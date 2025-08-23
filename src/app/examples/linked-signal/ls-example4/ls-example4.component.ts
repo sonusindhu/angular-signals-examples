@@ -5,6 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-ls-example4',
@@ -16,7 +18,9 @@ import { MarkdownComponent } from 'ngx-markdown';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MarkdownComponent
+    MarkdownComponent,
+    RouterModule,
+    MatButtonModule
   ]
 })
 export class LsExample4Component {
