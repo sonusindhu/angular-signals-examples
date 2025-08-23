@@ -1,11 +1,19 @@
-
 <div class="example-container">
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Demo">
       <div class="content-area">
-        <h2>Signal Example 1 - Counter</h2>
-        <p>This example demonstrates a simple counter using Angular signals with increment and decrement functionality.</p>
-        <div class="demo-section">
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">💡</span> Signal Example 1: <span class="text-green-700">Counter</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">⚡</span>
+            <span>
+              Experience the power of <strong class="text-blue-700">Angular Signals</strong> with this interactive counter! Effortlessly increment or decrement the value and see instant, reactive UI updates—<span class="font-semibold text-green-700">no manual subscriptions or change detection required</span>.
+            </span>
+          </span>
+        </p>
+        <div class="demo-section w-full">
           <div class="counter-container">
             <h3>🔢 Signal Counter</h3>
             <div class="controls">
@@ -19,10 +27,33 @@
             </div>
           </div>
         </div>
+        <div class="signal-explanation mt-12 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+          <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>⚡</span> Understanding Angular Signals</h2>
+          <p><strong>Signals</strong> are Angular’s new way to manage reactive state. They let you create values that automatically update the UI when changed, without manual subscriptions or observables. This makes state management more predictable and efficient.</p>
+          <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">A signal is a special function that holds a value. When you read the signal (by calling it as a function), you get its current value. When you update the signal, Angular automatically tracks where it is used and updates only those parts of the UI that depend on it.</blockquote>
+          <h3 class="mt-8 text-green-700 font-bold">How to Use Signals</h3>
+          <ol class="pl-6 list-decimal mb-6">
+            <li><strong>Create a signal:</strong> <code class="bg-blue-100 text-blue-700 px-1 rounded">count = signal(0);</code> <br><span class="text-gray-500">This declares a reactive value with an initial value of <code>0</code>.</span></li>
+            <li><strong>Read the value:</strong> <code class="bg-blue-100 text-blue-700 px-1 rounded">{{ count() }}</code> <br><span class="text-gray-500">Use in your template or <code>this.count()</code> in TypeScript to get the current value.</span></li>
+            <li><strong>Update the value:</strong> <code class="bg-blue-100 text-blue-700 px-1 rounded">this.count.set(newValue)</code> or <code class="bg-blue-100 text-blue-700 px-1 rounded">this.count.update(c =&gt; c + 1)</code> <br><span class="text-gray-500">Set a new value or update based on the previous value.</span></li>
+          </ol>
+          <h3 class="mt-8 text-green-700 font-bold">How This Example Works</h3>
+          <ul class="list-disc pl-6 mb-6">
+            <li>The counter value is stored in a signal called <code class="bg-blue-100 text-blue-700 px-1 rounded">count</code>. This makes the value reactive.</li>
+            <li>When you click <strong>+</strong> or <strong>-</strong>, the signal is updated using <code class="bg-blue-100 text-blue-700 px-1 rounded">update</code> methods. The UI updates instantly wherever <code>count()</code> is used.</li>
+            <li>Signals automatically track dependencies. If you use <code>count()</code> in multiple places, all will update when the value changes.</li>
+            <li>No manual change detection, subscriptions, or RxJS is needed. Signals simplify reactivity and state management in Angular.</li>
+            <li>Signals are ideal for local component state, but can also be composed for more complex scenarios.</li>
+          </ul>
+          <div class="mt-8 flex items-center gap-3">
+            <span class="text-3xl text-yellow-500">★</span>
+            <span class="font-semibold text-blue-900">Signals make Angular apps more predictable, efficient, and easy to maintain by providing fine-grained reactivity out of the box.</span>
+          </div>
+        </div>
       </div>
     </mat-tab>
     <mat-tab label="HTML">
-      <markdown clipboard [src]="'assets/examples/signal/signal-example1/signal-example1-md.component.html.md'"></markdown>
+      <markdown clipboard [src]="'assets/examples/signal/signal-example1/signal-example1.component.html.md'"></markdown>
     </mat-tab>
     <mat-tab label="TS">
       <markdown clipboard [src]="'assets/examples/signal/signal-example1/signal-example1.component.ts.md'" ></markdown>
