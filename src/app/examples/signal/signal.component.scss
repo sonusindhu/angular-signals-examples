@@ -2,32 +2,8 @@
   display: block;
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
   background-size: 400% 400%;
-  animation: rainbowFlow 15s ease infinite;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
-    opacity: 0.8;
-  }
-}
-
-@keyframes rainbowFlow {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 100% 50%; }
-  50% { background-position: 100% 100%; }
-  75% { background-position: 0% 100%; }
-  100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -40,10 +16,6 @@
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #667eea, #f093fb, #f5576c);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin-bottom: 3rem;
     position: relative;
     text-align: center;
@@ -54,7 +26,7 @@
       bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 150px;
       height: 4px;
       background: linear-gradient(45deg, #667eea, #f093fb);
       border-radius: 2px;
