@@ -4,21 +4,45 @@
       <div class="content-area">
         <h2>Signal Example 12 - Untracked Signal</h2>
         <p>This example demonstrates using <code>untracked()</code> to avoid triggering effects on certain signal updates.</p>
-        <div class="demo-section">
-          <div class="untracked-container">
-            <h3>🔄 Untracked Signal</h3>
-            <div class="info-section">
-              <div>
-                <p>Counter 1 - {{ counter1() }}</p>
+        <div class="demo-section w-full px-2 sm:px-4 py-4 sm:py-6 bg-gradient-to-br from-blue-50 via-white to-green-50 rounded-2xl shadow-lg border border-blue-100 flex flex-col gap-6">
+          <div class="untracked-container w-full">
+            <h3 class="text-lg sm:text-xl font-bold text-blue-700 flex items-center gap-2 mb-4"><span>🔄</span> Untracked Signal</h3>
+            <div class="info-section w-full flex flex-col sm:flex-row gap-8">
+              <div class="flex-1 flex flex-col items-start gap-2">
+                <p class="text-blue-900">Counter 1 - <span class="font-bold">{{ counter1() }}</span></p>
                 <button mat-raised-button color="primary" (click)="updateCounter1()">Update Counter 1</button>
               </div>
-              <div style="margin-top: 2rem;">
-                <p>Counter 2 - {{ counter2() }}</p>
+              <div class="flex-1 flex flex-col items-start gap-2">
+                <p class="text-blue-900">Counter 2 - <span class="font-bold">{{ counter2() }}</span></p>
                 <button mat-raised-button color="primary" (click)="updateCounter2()">Update Counter 2</button>
               </div>
-              <b style="display:block; margin-top:2rem;">
-                To review the changes, view the console. Updating counter 1 triggers the effect, but updating counter 2 does not (due to <code>untracked()</code>).
-              </b>
+            </div>
+            <div class="mt-6 text-sm text-gray-700 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+              <b>To review the changes, view the console. Updating counter 1 triggers the effect, but updating counter 2 does not (due to <code>untracked()</code>).</b>
+            </div>
+          </div>
+          <div class="signal-explanation mt-8 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+            <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>🔄</span> Deep Dive: Using <code>untracked()</code> with Angular Signals</h2>
+            <p><strong>Signals</strong> are powerful for reactivity, but sometimes you want to <b>read a signal’s value without tracking it</b>—so that updates to that signal don’t trigger effects or recomputations. That’s where <code>untracked()</code> comes in.</p>
+            <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">Use <code>untracked()</code> to read a signal’s value without creating a dependency. This is useful for logging, analytics, or when you want to avoid unnecessary updates.</blockquote>
+            <h3 class="mt-8 text-green-700 font-bold">How This Example Works</h3>
+            <ul class="list-disc pl-6 mb-6">
+              <li><strong>Signal Declarations:</strong> Two signals are declared: <code class="bg-blue-100 text-blue-700 px-1 rounded">counter1 = signal(1)</code> and <code>counter2 = signal(1)</code>.</li>
+              <li><strong>Effect:</strong> An <code>effect() =&gt; {{ '{' }} console.log(counter1(), untracked(() =&gt; counter2())); {{ '}' }}</code> logs both counters to the console, but <code>counter2</code> is read using <code>untracked()</code>.</li>
+              <li><strong>Updating Counters:</strong> Clicking the buttons updates each counter independently.</li>
+              <li><strong>Reactivity:</strong> Updating <code>counter1</code> triggers the effect and logs both values. Updating <code>counter2</code> does <b>not</b> trigger the effect, because it’s read untracked.</li>
+            </ul>
+            <h3 class="mt-8 text-green-700 font-bold">Why Use <code>untracked()</code>?</h3>
+            <ul class="list-disc pl-6 mb-6">
+              <li><strong>Performance:</strong> Avoid unnecessary recomputations or effects when you only need a value once.</li>
+              <li><strong>Fine-Grained Control:</strong> Choose exactly which signals should trigger updates and which should not.</li>
+              <li><strong>Debugging & Logging:</strong> Log or inspect signal values without affecting reactivity.</li>
+              <li><strong>Advanced Patterns:</strong> Useful in custom hooks, analytics, or when integrating with non-reactive APIs.</li>
+              <li><strong>Real-World Use:</strong> Use <code>untracked()</code> when you want to read a signal’s value without making your effect or computed depend on it.</li>
+            </ul>
+            <div class="mt-8 flex items-center gap-3">
+              <span class="text-3xl text-yellow-500">★</span>
+              <span class="font-semibold text-blue-900">With <code>untracked()</code>, you get precise control over your Angular signal dependencies—making your apps faster and more predictable!</span>
             </div>
           </div>
         </div>
