@@ -9,6 +9,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
 
 interface DashboardWidget {
   id: string;
@@ -28,7 +29,7 @@ interface NewsItem {
 @Component({
     selector: 'app-defer-example11',
     standalone: true,
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatIconModule, MatProgressBarModule, MatChipsModule, MatGridListModule, MatDividerModule, MarkdownComponent],
+    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatIconModule, MatProgressBarModule, MatChipsModule, MatGridListModule, MatDividerModule, MarkdownComponent, RouterModule],
     templateUrl: './defer-example11.component.html',
     styleUrl: './defer-example11.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
