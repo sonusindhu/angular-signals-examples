@@ -5,6 +5,7 @@ import {
   computed,
   signal,
 } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
@@ -26,7 +27,7 @@ const PRODUCTS: Product[] = [
     templateUrl: `./signal-example13.component.html`,
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrl: `./signal-example13.component.scss`,
-    imports: [MatButtonModule, MatTabsModule, MarkdownComponent],
+    imports: [MatButtonModule, MatTabsModule, MarkdownComponent, RouterModule],
 })
 export default class SignalExample13Component {
   // Define a signal for the list of items

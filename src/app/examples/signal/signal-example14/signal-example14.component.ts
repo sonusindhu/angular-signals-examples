@@ -7,6 +7,8 @@ import {
   WritableSignal,
   signal,
 } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 interface Product {
   id: number;
@@ -19,7 +21,7 @@ interface Product {
     templateUrl: `./signal-example14.component.html`,
     styleUrl: `./signal-example14.component.scss`,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [ScrollingModule, MatTabsModule, MarkdownComponent],
+    imports: [ScrollingModule, MatTabsModule, MarkdownComponent, RouterModule, MatButtonModule],
 })
 export default class SignalExample14Component {
   products: WritableSignal<Product[]> = signal(

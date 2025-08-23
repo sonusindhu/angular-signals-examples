@@ -1,4 +1,9 @@
 <div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example10'">Prev</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example12'">Next</button>
+  </div>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Demo">
       <div class="content-area">
