@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { ShowOnEvenDirective } from './app-show-on-even.directive';
+import { RouterModule } from '@angular/router';
 
 /**
  * Example 3: Real-World ng-template Use Cases
@@ -17,7 +18,7 @@ import { ShowOnEvenDirective } from './app-show-on-even.directive';
 @Component({
   selector: 'app-advanced-example3',
   standalone: true,
-  imports: [CommonModule, NgIf, NgForOf, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, ShowOnEvenDirective],
+  imports: [CommonModule, NgIf, NgForOf, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, ShowOnEvenDirective, RouterModule],
   templateUrl: './advanced-example3.component.html',
   styleUrl: './advanced-example3.component.scss'
 })

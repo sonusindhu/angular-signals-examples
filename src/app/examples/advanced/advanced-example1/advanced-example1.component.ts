@@ -1,4 +1,3 @@
-
 import { Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -8,10 +7,12 @@ import { MarkdownComponent } from 'ngx-markdown';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { CACHING_CONFIG, DEFAULT_CACHING_TTL } from 'src/app/shared/http-cache/http-cache.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-advanced-example1',
-  imports: [MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  standalone: true,
+  imports: [MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, RouterModule],
   templateUrl: './advanced-example1.component.html',
   styleUrl: './advanced-example1.component.scss'
 })
