@@ -41,7 +41,7 @@
         </div>
       </div>
       
-      <div class="hero-visual">
+      <!-- <div class="hero-visual">
         <div class="code-preview">
           <div class="code-header">
             <div class="code-dots">
@@ -51,18 +51,52 @@
           </div>
           <div class="code-content">
             <pre><code class="typescript">
-<span class="keyword">import</span> <span class="punctuation">&#123;</span> <span class="function">signal</span><span class="punctuation">,</span> <span class="function">computed</span> <span class="punctuation">&#125;</span> <span class="keyword">from</span> <span class="string">'&#64;angular/core'</span><span class="punctuation">;</span>
+            <span class="keyword">import</span> <span class="punctuation">&#123;</span> <span class="function">signal</span><span class="punctuation">,</span> <span class="function">computed</span> <span class="punctuation">&#125;</span> <span class="keyword">from</span> <span class="string">'&#64;angular/core'</span><span class="punctuation">;</span>
 
-<span class="comment">// Create reactive signals</span>
-<span class="keyword">const</span> <span class="variable">count</span> <span class="operator">=</span> <span class="function">signal</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">)</span><span class="punctuation">;</span>
-<span class="keyword">const</span> <span class="variable">doubled</span> <span class="operator">=</span> <span class="function">computed</span><span class="punctuation">(</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=></span> <span class="variable">count</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">*</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">;</span>
+            <span class="comment">// Create reactive signals</span>
+            <span class="keyword">const</span> <span class="variable">count</span> <span class="operator">=</span> <span class="function">signal</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">)</span><span class="punctuation">;</span>
+            <span class="keyword">const</span> <span class="variable">doubled</span> <span class="operator">=</span> <span class="function">computed</span><span class="punctuation">(</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=></span> <span class="variable">count</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">*</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">;</span>
 
-<span class="comment">// Update signal values</span>
-<span class="variable">count</span><span class="punctuation">.</span><span class="function">set</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">)</span><span class="punctuation">;</span> <span class="comment">// doubled automatically becomes 10</span>
+            <span class="comment">// Update signal values</span>
+            <span class="variable">count</span><span class="punctuation">.</span><span class="function">set</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">)</span><span class="punctuation">;</span> <span class="comment">// doubled automatically becomes 10</span>
             </code></pre>
           </div>
         </div>
+      </div> -->
+
+      <div class="flex justify-center items-center p-6">
+        <div class="bg-[#161b22] border border-gray-700 rounded-lg overflow-hidden shadow-lg w-[600px] font-mono text-sm">
+
+          <!-- Header -->
+          <div class="flex items-center gap-2 bg-[#21262d] px-4 py-2 border-b border-gray-700 text-gray-300 text-xs">
+            <div class="flex space-x-2">
+              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+            <span class="text-yellow-400">signal.component.ts</span>
+          </div>
+
+          <!-- Code -->
+          <div class="p-4 overflow-x-auto">
+            <pre class="text-gray-200 !bg-[#342b2b] leading-relaxed">
+            <code>
+              <span class="text-pink-400">import</span> &#123; <span class="text-purple-400">signal</span>, <span class="text-purple-400">computed</span> &#125; <span class="text-pink-400">from</span> <span class="text-blue-300">'&#64;angular/core'</span>;
+
+              <span class="text-gray-500">// Create reactive signals</span>
+              <span class="text-pink-400">const</span> <span class="text-blue-400">count</span> = <span class="text-purple-400">signal</span>(<span class="text-orange-400">0</span>);
+              <span class="text-pink-400">const</span> <span class="text-blue-400">doubled</span> = <span class="text-purple-400">computed</span>(() => <span class="text-blue-400">count</span>() * <span class="text-orange-400">2</span>);
+
+              <span class="text-gray-500">// Update signal values</span>
+              <span class="text-blue-400">count</span>.<span class="text-purple-400">set</span>(<span class="text-orange-400">5</span>); <span class="text-gray-500">// doubled automatically becomes 10</span>
+            </code>
+            </pre>
+          </div>
+        </div>
       </div>
+
+
+
     </div>
   </section>
 
