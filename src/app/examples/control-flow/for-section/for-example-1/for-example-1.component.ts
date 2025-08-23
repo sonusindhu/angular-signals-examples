@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-for-example-1',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatTabsModule, MatCardModule, MarkdownComponent],
+  imports: [CommonModule, FormsModule, MatTabsModule, MatCardModule, MarkdownComponent, RouterModule, MatButtonModule],
   templateUrl: './for-example-1.component.html',
   styleUrls: ['./for-example-1.component.scss']
 })
