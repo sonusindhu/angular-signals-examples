@@ -10,6 +10,8 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 interface CountryData {
   name: string;
@@ -22,7 +24,7 @@ interface CountryData {
 @Component({
   selector: 'app-resource-api-example8',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCardModule, MatIconModule, MatTabsModule, MarkdownComponent],
+  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCardModule, MatIconModule, MatTabsModule, MarkdownComponent, RouterModule, MatButtonModule],
   templateUrl: './resource-api-example8.component.html',
   styleUrl: './resource-api-example8.component.scss'
 })

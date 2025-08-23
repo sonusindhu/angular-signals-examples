@@ -6,10 +6,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownComponent } from 'ngx-markdown';
 import { CommonModule, TitleCasePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-ls-example3',
-  imports: [CommonModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatTabsModule, MatCardModule, MarkdownComponent, TitleCasePipe],
+  imports: [CommonModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatTabsModule, MatCardModule, MarkdownComponent, TitleCasePipe, RouterModule, MatButtonModule],
   templateUrl: './ls-example3.component.html',
   styleUrl: './ls-example3.component.scss'
 })

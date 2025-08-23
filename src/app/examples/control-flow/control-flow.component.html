@@ -1,69 +1,25 @@
 <div class="container">
-  <div class="section-container">
-    <div class="section">
-      <h2>&#64;if Block Examples</h2>
-      <div class="card-grid">
-        <a class="card-item" *ngFor="let item of ifExamples()" [routerLink]="item.routerLink">
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>
-                {{ item.title }}
-              </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{ item.content }}</p>
-              <div class="demo-link">
-                <span class="demo-text">View Demo</span>
-                <span class="demo-arrow">→</span>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="section">
-      <h2>&#64;for Block Examples</h2>
-      <div class="card-grid">
-        <a class="card-item" *ngFor="let item of forExamples()" [routerLink]="item.routerLink">
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>{{ item.title }}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{ item.content }}</p>
-              <div class="demo-link">
-                <span class="demo-text">View Demo</span>
-                <span class="demo-arrow">→</span>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="section">
-      <h2>&#64;switch Block Examples</h2>
-      <div class="card-grid">
-        <a class="card-item" *ngFor="let item of switchExamples()" [routerLink]="item.routerLink">
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>{{ item.title }}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{ item.content }}</p>
-              <div class="demo-link">
-                <span class="demo-text">View Demo</span>
-                <span class="demo-arrow">→</span>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </a>
-      </div>
-    </div>
+  <h2>Control Flow Examples</h2>
+  <div class="card-grid">
+    @for (item of examples(); track item) {
+      <a class="card-item" [routerLink]="item.routerLink">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              {{ item.title }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ item.content }}
+            </p>
+            <div class="demo-link">
+              <span class="demo-text">View Demo</span>
+              <span class="demo-arrow">→</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
   </div>
 </div>

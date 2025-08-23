@@ -5,10 +5,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatChipsModule } from '@angular/material/chips';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-defer-example5',
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatChipsModule, MarkdownComponent],
+    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatChipsModule, MarkdownComponent, RouterModule],
     templateUrl: './defer-example5.component.html',
     styleUrl: './defer-example5.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

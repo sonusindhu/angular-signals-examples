@@ -5,11 +5,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-switch-example-1',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  imports: [CommonModule, FormsModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, RouterModule, MatButtonModule],
   templateUrl: './switch-example-1.component.html',
   styleUrls: ['./switch-example-1.component.scss']
 })

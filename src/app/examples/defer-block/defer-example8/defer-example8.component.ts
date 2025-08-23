@@ -6,11 +6,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-defer-example8',
     standalone: true,
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatIconModule, MatChipsModule, MarkdownComponent],
+    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatIconModule, MatChipsModule, MarkdownComponent, RouterModule],
     templateUrl: './defer-example8-md.component.html',
     styleUrl: './defer-example8.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

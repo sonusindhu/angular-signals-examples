@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { resource } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 function fetchRandomUser(): Promise<any> {
   // Get a random user ID between 1 and 100000 (GitHub user IDs)
@@ -25,7 +26,7 @@ function fetchRandomUser(): Promise<any> {
 @Component({
   selector: 'app-resource-api-example4',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, RouterModule],
   templateUrl: './resource-api-example4.component.html',
   styleUrl: './resource-api-example4.component.scss'
 })

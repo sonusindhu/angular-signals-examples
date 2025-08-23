@@ -1,5 +1,3 @@
-
-
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MarkdownModule } from 'ngx-markdown';
 import { Observable } from 'rxjs';
 import { AdvancedExample2Service } from './advanced-example-2.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-advanced-example-2',
@@ -20,7 +19,8 @@ import { AdvancedExample2Service } from './advanced-example-2.service';
     MatButtonModule,
     MatTabsModule,
     MatIconModule,
-    MarkdownModule
+    MarkdownModule,
+    RouterModule
   ],
   templateUrl: './advanced-example-2.component.html',
   styleUrls: ['./advanced-example-2.component.scss']
