@@ -13,46 +13,52 @@
             </span>
           </span>
         </p>
-        <div class="demo-section w-full">
-          <div class="vat-container">
-            <h3>🧾 VAT Calculator</h3>
-            <div class="controls">
-              <mat-form-field appearance="fill">
+        <div class="demo-section w-full px-2 sm:px-4 py-4 sm:py-6 bg-gradient-to-br from-blue-50 via-white to-green-50 rounded-2xl shadow-lg border border-blue-100 flex flex-col gap-6">
+          <div class="vat-container w-full">
+            <h3 class="text-lg sm:text-xl font-bold text-blue-700 flex items-center gap-2 mb-4"><span>🧾</span> VAT Calculator</h3>
+            <div class="controls mb-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+              <mat-form-field appearance="fill" class="w-full sm:w-1/3">
                 <mat-label>Price</mat-label>
                 <input matInput type="number" min="0" oninput="validity.valid || (value = 0);" (input)="onInputUpdate($event)" [value]="price()" />
               </mat-form-field>
-              <mat-form-field appearance="fill">
+              <mat-form-field appearance="fill" class="w-full sm:w-1/3">
                 <mat-label>VAT(%)</mat-label>
                 <input matInput type="number" min="0" (input)="onInputVat($event)" [value]="vatInPercent()" />
               </mat-form-field>
             </div>
-            <div class="info-section">
-              <div class="summary">
-                <p>Total Summary:</p>
-                <p>Total VAT: {{ totalVat() }}</p>
-                <p><b>Total Price:</b> {{ total() }}</p>
+            <div class="info-section w-full">
+              <div class="summary bg-blue-50 border border-blue-100 rounded-lg p-4 mb-4 flex flex-col sm:flex-row gap-4 items-center justify-between">
+                <div class="flex flex-col gap-1">
+                  <p class="font-semibold text-blue-700">Total Summary:</p>
+                  <p class="text-blue-900">Total VAT: <span class="font-bold">{{ totalVat() }}</span></p>
+                  <p class="text-green-700 font-bold">Total Price: {{ total() }}</p>
+                </div>
+                <button mat-raised-button color="primary" (click)="save()">Save</button>
               </div>
-              <button mat-raised-button color="primary" (click)="save()">Save</button>
-              <hr />
+              <hr class="my-4 border-blue-200" />
               @if (listing().length) {
-              <table>
-                <thead>
-                  <tr>
-                    <th>Price</th>
-                    <th>VAT(%)</th>
-                    <th>Total VAT</th>
-                    <th>Total Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let entry of listing()">
-                    <td>{{ entry.price }}</td>
-                    <td>{{ entry.vatPercent }}%</td>
-                    <td>{{ entry.vat }}</td>
-                    <td>{{ entry.total }}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="overflow-x-auto rounded-lg shadow mt-4">
+                <table class="min-w-full bg-white border border-gray-200 text-sm sm:text-base">
+                  <thead class="bg-blue-100">
+                    <tr>
+                      <th class="px-4 py-3 text-left text-blue-700 font-bold tracking-wide border-b border-blue-200">Price</th>
+                      <th class="px-4 py-3 text-left text-blue-700 font-bold tracking-wide border-b border-blue-200">VAT(%)</th>
+                      <th class="px-4 py-3 text-left text-blue-700 font-bold tracking-wide border-b border-blue-200">Total VAT</th>
+                      <th class="px-4 py-3 text-left text-blue-700 font-bold tracking-wide border-b border-blue-200">Total Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (entry of listing(); track entry.id) {
+                    <tr class="even:bg-blue-50 hover:bg-blue-100 transition-colors">
+                      <td class="px-4 py-2 whitespace-nowrap">{{ entry.price }}</td>
+                      <td class="px-4 py-2 whitespace-nowrap">{{ entry.vatPercent }}%</td>
+                      <td class="px-4 py-2 whitespace-nowrap">{{ entry.vat }}</td>
+                      <td class="px-4 py-2 font-bold text-green-700 whitespace-nowrap">{{ entry.total }}</td>
+                    </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
               }
             </div>
           </div>
