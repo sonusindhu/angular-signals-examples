@@ -1,72 +1,44 @@
 <div class="modern-landing">
   <!-- Hero Section (Simple) -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">
-          <span class="gradient-text">Angular Signals</span>
+  <section class="w-full bg-white border-b border-gray-200 py-8 px-2 sm:px-6 lg:px-8 min-h-[60vh] flex items-center justify-center">
+    <div class="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-6">
+          <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Angular Signals</span>
           <br>
-          <span class="subtitle-text">Reactivity Reimagined</span>
+          <span class="block text-lg font-normal text-gray-500 mt-2">Reactivity Reimagined</span>
         </h1>
-        <p class="hero-description">
-          Master Angular's revolutionary reactivity model with comprehensive examples, 
-          interactive demos, and real-world patterns that transform how you build applications.
+        <p class="text-base sm:text-lg text-gray-600 mb-8 max-w-md lg:max-w-none">
+          Master Angular's revolutionary reactivity model with comprehensive examples, interactive demos, and real-world patterns that transform how you build applications.
         </p>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">30+</span>
-            <span class="stat-label">Examples</span>
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center justify-center lg:justify-start w-full lg:w-auto mb-8">
+          <div class="text-center">
+            <span class="block text-2xl font-semibold text-gray-900">30+</span>
+            <span class="text-xs uppercase tracking-wider text-gray-500">Examples</span>
           </div>
-          <div class="stat">
-            <span class="stat-number">4</span>
-            <span class="stat-label">Categories</span>
+          <div class="text-center">
+            <span class="block text-2xl font-semibold text-gray-900">4</span>
+            <span class="text-xs uppercase tracking-wider text-gray-500">Categories</span>
           </div>
-          <div class="stat">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Interactive</span>
+          <div class="text-center">
+            <span class="block text-2xl font-semibold text-gray-900">100%</span>
+            <span class="text-xs uppercase tracking-wider text-gray-500">Interactive</span>
           </div>
         </div>
-        <div class="hero-actions">
-          <button mat-raised-button color="primary" class="cta-button primary" [routerLink]="['/signal']">
+        <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto items-center lg:items-start">
+          <button mat-raised-button color="primary" class="cta-button primary w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition" [routerLink]="['/signal']">
             <mat-icon>play_arrow</mat-icon>
             Start Exploring
           </button>
-          
-          <a href="https://github.com/sonusindhu/angular-signals-examples" target="_blank" rel="noopener" class="github-star-btn" style="text-decoration:none;">
-            <svg style="width: 16px;" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <a href="https://github.com/sonusindhu/angular-signals-examples" target="_blank" rel="noopener" class="w-full sm:w-auto flex items-center justify-center px-6 py-3 rounded-lg font-semibold border border-gray-300 bg-gray-50 text-gray-800 hover:bg-gray-100 transition" style="text-decoration:none;">
+            <svg style="width: 16px;" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" class="mr-2"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
             Star on GitHub
             <span class="shine"></span>
           </a>
-
         </div>
       </div>
-      
-      <!-- <div class="hero-visual">
-        <div class="code-preview">
-          <div class="code-header">
-            <div class="code-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <span class="code-title">signal.component.ts</span>
-          </div>
-          <div class="code-content">
-            <pre><code class="typescript">
-            <span class="keyword">import</span> <span class="punctuation">&#123;</span> <span class="function">signal</span><span class="punctuation">,</span> <span class="function">computed</span> <span class="punctuation">&#125;</span> <span class="keyword">from</span> <span class="string">'&#64;angular/core'</span><span class="punctuation">;</span>
-
-            <span class="comment">// Create reactive signals</span>
-            <span class="keyword">const</span> <span class="variable">count</span> <span class="operator">=</span> <span class="function">signal</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">)</span><span class="punctuation">;</span>
-            <span class="keyword">const</span> <span class="variable">doubled</span> <span class="operator">=</span> <span class="function">computed</span><span class="punctuation">(</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=></span> <span class="variable">count</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">*</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">;</span>
-
-            <span class="comment">// Update signal values</span>
-            <span class="variable">count</span><span class="punctuation">.</span><span class="function">set</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">)</span><span class="punctuation">;</span> <span class="comment">// doubled automatically becomes 10</span>
-            </code></pre>
-          </div>
-        </div>
-      </div> -->
-
-      <div class="flex justify-center items-center p-6">
-        <div class="bg-[#161b22] border border-gray-700 rounded-lg overflow-hidden shadow-lg w-[600px] font-mono text-sm">
-
+      <div class="flex justify-center items-center p-2 w-full lg:w-1/2">
+        <div class="bg-[#161b22] border border-gray-700 rounded-lg overflow-hidden shadow-lg w-full max-w-[600px] font-mono text-xs sm:text-sm">
           <!-- Header -->
           <div class="flex items-center gap-2 bg-[#21262d] px-4 py-2 border-b border-gray-700 text-gray-300 text-xs">
             <div class="flex space-x-2">
@@ -76,11 +48,10 @@
             </div>
             <span class="text-yellow-400">signal.component.ts</span>
           </div>
-
           <!-- Code -->
-          <div class="p-4 overflow-x-auto">
-            <pre class="text-gray-200 !bg-[#342b2b] leading-relaxed">
-            <code>
+          <div class="p-2 sm:p-4 overflow-x-auto">
+            <pre class="text-gray-200 !bg-[#342b2b] leading-relaxed whitespace-pre-wrap break-words">
+            <code class="text-left text-white">
               <span class="text-pink-400">import</span> &#123; <span class="text-purple-400">signal</span>, <span class="text-purple-400">computed</span> &#125; <span class="text-pink-400">from</span> <span class="text-blue-300">'&#64;angular/core'</span>;
 
               <span class="text-gray-500">// Create reactive signals</span>
@@ -94,9 +65,6 @@
           </div>
         </div>
       </div>
-
-
-
     </div>
   </section>
 
