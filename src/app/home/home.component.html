@@ -1,65 +1,84 @@
 <div class="modern-landing">
   <!-- Hero Section (Simple) -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">
-          <span class="gradient-text">Angular Signals</span>
+  <section class="w-full bg-white border-b border-gray-200 py-8 px-2 sm:px-6 lg:px-8 min-h-[60vh] flex items-center justify-center">
+    <div class="w-full max-w-[1400px] flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-6">
+          <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Angular Signals</span>
           <br>
-          <span class="subtitle-text">Reactivity Reimagined</span>
+          <span class="block text-lg font-normal text-gray-500 mt-2">Reactivity Reimagined</span>
         </h1>
-        <p class="hero-description">
-          Master Angular's revolutionary reactivity model with comprehensive examples, 
-          interactive demos, and real-world patterns that transform how you build applications.
+        <p class="text-base sm:text-lg text-gray-600 mb-8 max-w-md lg:max-w-none">
+          Master Angular's revolutionary reactivity model with comprehensive examples, interactive demos, and real-world patterns that transform how you build applications.
         </p>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">30+</span>
-            <span class="stat-label">Examples</span>
+        <div class="w-full flex flex-col md:flex-row gap-8 items-center md:items-start justify-center md:justify-start">
+          <!-- Stats and Buttons Column -->
+          <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+            <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center md:items-start justify-center md:justify-start w-full md:w-auto mb-8">
+              <div class="text-center">
+                <span class="block text-2xl font-semibold text-gray-900">40+</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500">Examples</span>
+              </div>
+              <div class="text-center">
+                <span class="block text-2xl font-semibold text-gray-900">5</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500">Categories</span>
+              </div>
+              <div class="text-center">
+                <span class="block text-2xl font-semibold text-gray-900">100%</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500">Interactive</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 w-full md:w-auto items-center md:items-start">
+              <button mat-raised-button color="primary" class="cta-button primary w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition" [routerLink]="['/signal']">
+                <mat-icon>play_arrow</mat-icon>
+                Start Exploring
+              </button>
+              <a href="https://github.com/sonusindhu/angular-signals-examples" target="_blank" rel="noopener" class="w-full sm:w-auto flex items-center justify-center px-6 py-3 rounded-lg font-semibold border border-gray-300 bg-gray-50 text-gray-800 hover:bg-gray-100 transition" style="text-decoration:none;">
+                <svg style="width: 16px;" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" class="mr-2"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                Star on GitHub
+                <span class="shine"></span>
+              </a>
+            </div>
           </div>
-          <div class="stat">
-            <span class="stat-number">4</span>
-            <span class="stat-label">Categories</span>
+          <!-- QR Code Column -->
+          <div class="flex-1 flex justify-center md:justify-end w-full">
+            <div class="relative group bg-white/70 backdrop-blur-md border-2 border-blue-400/30 rounded-2xl shadow-xl p-8 flex flex-col items-center w-fit mx-auto transition-all duration-300 hover:shadow-2xl hover:border-blue-500/70">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 py-2 px-4 rounded-full bg-gradient-to-r from-blue-500 to-teal-400 text-white text-xs font-semibold shadow-md w-[160px]">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+               Scan to connect
+              </div>
+              <div class="transition-transform duration-300 group-hover:scale-105">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://in.linkedin.com/in/sonusindhu" alt="Scan to follow on LinkedIn" class="rounded-lg border-2 border-blue-200 shadow-md bg-white" loading="lazy" />
+              </div>
+            </div>
           </div>
-          <div class="stat">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Interactive</span>
-          </div>
-        </div>
-        <div class="hero-actions">
-          <button mat-raised-button color="primary" class="cta-button primary" [routerLink]="['/signal']">
-            <mat-icon>play_arrow</mat-icon>
-            Start Exploring
-          </button>
-          
-          <a href="https://github.com/sonusindhu/angular-signals-examples" target="_blank" rel="noopener" class="github-star-btn" style="text-decoration:none;">
-            <svg style="width: 16px;" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
-            Star on GitHub
-            <span class="shine"></span>
-          </a>
-
         </div>
       </div>
-      
-      <div class="hero-visual">
-        <div class="code-preview">
-          <div class="code-header">
-            <div class="code-dots">
-              <span></span><span></span><span></span>
+      <div class="flex justify-center items-center p-2 w-full lg:w-1/2">
+        <div class="bg-[#161b22] border border-gray-700 rounded-lg overflow-hidden shadow-lg w-full max-w-[600px] font-mono text-xs sm:text-sm">
+          <!-- Header -->
+          <div class="flex items-center gap-2 bg-[#21262d] px-4 py-2 border-b border-gray-700 text-gray-300 text-xs">
+            <div class="flex space-x-2">
+              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+              <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
             </div>
-            <span class="code-title">signal.component.ts</span>
+            <span class="text-yellow-400">signal.component.ts</span>
           </div>
-          <div class="code-content">
-            <pre><code class="typescript">
-<span class="keyword">import</span> <span class="punctuation">&#123;</span> <span class="function">signal</span><span class="punctuation">,</span> <span class="function">computed</span> <span class="punctuation">&#125;</span> <span class="keyword">from</span> <span class="string">'&#64;angular/core'</span><span class="punctuation">;</span>
+          <!-- Code -->
+          <div class="p-2 sm:p-4 overflow-x-auto">
+            <pre class="self-start text-left text-gray-200 !bg-[#342b2b] leading-relaxed whitespace-pre-wrap break-words">
+            <code class="text-white">
+  <span class="text-pink-400">import</span> &#123; <span class="text-purple-400">signal</span>, <span class="text-purple-400">computed</span> &#125; <span class="text-pink-400">from</span> <span class="text-blue-300">'&#64;angular/core'</span>;
 
-<span class="comment">// Create reactive signals</span>
-<span class="keyword">const</span> <span class="variable">count</span> <span class="operator">=</span> <span class="function">signal</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">)</span><span class="punctuation">;</span>
-<span class="keyword">const</span> <span class="variable">doubled</span> <span class="operator">=</span> <span class="function">computed</span><span class="punctuation">(</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=></span> <span class="variable">count</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">*</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">;</span>
+  <span class="text-gray-500">// Create reactive signals</span>
+  <span class="text-pink-400">const</span> <span class="text-blue-400">count</span> = <span class="text-purple-400">signal</span>(<span class="text-orange-400">0</span>);
+  <span class="text-pink-400">const</span> <span class="text-blue-400">doubled</span> = <span class="text-purple-400">computed</span>(() => <span class="text-blue-400">count</span>() * <span class="text-orange-400">2</span>);
 
-<span class="comment">// Update signal values</span>
-<span class="variable">count</span><span class="punctuation">.</span><span class="function">set</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">)</span><span class="punctuation">;</span> <span class="comment">// doubled automatically becomes 10</span>
-            </code></pre>
+  <span class="text-gray-500">// Update signal values</span>
+  <span class="text-blue-400">count</span>.<span class="text-purple-400">set</span>(<span class="text-orange-400">5</span>); <span class="text-gray-500">// doubled automatically becomes 10</span>
+            </code>
+            </pre>
           </div>
         </div>
       </div>
@@ -67,125 +86,113 @@
   </section>
 
   <!-- Features Section -->
-  <section class="features-section">
-    <div class="section-header">
-      <h2 class="section-title">Explore by Category</h2>
-      <p class="section-subtitle">Dive deep into Angular's reactive ecosystem with hands-on examples</p>
+  <section class="features-section py-16 px-2 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="section-header text-center mb-12">
+      <h2 class="section-title text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Explore by Category</h2>
+      <p class="section-subtitle text-lg text-gray-600 max-w-2xl mx-auto">Dive deep into Angular's reactive ecosystem with hands-on examples</p>
     </div>
-
-    <div class="features-grid">
-      <div class="feature-card signal-dark-section" [routerLink]="['/signal']">
-        <div class="feature-number">01</div>
-        <div class="feature-icon">
-          <mat-icon>timeline</mat-icon>
+    <div class="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="feature-card relative signal-dark-section cursor-pointer bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition" [routerLink]="['/signal']">
+        <div class="feature-number absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 font-bold text-lg opacity-80">01</div>
+        <div class="feature-icon w-16 h-16 flex items-center justify-center rounded-lg bg-gray-100 mb-6 mx-auto border border-gray-200">
+          <mat-icon class="text-3xl text-gray-500">timeline</mat-icon>
         </div>
-        <h3 class="feature-title">Signal Examples</h3>
-        <p class="feature-description">16 comprehensive examples from basic state management to advanced reactive patterns with computed values and side effects</p>
-        <button class="feature-button">
-          Explore Signals
-        </button>
+        <h3 class="feature-title text-xl font-semibold text-gray-900 mb-2 text-center">Signal Examples</h3>
+        <p class="feature-description text-gray-600 mb-4 text-center">16 comprehensive examples from basic state management to advanced reactive patterns with computed values and side effects</p>
+        <button class="feature-button w-full bg-gray-100 text-gray-800 border border-gray-200 rounded-lg py-2 font-medium hover:bg-gray-200 transition">Explore Signals</button>
       </div>
-
-      <div class="feature-card" [routerLink]="['/linked-signal']">
-        <div class="feature-number">02</div>
-        <div class="feature-icon">
-          <mat-icon>account_tree</mat-icon>
+      <div class="feature-card relative cursor-pointer bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition" [routerLink]="['/linked-signal']">
+        <div class="feature-number absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 font-bold text-lg opacity-80">02</div>
+        <div class="feature-icon w-16 h-16 flex items-center justify-center rounded-lg bg-gray-100 mb-6 mx-auto border border-gray-200">
+          <mat-icon class="text-3xl text-gray-500">account_tree</mat-icon>
         </div>
-        <h3 class="feature-title">LinkedSignal Examples</h3>
-        <p class="feature-description">Advanced source tracking with automatic updates and complex business logic for professional applications</p>
-        <button class="feature-button">
-          Discover LinkedSignals
-        </button>
+        <h3 class="feature-title text-xl font-semibold text-gray-900 mb-2 text-center">LinkedSignal Examples</h3>
+        <p class="feature-description text-gray-600 mb-4 text-center">Advanced source tracking with automatic updates and complex business logic for professional applications</p>
+        <button class="feature-button w-full bg-gray-100 text-gray-800 border border-gray-200 rounded-lg py-2 font-medium hover:bg-gray-200 transition">Discover LinkedSignals</button>
       </div>
-
-      <div class="feature-card" [routerLink]="['/resource-api']">
-        <div class="feature-number">03</div>
-        <div class="feature-icon">
-          <mat-icon>cloud_sync</mat-icon>
+      <div class="feature-card relative cursor-pointer bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition" [routerLink]="['/resource-api']">
+        <div class="feature-number absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 font-bold text-lg opacity-80">03</div>
+        <div class="feature-icon w-16 h-16 flex items-center justify-center rounded-lg bg-gray-100 mb-6 mx-auto border border-gray-200">
+          <mat-icon class="text-3xl text-gray-500">cloud_sync</mat-icon>
         </div>
-        <h3 class="feature-title">Resource API</h3>
-        <p class="feature-description">Modern data fetching with reactive state management, loading states, and error handling patterns</p>
-        <button class="feature-button">
-          Learn Resource API
-        </button>
+        <h3 class="feature-title text-xl font-semibold text-gray-900 mb-2 text-center">Resource API</h3>
+        <p class="feature-description text-gray-600 mb-4 text-center">Modern data fetching with reactive state management, loading states, and error handling patterns</p>
+        <button class="feature-button w-full bg-gray-100 text-gray-800 border border-gray-200 rounded-lg py-2 font-medium hover:bg-gray-200 transition">Learn Resource API</button>
       </div>
-
-      <div class="feature-card" [routerLink]="['/defer-block']">
-        <div class="feature-number">04</div>
-        <div class="feature-icon">
-          <mat-icon>schedule</mat-icon>
+      <div class="feature-card relative cursor-pointer bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition" [routerLink]="['/defer-block']">
+        <div class="feature-number absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 font-bold text-lg opacity-80">04</div>
+        <div class="feature-icon w-16 h-16 flex items-center justify-center rounded-lg bg-gray-100 mb-6 mx-auto border border-gray-200">
+          <mat-icon class="text-3xl text-gray-500">schedule</mat-icon>
         </div>
-        <h3 class="feature-title">Defer Blocks</h3>
-        <p class="feature-description">Performance optimization through lazy loading and intelligent deferred rendering techniques</p>
-        <button class="feature-button">
-          Explore Defer Blocks
-        </button>
+        <h3 class="feature-title text-xl font-semibold text-gray-900 mb-2 text-center">Defer Blocks</h3>
+        <p class="feature-description text-gray-600 mb-4 text-center">Performance optimization through lazy loading and intelligent deferred rendering techniques</p>
+        <button class="feature-button w-full bg-gray-100 text-gray-800 border border-gray-200 rounded-lg py-2 font-medium hover:bg-gray-200 transition">Explore Defer Blocks</button>
       </div>
-
-      <div class="feature-card" [routerLink]="['/control-flow']">
-        <div class="feature-number">05</div>
-        <div class="feature-icon">
-          <mat-icon>alt_route</mat-icon>
+      <div class="feature-card relative cursor-pointer bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition" [routerLink]="['/control-flow']">
+        <div class="feature-number absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 font-bold text-lg opacity-80">05</div>
+        <div class="feature-icon w-16 h-16 flex items-center justify-center rounded-lg bg-gray-100 mb-6 mx-auto border border-gray-200">
+          <mat-icon class="text-3xl text-gray-500">alt_route</mat-icon>
         </div>
-        <h3 class="feature-title">Control Flow</h3>
-        <p class="feature-description">Explore Angular's new control flow blocks (&#64;if, &#64;for, &#64;switch) with interactive, signal-powered demos and real-world patterns</p>
-        <button class="feature-button">
-          Try Control Flow
-        </button>
+        <h3 class="feature-title text-xl font-semibold text-gray-900 mb-2 text-center">Control Flow</h3>
+        <p class="feature-description text-gray-600 mb-4 text-center">Explore Angular's new control flow blocks (&#64;if, &#64;for, &#64;switch) with interactive, signal-powered demos and real-world patterns</p>
+        <button class="feature-button w-full bg-gray-100 text-gray-800 border border-gray-200 rounded-lg py-2 font-medium hover:bg-gray-200 transition">Try Control Flow</button>
       </div>
-      
     </div>
   </section>
 
   <!-- Benefits Section -->
-  <section class="benefits-section">
-    <div class="benefits-container">
-      <div class="benefits-content">
-        <h2 class="benefits-title">Why Angular Signals?</h2>
-        <div class="benefits-list">
-          <div class="benefit-item">
-            <div class="benefit-icon">
+  <section class="py-16 px-2 sm:px-6 lg:px-8 bg-white text-gray-900">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-8">Why Angular Signals?</h2>
+        <div class="flex flex-col gap-6">
+          <div class="flex gap-4 items-start p-5 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600 text-2xl">
               <mat-icon>flash_on</mat-icon>
             </div>
-            <div class="benefit-text">
-              <h4>Performance First</h4>
-              <p>Fine-grained reactivity ensures only necessary components update, dramatically improving performance</p>
+            <div>
+              <h4 class="text-lg font-semibold mb-1">Performance First</h4>
+              <p class="text-gray-600">Fine-grained reactivity ensures only necessary components update, dramatically improving performance</p>
             </div>
           </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">
+          <div class="flex gap-4 items-start p-5 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 text-2xl">
               <mat-icon>psychology</mat-icon>
             </div>
-            <div class="benefit-text">
-              <h4>Predictable Updates</h4>
-              <p>Glitch-free updates with clear dependency tracking make debugging and reasoning about state changes easier</p>
+            <div>
+              <h4 class="text-lg font-semibold mb-1">Predictable Updates</h4>
+              <p class="text-gray-600">Glitch-free updates with clear dependency tracking make debugging and reasoning about state changes easier</p>
             </div>
           </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">
+          <div class="flex gap-4 items-start p-5 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-100 text-purple-600 text-2xl">
               <mat-icon>integration_instructions</mat-icon>
             </div>
-            <div class="benefit-text">
-              <h4>Seamless Integration</h4>
-              <p>Works perfectly with existing Angular patterns while enabling new possibilities for reactive programming</p>
+            <div>
+              <h4 class="text-lg font-semibold mb-1">Seamless Integration</h4>
+              <p class="text-gray-600">Works perfectly with existing Angular patterns while enabling new possibilities for reactive programming</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="benefits-visual">
-        <div class="performance-chart" #performanceChart>
-          <div class="chart-header">
-            <h4>Performance Comparison</h4>
-            <span class="chart-subtitle">Change Detection Cycles</span>
+      <div class="flex justify-center">
+        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 w-full max-w-xs shadow-md">
+          <div class="text-center mb-8">
+            <h4 class="font-bold text-lg mb-1">Performance Comparison</h4>
+            <span class="text-blue-400 font-medium text-base">Change Detection Cycles</span>
           </div>
-          <div class="chart-bars">
-            <div class="bar-group">
-              <div class="bar traditional" data-height="80"></div>
-              <span class="bar-label">Traditional</span>
+          <div class="flex flex-row items-end justify-center gap-8 h-44">
+            <div class="flex flex-col items-center">
+              <div class="relative w-10 sm:w-14 h-32 sm:h-36 rounded-xl bg-gradient-to-b from-red-400 to-orange-400 opacity-80 mb-2 flex items-end justify-center">
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-red-500 font-bold text-lg">80%</span>
+              </div>
+              <span class="font-semibold text-gray-700">Traditional</span>
             </div>
-            <div class="bar-group">
-              <div class="bar signals" data-height="25"></div>
-              <span class="bar-label">Signals</span>
+            <div class="flex flex-col items-center">
+              <div class="relative w-10 sm:w-14 h-8 sm:h-10 rounded-xl bg-gradient-to-b from-teal-400 to-blue-400 opacity-80 mb-2 flex items-end justify-center">
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-teal-600 font-bold text-lg">20%</span>
+              </div>
+              <span class="font-semibold text-gray-700">Signals</span>
             </div>
           </div>
         </div>
@@ -194,19 +201,19 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="cta-content">
-      <h2 class="cta-title">Ready to Transform Your Angular Apps?</h2>
-      <p class="cta-description">
+  <section class="py-16 px-2 sm:px-6 lg:px-8 bg-gray-50 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to Transform Your Angular Apps?</h2>
+      <p class="text-lg text-gray-600 mb-8">
         Start with our comprehensive examples and master the future of Angular reactivity
       </p>
-      <div class="cta-buttons">
-        <button mat-raised-button color="primary" class="cta-button large" [routerLink]="['/signal']">
-          <mat-icon>rocket_launch</mat-icon>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button mat-raised-button color="primary" class="cta-button large px-8 py-4 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition text-lg flex items-center justify-center" [routerLink]="['/signal']">
+          <mat-icon class="mr-2">rocket_launch</mat-icon>
           Begin Journey
         </button>
-        <button mat-stroked-button class="cta-button large secondary" (click)="scrollToTop()">
-          <mat-icon>school</mat-icon>
+        <button mat-stroked-button class="cta-button large secondary px-8 py-4 rounded-lg font-semibold border border-blue-600 text-blue-600 bg-white hover:bg-blue-50 transition text-lg flex items-center justify-center" (click)="scrollToTop()">
+          <mat-icon class="mr-2">school</mat-icon>
           Learn More
         </button>
       </div>

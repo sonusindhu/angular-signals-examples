@@ -1,64 +1,59 @@
-<header>
-  <div class="header-content">
-
-
+<header class="w-full bg-white border-b border-gray-200 shadow-sm sticky top-0 z-30">
+  <div class="max-w-[1400px] mx-auto flex items-center justify-between px-4 py-2 md:px-0 relative">
     <!-- Mobile header bar: nav toggle left, logo center, github link right (visible only on mobile) -->
-    <div class="mobile-header-bar only-mobile">
-      
-      @if(navOpen){
-        <button class="close-nav" aria-label="Close navigation menu" (click)="closeNav()">&times;</button>
-      } 
-      @else {
-        <button class="nav-toggle" aria-label="Open navigation menu" (click)="openNav()" [class.hide-when-open]="navOpen">
-          <span class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-      }
-      
-
-      <a class="logo" [routerLink]="['/']">
-        🚀 Angular Signals
+    <div class="flex items-center w-full justify-between lg:hidden bg-white text-gray-900">
+      <div class="flex items-center">
+        @if(navOpen){
+          <button class="text-3xl px-2 py-1 text-gray-700 hover:text-blue-600 focus:outline-none" aria-label="Close navigation menu" (click)="closeNav()">&times;</button>
+        } 
+        @else {
+          <button class="text-2xl px-2 py-1 text-gray-700 hover:text-blue-600 focus:outline-none" aria-label="Open navigation menu" (click)="openNav()" [class.opacity-0]="navOpen">
+            <span class="flex flex-col gap-1">
+              <span class="block w-6 h-0.5 bg-gray-700"></span>
+              <span class="block w-6 h-0.5 bg-gray-700"></span>
+              <span class="block w-6 h-0.5 bg-gray-700"></span>
+            </span>
+          </button>
+        }
+      </div>
+      <a class="text-lg font-bold text-gray-800 text-center" [routerLink]="['/']">
+        <img src="/assets/images/logo.png" alt="Logo"/>
       </a>
-      <a target="_blank" aria-label="Github Repo link" href="https://github.com/sonusindhu/angular-signals-examples" class="github-link">
-        <img src="/assets/images/github-icon.svg" alt="GitHub" />
+      <a target="_blank" aria-label="Github Repo link" href="https://github.com/sonusindhu/angular-signals-examples" class="ml-2">
+        <img src="/assets/images/github-icon.svg" alt="GitHub" class="w-6 h-6" />
       </a>
     </div>
 
     <!-- Desktop nav: always visible on desktop -->
-    <a class="logo only-desktop"[routerLink]="['/']">
-      🚀 Angular Signals
+    <a class="hidden lg:flex text-lg font-bold text-gray-800 mr-8" [routerLink]="['/']">
+      <img src="/assets/images/logo.png" alt="Logo"/>
     </a>
-
-    <nav class="desktop-nav">
-      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-      <a [routerLink]="['/signal']" routerLinkActive="active">Signal</a>
-      <a [routerLink]="['/linked-signal']" routerLinkActive="active">LinkedSignal</a>
-      <a [routerLink]="['/resource-api']" routerLinkActive="active">Resource API</a>
-      <a [routerLink]="['/control-flow']" routerLinkActive="active">Control Flow</a>
-      <a [routerLink]="['/defer-block']" routerLinkActive="active">Defer Block</a>
-      <a [routerLink]="['/advanced']" routerLinkActive="active">Advanced</a>
-      <!-- GitHub repo link: after nav on desktop, hidden on mobile -->
-      <a target="_blank" aria-label="Github Repo link" href="https://github.com/sonusindhu/angular-signals-examples" class="github-link only-desktop">
-        <img src="/assets/images/github-icon.svg" alt="GitHub" />
+    <nav class="hidden lg:flex gap-2 items-center flex-1">
+      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition">Home</a>
+      <a [routerLink]="['/signal']" routerLinkActive="active" class="px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition">Signal</a>
+      <a [routerLink]="['/linked-signal']" routerLinkActive="active" class="px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition">LinkedSignal</a>
+      <a [routerLink]="['/resource-api']" routerLinkActive="active" class="px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition">Resource API</a>
+      <a [routerLink]="['/control-flow']" routerLinkActive="active" class="px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition">Control Flow</a>
+      <a [routerLink]="['/defer-block']" routerLinkActive="active" class="px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition">Defer Block</a>
+      <a [routerLink]="['/advanced']" routerLinkActive="active" class="px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 transition">Advanced</a>
+      <a target="_blank" aria-label="Github Repo link" href="https://github.com/sonusindhu/angular-signals-examples" class="ml-4">
+        <img src="/assets/images/github-icon.svg" alt="GitHub" class="w-6 h-6" />
       </a>
     </nav>
 
     <!-- Mobile nav overlay -->
-    <div class="nav-overlay" *ngIf="navOpen" (click)="closeNav()"></div>
+    <div class="fixed inset-0 bg-black bg-opacity-40 z-40 transition-opacity duration-200" *ngIf="navOpen" (click)="closeNav()"></div>
 
     <!-- Mobile nav: only visible when navOpen -->
-    <nav class="mobile-nav" [class.open]="navOpen" [attr.aria-hidden]="!navOpen">
-      <div class="nav-links">
-        <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNav()">Home</a>
-        <a [routerLink]="['/signal']" routerLinkActive="active" (click)="closeNav()">Signal</a>
-        <a [routerLink]="['/linked-signal']" routerLinkActive="active" (click)="closeNav()">LinkedSignal</a>
-        <a [routerLink]="['/resource-api']" routerLinkActive="active" (click)="closeNav()">Resource API</a>
-        <a [routerLink]="['/control-flow']" routerLinkActive="active" (click)="closeNav()">Control Flow</a>
-        <a [routerLink]="['/defer-block']" routerLinkActive="active" (click)="closeNav()">Defer Block</a>
-        <a [routerLink]="['/advanced']" routerLinkActive="active" (click)="closeNav()">Advanced</a>
+    <nav class="fixed top-0 left-0 w-64 h-full bg-white text-gray-900 shadow-lg z-50 transform transition-transform duration-200 lg:hidden" [class.-translate-x-full]="!navOpen" [class.translate-x-0]="navOpen" [attr.aria-hidden]="!navOpen">
+      <div class="flex flex-col gap-2 p-6">
+        <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNav()" class="px-3 py-2 rounded-md text-gray-900 hover:text-blue-600 transition">Home</a>
+        <a [routerLink]="['/signal']" routerLinkActive="active" (click)="closeNav()" class="px-3 py-2 rounded-md text-gray-900 hover:text-blue-600 transition">Signal</a>
+        <a [routerLink]="['/linked-signal']" routerLinkActive="active" (click)="closeNav()" class="px-3 py-2 rounded-md text-gray-900 hover:text-blue-600 transition">LinkedSignal</a>
+        <a [routerLink]="['/resource-api']" routerLinkActive="active" (click)="closeNav()" class="px-3 py-2 rounded-md text-gray-900 hover:text-blue-600 transition">Resource API</a>
+        <a [routerLink]="['/control-flow']" routerLinkActive="active" (click)="closeNav()" class="px-3 py-2 rounded-md text-gray-900 hover:text-blue-600 transition">Control Flow</a>
+        <a [routerLink]="['/defer-block']" routerLinkActive="active" (click)="closeNav()" class="px-3 py-2 rounded-md text-gray-900 hover:text-blue-600 transition">Defer Block</a>
+        <a [routerLink]="['/advanced']" routerLinkActive="active" (click)="closeNav()" class="px-3 py-2 rounded-md text-gray-900 hover:text-blue-600 transition">Advanced</a>
       </div>
     </nav>
   </div>
