@@ -1,20 +1,47 @@
-
 <div class="example-container">
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Demo">
       <div class="content-area">
-        <h2>Signal Example 16 - Readonly Signal (asReadonly)</h2>
-        <p>
-          This example demonstrates using <code>asReadonly()</code> to expose a readonly signal.<br>
-          <strong>Writable signals</strong> can be updated and read, while <strong>readonly signals</strong> (created with <code>asReadonly()</code>) can only be read.<br>
-          This is useful for sharing state with other components or templates without allowing them to modify it directly.<br>
-          <span style="color:#3b82f6;">Try clicking the button to update the writable signal. The readonly signal will reflect the change, but cannot be updated directly.</span>
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">🔒</span> Signal Example 16: <span class="text-green-700">Readonly Signal (asReadonly)</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">👁️</span>
+            <span>
+              Discover how <strong class="text-blue-700">asReadonly()</strong> lets you safely share signal state in Angular! This example shows how to expose a readonly signal to consumers, keeping your core state protected from accidental changes.
+            </span>
+          </span>
         </p>
-        <div class="demo-section">
-          <p class="readonly-label">Read Only Name: <span class="readonly-value">{{ readOnlyName() }}</span></p>
+        <div class="demo-section w-full px-2 sm:px-4 py-4 sm:py-6 bg-gradient-to-br from-blue-50 via-white to-green-50 rounded-2xl shadow-lg border border-blue-100 flex flex-col gap-6 items-center">
+          <p class="readonly-label text-blue-900 text-lg font-semibold">Read Only Name: <span class="readonly-value text-green-700 font-bold">{{ readOnlyName() }}</span></p>
           <button mat-raised-button color="primary" (click)="updateName('Aman Kumar')">
             Update Name
           </button>
+          <div class="signal-explanation mt-8 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+            <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>🔒</span> Deep Dive: Protecting State with <code>asReadonly()</code> in Angular Signals</h2>
+            <p><strong>Writable signals</strong> are great for managing state, but sometimes you want to <b>share state without letting others change it</b>. That’s where <code>asReadonly()</code> comes in: it creates a <b>readonly signal</b> that can be read but not updated.</p>
+            <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">Use <code>asReadonly()</code> to expose state to consumers (like child components or templates) while keeping your core logic safe from accidental mutation.</blockquote>
+            <h3 class="mt-8 text-green-700 font-bold">How This Example Works</h3>
+            <ul class="list-disc pl-6 mb-6">
+              <li><strong>Writable Signal:</strong> The main state is a writable signal: <code class="bg-blue-100 text-blue-700 px-1 rounded">name = signal('Sonu')</code>.</li>
+              <li><strong>Readonly Signal:</strong> <code>readOnlyName = name.asReadonly()</code> exposes the state as readonly—no one can call <code>set()</code> on it.</li>
+              <li><strong>Updating State:</strong> The <code>updateName()</code> method updates the writable signal. The readonly signal reflects the change instantly.</li>
+              <li><strong>Template Usage:</strong> The template displays the readonly signal, so it always shows the latest value but can’t be changed directly.</li>
+              <li><strong>Type Safety:</strong> TypeScript enforces that <code>asReadonly()</code> signals can’t be updated, preventing bugs at compile time.</li>
+            </ul>
+            <h3 class="mt-8 text-green-700 font-bold">Why Use <code>asReadonly()</code>?</h3>
+            <ul class="list-disc pl-6 mb-6">
+              <li><strong>Encapsulation:</strong> Share state safely with consumers, without exposing mutation methods.</li>
+              <li><strong>Type Safety:</strong> Prevent accidental updates at compile time.</li>
+              <li><strong>Clarity:</strong> Make it clear which signals are meant to be changed and which are not.</li>
+              <li><strong>Real-World Use:</strong> Perfect for shared state, APIs, or when building reusable components.</li>
+            </ul>
+            <div class="mt-8 flex items-center gap-3">
+              <span class="text-3xl text-yellow-500">★</span>
+              <span class="font-semibold text-blue-900">With <code>asReadonly()</code>, you get the best of both worlds: reactivity and safety!</span>
+            </div>
+          </div>
         </div>
       </div>
     </mat-tab>
