@@ -1,16 +1,49 @@
-
 <div class="example-container">
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Demo">
       <div class="content-area">
-        <h2>Signal Example 14 - Product List with Virtual Scrolling</h2>
-        <p>This example demonstrates a large product list rendered efficiently using Angular CDK virtual scrolling and signals.</p>
-        <div class="demo-section">
-          <cdk-virtual-scroll-viewport itemSize="50" class="products">
-            <div class="product" *cdkVirtualFor="let product of products(); let i = index">
-              {{ product.name }} - ${{ product.price }}
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">📜</span> Signal Example 14: <span class="text-green-700">Product List with Virtual Scrolling</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">⚡</span>
+            <span>
+              Explore how <strong class="text-blue-700">Angular Signals</strong> and <strong>CDK Virtual Scrolling</strong> can render massive lists with blazing performance! This example shows a 1,000-product list that scrolls smoothly and updates reactively.
+            </span>
+          </span>
+        </p>
+        <div class="demo-section w-full px-2 sm:px-4 py-4 sm:py-6 bg-gradient-to-br from-blue-50 via-white to-green-50 rounded-2xl shadow-lg border border-blue-100 flex flex-col gap-6">
+          <cdk-virtual-scroll-viewport itemSize="50" class="products h-96 w-full bg-white rounded-lg border border-blue-100 shadow">
+            <div class="product px-4 py-3 border-b border-blue-50 flex items-center justify-between text-blue-900 font-medium text-base" *cdkVirtualFor="let product of products(); let i = index">
+              <span>{{ product.name }}</span>
+              <span class="text-green-700 font-bold">${{ product.price }}</span>
             </div>
           </cdk-virtual-scroll-viewport>
+          <div class="signal-explanation mt-8 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+            <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>⚡</span> Deep Dive: Virtual Scrolling with Angular Signals</h2>
+            <p><strong>Large lists</strong> can slow down your app if you render every item at once. <b>Virtual scrolling</b> solves this by only rendering what’s visible, while <strong>signals</strong> keep your data reactive and up to date.</p>
+            <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">Combine signals with virtual scrolling to build fast, scalable UIs that handle thousands of items with ease.</blockquote>
+            <h3 class="mt-8 text-green-700 font-bold">How This Example Works</h3>
+            <ul class="list-disc pl-6 mb-6">
+              <li><strong>Signal Declaration:</strong> The product list is a signal: <code class="bg-blue-100 text-blue-700 px-1 rounded">products = signal([...])</code> with 1,000 items.</li>
+              <li><strong>Virtual Scrolling:</strong> <code>&lt;cdk-virtual-scroll-viewport&gt;</code> only renders items in view, making scrolling smooth and memory-efficient.</li>
+              <li><strong>Reactive UI:</strong> Any update to the <code>products</code> signal instantly updates the visible list.</li>
+              <li><strong>Performance:</strong> Even with thousands of items, the UI stays fast and responsive.</li>
+              <li><strong>No Subscriptions Needed:</strong> Signals handle all reactivity for you. The UI and state stay in sync in real time.</li>
+            </ul>
+            <h3 class="mt-8 text-green-700 font-bold">Why Use Signals with Virtual Scrolling?</h3>
+            <ul class="list-disc pl-6 mb-6">
+              <li><strong>Scalability:</strong> Easily handle huge lists without performance drops.</li>
+              <li><strong>Instant Feedback:</strong> Users see updates as they scroll, with no lag or flicker.</li>
+              <li><strong>Readability:</strong> The code is simple and declarative, even for complex UIs.</li>
+              <li><strong>Real-World Use:</strong> Perfect for product catalogs, logs, dashboards, or any large dataset.</li>
+            </ul>
+            <div class="mt-8 flex items-center gap-3">
+              <span class="text-3xl text-yellow-500">★</span>
+              <span class="font-semibold text-blue-900">With signals and virtual scrolling, your Angular apps can handle big data with style and speed!</span>
+            </div>
+          </div>
         </div>
       </div>
     </mat-tab>
