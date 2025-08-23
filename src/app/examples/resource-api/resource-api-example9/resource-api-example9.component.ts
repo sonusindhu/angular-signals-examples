@@ -14,11 +14,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { httpResource } from '@angular/common/http';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-resource-api-example9',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatSelectModule, MatCardModule, MatIconModule, MatTabsModule, MarkdownComponent],
+  imports: [CommonModule, MatFormFieldModule, MatSelectModule, MatCardModule, MatIconModule, MatTabsModule, MarkdownComponent, RouterModule, MatButtonModule],
   templateUrl: './resource-api-example9.component.html',
   styleUrls: ['./resource-api-example9.component.scss']
 })

@@ -6,6 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 interface WeatherData {
   temp: number;
@@ -16,7 +18,7 @@ interface WeatherData {
 @Component({
   selector: 'app-resource-api-example7',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCardModule, MatTabsModule, MarkdownComponent],
+  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCardModule, MatTabsModule, MarkdownComponent, RouterModule, MatButtonModule],
   templateUrl: './resource-api-example7.component.html',
   styleUrl: './resource-api-example7.component.scss'
 })

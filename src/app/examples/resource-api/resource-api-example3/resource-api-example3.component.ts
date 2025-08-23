@@ -1,5 +1,3 @@
-
-
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { HttpClient, httpResource } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 interface ResourceData {
     id: number;
     title: string;
@@ -15,7 +14,8 @@ interface ResourceData {
 }
 @Component({
   selector: 'app-resource-api-example3',
-  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  standalone: true,
+  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, RouterModule],
   templateUrl: './resource-api-example3.component.html',
   styleUrl: './resource-api-example3.component.scss'
 })

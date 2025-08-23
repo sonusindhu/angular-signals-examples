@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { of, from } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 function fetchGithubRepos() {
   return from(
@@ -19,7 +20,7 @@ function fetchGithubRepos() {
 @Component({
   selector: 'app-resource-api-example5',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, RouterModule],
   templateUrl: './resource-api-example5.component.html',
   styleUrl: './resource-api-example5.component.scss'
 })

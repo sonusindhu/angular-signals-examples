@@ -1,4 +1,3 @@
-
 import { Component, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -6,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { resource } from '@angular/core';
+import { RouterModule } from '@angular/router';
 interface ResourceData {
     id: number;
     title: string;
@@ -19,7 +19,8 @@ function fetchResourceApi(limit = 10): Promise<ResourceData[] | null> {
 
 @Component({
   selector: 'app-resource-api-example1',
-  imports: [MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent],
+  standalone: true,
+  imports: [MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, RouterModule],
   templateUrl: './resource-api-example1.component.html',
   styleUrl: './resource-api-example1.component.scss'
 })
