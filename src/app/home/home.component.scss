@@ -1170,6 +1170,58 @@
   }
 }
 
+// GitHub Star Button
+.github-star-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: linear-gradient(90deg, #fff 60%, #f6f8fa 100%);
+  color: #24292f !important;
+  border: 2.5px solid #24292f;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 0.85rem 2.1rem;
+  height: 58px;
+  min-height: 56px;
+  line-height: 1.2;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.18s cubic-bezier(.4,2,.3,1);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  svg, img {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
+    flex-shrink: 0;
+  }
+  &:hover, &:focus {
+    background: linear-gradient(90deg, #24292f 60%, #444950 100%);
+    color: #fff !important;
+    border-color: #24292f;
+    box-shadow: 0 8px 32px rgba(36,41,47,0.18);
+    transform: scale(1.045);
+    text-decoration: none;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+  .shine {
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%; height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.0) 100%);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+    pointer-events: none;
+  }
+  &:hover .shine {
+    left: 120%;
+    transition: left 0.7s cubic-bezier(.4,2,.3,1);
+  }
+}
+
 // Responsive Design
 @media (max-width: 768px) {
   .hero-content {
@@ -1219,5 +1271,9 @@
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+  }
+
+  .hero-actions{
+    justify-content: center;
   }
 }
