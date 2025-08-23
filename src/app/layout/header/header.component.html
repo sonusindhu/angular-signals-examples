@@ -1,5 +1,5 @@
 <header class="w-full bg-white border-b border-gray-200 shadow-sm sticky top-0 z-30">
-  <div class="max-w-[1400px] mx-auto flex items-center justify-between px-4 py-2 relative">
+  <div class="max-w-[1400px] mx-auto flex items-center justify-between px-4 py-2 md:px-0 relative">
     <!-- Mobile header bar: nav toggle left, logo center, github link right (visible only on mobile) -->
     <div class="flex items-center w-full justify-between lg:hidden bg-white text-gray-900">
       <div class="flex items-center">
@@ -16,7 +16,7 @@
           </button>
         }
       </div>
-      <a class="text-lg font-bold text-gray-800 flex-1 text-center" [routerLink]="['/']">
+      <a class="text-lg font-bold text-gray-800 text-center" [routerLink]="['/']">
         <img src="/assets/images/logo.png" alt="Logo"/>
       </a>
       <a target="_blank" aria-label="Github Repo link" href="https://github.com/sonusindhu/angular-signals-examples" class="ml-2">
