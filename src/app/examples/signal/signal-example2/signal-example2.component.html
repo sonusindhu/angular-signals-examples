@@ -1,10 +1,24 @@
 <div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example1'">Prev</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example3'">Next</button>
+  </div>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Demo">
       <div class="content-area">
-        <h2>Signal Example 2 - Auto Increment Counter</h2>
-        <p>This example demonstrates a counter that automatically increments every second using Angular signals.</p>
-        <div class="demo-section">
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">⏱️</span> Signal Example 2: <span class="text-green-700">Auto Increment Counter</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">⚡</span>
+            <span>
+              Discover how <strong class="text-blue-700">Angular Signals</strong> can power an auto-incrementing counter! This example shows a counter that increases by 1 every second, updating the UI reactively and efficiently.
+            </span>
+          </span>
+        </p>
+        <div class="demo-section w-full">
           <div class="counter-container">
             <h3>⏱️ Auto-Increment Counter</h3>
             <div class="controls">
@@ -14,6 +28,30 @@
               <p>Current value: <strong>{{ count() }}</strong></p>
               <p>The counter increases by 1 every second using a signal and setInterval.</p>
             </div>
+          </div>
+        </div>
+        <div class="signal-explanation mt-12 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+          <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>⚡</span> Deep Dive: Auto-Incrementing with Angular Signals</h2>
+          <p><strong>Auto-incrementing counters</strong> are a classic example for learning reactivity. With Angular signals, you can create a value that updates itself on a timer, and the UI will always show the latest value—no manual refresh or change detection needed.</p>
+          <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">A signal in Angular is a special function that holds a value and notifies the UI whenever it changes. This makes it perfect for dynamic, time-based updates like a ticking counter.</blockquote>
+          <h3 class="mt-8 text-green-700 font-bold">How This Example Works</h3>
+          <ul class="list-disc pl-6 mb-6">
+            <li><strong>Signal Declaration:</strong> The counter value is stored in a signal, e.g. <code class="bg-blue-100 text-blue-700 px-1 rounded">count = signal(0);</code></li>
+            <li><strong>Auto-Increment Logic:</strong> In the component’s TypeScript, <code>setInterval</code> is used to call <code>count.update(c =&gt; c + 1)</code> every second. This updates the signal’s value.</li>
+            <li><strong>Reactive UI:</strong> The template uses <code>{{ count() }}</code> to display the value. Whenever the signal changes, Angular updates the UI automatically.</li>
+            <li><strong>No Subscriptions Needed:</strong> Unlike RxJS or manual change detection, signals handle all reactivity for you. The UI stays in sync with the signal’s value.</li>
+            <li><strong>Cleanup:</strong> For best practices, always clear your interval in <code>ngOnDestroy</code> to avoid memory leaks.</li>
+          </ul>
+          <h3 class="mt-8 text-green-700 font-bold">Why Use Signals for Timers?</h3>
+          <ul class="list-disc pl-6 mb-6">
+            <li><strong>Simplicity:</strong> No need for RxJS, Subjects, or manual subscriptions.</li>
+            <li><strong>Performance:</strong> Only the parts of the UI that use the signal are updated.</li>
+            <li><strong>Readability:</strong> The code is easy to follow and maintain.</li>
+            <li><strong>Fine-Grained Reactivity:</strong> Signals track exactly where they’re used, so updates are efficient.</li>
+          </ul>
+          <div class="mt-8 flex items-center gap-3">
+            <span class="text-3xl text-yellow-500">★</span>
+            <span class="font-semibold text-blue-900">Angular signals make building dynamic, time-based features like auto-incrementing counters simple, efficient, and fun!</span>
           </div>
         </div>
       </div>

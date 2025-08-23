@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-signal-example5',
@@ -18,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
         MatButtonModule,
         MatTabsModule,
         MarkdownComponent,
+        RouterModule,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

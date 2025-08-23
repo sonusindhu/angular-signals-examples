@@ -1,10 +1,24 @@
 <div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example6'">Prev</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example8'">Next</button>
+  </div>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Demo">
       <div class="content-area">
-        <h2>Signal Example 7 - Observable to Signal</h2>
-        <p>This example demonstrates converting RxJS observables to Angular signals using <code>toSignal</code>.</p>
-        <div class="demo-section">
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">🔄</span> Signal Example 7: <span class="text-green-700">Observable to Signal</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">🔁</span>
+            <span>
+              Learn how to bridge <strong class="text-blue-700">RxJS Observables</strong> and <strong>Angular Signals</strong>! This example shows how to convert observables to signals for seamless, reactive state management.
+            </span>
+          </span>
+        </p>
+        <div class="demo-section w-full">
           <div class="observable-container">
             <h3>🔄 Observable to Signal</h3>
             <div class="info-section">
@@ -12,6 +26,30 @@
               <p>Counter with initial value: <strong>{{ counterWithIntialValue() }}</strong></p>
               <p>Counter up to 5: <strong>{{ counterUpto5() }}</strong></p>
             </div>
+          </div>
+        </div>
+        <div class="signal-explanation mt-12 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+          <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>🔁</span> Deep Dive: Converting Observables to Signals in Angular</h2>
+          <p><strong>RxJS observables</strong> are a powerful way to handle asynchronous data in Angular. But with the introduction of signals, you can now convert observables into signals for a more unified, reactive experience.</p>
+          <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">The <code>toSignal</code> utility lets you turn any observable into a signal. This means you can use all your existing RxJS logic and have the UI update automatically with signals.</blockquote>
+          <h3 class="mt-8 text-green-700 font-bold">How This Example Works</h3>
+          <ul class="list-disc pl-6 mb-6">
+            <li><strong>Observable Source:</strong> The example starts with one or more RxJS observables (e.g., a counter that emits values over time).</li>
+            <li><strong>Conversion:</strong> The <code>toSignal</code> function is used to convert each observable into a signal. For example: <code class="bg-blue-100 text-blue-700 px-1 rounded">const counter = toSignal(counter$);</code></li>
+            <li><strong>Reactive UI:</strong> The template uses <code>{{ counter() }}</code> to display the value. Whenever the observable emits, the signal updates and the UI refreshes automatically.</li>
+            <li><strong>Initial Values:</strong> You can provide an initial value to <code>toSignal</code> for cases where the observable hasn't emitted yet.</li>
+            <li><strong>Multiple Signals:</strong> You can convert multiple observables to signals and use them independently in your UI.</li>
+          </ul>
+          <h3 class="mt-8 text-green-700 font-bold">Why Convert Observables to Signals?</h3>
+          <ul class="list-disc pl-6 mb-6">
+            <li><strong>Unified Reactivity:</strong> Use signals everywhere in your UI, even for async data.</li>
+            <li><strong>Performance:</strong> Signals update only the parts of the UI that depend on them.</li>
+            <li><strong>Interoperability:</strong> Keep using your RxJS logic, but get the benefits of signals in your templates.</li>
+            <li><strong>Readability:</strong> The code is easier to follow and maintain.</li>
+          </ul>
+          <div class="mt-8 flex items-center gap-3">
+            <span class="text-3xl text-yellow-500">★</span>
+            <span class="font-semibold text-blue-900">Converting observables to signals lets you combine the best of RxJS and Angular’s new reactivity—effortlessly!</span>
           </div>
         </div>
       </div>

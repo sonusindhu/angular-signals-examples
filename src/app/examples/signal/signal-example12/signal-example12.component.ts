@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, effect, signal, untracked } from '@
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'signal-example12',
@@ -9,7 +10,7 @@ import { MarkdownComponent } from 'ngx-markdown';
     styleUrl: `./signal-example12.component.scss`,
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [MatButtonModule, MatTabsModule, MarkdownComponent]
+    imports: [MatButtonModule, MatTabsModule, MarkdownComponent, RouterModule]
 })
 export default class SignalExample12Component {
   counter1 = signal(1);

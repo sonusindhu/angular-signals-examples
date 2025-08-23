@@ -1,26 +1,67 @@
-
 <div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example12'">Prev</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example14'">Next</button>
+  </div>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Demo">
       <div class="content-area">
-        <h2>Signal Example 13 - My Cart (Add/Remove Product)</h2>
-        <p>This example demonstrates using signals to manage a shopping cart, with add/remove actions and a computed total price.</p>
-        <div class="demo-section">
-          <ul>
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">🛒</span> Signal Example 13: <span class="text-green-700">My Cart (Add/Remove Product)</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">🛍️</span>
+            <span>
+              Discover how <strong class="text-blue-700">Angular Signals</strong> can power a dynamic shopping cart! This example demonstrates real-time add/remove actions and a live total, all managed reactively.
+            </span>
+          </span>
+        </p>
+        <div class="demo-section w-full px-2 sm:px-4 py-4 sm:py-6 bg-gradient-to-br from-blue-50 via-white to-green-50 rounded-2xl shadow-lg border border-blue-100 flex flex-col gap-6">
+          <ul class="divide-y divide-blue-100 bg-white rounded-lg shadow mb-6">
             @for (product of products(); track product) {
-              <li>
-                {{ product.name }} - ${{ product.price }}
-                @if (selectProductsIds().includes(product.id)) {
-                  <button mat-raised-button color="warn" (click)="removeFromCart(product)">Remove</button>
-                } @else {
-                  <button mat-raised-button color="primary" (click)="addToCart(product)">Add</button>
-                }
+              <li class="flex items-center justify-between px-4 py-3">
+                <span class="font-medium text-blue-900">{{ product.name }}</span>
+                <span class="text-green-700 font-bold">${{ product.price }}</span>
+                <span>
+                  @if (selectProductsIds().includes(product.id)) {
+                    <button mat-raised-button color="warn" (click)="removeFromCart(product)">Remove</button>
+                  } @else {
+                    <button mat-raised-button color="primary" (click)="addToCart(product)">Add</button>
+                  }
+                </span>
               </li>
             }
           </ul>
-          <div class="total-price">
+          <div class="total-price flex items-center gap-3 text-lg font-bold text-blue-700 bg-blue-50 border border-blue-100 rounded-lg px-4 py-3 w-fit self-end">
             <span class="label">Total Price:</span>
-            <span class="value">${{ totalPrice() }}</span>
+            <span class="value text-green-700">${{ totalPrice() }}</span>
+          </div>
+          <div class="signal-explanation mt-8 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+            <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>🛒</span> Deep Dive: Building a Reactive Shopping Cart with Angular Signals</h2>
+            <p><strong>Shopping carts</strong> are a classic example of dynamic, interactive state in web apps. With Angular signals, you can build a cart that updates instantly as users add or remove products—no manual refresh, no complex state management, just pure reactivity.</p>
+            <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">Signals let you manage cart state, compute totals, and update the UI in real time, all with minimal code and maximum clarity.</blockquote>
+            <h3 class="mt-8 text-green-700 font-bold">How This Example Works</h3>
+            <ul class="list-disc pl-6 mb-6">
+              <li><strong>Signal Declarations:</strong> The product list and cart are both signals: <code class="bg-blue-100 text-blue-700 px-1 rounded">products = signal([...])</code>, <code>cart = signal([])</code>.</li>
+              <li><strong>Adding/Removing:</strong> Clicking <b>Add</b> or <b>Remove</b> updates the cart signal, which instantly updates the UI.</li>
+              <li><strong>Computed Values:</strong> <code>totalPrice</code> and <code>selectProductsIds</code> are computed signals that recalculate automatically as the cart changes.</li>
+              <li><strong>Reactive UI:</strong> The template uses <code>&#64;for</code> and <code>&#64;if</code> for a fully reactive, declarative cart experience.</li>
+              <li><strong>No Subscriptions Needed:</strong> Signals handle all reactivity for you. The UI and state stay in sync in real time.</li>
+            </ul>
+            <h3 class="mt-8 text-green-700 font-bold">Why Use Signals for Carts?</h3>
+            <ul class="list-disc pl-6 mb-6">
+              <li><strong>Instant Feedback:</strong> Users see their cart update as they interact, with no lag or manual refresh.</li>
+              <li><strong>Performance:</strong> Only the parts of the UI that use the signal are updated.</li>
+              <li><strong>Readability:</strong> The code is easy to follow and maintain, even as features grow.</li>
+              <li><strong>Fine-Grained Reactivity:</strong> Signals track exactly where they’re used, so updates are efficient and instant.</li>
+              <li><strong>Real-World Use:</strong> This pattern works for any cart, wishlist, or dynamic list in your app.</li>
+            </ul>
+            <div class="mt-8 flex items-center gap-3">
+              <span class="text-3xl text-yellow-500">★</span>
+              <span class="font-semibold text-blue-900">Angular signals make building interactive, real-world features like shopping carts simple, efficient, and a joy to use!</span>
+            </div>
           </div>
         </div>
       </div>

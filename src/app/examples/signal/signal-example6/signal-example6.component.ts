@@ -4,12 +4,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     selector: 'app-signal-example6',
     templateUrl: './signal-example6.component.html',
     styleUrl: './signal-example6.component.scss',
-    imports: [FormsModule, MatFormFieldModule, MatInputModule, MatTabsModule, MarkdownComponent],
+    imports: [FormsModule, MatFormFieldModule, MatInputModule, MatTabsModule, MarkdownComponent, RouterModule, MatButtonModule],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample5Component {

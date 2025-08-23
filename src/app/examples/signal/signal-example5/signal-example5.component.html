@@ -1,11 +1,24 @@
-
 <div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example4'">Prev</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/signal/signal-example6'">Next</button>
+  </div>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Demo">
       <div class="content-area">
-        <h2>Signal Example 5 - Todo List</h2>
-        <p>This example demonstrates a todo list managed with Angular signals.</p>
-        <div class="demo-section">
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">📝</span> Signal Example 5: <span class="text-green-700">Todo List</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">⚡</span>
+            <span>
+              Discover how <strong class="text-blue-700">Angular Signals</strong> can manage a dynamic todo list! This example shows how signals make adding and displaying todos reactive, efficient, and fun.
+            </span>
+          </span>
+        </p>
+        <div class="demo-section w-full">
           <div class="todo-container">
             <h3>📝 Todo List</h3>
             <div class="controls">
@@ -26,6 +39,30 @@
                 }
               </ul>
             </div>
+          </div>
+        </div>
+        <div class="signal-explanation mt-12 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+          <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>⚡</span> Deep Dive: Building a Reactive Todo List with Angular Signals</h2>
+          <p><strong>Todo lists</strong> are a classic way to learn about state management. With Angular signals, you can create a todo list that updates instantly as you add items—no manual subscriptions, no complex state libraries, just pure reactivity.</p>
+          <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">A signal in Angular is a function that holds a value and notifies the UI whenever it changes. This makes it perfect for managing lists and collections in real time.</blockquote>
+          <h3 class="mt-8 text-green-700 font-bold">How This Example Works</h3>
+          <ul class="list-disc pl-6 mb-6">
+            <li><strong>Signal Declaration:</strong> The todo list is stored in a signal, e.g. <code class="bg-blue-100 text-blue-700 px-1 rounded">todos = signal([]);</code></li>
+            <li><strong>Adding Todos:</strong> When you enter a todo and click <strong>Add Todo</strong>, the signal is updated with the new item using <code>todos.update(list =&gt; [...list, newTodo])</code>.</li>
+            <li><strong>Reactive UI:</strong> The template uses <code>&#64;for (item of todos(); track item)</code> to display the list. Whenever the signal changes, Angular updates the UI automatically.</li>
+            <li><strong>No Subscriptions Needed:</strong> Signals handle all reactivity for you. The UI stays in sync with the signal’s value in real time.</li>
+            <li><strong>Instant Feedback:</strong> As you add todos, the list updates immediately, demonstrating fine-grained reactivity.</li>
+          </ul>
+          <h3 class="mt-8 text-green-700 font-bold">Why Use Signals for Lists?</h3>
+          <ul class="list-disc pl-6 mb-6">
+            <li><strong>Simplicity:</strong> No need for RxJS, Subjects, or manual subscriptions for simple list state.</li>
+            <li><strong>Performance:</strong> Only the parts of the UI that use the signal are updated.</li>
+            <li><strong>Readability:</strong> The code is easy to follow and maintain.</li>
+            <li><strong>Fine-Grained Reactivity:</strong> Signals track exactly where they’re used, so updates are efficient and instant.</li>
+          </ul>
+          <div class="mt-8 flex items-center gap-3">
+            <span class="text-3xl text-yellow-500">★</span>
+            <span class="font-semibold text-blue-900">Angular signals make building dynamic, user-friendly lists effortless and elegant!</span>
           </div>
         </div>
       </div>

@@ -3,13 +3,15 @@ import { MarkdownComponent } from 'ngx-markdown';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { interval, take } from 'rxjs';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-signal-example7',
   standalone: true,
   templateUrl: './signal-example7.component.html',
   styleUrl: './signal-example7.component.scss',
-  imports: [MatTabsModule, MarkdownComponent],
+  imports: [MatTabsModule, MarkdownComponent, RouterModule, MatButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample5Component {

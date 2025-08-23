@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { products } from './products';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-signal-example10',
@@ -21,6 +22,7 @@ import { products } from './products';
         CurrencyPipe,
         MatTabsModule,
         MarkdownComponent,
+        RouterModule,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -2,12 +2,13 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'signal-example16',
     templateUrl: `./signal-example16.component.html`,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatButtonModule, MatTabsModule, MarkdownComponent],
+    imports: [MatButtonModule, MatTabsModule, MarkdownComponent, RouterModule],
     styleUrl: `./signal-example16.component.scss`,
 })
 export default class SignalExample16Component {
