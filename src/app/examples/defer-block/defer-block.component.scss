@@ -2,31 +2,7 @@
   display: block;
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 25%, #ff7b54 50%, #ffcc02 75%, #ffa726 100%);
-  background-size: 400% 400%;
-  animation: sunsetShift 12s ease infinite;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 167, 38, 0.3) 0%, transparent 50%),
-      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="resource-diamond" width="40" height="40" patternUnits="userSpaceOnUse"><polygon points="20,5 35,20 20,35 5,20" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23resource-diamond)"/></svg>');
-    opacity: 0.6;
-  }
-}
-
-@keyframes sunsetShift {
-  0% { background-position: 0% 50%; }
-  33% { background-position: 100% 25%; }
-  67% { background-position: 100% 75%; }
-  100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -39,10 +15,6 @@
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #ff6b6b, #ff7b54, #ffcc02);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin-bottom: 3rem;
     position: relative;
     text-align: center;
@@ -53,7 +25,7 @@
       bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 150px;
       height: 4px;
       background: linear-gradient(45deg, #ff6b6b, #ff7b54);
       border-radius: 2px;

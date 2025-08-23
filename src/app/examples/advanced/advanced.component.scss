@@ -2,32 +2,7 @@
   display: block;
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #667eea 50%, #f093fb 75%, #f5576c 100%);
-  background-size: 400% 400%;
-  animation: oceanWave 18s ease infinite;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 70% 70%, rgba(240, 147, 251, 0.3) 0%, transparent 50%),
-      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="ocean-waves" width="60" height="30" patternUnits="userSpaceOnUse"><path d="M0,15 Q15,5 30,15 T60,15" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><path d="M0,20 Q15,10 30,20 T60,20" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/></pattern></defs><rect width="100" height="100" fill="url(%23ocean-waves)"/></svg>');
-    opacity: 0.8;
-  }
-}
-
-@keyframes oceanWave {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 100% 25%; }
-  50% { background-position: 100% 75%; }
-  75% { background-position: 0% 100%; }
-  100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -55,10 +30,6 @@
   h2 {
     font-size: 2.2rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin-bottom: 2rem;
     position: relative;
     text-align: center;
@@ -69,7 +40,7 @@
       bottom: -6px;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
+      width: 120px;
       height: 3px;
       background: linear-gradient(45deg, #667eea, #f093fb);
       border-radius: 2px;

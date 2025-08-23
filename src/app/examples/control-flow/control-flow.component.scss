@@ -2,18 +2,7 @@
   display: block;
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #667eea 50%, #f093fb 75%, #f5576c 100%);
-  background-size: 400% 400%;
-  animation: oceanWave 18s ease infinite;
   position: relative;
-}
-
-@keyframes oceanWave {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 100% 25%; }
-  50% { background-position: 100% 75%; }
-  75% { background-position: 0% 100%; }
-  100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -39,10 +28,7 @@
   h2 {
     font-size: 2.2rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
     background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin-bottom: 2rem;
     position: relative;
     text-align: center;
@@ -52,7 +38,7 @@
       bottom: -6px;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
+      width: 150px;
       height: 3px;
       background: linear-gradient(45deg, #667eea, #f093fb);
       border-radius: 2px;

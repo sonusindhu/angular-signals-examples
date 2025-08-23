@@ -2,39 +2,7 @@
   display: block;
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
-  background-size: 400% 400%;
-  animation: cosmicShift 20s ease infinite;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 25% 25%, rgba(255, 0, 150, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.1) 0%, transparent 50%),
-      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="rgba(255,255,255,0.8)"/><circle cx="30" cy="25" r="0.3" fill="rgba(255,255,255,0.6)"/><circle cx="45" cy="40" r="0.4" fill="rgba(255,255,255,0.7)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
-    opacity: 0.9;
-    animation: starTwinkle 3s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes cosmicShift {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 100% 25%; }
-  50% { background-position: 100% 75%; }
-  75% { background-position: 0% 100%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes starTwinkle {
-  0% { opacity: 0.7; }
-  100% { opacity: 0.9; }
 }
 
 .container {
@@ -47,10 +15,6 @@
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #ff0096, #00ffff, #ffff00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin-bottom: 3rem;
     position: relative;
     text-align: center;
@@ -62,7 +26,7 @@
       bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 150px;
       height: 4px;
       background: linear-gradient(45deg, #ff0096, #00ffff);
       border-radius: 2px;
@@ -109,7 +73,6 @@
       left: 0;
       right: 0;
       height: 6px;
-      background: linear-gradient(90deg, #ff0096, #00ffff, #ffff00, #ff0096);
       background-size: 200% 100%;
       opacity: 0;
       transition: all 0.5s ease;
@@ -125,13 +88,6 @@
       left: -3px;
       right: -3px;
       bottom: -3px;
-      background: linear-gradient(135deg, 
-        rgba(255, 0, 150, 0.3) 0%, 
-        rgba(0, 255, 255, 0.3) 25%, 
-        rgba(255, 255, 0, 0.3) 50%, 
-        rgba(255, 0, 150, 0.3) 75%,
-        rgba(0, 255, 255, 0.3) 100%
-      );
       border-radius: 28px;
       opacity: 0;
       transition: all 0.7s ease;
@@ -170,7 +126,6 @@
     .mat-mdc-card-title {
       font-size: 1.35rem;
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.9);
       line-height: 1.4;
       margin: 0;
       transition: all 0.3s ease;
@@ -187,7 +142,6 @@
     
     p {
       margin: 0 0 1rem 0;
-      color: rgba(255, 255, 255, 0.7);
       font-size: 1rem;
       line-height: 1.7;
       transition: all 0.3s ease;
@@ -204,15 +158,12 @@
       
       .demo-text {
         font-weight: 600;
-        color: #00ffff;
         font-size: 0.9rem;
         transition: all 0.3s ease;
-        text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
       }
       
       .demo-arrow {
         font-size: 1.2rem;
-        color: #00ffff;
         transition: all 0.3s ease;
         transform: translateX(0);
         text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
@@ -220,52 +171,12 @@
     }
   }
   
-  &:hover {
-    .mat-mdc-card-title {
-      background: linear-gradient(135deg, #ff0096 0%, #00ffff 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transform: translateX(3px);
-      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    }
-    
-    .mat-mdc-card-content p {
-      color: rgba(255, 255, 255, 0.9);
-      transform: translateX(3px);
-    }
-    
-    .demo-link {
-      .demo-text {
-        background: linear-gradient(135deg, #ff0096 0%, #00ffff 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 700;
-        text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
-      }
-      
-      .demo-arrow {
-        transform: translateX(5px);
-        background: linear-gradient(135deg, #ff0096 0%, #00ffff 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
-      }
-    }
-  }
 }
 
 @keyframes neonFlow {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
-
-// Progressive cosmic colors for each card
-.card-item:nth-child(1) mat-card::before { background: linear-gradient(90deg, #ff0096, #00ffff, #ffff00); }
-.card-item:nth-child(2) mat-card::before { background: linear-gradient(90deg, #00ffff, #ffff00, #ff6b6b); }
-.card-item:nth-child(3) mat-card::before { background: linear-gradient(90deg, #ffff00, #ff6b6b, #4ecdc4); }
 
 @media (max-width: 768px) {
   .container {
@@ -286,7 +197,7 @@
     min-height: 160px;
     
     &:hover {
-      transform: translateY(-15px) scale(1.05);
+      transform: translateY(-10px) scale(.55);
     }
   }
 }
