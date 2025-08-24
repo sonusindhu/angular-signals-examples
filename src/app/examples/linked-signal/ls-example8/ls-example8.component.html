@@ -1,0 +1,48 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/linked-signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/linked-signal/example7'">Prev</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/linked-signal/example8'">Next</button>
+  </div>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 8 - Quiz App with Auto-Reset Current Question</h2>
+        <p>
+          Select a quiz topic. The first question of that topic is shown by default. You can navigate to next/previous question. If the topic changes, the current question resets to the first question of the new topic.
+        </p>
+        <div class="quiz-section">
+          <div class="form-row">
+            <mat-form-field appearance="fill">
+              <mat-label>Quiz Topic</mat-label>
+              <mat-select [value]="topic()" (selectionChange)="setTopic($event.value)">
+                <mat-option *ngFor="let t of topics" [value]="t.key">{{t.label}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="question-card" *ngIf="currentQuestion()">
+            <h4>Question {{currentIndex() + 1}} of {{questions().length}}</h4>
+            <div class="question">{{currentQuestion().text}}</div>
+          </div>
+          <div class="pagination-section">
+            <button mat-stroked-button color="primary" (click)="prevQuestion()" [disabled]="currentIndex() === 0">Prev</button>
+            <span class="page-info">{{currentIndex() + 1}} / {{questions().length}}</span>
+            <button mat-stroked-button color="primary" (click)="nextQuestion()" [disabled]="currentIndex() === questions().length - 1">Next</button>
+          </div>
+        </div>
+        <div class="note">
+          <p><strong>Tip:</strong> Change the topic to auto-reset to the first question. Navigate manually to see more questions.</p>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/linked-signal/ls-example8-html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/linked-signal/ls-example8-ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown src="assets/examples/linked-signal/ls-example8-css.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

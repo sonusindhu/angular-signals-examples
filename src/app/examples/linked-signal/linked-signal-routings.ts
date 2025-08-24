@@ -33,6 +33,14 @@ const LINKED_ROUTES: Route[] = [
     path: 'example7',
     loadComponent: () => import('./ls-example7/ls-example7.component').then(c => c.LsExample7Component),
   },
+  {
+    path: 'example8',
+    loadComponent: () => import('./ls-example8/ls-example8.component').then(c => c.LsExample8Component),
+  },
+  {
+    path: 'example9',
+    loadComponent: () => import('./ls-example9/ls-example9.component').then(c => c.LsExample9Component),
+  },
 ];
 
 export default LINKED_ROUTES;
