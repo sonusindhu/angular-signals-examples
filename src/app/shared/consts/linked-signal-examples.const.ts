@@ -24,6 +24,11 @@ export const LINKED_SIGNAL_EXAMPLES: ExampleModel[] = [
   {
     title: 'E-commerce Product Filters with Auto-Reset Pagination',
     content: 'Showcase product filtering with category and price, and auto-reset pagination using linkedSignal. Page resets to 1 on filter change, but allows manual navigation.',
-    routerLink: '/linked-signal/ls-example5',
+    routerLink: '/linked-signal/example5',
+  },
+  {
+    title: 'Form Defaults That Depend on Another Field',
+    content: 'When a user selects a country, the default currency updates automatically. The user can override the currency, but if the country changes again, the currency resets to the new default.',
+    routerLink: '/linked-signal/example6',
   },
 ];

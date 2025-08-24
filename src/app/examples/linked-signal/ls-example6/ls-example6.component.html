@@ -1,0 +1,45 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/linked-signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/linked-signal/example5'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 6 - Form Defaults That Depend on Another Field</h2>
+        <p>
+          When a user selects a country, the default currency updates automatically. The user can override the currency, but if the country changes again, the currency resets to the new default.
+        </p>
+        <div class="form-section">
+          <div class="form-row">
+            <mat-form-field appearance="fill">
+              <mat-label>Country</mat-label>
+              <mat-select [value]="country()" (selectionChange)="setCountry($event.value)">
+                <mat-option *ngFor="let c of countries" [value]="c.code">{{c.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Currency</mat-label>
+              <mat-select [value]="currency()" (selectionChange)="setCurrency($event.value)">
+                <mat-option *ngFor="let cur of availableCurrencies" [value]="cur">{{cur}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="note">
+          <p><strong>Tip:</strong> Change the country to see the currency auto-reset. Manually select a currency to override. Changing country again resets to default.</p>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/linked-signal/ls-example6-html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/linked-signal/ls-example6-ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown src="assets/examples/linked-signal/ls-example6-css.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
