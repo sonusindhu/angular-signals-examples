@@ -95,6 +95,7 @@
 | 3 | **Dynamic Pricing Engine** | Advanced pricing based on user & product | • Complex business logic<br>• Multi-factor calculations | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/example3) |
 | 4 | **Unit Converter (Celsius ↔ Fahrenheit)** | Two-way unit conversion with linkedSignal | • Bi-directional binding<br>• Real-world scenario | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/example4) |
 | 5 | **E-commerce Product Filters with Auto-Reset Pagination** | Product filtering and pagination reset | • Filter by category/price<br>• Pagination auto-resets<br>• Manual navigation | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example5) |
+| 6 | **Form Defaults That Depend on Another Field** | Country/currency form with auto-reset | • Country selection<br>• Currency auto-default<br>• Manual override | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example6) |
 
 
 
