@@ -34,6 +34,11 @@ export const LINKED_SIGNAL_EXAMPLES: ExampleModel[] = [
   {
     title: 'Dashboard with Date Range Auto-Reset',
     content: 'Pick a data source (e.g., “Last Month”, “This Quarter”, “This Year”). The dashboard defaults the date range to match the data source. You can override the date range, but if the data source changes, the date range resets to match it again.',
-    routerLink: '/linked-signal/ls-example7',
+    routerLink: '/linked-signal/example7',
+  },
+  {
+    title: 'Quiz App with Auto-Reset Current Question',
+    content: 'Select a quiz topic. The first question of that topic is shown by default. Navigate to next/previous question. If the topic changes, the current question resets to the first question of the new topic.',
+    routerLink: '/linked-signal/example8',
   },
 ];

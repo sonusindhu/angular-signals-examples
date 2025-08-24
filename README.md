@@ -9,7 +9,7 @@
 
 ### 🚀 A comprehensive collection of Angular Signals examples showcasing modern reactive programming
 
-*Master Angular's revolutionary signal system with 40+ real-world examples covering signals, linked signals, resource API, and defer blocks*
+*Master Angular's revolutionary signal system with 50+ real-world examples covering signals, linked signals, resource API, and defer blocks*
 
 **[🌟 View Live Demo](https://angular-signal-examples.netlify.app/) | [📖 Documentation](https://angular.io/guide/signals) | [🤝 Contribute](#contributing)**
 
@@ -86,7 +86,7 @@
 
 ## 🔗 Examples - LinkedSignal
 
-> 🔄 **6 powerful examples** demonstrating Angular's LinkedSignal for reactive computed state
+> 🔄 **8 powerful examples** demonstrating Angular's LinkedSignal for reactive computed state
 
 | # | Example | Description | Key Features | Live Demo |
 |---|---------|-------------|--------------|-----------|
@@ -97,6 +97,7 @@
 | 5 | **E-commerce Product Filters with Auto-Reset Pagination** | Product filtering and pagination reset | • Filter by category/price<br>• Pagination auto-resets<br>• Manual navigation | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example5) |
 | 6 | **Form Defaults That Depend on Another Field** | Country/currency form with auto-reset | • Country selection<br>• Currency auto-default<br>• Manual override | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example6) |
 | 7 | **Dashboard with Date Range Auto-Reset** | Dashboard with data source and date range | • Data source selection<br>• Date range auto-default<br>• Manual override | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example7) |
+| 8 | **Quiz App with Auto-Reset Current Question** | Quiz with topic and question navigation | • Topic selection<br>• Question auto-reset<br>• Manual navigation | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example8) |
 
 
 
@@ -160,7 +161,7 @@ Angular's defer blocks provide **declarative lazy loading** for better performan
 
 ## � Examples - Advanced
 
-> 🧠 **2 advanced examples** demonstrating real-world Angular patterns with signals, RxJS, and HTTP caching
+> 🧠 **3 advanced examples** demonstrating real-world Angular patterns with signals, RxJS, and HTTP caching
 
 | # | Example | Key Concepts | Description | Live Demo |
 |---|---------|-------------|-------------|-----------|
