@@ -31,4 +31,9 @@ export const LINKED_SIGNAL_EXAMPLES: ExampleModel[] = [
     content: 'When a user selects a country, the default currency updates automatically. The user can override the currency, but if the country changes again, the currency resets to the new default.',
     routerLink: '/linked-signal/example6',
   },
+  {
+    title: 'Dashboard with Date Range Auto-Reset',
+    content: 'Pick a data source (e.g., “Last Month”, “This Quarter”, “This Year”). The dashboard defaults the date range to match the data source. You can override the date range, but if the data source changes, the date range resets to match it again.',
+    routerLink: '/linked-signal/ls-example7',
+  },
 ];
