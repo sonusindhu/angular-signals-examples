@@ -1,0 +1,50 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/linked-signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/linked-signal/example6'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 7 - Dashboard with Date Range Auto-Reset</h2>
+        <p>
+          Pick a data source (e.g., “Last Month”, “This Quarter”, “This Year”). The dashboard defaults the date range to match the data source. You can override the date range, but if the data source changes, the date range resets to match it again.
+        </p>
+        <div class="dashboard-section">
+          <div class="form-row">
+            <mat-form-field appearance="fill">
+              <mat-label>Data Source</mat-label>
+              <mat-select [value]="dataSource()" (selectionChange)="setDataSource($event.value)">
+                <mat-option *ngFor="let src of dataSources" [value]="src.key">{{src.label}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="date-range">
+              <mat-form-field appearance="fill">
+                <mat-label>Start Date</mat-label>
+                <input matInput [value]="dateRange().start" type="date" (change)="setStartDate($any($event.target).value)" />
+              </mat-form-field>
+              <span>to</span>
+              <mat-form-field appearance="fill">
+                <mat-label>End Date</mat-label>
+                <input matInput [value]="dateRange().end" type="date" (change)="setEndDate($any($event.target).value)" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          <p><strong>Tip:</strong> Change the data source to auto-reset the date range. Manually select dates to override. Changing data source again resets to default.</p>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/linked-signal/ls-example7-html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/linked-signal/ls-example7-ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown src="assets/examples/linked-signal/ls-example7-css.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
