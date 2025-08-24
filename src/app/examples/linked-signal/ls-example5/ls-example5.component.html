@@ -1,0 +1,57 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/linked-signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/linked-signal/example4'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 5 - E-commerce Product Filters with Auto-Reset Pagination</h2>
+        <p>
+          This example demonstrates how to use <code>linkedSignal</code> to auto-reset pagination when filters change, while still allowing manual page navigation.
+        </p>
+        <div class="filters-section">
+          <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select [value]="category()" (selectionChange)="setCategory($event.value)">
+              <mat-option value="">All</mat-option>
+              <mat-option *ngFor="let cat of categories" [value]="cat">{{cat}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Min Price</mat-label>
+            <input matInput type="number" [value]="minPrice()" (input)="setMinPrice($any($event.target).value)" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Max Price</mat-label>
+            <input matInput type="number" [value]="maxPrice()" (input)="setMaxPrice($any($event.target).value)" />
+          </mat-form-field>
+        </div>
+        <div class="products-list">
+            @for(product of pagedProducts(); track product){
+                <div class="product-card">
+                  <h4>{{product.name}}</h4>
+                  <div class="price">${{product.price}}</div>
+                  <div class="category">Category: {{product.category}}</div>
+                </div>
+            }
+        </div>
+        <div class="pagination-section">
+          <button mat-stroked-button color="primary" (click)="prevPage()" [disabled]="page() === 1">Prev</button>
+          <span class="page-info">Page {{page()}} of {{totalPages()}}</span>
+          <button mat-stroked-button color="primary" (click)="nextPage()" [disabled]="page() === totalPages()">Next</button>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/linked-signal/ls-example5/ls-example5-html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/linked-signal/ls-example5/ls-example5-ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown src="assets/examples/linked-signal/ls-example5/ls-example5-css.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
