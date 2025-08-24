@@ -41,4 +41,9 @@ export const LINKED_SIGNAL_EXAMPLES: ExampleModel[] = [
     content: 'Select a quiz topic. The first question of that topic is shown by default. Navigate to next/previous question. If the topic changes, the current question resets to the first question of the new topic.',
     routerLink: '/linked-signal/example8',
   },
+  {
+    title: 'Shopping Cart – Auto-Select Last Used Address (with Fallback)',
+    content: 'Checkout preselects the last used address. If deleted, falls back to the first available. User can manually switch addresses. Demonstrates linkedSignal memory.',
+    routerLink: '/linked-signal/example9',
+  },
 ];

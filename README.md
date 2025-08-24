@@ -86,7 +86,7 @@
 
 ## 🔗 Examples - LinkedSignal
 
-> 🔄 **8 powerful examples** demonstrating Angular's LinkedSignal for reactive computed state
+> 🔄 **9 powerful examples** demonstrating Angular's LinkedSignal for reactive computed state
 
 | # | Example | Description | Key Features | Live Demo |
 |---|---------|-------------|--------------|-----------|
@@ -98,6 +98,7 @@
 | 6 | **Form Defaults That Depend on Another Field** | Country/currency form with auto-reset | • Country selection<br>• Currency auto-default<br>• Manual override | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example6) |
 | 7 | **Dashboard with Date Range Auto-Reset** | Dashboard with data source and date range | • Data source selection<br>• Date range auto-default<br>• Manual override | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example7) |
 | 8 | **Quiz App with Auto-Reset Current Question** | Quiz with topic and question navigation | • Topic selection<br>• Question auto-reset<br>• Manual navigation | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example8) |
+| 9 | **Shopping Cart – Auto-Select Last Used Address (with Fallback)** | Checkout with last-used address memory | • Last-used memory<br>• Fallback to first<br>• Manual override | [🔗 Demo](https://angular-signal-examples.netlify.app/linked-signal/ls-example9) |
 
 
 

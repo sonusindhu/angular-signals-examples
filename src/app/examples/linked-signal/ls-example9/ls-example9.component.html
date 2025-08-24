@@ -1,0 +1,41 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/linked-signal">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/linked-signal/example8'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 9 - Shopping Cart: Auto-Select Last Used Address (with Fallback)</h2>
+        <p>
+          By default, the checkout preselects the last used address. If that address is deleted, it falls back to the first available address. You can manually switch addresses during checkout.
+        </p>
+        <div class="cart-section">
+          <div class="form-row">
+            <button mat-stroked-button color="accent" (click)="removeSelectedAddress()" [disabled]="addresses().length === 0">Remove Selected Address</button>
+            <button mat-stroked-button color="primary" (click)="addRandomAddress()">Add Random Address</button>
+          </div>
+          <div class="address-list">
+            <div *ngFor="let addr of addresses(); let i = index" class="address-item" [class.selected]="selectedAddress() === addr.id" (click)="selectAddress(addr.id)">
+              <mat-icon *ngIf="selectedAddress() === addr.id" color="primary">check_circle</mat-icon>
+              <span>{{addr.label}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          <p><strong>Tip:</strong> Remove the selected address to see fallback. Add addresses to test auto-selection. Manually click to select any address.</p>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/linked-signal/ls-example9-html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/linked-signal/ls-example9-ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown src="assets/examples/linked-signal/ls-example9-css.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
