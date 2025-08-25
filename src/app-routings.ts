@@ -35,6 +35,10 @@ export const ROUTES: Route[] = [
     loadComponent: () => import('./app/table/table.component'),
   },
   {
+    path: 'ngs-table-demo',
+    loadChildren: () => import('./app/examples/ngs-table-demo/ngs-table-demo-routings'),
+  },
+  {
     path: '**',
     redirectTo: ''
   },
