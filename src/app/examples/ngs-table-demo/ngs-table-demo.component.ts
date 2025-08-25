@@ -16,6 +16,11 @@ export class NgsTableDemoComponent {
         title: 'Simple Table Example',
         content: 'A basic usage of ngs-table with selection and column chooser.',
         routerLink: '/ngs-table-demo/example1',
+      },
+      {
+        title: 'Advanced Table Features',
+        content: 'Sorting, actions column, and more advanced features in ngs-table.',
+        routerLink: '/ngs-table-demo/example2',
       }
     ]);
 }
