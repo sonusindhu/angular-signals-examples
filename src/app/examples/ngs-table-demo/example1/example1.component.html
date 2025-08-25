@@ -1,0 +1,58 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/ngs-table-demo">Go to List</button>
+    <button mat-stroked-button color="primary" disabled>Prev</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/ngs-table-demo/example2'">Next</button>
+  </div>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">📊</span> ngs-table Example 1: <span class="text-green-700">Simple Table</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">🧩</span>
+            <span>
+              This example demonstrates a basic usage of <strong class="text-blue-700">ngs-table</strong> with selection and column chooser. Easily filter, select, and customize columns—<span class="font-semibold text-green-700">all with a flexible, config-driven API</span>.
+            </span>
+          </span>
+        </p>
+        <div class="demo-section w-full">
+          <ngs-table
+            [columnsConfig]="columnsConfig"
+            [data]="data"
+            [showSelection]="true"
+            [showColumnChooser]="true"
+          ></ngs-table>
+        </div>
+        <div class="signal-explanation mt-12 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+          <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>🧩</span> About ngs-table</h2>
+          <p><strong>ngs-table</strong> is a generic Angular Material table component. It supports dynamic columns, selection, filtering, column chooser, and more—all driven by configuration. This makes it easy to reuse and extend for many data scenarios.</p>
+          <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-900 bg-blue-50">Define your columns and data in your component, and let <strong>ngs-table</strong> handle the rest: filtering, selection, and column visibility are all built in.</blockquote>
+          <h3 class="mt-8 text-green-700 font-bold">Key Features</h3>
+          <ul class="list-disc pl-6 mb-6">
+            <li>Config-driven columns and data</li>
+            <li>Selection with checkboxes</li>
+            <li>Column chooser for user customization</li>
+            <li>Easy integration with Angular Material</li>
+            <li>Ready for advanced features: sorting, pagination, drag-and-drop, custom templates</li>
+          </ul>
+          <div class="mt-8 flex items-center gap-3">
+            <span class="text-3xl text-yellow-500">★</span>
+            <span class="font-semibold text-blue-900">ngs-table makes building powerful, flexible tables in Angular effortless and maintainable.</span>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/ngs-table/ngs-table-example1.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/ngs-table/ngs-table-example1.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/ngs-table/ngs-table-example1.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

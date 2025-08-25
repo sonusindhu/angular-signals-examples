@@ -1,0 +1,56 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/ngs-table-demo">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/ngs-table-demo/example1'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2 class="text-2xl sm:text-3xl text-blue-700 font-bold tracking-wide flex flex-wrap items-center gap-2 mb-2 w-full">
+          <span class="text-lg sm:text-xl">🧮</span> ngs-table Example 2: <span class="text-green-700">Advanced Features</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-700 mb-6 bg-gradient-to-r from-blue-100 via-blue-50 to-green-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow w-full">
+          <span class="inline-flex items-center gap-2 flex-wrap">
+            <span class="text-blue-500 text-lg sm:text-xl">⚙️</span>
+            <span>
+              This example demonstrates <strong class="text-blue-700">sorting, actions column, and more</strong> in ngs-table. Try sorting columns and using the action buttons!
+            </span>
+          </span>
+        </p>
+        <div class="demo-section w-full">
+          <ngs-table
+            [columnsConfig]="columnsConfig"
+            [data]="data"
+            [showSelection]="true"
+            [showColumnChooser]="true"
+            [cellTemplates]="{ actions: actionsTpl }"
+            [enableFilter]="true"
+          >
+            <ng-template #actionsTpl let-row>
+              <button mat-icon-button color="primary" (click)="editRow(row)"><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button color="warn" (click)="deleteRow(row)"><mat-icon>delete</mat-icon></button>
+            </ng-template>
+          </ngs-table>
+        </div>
+        <div class="signal-explanation mt-12 p-4 sm:p-8 bg-white/90 rounded-2xl text-left shadow-lg w-full prose prose-blue prose-lg">
+          <h2 class="flex items-center gap-2 text-2xl font-extrabold text-blue-700 mb-4"><span>⚙️</span> Advanced Table Features</h2>
+          <ul class="list-disc pl-6 mb-6">
+            <li>Sortable columns</li>
+            <li>Custom actions column with edit/delete</li>
+            <li>Selection and column chooser</li>
+          </ul>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/ngs-table/ngs-table-example2.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/ngs-table/ngs-table-example2.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/ngs-table/ngs-table-example2.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

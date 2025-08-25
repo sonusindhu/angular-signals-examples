@@ -1,0 +1,95 @@
+@if (showColumnChooser()) {
+  <div>
+    <button mat-button [matMenuTriggerFor]="chooseColumn">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #chooseColumn="matMenu">
+      @for (col of columnsConfig(); track col) {
+        <button mat-menu-item>
+          <mat-checkbox
+            [checked]="!hiddenColumns().includes(col.key)"
+            (change)="toggleColumn(col.key)"
+          >{{ col.label }}</mat-checkbox>
+        </button>
+      }
+    </mat-menu>
+  </div>
+}
+
+<table mat-table [dataSource]="dataSource()" class="mat-elevation-z8" matSort cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+  <!-- Selection Column -->
+  @if (showSelection()) {
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="$event ? toggleAllRows() : null"
+          [checked]="isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+        ></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? toggleRow(row) : null"
+          [checked]="selection.isSelected(row)"
+        ></mat-checkbox>
+      </td>
+      <th mat-header-cell *matHeaderCellDef="let col = col">
+        <!-- Empty for filter row if not filterable -->
+      </th>
+    </ng-container>
+  }
+
+  <!-- Dynamic Columns -->
+  @for (col of columnsConfig(); track col) {
+    <ng-container [matColumnDef]="col.key">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header cdkDrag>
+        {{ col.label }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        @if (cellTemplates() && cellTemplates()![col.key]) {
+          <ng-container *ngTemplateOutlet="cellTemplates()![col.key]; context: { $implicit: element, value: element[col.key], row: element }"></ng-container>
+        } @else {
+          {{ element[col.key] }}
+        }
+      </td>
+    </ng-container>
+  }
+  <!-- Main header row -->
+  <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+
+
+  <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+
+
+  @for (col of columnsConfig(); track col) {
+      <ng-container [matColumnDef]="col.key + '-filter'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header cdkDrag>
+                    @if(col.filterable){
+                        <mat-form-field>
+                            <input
+                                matInput
+                                (keyup)="applyFilter($event, col.key)"
+                                placeholder="Search"
+                            />
+                        </mat-form-field>
+                        }
+                </th>
+        </ng-container>
+  }
+
+  @if(enableFilter()){
+      <!-- Filter row: second header row -->
+      <tr mat-header-row *matHeaderRowDef="filterRow"></tr>
+  }
+
+
+
+    <!-- Not Found Template -->
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="tableColumns.length">No data</td>
+    </tr>
+    <!-- Not Found Template -->
+    
+</table>
+<mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons aria-label="Select page"></mat-paginator>
