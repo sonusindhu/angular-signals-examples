@@ -25,6 +25,7 @@
             [showSelection]="true"
             [showColumnChooser]="true"
             [cellTemplates]="{ actions: actionsTpl }"
+            [enableFilter]="true"
           >
             <ng-template #actionsTpl let-row>
               <button mat-icon-button color="primary" (click)="editRow(row)"><mat-icon>edit</mat-icon></button>

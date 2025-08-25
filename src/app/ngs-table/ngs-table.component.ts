@@ -47,6 +47,7 @@ export class NgsTableComponent<T = any> implements AfterViewInit {
   showSelection = input(false);
   showColumnChooser = input(false);
   showActions = input(false);
+  enableFilter = input(false);
   edit = output<T>();
   delete = output<T>();
   selectionChange = output<T[]>();
@@ -69,6 +70,10 @@ export class NgsTableComponent<T = any> implements AfterViewInit {
 
   get tableColumns(): string[] {
     return this.showActions() ? [...this.displayedColumns, 'actions'] : this.displayedColumns;
+  }
+
+  get filterRow() {
+    return this.columnsConfig().filter(col => !this.hiddenColumns().includes(col.key)).map(col => col.key + '-filter');
   }
 
   ngOnInit() {

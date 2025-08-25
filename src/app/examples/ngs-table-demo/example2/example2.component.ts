@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class NgsTableExample2Component {
   columnsConfig: NgsTableColumnConfig[] = [
-    { key: 'id', label: 'ID', sortable: true },
+    { key: 'id', label: 'ID', filterable: true, sortable: true },
     { key: 'name', label: 'Name', filterable: true, sortable: true },
     { key: 'age', label: 'Age', filterable: true, sortable: true },
     { key: 'city', label: 'City', filterable: true },

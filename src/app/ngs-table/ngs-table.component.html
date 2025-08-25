@@ -34,6 +34,9 @@
           [checked]="selection.isSelected(row)"
         ></mat-checkbox>
       </td>
+      <th mat-header-cell *matHeaderCellDef="let col = col">
+        <!-- Empty for filter row if not filterable -->
+      </th>
     </ng-container>
   }
 
@@ -52,34 +55,41 @@
       </td>
     </ng-container>
   }
+  <!-- Main header row -->
+  <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
 
-  <!-- Actions Column -->
-  @if (showActions()) {
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let row">
-        <button mat-icon-button (click)="edit.emit(row)" aria-label="Edit">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button (click)="delete.emit(row)" aria-label="Delete">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+
+  <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+
+
+  @for (col of columnsConfig(); track col) {
+      <ng-container [matColumnDef]="col.key + '-filter'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header cdkDrag>
+                    @if(col.filterable){
+                        <mat-form-field>
+                            <input
+                                matInput
+                                (keyup)="applyFilter($event, col.key)"
+                                placeholder="Search"
+                            />
+                        </mat-form-field>
+                        }
+                </th>
+        </ng-container>
   }
 
-  <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
-  <tr class="filter-row">
-    @for (col of tableColumns; track col) {
-      <th>
-        @if (isFilterable(col)) {
-          <mat-form-field>
-            <input matInput (keyup)="applyFilter($event, col)" placeholder="Search" />
-          </mat-form-field>
-        }
-      </th>
-    }
-  </tr>
-  <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+  @if(enableFilter()){
+      <!-- Filter row: second header row -->
+      <tr mat-header-row *matHeaderRowDef="filterRow"></tr>
+  }
+
+
+
+    <!-- Not Found Template -->
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="tableColumns.length">No data</td>
+    </tr>
+    <!-- Not Found Template -->
+    
 </table>
 <mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons aria-label="Select page"></mat-paginator>
