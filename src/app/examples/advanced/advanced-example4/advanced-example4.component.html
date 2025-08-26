@@ -1,0 +1,47 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/advanced">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/advanced/example3'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Signal-based Disable Reactive Form</h2>
+        <div class="demo-section">
+          <mat-card>
+            <mat-card-content>
+              <button mat-raised-button (click)="toggleDisabled()">
+                {{ disabledSignal() ? 'Enable' : 'Disable' }} Form
+              </button>
+              <form [formGroup]="form">
+                <label>
+                  Name:
+                  <input formControlName="name" [disableControl]="disabledSignal()" />
+                </label>
+                <br />
+                <label>
+                  Email:
+                  <input formControlName="email" [disableControl]="disabledSignal()" />
+                </label>
+                <br />
+                <button type="submit" [disabled]="form.invalid">Submit</button>
+              </form>
+              <pre>{{ form.value | json }}</pre>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Directive">
+      <markdown clipboard [src]="'assets/examples/advanced/example4/directive.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="Component">
+      <markdown clipboard [src]="'assets/examples/advanced/example4/component.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="Form">
+      <markdown clipboard [src]="'assets/examples/advanced/example4/form.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
