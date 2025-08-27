@@ -20,5 +20,10 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         title: 'Signal-based Disable Reactive Form',
         content: 'Control the disabled state of a reactive form using a signal and the disableControl directive.',
         routerLink: 'example4',
+    },
+    {
+        title: 'Auto-Save Form Directive — Real-World Use Case',
+        content: 'A reusable directive that auto-saves Angular form data to LocalStorage and an API, with debounce, dirty/touched state handling, and saving status.',
+        routerLink: 'example5',
     }
 ];
