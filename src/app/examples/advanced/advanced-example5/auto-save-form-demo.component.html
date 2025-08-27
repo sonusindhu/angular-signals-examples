@@ -1,0 +1,22 @@
+<form [formGroup]="form" [autoSaveForm]="form" [debounce]="1000" [storageKey]="'autoSaveDemo'" [apiSaveFn]="saveToApi" (savingStatus)="savingStatus.set($event)">
+  <label>
+    Name:
+    <input formControlName="name" />
+  </label>
+  <label>
+    Email:
+    <input formControlName="email" />
+  </label>
+  <label>
+    Notes:
+    <textarea formControlName="notes"></textarea>
+  </label>
+  <div class="status">
+    <ng-container [ngSwitch]="savingStatus()">
+      <span *ngSwitchCase="'saving'">Saving...</span>
+      <span *ngSwitchCase="'saved'">✅ Saved</span>
+      <span *ngSwitchCase="'error'">❌ Error! Retrying...</span>
+      <span *ngSwitchDefault>Idle</span>
+    </ng-container>
+  </div>
+</form>

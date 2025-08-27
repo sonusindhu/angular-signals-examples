@@ -1,0 +1,47 @@
+.form-container {
+  margin: 2rem auto;
+  max-width: 420px;
+  background: #fafbfc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e0e0e0;
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.2rem;
+}
+input, textarea {
+  margin-top: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background: #fff;
+}
+input:focus, textarea:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+input:disabled, textarea:disabled {
+  background: #f5f5f5;
+  color: #aaa;
+}
+.status {
+  margin-top: 1rem;
+  font-weight: bold;
+  min-height: 1.5em;
+}
+button[type="submit"] {
+  margin-top: 1rem;
+  align-self: flex-end;
+}
