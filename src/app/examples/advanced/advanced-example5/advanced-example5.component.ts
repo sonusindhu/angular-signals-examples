@@ -1,0 +1,32 @@
+import { Component, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule, FormBuilder, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MarkdownComponent } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
+import { AutoSaveFormDirective } from './auto-save-form.directive';
+import { AutoSaveFormDemoComponent } from './auto-save-form-demo.component';
+
+@Component({
+  selector: 'app-advanced-example5',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatCardModule,
+    MatIconModule,
+    MarkdownComponent,
+    RouterModule,
+    AutoSaveFormDirective,
+    AutoSaveFormDemoComponent
+  ],
+  templateUrl: './advanced-example5.component.html',
+  styleUrls: ['./advanced-example5.component.scss']
+})
+export class AdvancedExample5Component {}
