@@ -1,0 +1,34 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/advanced">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/advanced/example4'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Auto-Save Form Directive — Real-World Use Case</h2>
+        <div class="demo-section">
+          <mat-card>
+            <mat-card-content>
+              <app-auto-save-form-demo></app-auto-save-form-demo>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Directive">
+      <markdown clipboard [src]="'assets/examples/advanced/advanced-example5/auto-save-form.directive.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/advanced/advanced-example5/auto-save-form-demo.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/advanced/advanced-example5/auto-save-form-demo.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="CSS">
+      <markdown clipboard [src]="'assets/examples/advanced/advanced-example5/auto-save-form-demo.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
