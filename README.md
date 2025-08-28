@@ -26,7 +26,7 @@ Each major example category has its own dedicated README with detailed examples 
 - [Defer Block Examples](src/app/examples/defer-block/README.md) — Lazy loading and performance (**11 examples**)
 - [Control Flow Examples](src/app/examples/control-flow/README.md) — @if, @for, @switch blocks (**7 examples**)
 - [Resource API Examples](src/app/examples/resource-api/README.md) — Data fetching and resource patterns (**9 examples**)
-- [Advanced Examples](src/app/examples/advanced/README.md) — Real-world and advanced patterns (**5 examples**)
+- [Advanced Examples](src/app/examples/advanced/README.md) — Real-world and advanced patterns (**7 examples**, including zoneless change detection demo)
 
 Jump into any category above to explore all the examples and details!
 

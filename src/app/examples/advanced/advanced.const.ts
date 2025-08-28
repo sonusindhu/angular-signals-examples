@@ -30,5 +30,10 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         title: 'Directive Composition with hostDirectives',
         content: 'Showcase of Angular 17+ hostDirectives for composing Tooltip and Highlight directives in a standalone component.',
         routerLink: 'example6',
+    },
+    {
+        title: 'Track Angular Performance',
+        content: 'This example shows how to override ApplicationRef.tick to log every global change detection run, explains why async operations like setInterval do not trigger ticks, and demonstrates how to manually trigger change detection for performance analysis.',
+        routerLink: 'example7',
     }
 ];
