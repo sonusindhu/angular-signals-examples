@@ -1,0 +1,31 @@
+:host{
+    display: contents;
+    .content-area {
+      margin-top: 1.5rem;
+    }
+    .demo-section {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1976d2;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    }
+    .fancy-buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 1.5rem;
+    }
+}
