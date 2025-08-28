@@ -25,5 +25,10 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         title: 'Auto-Save Form Directive — Real-World Use Case',
         content: 'A reusable directive that auto-saves Angular form data to LocalStorage and an API, with debounce, dirty/touched state handling, and saving status.',
         routerLink: 'example5',
+    },
+    {
+        title: 'Directive Composition with hostDirectives',
+        content: 'Showcase of Angular 17+ hostDirectives for composing Tooltip and Highlight directives in a standalone component.',
+        routerLink: 'example6',
     }
 ];
