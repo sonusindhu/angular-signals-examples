@@ -1,0 +1,68 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/advanced">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/advanced/example5'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Directive Composition with hostDirectives</h2>
+        <div class="demo-section">
+          <mat-card>
+            <mat-card-content>
+              <div class="fancy-buttons-row">
+                <fancy-button tooltip="Primary tooltip!" highlight="#e3f2fd" color="#1976d2">Primary</fancy-button>
+                <fancy-button tooltip="Accent tooltip!" highlight="#ffecb3" color="#ff9800">Accent</fancy-button>
+                <fancy-button tooltip="Warn tooltip!" highlight="#ffcdd2" color="#d32f2f">Warn</fancy-button>
+                <fancy-button tooltip="Success tooltip!" highlight="#c8e6c9" color="#388e3c">Success</fancy-button>
+                <fancy-button>Default</fancy-button>
+                <fancy-button tooltip="Only tooltip">Tooltip Only</fancy-button>
+                <fancy-button highlight="#ffe082">Highlight Only</fancy-button>
+                <fancy-button color="#8e24aa">Color Only</fancy-button>
+                <fancy-button tooltip="Tooltip + Highlight" highlight="#b2dfdb">Tooltip + Highlight</fancy-button>
+                <fancy-button tooltip="Tooltip + Color" color="#3949ab">Tooltip + Color</fancy-button>
+                <fancy-button highlight="#ffccbc" color="#f4511e">Highlight + Color</fancy-button>
+              </div>
+              <div class="fancy-buttons-info">
+                <h3>About <code>&lt;fancy-button&gt;</code> and Directive Composition</h3>
+                <p>
+                  <code>&lt;fancy-button&gt;</code> is a standalone Angular component that demonstrates <b>directive composition</b> using <code>hostDirectives</code> (Angular 17+).<br>
+                  It composes two directives: <b>Tooltip</b> and <b>Highlight</b>.
+                </p>
+                <ul>
+                  <li><b>Tooltip</b>: Shows a tooltip on hover if the <code>tooltip</code> input is provided.</li>
+                  <li><b>Highlight</b>: Temporarily changes the button background color on hover if the <code>highlight</code> input is provided.</li>
+                </ul>
+                <p>
+                  <b>How it works:</b><br>
+                  The <code>fancy-button</code> component uses <code>hostDirectives</code> to forward its <code>tooltip</code> and <code>highlight</code> inputs to the respective directives. This means you can use these features just by adding the inputs to <code>&lt;fancy-button&gt;</code>—no need to apply the directives manually.<br>
+                  The button's color can also be customized using the <code>color</code> input.
+                </p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/advanced/example6/fancy-button.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="Fancy Button">
+      <markdown clipboard [src]="'assets/examples/advanced/example6/fancy-button.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="Highlight Directive">
+      <markdown clipboard [src]="'assets/examples/advanced/example6/highlight.directive.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="Tooltip Directive">
+      <markdown clipboard [src]="'assets/examples/advanced/example6/tooltip.directive.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/advanced/example6/fancy-button.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/advanced/example6/fancy-button.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
