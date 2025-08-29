@@ -27,8 +27,8 @@
             <p class="mt-2">Current: <b>{{ dollar() | number:'1.2-2' }} $</b> = <b>{{ euro() | number:'1.2-2' }} €</b></p>
             <p class="mt-2 text-sm text-gray-600">
               Both inputs are two-way bound and update each other using signals.<br />
-              <code>&lt;input [value]="dollar()" (input)="setDollar($any($event.target).value)" /&gt;</code><br />
-              <code>&lt;input [value]="euro()" (input)="setEuro($any($event.target).value)" /&gt;</code>
+              <code>&lt;input [value]="dollar()" (input)="setDollar($any($event.target).valueAsNumber)" /&gt;</code><br />
+              <code>&lt;input [value]="euro()" (input)="setEuro($any($event.target).valueAsNumber)" /&gt;</code>
             </p>
           </mat-card-content>
         </mat-card>
