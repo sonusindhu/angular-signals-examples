@@ -35,5 +35,10 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         title: 'Track Angular Performance',
         content: 'This example shows how to override ApplicationRef.tick to log every global change detection run, explains why async operations like setInterval do not trigger ticks, and demonstrates how to manually trigger change detection for performance analysis.',
         routerLink: 'example7',
-    }
+    },
+    {
+        title: 'Two-way / Setter pattern',
+        content: 'Demonstrates two-way binding and setter pattern using Angular signals. Shows how to use a signal and a setter function for input fields.',
+        routerLink: 'example8',
+    },
 ];

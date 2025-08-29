@@ -1,0 +1,47 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/advanced">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/advanced/example7'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 8: Two-way Currency Converter</h2>
+        <p>Update either input to convert between US Dollar ($) and Euro (€) using signals and setter pattern.</p>
+      </div>
+      <div class="demo-section">
+        <mat-card>
+          <mat-card-content>
+            <div>
+
+                <label for="usdInput">Amount in USD ($):</label>
+                <input id="usdInput" type="number" min="0" step="0.01" [value]="dollar()" (input)="setDollar($any($event.target).valueAsNumber)" />
+            </div>
+            <div>
+
+                <label for="eurInput">Amount in EUR (€):</label>
+                <input id="eurInput" type="number" min="0" step="0.01" [value]="euro()" (input)="setEuro($any($event.target).valueAsNumber)" />
+            </div>
+            <p class="mt-2">Current: <b>{{ dollar() | number:'1.2-2' }} $</b> = <b>{{ euro() | number:'1.2-2' }} €</b></p>
+            <p class="mt-2 text-sm text-gray-600">
+              Both inputs are two-way bound and update each other using signals.<br />
+              <code>&lt;input [value]="dollar()" (input)="setDollar($any($event.target).value)" /&gt;</code><br />
+              <code>&lt;input [value]="euro()" (input)="setEuro($any($event.target).value)" /&gt;</code>
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+        <markdown src="assets/examples/advanced/example8/example8.component.html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/advanced/example8/example8.component.ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown src="assets/examples/advanced/example8/example8.component.scss.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
