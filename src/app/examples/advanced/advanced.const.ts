@@ -41,4 +41,9 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         content: 'Demonstrates two-way binding and setter pattern using Angular signals. Shows how to use a signal and a setter function for input fields.',
         routerLink: 'example8',
     },
+    {
+        title: 'Undo/Redo State Management',
+        content: 'Implement a signal-based undo/redo stack for a form, showing how to track and revert state changes using Angular signals.',
+        routerLink: 'example9',
+    },
 ];
