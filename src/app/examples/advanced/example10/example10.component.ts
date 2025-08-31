@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CollaborativeListService } from '../../../shared/collaborative-list.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { JsonPipe, CommonModule } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -26,10 +26,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './example10.component.scss'
 })
 export class Example10Component {
-  list = this.collabService.list;
-  newItem = '';
+  private readonly collabService = inject(CollaborativeListService);
 
-  constructor(private collabService: CollaborativeListService) {}
+  public list = this.collabService.list;
+  public newItem = '';
 
   add() {
     if (this.newItem.trim()) {

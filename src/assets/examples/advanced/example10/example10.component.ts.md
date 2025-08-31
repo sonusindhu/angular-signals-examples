@@ -15,10 +15,10 @@ import { JsonPipe, CommonModule } from '@angular/common';
   styleUrl: './advanced-example10.component.scss'
 })
 export class AdvancedExample10Component {
-  list = this.collabService.list;
-  newItem = '';
+  private readonly collabService = inject(CollaborativeListService);
 
-  constructor(private collabService: CollaborativeListService) {}
+  public list = this.collabService.list;
+  public newItem = '';
 
   add() {
     if (this.newItem.trim()) {
