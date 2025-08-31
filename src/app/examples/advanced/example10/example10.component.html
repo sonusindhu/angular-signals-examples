@@ -1,0 +1,50 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/advanced">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/advanced/example9'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 10: Collaborative List (Signals + Storage Event)</h2>
+        <p>Add, edit, or remove items. Open in two tabs to see real-time sync via storage events.</p>
+      </div>
+      <div class="demo-section">
+        <mat-card>
+          <mat-card-content>
+            <div class="collab-list-container">
+              <div class="add-section">
+                <input [(ngModel)]="newItem" placeholder="Add item" (keyup.enter)="add()" />
+                <button mat-flat-button color="primary" (click)="add()">Add</button>
+                <button mat-flat-button color="warn" (click)="clear()">Clear</button>
+              </div>
+              <ul>
+                  @for (item of list(); track $index) {
+                    <li>
+                      <input [value]="item" (change)="edit($index, $any($event.target).value)" />
+                      <button mat-flat-button color="warn" (click)="remove($index)">Remove</button>
+                    </li>
+                  }
+              </ul>
+              <pre>{{ list() | json }}</pre>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Service">
+      <markdown src="assets/examples/advanced/example10/example10.service.ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/advanced/example10/example10.component.html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/advanced/example10/example10.component.ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown src="assets/examples/advanced/example10/example10.component.scss.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

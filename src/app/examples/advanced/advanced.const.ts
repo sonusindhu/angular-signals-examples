@@ -46,4 +46,9 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         content: 'Implement a signal-based undo/redo stack for a form, showing how to track and revert state changes using Angular signals.',
         routerLink: 'example9',
     },
+    {
+        title: 'Collaborative List (Signals + Storage Event)',
+        content: 'A real-time collaborative list using Angular signals and the browser storage event. Add, edit, or remove items and see changes sync instantly across tabs/windows—no backend required.',
+        routerLink: 'example10',
+    },
 ];
