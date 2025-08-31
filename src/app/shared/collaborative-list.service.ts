@@ -1,22 +1,26 @@
-import { Injectable, signal } from '@angular/core';
-import { fromEvent } from 'rxjs';
+import { Injectable, linkedSignal, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, fromEvent, map } from 'rxjs';
 
 const STORAGE_KEY = 'collab-list';
 
 @Injectable({ providedIn: 'root' })
 export class CollaborativeListService {
-  private _list = signal<string[]>(this.loadList());
+
+private listSignal = toSignal(
+    fromEvent<StorageEvent>(window, 'storage').pipe(
+        filter(event => event.key === STORAGE_KEY),
+        map((event) => (event.newValue ? JSON.parse(event.newValue) : []) as string[])
+    ),
+    { initialValue: [] as string[] }
+)
+
+  private _list = linkedSignal({
+    source: () => this.listSignal(),
+    computation: (list) => list?.length ? list : this.loadList()
+  });
 
   readonly list = this._list.asReadonly();
-
-  constructor() {
-    fromEvent<StorageEvent>(window, 'storage').subscribe(event => {
-      if (event.key === STORAGE_KEY) {
-        const updatedList = event.newValue ? JSON.parse(event.newValue) : [];
-        this._list.set(updatedList);
-      }
-    });
-  }
 
   private loadList(): string[] {
     const data = localStorage.getItem(STORAGE_KEY);
