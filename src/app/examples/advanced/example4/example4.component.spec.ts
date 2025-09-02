@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdvancedExample4Component } from './advanced-example4.component';
+import { AdvancedExample4Component } from './example4.component';
 
 describe('AdvancedExample4Component', () => {
   let component: AdvancedExample4Component;

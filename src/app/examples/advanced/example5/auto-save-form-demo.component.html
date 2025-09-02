@@ -12,11 +12,19 @@
     <textarea formControlName="notes"></textarea>
   </label>
   <div class="status">
-    <ng-container [ngSwitch]="savingStatus()">
-      <span *ngSwitchCase="'saving'">Saving...</span>
-      <span *ngSwitchCase="'saved'">✅ Saved</span>
-      <span *ngSwitchCase="'error'">❌ Error! Retrying...</span>
-      <span *ngSwitchDefault>Idle</span>
-    </ng-container>
+    @switch (savingStatus()) {
+      @case ('saving'){
+        Saving...
+      }
+      @case ('saved'){
+        ✅ Saved
+      }
+      @case ('error'){
+        ❌ Error! Retrying...
+      }
+      @default{
+        Idle
+      }
+    }
   </div>
 </form>
