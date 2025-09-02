@@ -11,7 +11,6 @@ import { DisableControlDirective } from './disable-control.directive';
 
 @Component({
   selector: 'app-advanced-example4',
-  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -25,8 +24,8 @@ import { DisableControlDirective } from './disable-control.directive';
     JsonPipe,
     DisableControlDirective
   ],
-  templateUrl: './advanced-example4.component.html',
-  styleUrls: ['./advanced-example4.component.scss']
+  templateUrl: './example4.component.html',
+  styleUrls: ['./example4.component.scss']
 })
 export class AdvancedExample4Component {
   private fb = inject(FormBuilder);

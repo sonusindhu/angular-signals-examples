@@ -1,6 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule, FormBuilder, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +26,7 @@ import { AutoSaveFormDemoComponent } from './auto-save-form-demo.component';
     AutoSaveFormDirective,
     AutoSaveFormDemoComponent
   ],
-  templateUrl: './advanced-example5.component.html',
-  styleUrls: ['./advanced-example5.component.scss']
+  templateUrl: './example5.component.html',
+  styleUrls: ['./example5.component.scss']
 })
 export class AdvancedExample5Component {}

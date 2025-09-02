@@ -13,8 +13,8 @@ import { RouterModule } from '@angular/router';
   selector: 'app-advanced-example1',
   standalone: true,
   imports: [MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, RouterModule],
-  templateUrl: './advanced-example1.component.html',
-  styleUrl: './advanced-example1.component.scss'
+  templateUrl: './example1.component.html',
+  styleUrl: './example1.component.scss'
 })
 export class AdvancedExample1Component {
   private readonly http = inject(HttpClient);

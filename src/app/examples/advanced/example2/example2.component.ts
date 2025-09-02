@@ -7,11 +7,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MarkdownModule } from 'ngx-markdown';
 import { Observable } from 'rxjs';
-import { AdvancedExample2Service } from './advanced-example-2.service';
+import { AdvancedExample2Service } from './example2.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-advanced-example-2',
+  selector: 'app-advanced-example2',
   standalone: true,
   imports: [
     CommonModule,
@@ -22,8 +22,8 @@ import { RouterModule } from '@angular/router';
     MarkdownModule,
     RouterModule
   ],
-  templateUrl: './advanced-example-2.component.html',
-  styleUrls: ['./advanced-example-2.component.scss']
+  templateUrl: './example2.component.html',
+  styleUrls: ['./example2.component.scss']
 })
 
 export class AdvancedExample2Component {

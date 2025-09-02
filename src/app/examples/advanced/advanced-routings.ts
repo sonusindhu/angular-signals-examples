@@ -9,27 +9,27 @@ const ADVANCED_ROUTES: Route[] = [
   {
     path: 'example1',
     loadComponent: () =>
-      import('./advanced-example1/advanced-example1.component').then(x => x.AdvancedExample1Component),
+      import('./example1/example1.component').then(x => x.AdvancedExample1Component),
   },
   {
     path: 'example2',
     loadComponent: () =>
-      import('./advanced-example-2/advanced-example-2.component').then(x => x.AdvancedExample2Component),
+      import('./example2/example2.component').then(x => x.AdvancedExample2Component),
   },
   {
     path: 'example3',
     loadComponent: () =>
-      import('./advanced-example3/advanced-example3.component').then(x => x.AdvancedExample3Component),
+      import('./example3/example3.component').then(x => x.AdvancedExample3Component),
   },
   {
     path: 'example4',
     loadComponent: () =>
-      import('./advanced-example4/advanced-example4.component').then(x => x.AdvancedExample4Component),
+      import('./example4/example4.component').then(x => x.AdvancedExample4Component),
   },
   {
     path: 'example5',
     loadComponent: () =>
-      import('./advanced-example5/advanced-example5.component').then(x => x.AdvancedExample5Component),
+      import('./example5/example5.component').then(x => x.AdvancedExample5Component),
   },
   {
     path: 'example6',

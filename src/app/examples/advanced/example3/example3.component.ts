@@ -1,6 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgIf, NgForOf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -18,9 +17,9 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-advanced-example3',
   standalone: true,
-  imports: [CommonModule, NgIf, NgForOf, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, ShowOnEvenDirective, RouterModule],
-  templateUrl: './advanced-example3.component.html',
-  styleUrl: './advanced-example3.component.scss'
+  imports: [CommonModule, MatButtonModule, MatTabsModule, MatCardModule, MatIconModule, MarkdownComponent, ShowOnEvenDirective, RouterModule],
+  templateUrl: './example3.component.html',
+  styleUrl: './example3.component.scss'
 })
 export class AdvancedExample3Component {
   // Signal for login state (Conditional Rendering tab)
