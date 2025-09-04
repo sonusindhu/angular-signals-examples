@@ -1,4 +1,0 @@
-[build]
-  command = "npm install --force && npm run build"
-  publish = "dist"
-  node_version = "22"
