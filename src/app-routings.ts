@@ -31,6 +31,10 @@ export const ROUTES: Route[] = [
     loadChildren: () => import('./app/examples/advanced/advanced-routings'),
   },
   {
+    path: 'signal-forms',
+    loadChildren: () => import('./app/examples/signal-form/signal-forms-routings'),
+  },
+  {
     path: 'table',
     loadComponent: () => import('./app/table/table.component'),
   },
