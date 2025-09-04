@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 import { AutoSaveFormDirective } from './auto-save-form.directive';
 
 @Component({
   selector: 'app-auto-save-form-demo',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, AutoSaveFormDirective],
+  imports: [ReactiveFormsModule, AutoSaveFormDirective],
   templateUrl: './auto-save-form-demo.component.html',
   styleUrls: ['./auto-save-form-demo.component.scss']
 })

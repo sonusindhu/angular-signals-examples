@@ -22,62 +22,82 @@
                 Fetch Random GitHub User
               </button>
             </div>
-            
-            <div class="user-display" *ngIf="userSignal.value() as user">
-              <mat-card class="user-card">
-                <mat-card-header>
-                  <div mat-card-avatar>
-                    <img [src]="user.avatar_url" [alt]="user.name || user.login" class="avatar">
-                  </div>
-                  <mat-card-title>{{user.name || user.login}}</mat-card-title>
-                  <mat-card-subtitle>{{ '@' }}{{user.login}}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                  <p *ngIf="user.company"><strong>Company:</strong> {{user.company}}</p>
-                  <p *ngIf="user.location"><strong>Location:</strong> {{user.location}}</p>
-                  
-                  <div class="bio-section" *ngIf="user.bio || user.public_repos || user.followers">
-                    <h4>GitHub Stats</h4>
-                    <p *ngIf="user.bio"><strong>Bio:</strong> {{user.bio}}</p>
-                    <div class="github-stats" *ngIf="user.public_repos || user.followers || user.following">
-                      <span class="stat" *ngIf="user.public_repos">
-                        <mat-icon>code</mat-icon>
-                        {{user.public_repos}} repos
-                      </span>
-                      <span class="stat" *ngIf="user.followers">
-                        <mat-icon>people</mat-icon>
-                        {{user.followers}} followers
-                      </span>
-                      <span class="stat" *ngIf="user.following">
-                        <mat-icon>person_add</mat-icon>
-                        {{user.following}} following
-                      </span>
+
+            @if (userSignal.value(); as user) {
+              <div class="user-display">
+                <mat-card class="user-card">
+                  <mat-card-header>
+                    <div mat-card-avatar>
+                      <img [src]="user.avatar_url" [alt]="user.name || user.login" class="avatar">
                     </div>
-                  </div>
-                  
-                  <div class="profile-links">
-                    <a mat-raised-button color="primary" [href]="user.html_url" target="_blank" class="github-link">
-                      <mat-icon>open_in_new</mat-icon>
-                      View GitHub Profile
-                    </a>
-                    <button mat-raised-button color="accent" (click)="copyUsername(user.login)" class="copy-username-btn">
-                      <mat-icon>content_copy</mat-icon>
-                      Copy Username
-                    </button>
-                  </div>
-                </mat-card-content>
-              </mat-card>
-            </div>
-            
-            <div *ngIf="userSignal.isLoading()" class="loading-state">
-              <mat-icon>hourglass_empty</mat-icon>
-              Loading user data...
-            </div>
-            
-            <div *ngIf="userSignal.error()" class="error-state">
-              <mat-icon>error</mat-icon>
-              Error loading user data
-            </div>
+                    <mat-card-title>{{user.name || user.login}}</mat-card-title>
+                    <mat-card-subtitle>{{ '@' }}{{user.login}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    @if (user.company) {
+                      <p><strong>Company:</strong> {{user.company}}</p>
+                    }
+                    @if (user.location) {
+                      <p><strong>Location:</strong> {{user.location}}</p>
+                    }
+                    @if (user.bio || user.public_repos || user.followers) {
+                      <div class="bio-section">
+                        <h4>GitHub Stats</h4>
+                        @if (user.bio) {
+                          <p><strong>Bio:</strong> {{user.bio}}</p>
+                        }
+                        @if (user.public_repos || user.followers || user.following) {
+                          <div class="github-stats">
+                            @if (user.public_repos) {
+                              <span class="stat">
+                                <mat-icon>code</mat-icon>
+                                {{user.public_repos}} repos
+                              </span>
+                            }
+                            @if (user.followers) {
+                              <span class="stat">
+                                <mat-icon>people</mat-icon>
+                                {{user.followers}} followers
+                              </span>
+                            }
+                            @if (user.following) {
+                              <span class="stat">
+                                <mat-icon>person_add</mat-icon>
+                                {{user.following}} following
+                              </span>
+                            }
+                          </div>
+                        }
+                      </div>
+                    }
+                    <div class="profile-links">
+                      <a mat-raised-button color="primary" [href]="user.html_url" target="_blank" class="github-link">
+                        <mat-icon>open_in_new</mat-icon>
+                        View GitHub Profile
+                      </a>
+                      <button mat-raised-button color="accent" (click)="copyUsername(user.login)" class="copy-username-btn">
+                        <mat-icon>content_copy</mat-icon>
+                        Copy Username
+                      </button>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            }
+
+            @if (userSignal.isLoading()) {
+              <div class="loading-state">
+                <mat-icon>hourglass_empty</mat-icon>
+                Loading user data...
+              </div>
+            }
+
+            @if (userSignal.error()) {
+              <div class="error-state">
+                <mat-icon>error</mat-icon>
+                Error loading user data
+              </div>
+            }
           </mat-card-content>
         </mat-card>
       </div>

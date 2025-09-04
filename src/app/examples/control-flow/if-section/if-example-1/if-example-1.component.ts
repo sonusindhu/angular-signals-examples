@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-if-example-1',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatTabsModule, MatCardModule, MarkdownComponent, RouterModule, MatButtonModule],
+  imports: [FormsModule, MatTabsModule, MatCardModule, MarkdownComponent, RouterModule, MatButtonModule],
   templateUrl: './if-example-1.component.html',
   styleUrls: ['./if-example-1.component.scss']
 })

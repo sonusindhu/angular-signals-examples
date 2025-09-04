@@ -12,7 +12,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { CommonModule } from '@angular/common';
+
 import {
   MatTable,
   MatTableDataSource,
@@ -50,19 +50,18 @@ import { ResizeColumnDirective } from './resize-column.directive';
         ]),
     ],
     imports: [
-        CommonModule,
-        MatTableModule,
-        MatIconModule,
-        MatCheckboxModule,
-        MatSortModule,
-        MatMenuModule,
-        MatButtonModule,
-        DragDropModule,
-        MatPaginatorModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ResizeColumnDirective,
-    ]
+    MatTableModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatSortModule,
+    MatMenuModule,
+    MatButtonModule,
+    DragDropModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ResizeColumnDirective
+]
 })
 export default class TableComponent {
   dataSource = new MatTableDataSource(ELEMENT_DATA);

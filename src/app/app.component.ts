@@ -9,7 +9,7 @@ import {
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { filter, startWith, tap } from 'rxjs';
-import { NgIf } from '@angular/common';
+
 
 @Component({
     selector: 'app-root',

@@ -1,5 +1,5 @@
 import { Component, signal, linkedSignal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -82,7 +82,6 @@ const DATA_SOURCES: DataSource[] = [
   styleUrl: './ls-example7.component.scss',
   standalone: true,
   imports: [
-    CommonModule,
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -90,7 +89,7 @@ const DATA_SOURCES: DataSource[] = [
     MarkdownComponent,
     RouterModule,
     MatButtonModule
-  ]
+]
 })
 export class LsExample7Component {
   dataSources = DATA_SOURCES;

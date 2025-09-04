@@ -1,5 +1,5 @@
 import { Component, signal, linkedSignal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -25,7 +25,6 @@ const INITIAL_ADDRESSES: Address[] = [
   styleUrl: './ls-example9.component.scss',
   standalone: true,
   imports: [
-    CommonModule,
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -33,7 +32,7 @@ const INITIAL_ADDRESSES: Address[] = [
     MarkdownComponent,
     RouterModule,
     MatButtonModule
-  ]
+]
 })
 export class LsExample9Component {
   addresses = signal<Address[]>([...INITIAL_ADDRESSES]);

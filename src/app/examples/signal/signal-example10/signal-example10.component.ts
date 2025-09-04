@@ -1,6 +1,6 @@
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
-import { NgIf, NgFor, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,16 +14,15 @@ import { RouterModule } from '@angular/router';
     templateUrl: './signal-example10.component.html',
     styleUrl: './signal-example10.component.scss',
     imports: [
-        NgFor,
-        FormsModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        CurrencyPipe,
-        MatTabsModule,
-        MarkdownComponent,
-        RouterModule,
-    ],
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    CurrencyPipe,
+    MatTabsModule,
+    MarkdownComponent,
+    RouterModule
+],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class SignalExample10Component {

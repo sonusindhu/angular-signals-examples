@@ -1,5 +1,5 @@
 import { Component, signal, WritableSignal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -11,7 +11,7 @@ import { HTTP_RESOURCE_EXAMPLES } from './example-data/http-resource-examples';
 
 @Component({
     selector: 'app-resource-api',
-    imports: [CommonModule, RouterModule, MatCardModule, MatGridListModule, MatIconModule],
+    imports: [RouterModule, MatCardModule, MatGridListModule, MatIconModule],
     templateUrl: './resource-api.component.html',
     styleUrls: ['./resource-api.component.scss']
 })

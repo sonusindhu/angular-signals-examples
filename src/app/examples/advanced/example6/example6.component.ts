@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -11,14 +11,13 @@ import { FancyButtonComponent } from './fancy-button.component';
   selector: 'app-example6',
   standalone: true,
   imports: [
-    CommonModule,
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
     MarkdownComponent,
     RouterModule,
     FancyButtonComponent
-  ],
+],
   templateUrl: './example6.component.html',
   styleUrls: ['./example6.component.scss']
 })

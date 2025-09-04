@@ -16,7 +16,9 @@
             <mat-form-field appearance="fill">
               <mat-label>Data Source</mat-label>
               <mat-select [value]="dataSource()" (selectionChange)="setDataSource($event.value)">
-                <mat-option *ngFor="let src of dataSources" [value]="src.key">{{src.label}}</mat-option>
+                @for (src of dataSources; track src) {
+                  <mat-option [value]="src.key">{{src.label}}</mat-option>
+                }
               </mat-select>
             </mat-form-field>
             <div class="date-range">

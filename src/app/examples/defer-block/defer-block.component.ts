@@ -1,5 +1,5 @@
 import { Component, signal, WritableSignal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -9,7 +9,7 @@ import { DEFER_BLOCK_EXAMPLES } from '../../shared/consts/defer-block-examples';
 
 @Component({
     selector: 'app-defer-block',
-    imports: [CommonModule, RouterModule, MatCardModule, MatGridListModule, MatIconModule],
+    imports: [RouterModule, MatCardModule, MatGridListModule, MatIconModule],
     templateUrl: './defer-block.component.html',
     styleUrl: './defer-block.component.scss'
 })
