@@ -1,0 +1,69 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal-forms">Go to List</button>
+    <button mat-stroked-button color="primary" disabled>Prev</button>
+    <button mat-stroked-button color="primary" disabled="">Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 1: Basic Signal Form Usage</h2>
+        <p>This example demonstrates the use of Angular signals for managing form state.</p>
+      </div>
+
+      <div class="demo-section">
+        <mat-card>
+          <mat-card-content>
+            
+
+            <form>
+
+              <div>
+                <input type="text" placeholder="Enter name" [control]="userForm.name" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
+              </div>
+
+              <div>
+                <input type="text" placeholder="Enter email" [control]="userForm.email" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
+              </div>
+
+              <div>
+                Name: {{ userForm().value().name }} <br />
+                Email: {{ userForm().value().email }} <br />
+                Form Value: {{ userForm().value() | json }}
+              </div>
+
+            </form>
+
+
+          </mat-card-content>
+        </mat-card>
+
+        <h3>Key Features</h3>
+        <mat-card>
+          <mat-card-content>
+            <ul>
+              <li>⚡ Reactive form state using Angular signals</li>
+              <li>🔗 Direct binding of form controls to signals</li>
+              <li>🔄 Instant UI updates on signal changes</li>
+              <li>🧩 Simple, boilerplate-free form logic</li>
+              <li>🛠️ Easy to extend for validation and more fields</li>
+            </ul>
+            <p>This example demonstrates how to manage form state efficiently using Angular signals, providing a modern and minimal approach to reactive forms.</p>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example1/example1.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example1/example1.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example1/example1.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
