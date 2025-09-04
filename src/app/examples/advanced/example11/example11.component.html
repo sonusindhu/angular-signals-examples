@@ -1,0 +1,32 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/advanced">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/advanced/example10'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 11: Modal Service with ViewContainerRef</h2>
+        <p>Click the button to open a modal using a service and ViewContainerRef.</p>
+      </div>
+      <div class="demo-section">
+        <button mat-flat-button color="primary" (click)="openModal()">Open Modal</button>
+        <ng-template #modalContainer></ng-template>
+      </div>
+    </mat-tab>
+    <mat-tab label="Service">
+      <markdown src="assets/examples/advanced/example11/modal.service.ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/advanced/example11/example11.component.html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/advanced/example11/example11.component.ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown src="assets/examples/advanced/example11/example11.component.scss.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
