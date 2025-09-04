@@ -1,6 +1,6 @@
 
 import { Component, signal, WritableSignal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -15,7 +15,7 @@ interface ExampleCard {
 @Component({
   selector: 'app-control-flow',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatCardModule, MatGridListModule, MatIconModule],
+  imports: [RouterModule, MatCardModule, MatGridListModule, MatIconModule],
   templateUrl: './control-flow.component.html',
   styleUrls: ['./control-flow.component.scss']
 })

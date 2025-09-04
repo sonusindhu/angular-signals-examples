@@ -1,5 +1,5 @@
 import { Component, signal, linkedSignal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -36,7 +36,6 @@ const PRODUCTS: Product[] = [
   styleUrl: './ls-example5.component.scss',
   standalone: true,
   imports: [
-    CommonModule,
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -45,7 +44,7 @@ const PRODUCTS: Product[] = [
     MarkdownComponent,
     RouterModule,
     MatButtonModule
-  ]
+]
 })
 export class LsExample5Component {
   categories = Array.from(new Set(PRODUCTS.map(p => p.category)));

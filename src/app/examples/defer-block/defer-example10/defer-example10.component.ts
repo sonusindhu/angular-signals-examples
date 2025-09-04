@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 @Component({
     selector: 'app-defer-example10',
     standalone: true,
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule, MatSliderModule, MatFormFieldModule, MatInputModule, MarkdownComponent, RouterModule],
+    imports: [MatButtonModule, MatCardModule, MatTabsModule, MatProgressBarModule, MatSliderModule, MatFormFieldModule, MatInputModule, MarkdownComponent, RouterModule],
     templateUrl: './defer-example10.component.html',
     styleUrl: './defer-example10.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

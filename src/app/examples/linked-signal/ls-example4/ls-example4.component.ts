@@ -1,5 +1,5 @@
 import { Component, signal, linkedSignal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -13,7 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './ls-example4.component.html',
   styleUrl: './ls-example4.component.scss',
   imports: [
-    CommonModule,
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -21,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
     MarkdownComponent,
     RouterModule,
     MatButtonModule
-  ]
+]
 })
 export class LsExample4Component {
   // Unit Converter: Celsius <-> Fahrenheit using linkedSignal

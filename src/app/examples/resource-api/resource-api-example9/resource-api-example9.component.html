@@ -17,13 +17,13 @@
               <mat-form-field appearance="fill">
                 <mat-label>Select Country</mat-label>
                 <mat-select [value]="country()" (selectionChange)="updateCountry($event)">
-                  <ng-container *ngFor="let c of countries(); let i = index">
+                  @for (c of countries(); track c; let i = $index) {
                     <mat-option [value]="c">{{c}}</mat-option>
-                  </ng-container>
+                  }
                 </mat-select>
               </mat-form-field>
             </div>
-            <ng-container *ngIf="countryData as country">
+            @if (countryData; as country) {
               <div class="country-display">
                 <mat-card class="country-card">
                   <mat-card-header>
@@ -37,19 +37,25 @@
                     <p class="country-text"><strong>Capital:</strong> {{country.capital?.[0]}}</p>
                     <p class="country-text"><strong>Region:</strong> {{country.region}}</p>
                     <p class="country-text"><strong>Population:</strong> {{country.population | number}}</p>
-                    <img *ngIf="country.flags?.svg" [src]="country.flags?.svg" alt="Flag" class="country-flag" />
+                    @if (country.flags?.svg) {
+                      <img [src]="country.flags?.svg" alt="Flag" class="country-flag" />
+                    }
                   </mat-card-content>
                 </mat-card>
               </div>
-            </ng-container>
-            <div *ngIf="countryResource.isLoading()" class="loading-state">
-              <mat-icon>hourglass_empty</mat-icon>
-              Loading country data...
-            </div>
-            <div *ngIf="countryResource.error()" class="error-state">
-              <mat-icon>error</mat-icon>
-              Error loading country data
-            </div>
+            }
+            @if (countryResource.isLoading()) {
+              <div class="loading-state">
+                <mat-icon>hourglass_empty</mat-icon>
+                Loading country data...
+              </div>
+            }
+            @if (countryResource.error()) {
+              <div class="error-state">
+                <mat-icon>error</mat-icon>
+                Error loading country data
+              </div>
+            }
           </mat-card-content>
         </mat-card>
       </div>

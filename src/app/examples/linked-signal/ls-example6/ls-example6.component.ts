@@ -1,5 +1,5 @@
 import { Component, signal, linkedSignal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -32,7 +32,6 @@ const ALL_CURRENCIES = Array.from(new Set(COUNTRIES.map(c => c.currency)));
   styleUrl: './ls-example6.component.scss',
   standalone: true,
   imports: [
-    CommonModule,
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -40,7 +39,7 @@ const ALL_CURRENCIES = Array.from(new Set(COUNTRIES.map(c => c.currency)));
     MarkdownComponent,
     RouterModule,
     MatButtonModule
-  ]
+]
 })
 export class LsExample6Component {
   countries = COUNTRIES;

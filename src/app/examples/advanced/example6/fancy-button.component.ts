@@ -1,12 +1,12 @@
 import { Component, Input, HostBinding } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TooltipDirective } from './tooltip.directive';
 import { HighlightDirective } from './highlight.directive';
 
 @Component({
   selector: 'fancy-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   template: `<button><ng-content></ng-content></button>`,
   styles: [`
     :host {

@@ -16,13 +16,17 @@
             <mat-form-field appearance="fill">
               <mat-label>Country</mat-label>
               <mat-select [value]="country()" (selectionChange)="setCountry($event.value)">
-                <mat-option *ngFor="let c of countries" [value]="c.code">{{c.name}}</mat-option>
+                @for (c of countries; track c) {
+                  <mat-option [value]="c.code">{{c.name}}</mat-option>
+                }
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Currency</mat-label>
               <mat-select [value]="currency()" (selectionChange)="setCurrency($event.value)">
-                <mat-option *ngFor="let cur of availableCurrencies" [value]="cur">{{cur}}</mat-option>
+                @for (cur of availableCurrencies; track cur) {
+                  <mat-option [value]="cur">{{cur}}</mat-option>
+                }
               </mat-select>
             </mat-form-field>
           </div>

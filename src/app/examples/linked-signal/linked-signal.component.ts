@@ -1,5 +1,5 @@
 import { Component, signal, WritableSignal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -9,7 +9,7 @@ import { LINKED_SIGNAL_EXAMPLES } from '../../shared/consts/linked-signal-exampl
 
 @Component({
     selector: 'app-linked-signal',
-    imports: [CommonModule, RouterModule, MatCardModule, MatGridListModule, MatIconModule],
+    imports: [RouterModule, MatCardModule, MatGridListModule, MatIconModule],
     templateUrl: './linked-signal.component.html',
     styleUrl: './linked-signal.component.scss'
 })

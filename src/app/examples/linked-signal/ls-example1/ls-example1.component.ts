@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownComponent } from 'ngx-markdown';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -37,7 +37,7 @@ const COURSES: Course[] = [
 
 @Component({
   selector: 'app-ls-example1',
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatTabsModule, MatCardModule, MarkdownComponent, RouterModule, MatButtonModule],
+  imports: [FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatTabsModule, MatCardModule, MarkdownComponent, RouterModule, MatButtonModule],
   templateUrl: './ls-example1.component.html',
   styleUrl: './ls-example1.component.scss'
 })

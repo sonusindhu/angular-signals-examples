@@ -16,7 +16,9 @@
             <mat-label>Category</mat-label>
             <mat-select [value]="category()" (selectionChange)="setCategory($event.value)">
               <mat-option value="">All</mat-option>
-              <mat-option *ngFor="let cat of categories" [value]="cat">{{cat}}</mat-option>
+              @for (cat of categories; track cat) {
+                <mat-option [value]="cat">{{cat}}</mat-option>
+              }
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="fill">
@@ -29,13 +31,13 @@
           </mat-form-field>
         </div>
         <div class="products-list">
-            @for(product of pagedProducts(); track product){
-                <div class="product-card">
-                  <h4>{{product.name}}</h4>
-                  <div class="price">${{product.price}}</div>
-                  <div class="category">Category: {{product.category}}</div>
-                </div>
-            }
+          @for(product of pagedProducts(); track product){
+            <div class="product-card">
+              <h4>{{product.name}}</h4>
+              <div class="price">${{product.price}}</div>
+              <div class="category">Category: {{product.category}}</div>
+            </div>
+          }
         </div>
         <div class="pagination-section">
           <button mat-stroked-button color="primary" (click)="prevPage()" [disabled]="page() === 1">Prev</button>

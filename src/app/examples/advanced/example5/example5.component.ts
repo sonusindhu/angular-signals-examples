@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -14,7 +14,6 @@ import { AutoSaveFormDemoComponent } from './auto-save-form-demo.component';
   selector: 'app-advanced-example5',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     FormsModule,
     MatButtonModule,
@@ -25,7 +24,7 @@ import { AutoSaveFormDemoComponent } from './auto-save-form-demo.component';
     RouterModule,
     AutoSaveFormDirective,
     AutoSaveFormDemoComponent
-  ],
+],
   templateUrl: './example5.component.html',
   styleUrls: ['./example5.component.scss']
 })

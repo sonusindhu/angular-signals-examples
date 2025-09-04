@@ -1,6 +1,6 @@
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownComponent } from 'ngx-markdown';
-import { NgFor } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, WritableSignal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';

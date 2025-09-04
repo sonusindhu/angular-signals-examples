@@ -17,10 +17,14 @@
             <button mat-stroked-button color="primary" (click)="addRandomAddress()">Add Random Address</button>
           </div>
           <div class="address-list">
-            <div *ngFor="let addr of addresses(); let i = index" class="address-item" [class.selected]="selectedAddress() === addr.id" (click)="selectAddress(addr.id)">
-              <mat-icon *ngIf="selectedAddress() === addr.id" color="primary">check_circle</mat-icon>
-              <span>{{addr.label}}</span>
-            </div>
+            @for (addr of addresses(); track addr; let i = $index) {
+              <div class="address-item" [class.selected]="selectedAddress() === addr.id" (click)="selectAddress(addr.id)">
+                @if (selectedAddress() === addr.id) {
+                  <mat-icon color="primary">check_circle</mat-icon>
+                }
+                <span>{{addr.label}}</span>
+              </div>
+            }
           </div>
         </div>
         <div class="note">

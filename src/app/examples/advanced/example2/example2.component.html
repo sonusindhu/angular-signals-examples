@@ -61,23 +61,24 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <ng-container *ngIf="users$ | async as users; else loading">
-                    <tr *ngFor="let user of users">
-                      <td>{{ user.id }}</td>
-                      <td>{{ user.name }}</td>
-                      <td>{{ user.email }}</td>
+                  @if (users$ | async; as users) {
+                    @for (user of users; track user) {
+                      <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                      </tr>
+                    }
+                  } @else {
+                    <tr>
+                      <td colspan="3" class="loading-state">
+                        <mat-icon>cached</mat-icon>
+                        Loading users...
+                      </td>
                     </tr>
-                  </ng-container>
+                  }
                 </tbody>
               </table>
-              <ng-template #loading>
-                <tr>
-                  <td colspan="3" class="loading-state">
-                    <mat-icon>cached</mat-icon>
-                    Loading users...
-                  </td>
-                </tr>
-              </ng-template>
             </div>
           </mat-card-content>
         </mat-card>

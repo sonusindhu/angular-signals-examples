@@ -16,29 +16,35 @@
               <mat-form-field appearance="fill">
                 <mat-label>Select City</mat-label>
                 <mat-select [value]="city()" (selectionChange)="updateCity($event)">
-                  <ng-container *ngFor="let c of cities(); let i = index">
+                  @for (c of cities(); track c; let i = $index) {
                     <mat-option [value]="c">{{c}}</mat-option>
-                  </ng-container>
+                  }
                 </mat-select>
               </mat-form-field>
             </div>
-            <mat-card *ngIf="weatherResource.value()">
-              <mat-card-content>
-                <h4>🌚 Weather Details</h4>
-                <div class="weather-info">
-                  <p><strong>City:</strong> {{city()}}</p>
-                  <p><strong>Temperature:</strong> {{weatherResource.value()?.temp}} °C</p>
-                  <p><strong>Humidity:</strong> {{weatherResource.value()?.humidity}}%</p>
-                  <p><strong>Condition:</strong> {{weatherResource.value()?.condition}}</p>
-                </div>
-              </mat-card-content>
-            </mat-card>
-            <mat-card *ngIf="weatherResource.isLoading()">
-              <mat-card-content>Loading weather data...</mat-card-content>
-            </mat-card>
-            <mat-card *ngIf="weatherResource.error()">
-              <mat-card-content>Error loading weather data.</mat-card-content>
-            </mat-card>
+            @if (weatherResource.value()) {
+              <mat-card>
+                <mat-card-content>
+                  <h4>🌚 Weather Details</h4>
+                  <div class="weather-info">
+                    <p><strong>City:</strong> {{city()}}</p>
+                    <p><strong>Temperature:</strong> {{weatherResource.value()?.temp}} °C</p>
+                    <p><strong>Humidity:</strong> {{weatherResource.value()?.humidity}}%</p>
+                    <p><strong>Condition:</strong> {{weatherResource.value()?.condition}}</p>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            }
+            @if (weatherResource.isLoading()) {
+              <mat-card>
+                <mat-card-content>Loading weather data...</mat-card-content>
+              </mat-card>
+            }
+            @if (weatherResource.error()) {
+              <mat-card>
+                <mat-card-content>Error loading weather data.</mat-card-content>
+              </mat-card>
+            }
           </div>
         </div>
       </div>

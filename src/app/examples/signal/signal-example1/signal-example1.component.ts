@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -7,7 +7,7 @@ import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
     selector: 'app-signal-example1',
-    imports: [CommonModule, RouterModule, MatButtonModule, MatTabsModule, MarkdownComponent],
+    imports: [RouterModule, MatButtonModule, MatTabsModule, MarkdownComponent],
     templateUrl: './signal-example1.component.html',
     styleUrl: './signal-example1.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

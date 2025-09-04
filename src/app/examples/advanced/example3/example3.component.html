@@ -28,12 +28,11 @@
                 <button mat-raised-button (click)="toggleLogin()">
                   {{ isLoggedIn() ? 'Logout' : 'Login' }}
                 </button>
-                <ng-container *ngIf="isLoggedIn(); else loggedOut">
+                @if (isLoggedIn()) {
                   <p>Welcome back, user!</p>
-                </ng-container>
-                <ng-template #loggedOut>
+                } @else {
                   <p>Please log in to continue.</p>
-                </ng-template>
+                }
               </mat-tab>
 
               <!-- 2. List Rendering -->
@@ -44,9 +43,9 @@
                 </p>
                 <markdown [src]="'assets/examples/advanced/example3/usecase-list-rendering.md'"></markdown>
                 <ul>
-                  <ng-container *ngFor="let product of products(); else noProducts">
+                  @for (product of products(); track product) {
                     <li>{{ product.name }} - ${{ product.price }}</li>
-                  </ng-container>
+                  }
                   <ng-template #noProducts>
                     <li>No products available.</li>
                   </ng-template>
@@ -61,12 +60,12 @@
                 </p>
                 <markdown [src]="'assets/examples/advanced/example3/usecase-template-outlet.md'"></markdown>
                 <button mat-raised-button (click)="openDialog()">Show Dialog</button>
-                <ng-container *ngIf="showDialog()">
-                  <ng-container 
-                    [ngTemplateOutlet]="dialogTemplate" 
+                @if (showDialog()) {
+                  <ng-container
+                    [ngTemplateOutlet]="dialogTemplate"
                     [ngTemplateOutletContext]="{ $implicit: 'Hello from dialog!' }">
                   </ng-container>
-                </ng-container>
+                }
                 <ng-template #dialogTemplate let-message>
                   <div class="dialog">
                     <p>{{ message }}</p>
@@ -82,8 +81,8 @@
                   Pass custom context to a template using <code>[ngTemplateOutletContext]</code> and access it with <code>let-</code> variables.
                 </p>
                 <markdown [src]="'assets/examples/advanced/example3/usecase-context-passing.md'"></markdown>
-                <ng-container 
-                  [ngTemplateOutlet]="greetingTemplate" 
+                <ng-container
+                  [ngTemplateOutlet]="greetingTemplate"
                   [ngTemplateOutletContext]="{ name: 'Alice' }">
                 </ng-container>
                 <ng-template #greetingTemplate let-name="name">
@@ -114,12 +113,11 @@
                 <button mat-raised-button (click)="toggleContent()">
                   {{ loadContent() ? 'Unload' : 'Load' }} Content
                 </button>
-                <ng-container *ngIf="loadContent(); else notLoaded">
+                @if (loadContent()) {
                   <ng-template [ngTemplateOutlet]="dynamicContent"></ng-template>
-                </ng-container>
-                <ng-template #notLoaded>
+                } @else {
                   <p>Click "Load Content" to display dynamic content.</p>
-                </ng-template>
+                }
                 <ng-template #dynamicContent>
                   <p>This content was loaded dynamically!</p>
                 </ng-template>

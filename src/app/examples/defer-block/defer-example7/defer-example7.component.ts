@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-defer-example7',
-    imports: [CommonModule, MatCardModule, MatButtonModule, MatTabsModule, MatProgressBarModule, MarkdownComponent, RouterModule],
+    imports: [MatCardModule, MatButtonModule, MatTabsModule, MatProgressBarModule, MarkdownComponent, RouterModule],
     templateUrl: './defer-example7.component.html',
     styleUrl: './defer-example7.component.scss'
 })

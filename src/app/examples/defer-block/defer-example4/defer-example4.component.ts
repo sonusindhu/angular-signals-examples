@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-defer-example4',
-    imports: [CommonModule, MatButtonModule, MatCardModule, MatTabsModule, MarkdownComponent, RouterModule],
+    imports: [MatButtonModule, MatCardModule, MatTabsModule, MarkdownComponent, RouterModule],
     templateUrl: './defer-example4.component.html',
     styleUrl: './defer-example4.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

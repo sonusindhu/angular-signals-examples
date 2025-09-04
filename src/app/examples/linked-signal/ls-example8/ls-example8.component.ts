@@ -1,5 +1,5 @@
 import { Component, signal, linkedSignal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -53,7 +53,6 @@ const TOPICS: Topic[] = [
   styleUrl: './ls-example8.component.scss',
   standalone: true,
   imports: [
-    CommonModule,
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -61,7 +60,7 @@ const TOPICS: Topic[] = [
     MarkdownComponent,
     RouterModule,
     MatButtonModule
-  ]
+]
 })
 export class LsExample8Component {
   topics = TOPICS;
