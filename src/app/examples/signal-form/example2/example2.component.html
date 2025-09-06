@@ -1,0 +1,72 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal-forms">Go to List</button>
+    <button mat-stroked-button color="primary" routerLink="/signal-forms/example1">Prev</button>
+    <button mat-stroked-button color="primary" disabled="">Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 2: Signal Form Validations</h2>
+        <p>This example demonstrates the use of Angular signals for managing form errors.</p>
+      </div>
+
+      <div class="demo-section">
+        <mat-card>
+          <mat-card-content>
+            
+
+            <form>
+              <div>
+                <input type="text" placeholder="Enter name" [control]="userForm.name" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
+                @if(userForm.name().touched() || userForm.name().dirty()){
+                  @for (item of userForm.name().errors(); track item) {
+                    <p class="text-red-500 p-0">{{ item.message }}</p>
+                  }
+                }
+              </div>
+
+              <div>
+                <input type="email" placeholder="Enter email" [control]="userForm.email" 
+                  class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
+                @if(userForm.email().touched() || userForm.email().dirty()){
+                  @for (item of userForm.email().errors(); track $index) {
+                    <p class="text-red-500 p-0">{{ item.message }}</p>
+                  }
+                }
+              </div>
+            </form>
+
+
+          </mat-card-content>
+        </mat-card>
+
+        <h3>Key Features</h3>
+        <mat-card>
+          <mat-card-content>
+            <ul>
+              <li>⚡ Reactive form state with Angular signals</li>
+              <li>✅ Built-in validation and error display</li>
+              <li>🔄 Real-time UI updates on input changes</li>
+              <li>🧩 Minimal, readable form logic</li>
+              <li>🛠️ Easily extensible for more fields and rules</li>
+            </ul>
+            <p>This example demonstrates efficient form state management and validation using Angular signals, with instant error feedback and a clean, extensible approach.</p>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example2/example2.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example2/example2.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example2/example2.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
