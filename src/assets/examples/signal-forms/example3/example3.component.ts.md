@@ -29,7 +29,7 @@ function matchConfirmPassword(path: FieldPath<string>) {
     validate(path, (confirmPassword) => {
         const field: any = confirmPassword.field;
 
-        const password = field()?.['structure'].parent?.value()?.password;
+        const password = field()?.['structure']?.parent?.value()?.password;
 
         // if when condition is false, return null
         if(password !== confirmPassword.value()){
