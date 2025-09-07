@@ -5,7 +5,7 @@ import { form, required, email, minLength, pattern, schema, FieldPath, validate,
 import { JsonPipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
-unction matchPassword(
+function matchPassword(
     path: FieldPath<{ password: unknown, confirm_password: unknown }>
 ) {
 
