@@ -25,6 +25,7 @@ function matchPassword(
 
 }
 
+
 function matchConfirmPassword(path: FieldPath<string>) {
 
     validate(path, (confirmPassword) => {
