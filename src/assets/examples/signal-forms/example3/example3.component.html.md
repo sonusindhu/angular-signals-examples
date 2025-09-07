@@ -7,7 +7,7 @@
         <input type="text" placeholder="Name" [control]="userForm.name" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
         @if(userForm.name().touched() || userForm.name().dirty()){
             @for (item of userForm.name().errors(); track item.kind) {
-            <p class="text-red-500 p-0">{{ item.message }}</p>
+                <p class="text-red-500 p-0">{{ item.message }}</p>
             }
         }
         </div>
@@ -15,7 +15,7 @@
         <input type="email" placeholder="Email" [control]="userForm.email" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
         @if(userForm.email().touched() || userForm.email().dirty()){
             @for (item of userForm.email().errors(); track item.kind) {
-            <p class="text-red-500 p-0">{{ item.message }}</p>
+                <p class="text-red-500 p-0">{{ item.message }}</p>
             }
         }
         </div>
@@ -23,7 +23,7 @@
         <input type="password" placeholder="Password" [control]="userForm.password" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
         @if(userForm.password().touched() || userForm.password().dirty()){
             @for (item of userForm.password().errors(); track item.kind) {
-            <p class="text-red-500 p-0">{{ item.message }}</p>
+                <p class="text-red-500 p-0">{{ item.message }}</p>
             }
         }
         </div>
@@ -31,7 +31,7 @@
         <input type="password" placeholder="Confirm Password" [control]="userForm.confirm_password" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
         @if(userForm.confirm_password().touched() || userForm.confirm_password().dirty()){
             @for (item of userForm.confirm_password().errors(); track  item.kind) {
-            <p class="text-red-500 p-0">{{ item.message }}</p>
+                <p class="text-red-500 p-0">{{ item.message }}</p>
             }
         }
         </div>
