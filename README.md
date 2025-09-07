@@ -27,6 +27,7 @@ Each major example category has its own dedicated README with detailed examples 
 - [Control Flow Examples](src/app/examples/control-flow/README.md) — @if, @for, @switch blocks (**7 examples**)
 - [Resource API Examples](src/app/examples/resource-api/README.md) — Data fetching and resource patterns (**9 examples**)
 - [Advanced Examples](src/app/examples/advanced/README.md) — Real-world and advanced patterns (**10 examples**, including collaborative list, undo/redo, zoneless change detection demo, and more)
+- [Signal Forms Examples](src/app/examples/signal-form/README.md) — Reactive forms with signals (**3 examples**)
 
 Jump into any category above to explore all the examples and details!
 

@@ -1,5 +1,5 @@
 ```html
-<div class="demo-section flex gap-4 flex-row md:flex-col">
+<div class="demo-section flex gap-4 flex-col md:flex-row">
 <mat-card class="w-full md:w-1/2">
     <mat-card-content>
     <form (ngSubmit)="onSubmit()">
