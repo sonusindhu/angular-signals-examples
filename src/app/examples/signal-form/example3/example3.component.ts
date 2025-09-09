@@ -1,5 +1,5 @@
 import { Component, effect, signal } from '@angular/core';
-import { form, required, email, minLength, pattern, schema, Control, FieldPath, validate, customError } from '@angular/forms/signals';
+import { form, required, email, minLength, pattern, schema, Control, FieldPath, validate, customError, FieldValidator, PathKind } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -7,44 +7,9 @@ import { RouterModule } from '@angular/router';
 import { MarkdownComponent } from 'ngx-markdown';
 import { JsonPipe } from '@angular/common';
 
-function matchPassword(
-    path: FieldPath<{ password: unknown, confirm_password: unknown }>
-) {
-
-    validate(path, (form) => {
-        // get path value
-        const formValue = form.value();
-        
-        // if when condition is false, return null
-        if(formValue.password !== formValue.confirm_password){
-            return customError({ kind: 'notMatched', message: 'Passwords do not match' });
-        }
-
-        return null;
-    })
-
-}
-
-
-function matchConfirmPassword(path: FieldPath<string>) {
-
-    validate(path, (confirmPassword) => {
-        const field: any = confirmPassword.field;
-
-        const password = field()?.['structure']?.parent?.value()?.password;
-
-        // if when condition is false, return null
-        if(password !== confirmPassword.value()){
-            return customError({ kind: 'notMatched', message: 'Passwords do not match' });
-        }
-
-        return null;
-    })
-
-}
-
-
 const signupSchema = schema<{ name: string; email: string; password: string; confirm_password: string }>((form) => {
+
+  const log = form.name;
   
     required(form.name, { message: 'Name is required' });
     pattern(form.name, /^[a-zA-Z ]+$/, { message: 'Enter a valid name' });
@@ -57,8 +22,15 @@ const signupSchema = schema<{ name: string; email: string; password: string; con
 
     required(form.confirm_password, { message: 'Confirm password is required' });
 
-    //   matchPassword(form); // it will inject in the form level error
-    matchConfirmPassword(form.confirm_password); // it will inject in the confirm_password field level error
+    validate(form.confirm_password, ({ value, valueOf }) => {
+        // if when condition is false, return null
+        if(valueOf(form.password) !== value()){
+            return customError({ kind: 'notMatched', message: 'Passwords do not match' });
+        }
+
+        return null;
+    })
+
 });
 
 @Component({
