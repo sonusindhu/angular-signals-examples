@@ -15,5 +15,10 @@ export const SIGNAL_FORM_EXAMPLES: ExampleModel[] = [
         title: 'Example 3: Signal Form Signup with Custom Validation',
         content: 'Signup form with name, email, password, confirm password fields and custom password match validation using Angular signals.',
         routerLink: '/signal-forms/example3'
+    },
+    {
+        title: 'Example 4: Signal Form Signup with Dynamic Hobbies & Validation',
+        content: 'Signup form with name, email, and dynamic hobbies fields. Features schema-based validation, instant error feedback, and interactive add/remove for hobbies using Angular signals.',
+        routerLink: '/signal-forms/example4'
     }
 ];
