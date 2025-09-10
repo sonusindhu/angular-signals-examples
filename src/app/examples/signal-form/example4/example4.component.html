@@ -1,0 +1,94 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal-forms">Go to List</button>
+    <button mat-stroked-button color="primary" routerLink="/signal-forms/example3">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 4: Signal Form Signup with Dynamic Hobbies & Validation</h2>
+        <p>This example showcases a signup form built with Angular signals, featuring dynamic hobby fields and real-time validation. The form uses a schema-based approach for required fields and instant error feedback. Users can add or remove hobbies interactively, and the form logic remains minimal and extensible.</p>
+      </div>
+      <div class="demo-section flex gap-4 flex-col md:flex-row">
+        <mat-card class="w-full md:w-1/2">
+          <mat-card-content>
+            <form (ngSubmit)="onSubmit()">
+              
+               <!-- name -->
+               <div>
+                 <input placeholder="Name" [control]="userForm.name" />
+                 @if(userForm.name().touched() || userForm.name().dirty()) {
+                   @for (err of userForm.name().errors(); track err.kind) {
+                     <p style="color:red">{{ err.message }}</p>
+                   }
+                 }
+               </div>
+ 
+               <!-- email -->
+               <div>
+                 <input placeholder="Email" [control]="userForm.email" />
+                 @if(userForm.email().touched() || userForm.email().dirty()) {
+                   @for (err of userForm.email().errors(); track err.kind) {
+                     <p style="color:red">{{ err.message }}</p>
+                   }
+                 }
+               </div>
+ 
+               <!-- hobbies -->
+               <div>
+                 <h3>Hobbies</h3>
+                 @for (hobby of userForm.hobbies; track hobby; let i = $index) {
+                   <div>
+                     <input [control]="hobby.name" placeholder="Enter hobby" />
+                     @if(hobby.name().touched() || hobby.name().dirty()) {
+                       @for (err of hobby.name().errors(); track err.kind) {
+                         <p style="color:red">{{ err.message }}</p>
+                       }
+                     }
+                     <button mat-stroked-button color="primary" type="button" (click)="removeHobby(i)" >Remove</button>
+                   </div>
+                 }
+                 @empty {
+                   <p class="text-gray-500 py-2">No hobbies added yet.</p>
+                 }
+                 <button mat-stroked-button color="primary" type="button" (click)="addHobby()" >+ Add Hobby</button>
+               </div>
+
+               <div>
+                 <button mat-stroked-button color="primary" type="submit" [disabled]="!userForm().valid">Save</button>
+               </div>
+             </form>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="w-full md:w-1/2">
+            <mat-card-content>
+              
+              <pre>{{ user() | json }}</pre>
+              
+              <h3>Key Features</h3>
+              <ul>
+                <li>⚡ Reactive form state powered by Angular signals</li>
+                <li>✅ Schema-based validation for all fields (name, email, hobbies)</li>
+                <li>🔄 Real-time error feedback and UI updates</li>
+                <li>➕ Dynamic add/remove for hobbies</li>
+                <li>🧩 Minimal, readable, and extensible form logic</li>
+                <li>🛡️ Instant validation and error display for each field</li>
+              </ul>
+              <p>This example demonstrates efficient form state management and custom validation using Angular signals, with instant error feedback and a clean, extensible approach.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example4/example4.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example4/example4.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example4/example4.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
