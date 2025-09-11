@@ -20,5 +20,10 @@ export const SIGNAL_FORM_EXAMPLES: ExampleModel[] = [
         title: 'Example 4: Signal Form Signup with Dynamic Hobbies & Validation',
         content: 'Signup form with name, email, and dynamic hobbies fields. Features schema-based validation, instant error feedback, and interactive add/remove for hobbies using Angular signals.',
         routerLink: '/signal-forms/example4'
+    },
+    {
+        title: 'Example 5: Advanced Nested Signal Form with Cards, Select, Radio & Checkbox',
+        content: 'Demonstrates a deeply nested form with multiple fields, dynamic arrays, card-style contacts, select box for country, radio buttons for gender, and a checkbox for newsletter subscription. Features schema-based validation, instant error feedback, and interactive add/remove for contacts and tags using Angular signals.',
+        routerLink: '/signal-forms/example5'
     }
 ];
