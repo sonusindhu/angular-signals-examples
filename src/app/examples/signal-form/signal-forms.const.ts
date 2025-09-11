@@ -23,7 +23,7 @@ export const SIGNAL_FORM_EXAMPLES: ExampleModel[] = [
     },
     {
         title: 'Example 5: Advanced Nested Signal Form with Cards, Select, Radio & Checkbox',
-        content: 'Demonstrates a deeply nested form with multiple fields, dynamic arrays, card-style contacts, select box for country, radio buttons for gender, and a checkbox for newsletter subscription. Features schema-based validation, instant error feedback, and interactive add/remove for contacts and tags using Angular signals.',
+        content: 'Deeply nested form with dynamic contacts, tags, and schema validation using Angular signals.',
         routerLink: '/signal-forms/example5'
     }
 ];
