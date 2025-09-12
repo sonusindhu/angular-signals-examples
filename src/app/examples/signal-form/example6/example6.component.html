@@ -1,0 +1,143 @@
+<div class="example-container p-8">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal-forms">Go to List</button>
+    <button mat-stroked-button color="primary" routerLink="/signal-forms/example5">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area mb-6">
+        <h2 class="text-2xl font-bold mb-2">Example 6: Dynamic Projects & Tasks Signal Form</h2>
+        <p class="text-gray-600">This example demonstrates a dynamic array of nested objects (projects with tasks) using Angular signals forms.</p>
+      </div>
+      <div class="demo-section flex gap-4 flex-col">
+        <mat-card class="w-full shadow-md">
+          <mat-card-content>
+            <form (ngSubmit)="onSubmit()" class="space-y-6">
+              <!-- Username field -->
+              <div>
+                <input placeholder="Username" [control]="userProjectsForm.username" class="input input-bordered w-full" />
+                @if(userProjectsForm.username().touched() || userProjectsForm.username().dirty()) {
+                  @for (err of userProjectsForm.username().errors(); track err.kind) {
+                    <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
+                  }
+                }
+              </div>
+
+              <!-- Projects array -->
+              <div>
+                <h3 class="text-lg font-semibold mb-2">Projects</h3>
+                @for (project of userProjectsForm.projects; track project; let i = $index) {
+                  <div class="project-card border border-gray-200 rounded-lg p-4 mb-4 bg-gray-50">
+                    <div class="flex gap-2 items-center mb-2">
+                      <div class="flex-1">
+                        <input [control]="project.name" placeholder="Project Name" class="input input-bordered w-full" />
+                        @if(project.name().touched() || project.name().dirty()) {
+                          @for (err of project.name().errors(); track err.kind) {
+                            <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
+                          }
+                        }
+                      </div>
+                      <div class="flex flex-col gap-2 ml-4">
+                        <input type="date" [control]="project.deadline" class="input input-bordered" placeholder="Deadline" />
+                        @if(project.deadline().touched() || project.deadline().dirty()) {
+                          @for (err of project.deadline().errors(); track err.kind) {
+                            <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
+                          }
+                        }
+                        <select [control]="project.status" class="input input-bordered">
+                          <option value="Not Started">Not Started</option>
+                          <option value="In Progress">In Progress</option>
+                          <option value="Completed">Completed</option>
+                        </select>
+                        @if(project.status().touched() || project.status().dirty()) {
+                          @for (err of project.status().errors(); track err.kind) {
+                            <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
+                          }
+                        }
+                      </div>
+                      <button mat-flat-button color="warn" type="button" (click)="removeProject(i)" class="ml-2">Remove Project</button>
+                    </div>
+                    <!-- Project summary -->
+                    <div class="mb-2 text-sm text-gray-600">
+                      {{ getProjectTaskSummary(i) }}
+                    </div>
+                    <!-- Tasks array for each project -->
+                    <div class="ml-6">
+                      <h4 class="font-medium mb-2">Tasks</h4>
+                      @for (task of project.tasks; track task; let j = $index) {
+                        <div class="flex gap-2 items-center mb-2">
+                          <input [control]="task.title" placeholder="Task Title" class="input input-bordered w-64" />
+                          <select [control]="task.priority" class="input input-bordered">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                          </select>
+                          <input type="date" [control]="task.dueDate" class="input input-bordered w-40" placeholder="Due Date" />
+                          <label class="flex items-center gap-1"><input type="checkbox" [control]="task.done" /> <span>Done</span></label>
+                          <button mat-flat-button color="warn" type="button" (click)="removeTask(i, j)">Remove Task</button>
+                        </div>
+                        @if(task.title().touched() || task.title().dirty()) {
+                          @for (err of task.title().errors(); track err.kind) {
+                            <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
+                          }
+                        }
+                        @if(task.priority().touched() || task.priority().dirty()) {
+                          @for (err of task.priority().errors(); track err.kind) {
+                            <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
+                          }
+                        }
+                        @if(task.dueDate().touched() || task.dueDate().dirty()) {
+                          @for (err of task.dueDate().errors(); track err.kind) {
+                            <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
+                          }
+                        }
+                      }
+                      @empty {
+                        <p class="text-gray-500 py-2">No tasks added yet.</p>
+                      }
+                      <button mat-flat-button color="primary" type="button" (click)="addTask(i)">+ Add Task</button>
+                    </div>
+                  </div>
+                }
+                @empty {
+                  <p class="text-gray-500 py-2">No projects added yet.</p>
+                }
+                <button mat-flat-button color="primary" type="button" (click)="addProject()">+ Add Project</button>
+              </div>
+
+              <div>
+                <button mat-stroked-button color="primary" type="submit" [disabled]="!userProjectsForm().valid()" class="mt-4">Save</button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="w-full shadow-md">
+          <mat-card-content>
+            <pre class="bg-gray-100 p-4 rounded text-xs overflow-x-auto">{{ userProjects() | json }}</pre>
+            <h3 class="text-lg font-semibold mt-4 mb-2">Key Features</h3>
+            <ul class="list-disc ml-6 text-gray-700">
+              <li>⚡ Dynamic nested array form state powered by Angular signals</li>
+              <li>✅ Schema-based validation for all fields (username, projects, tasks)</li>
+              <li>🔄 Real-time error feedback and UI updates</li>
+              <li>➕ Dynamic add/remove for projects and tasks</li>
+              <li>🧩 Minimal, readable, and extensible form logic</li>
+              <li>🛡️ Instant validation and error display for each field</li>
+            </ul>
+            <p class="text-gray-600 mt-2">This example demonstrates efficient dynamic form state management and custom validation using Angular signals, with instant error feedback and a clean, extensible approach.</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example6/example6.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example6/example6.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example6/example6.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>

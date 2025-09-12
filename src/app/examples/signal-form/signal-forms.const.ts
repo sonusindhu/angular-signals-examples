@@ -25,5 +25,10 @@ export const SIGNAL_FORM_EXAMPLES: ExampleModel[] = [
         title: 'Example 5: Advanced Nested Signal Form with Cards, Select, Radio & Checkbox',
         content: 'Deeply nested form with dynamic contacts, tags, and schema validation using Angular signals.',
         routerLink: '/signal-forms/example5'
+    },
+    {
+        title: 'Example 6: Dynamic Projects & Tasks Signal Form',
+        content: 'Dynamic array of projects, each with tasks. Demonstrates nested array management, schema-based validation, and instant error feedback using Angular signals.',
+        routerLink: '/signal-forms/example6'
     }
 ];

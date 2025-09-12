@@ -2,7 +2,7 @@
 <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
     <button mat-stroked-button color="primary" routerLink="/signal-forms">Go to List</button>
     <button mat-stroked-button color="primary" routerLink="/signal-forms/example4">Prev</button>
-    <button mat-stroked-button color="primary" disabled>Next</button>
+    <button mat-stroked-button color="primary" routerLink="/signal-forms/example6">Next</button>
   </div>
 
   <mat-tab-group>
@@ -67,12 +67,27 @@
                 <div class="flex gap-2 mb-4">
                     <div>
                         <input placeholder="Street" [control]="userForm.address.street" />
+                        @if(userForm.address.street().touched() || userForm.address.street().dirty()) {
+                            @for (err of userForm.address.street().errors(); track err.kind) {
+                                <p style="color:red">{{ err.message }}</p>
+                            }
+                        }
                     </div>
                     <div>
                         <input placeholder="City" [control]="userForm.address.city" />
+                        @if(userForm.address.city().touched() || userForm.address.city().dirty()) {
+                            @for (err of userForm.address.city().errors(); track err.kind) {
+                                <p style="color:red">{{ err.message }}</p>
+                            }
+                        }
                     </div>
                     <div>
                         <input placeholder="Zip" [control]="userForm.address.zip" />
+                        @if(userForm.address.zip().touched() || userForm.address.zip().dirty()) {
+                            @for (err of userForm.address.zip().errors(); track err.kind) {
+                                <p style="color:red">{{ err.message }}</p>
+                            }
+                        }
                     </div>
                     <div>
                         <select [control]="userForm.address.country">
@@ -97,19 +112,23 @@
                 @for (contact of userForm.address.contacts; track contact; let i = $index) {
                   <div class="contact-card">
                     <div class="flex gap-2 items-center mb-2">
-                      <input [control]="contact.type" placeholder="Type (e.g. phone, email)" />
-                      <input [control]="contact.value" placeholder="Value" />
+                      <div>
+                        <input [control]="contact.type" placeholder="Type (e.g. phone, email)" />
+                        @if(contact.type().touched() || contact.type().dirty()) {
+                          @for (err of contact.type().errors(); track err.kind) {
+                            <p style="color:red">{{ err.message }}</p>
+                          }
+                        }
+                      </div>
+                      <div>
+                        <input [control]="contact.value" placeholder="Value" />
+                        @if(contact.value().touched() || contact.value().dirty()) {
+                          @for (err of contact.value().errors(); track err.kind) {
+                            <p style="color:red">{{ err.message }}</p>
+                          }
+                        }
+                      </div>
                       <button mat-flat-button color="warn" type="button" (click)="removeContact(i)">Remove Contact</button>
-                      @if(contact.type().touched() || contact.type().dirty()) {
-                        @for (err of contact.type().errors(); track err.kind) {
-                          <p style="color:red">{{ err.message }}</p>
-                        }
-                      }
-                      @if(contact.value().touched() || contact.value().dirty()) {
-                        @for (err of contact.value().errors(); track err.kind) {
-                          <p style="color:red">{{ err.message }}</p>
-                        }
-                      }
                     </div>
                     <!-- Tags array for each contact -->
                     <div class="ml-6">
@@ -118,12 +137,13 @@
                         <div class="flex gap-2 items-center mb-2">
                           <input [control]="tag" placeholder="Tag" />
                           <button mat-flat-button color="warn" type="button" (click)="removeTag(i, j)">Remove Tag</button>
-                          @if(tag().touched() || tag().dirty()) {
-                            @for (err of tag().errors(); track err.kind) {
-                              <p style="color:red">{{ err.message }}</p>
-                            }
-                          }
                         </div>
+                        
+                        @if(tag().touched() || tag().dirty()) {
+                          @for (err of tag().errors(); track err.kind) {
+                            <p style="color:red">{{ err.message }}</p>
+                          }
+                        }
                       }
                       @empty {
                         <p class="text-gray-500 py-2">No tags added yet.</p>
