@@ -25,6 +25,10 @@ const ADVANCED_ROUTES: Route[] = [
   {
     path: 'example5',
     loadComponent: () => import('./example5/example5.component').then(x => x.FormExample5Component),
+  },
+  {
+    path: 'example6',
+    loadComponent: () => import('./example6/example6.component').then(x => x.Example6Component),
   }
 ];
 
