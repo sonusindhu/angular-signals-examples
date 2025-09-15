@@ -1,0 +1,83 @@
+<div class="example-container">
+
+    <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/advanced">Go to List</button>
+    <button mat-stroked-button color="primary" [routerLink]="'/advanced/example11'">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 12: On-Demand Preloading with Service & Custom Strategy</h2>
+        <p>
+          This demo shows how to preload modules only when triggered (e.g., on hover) using a service and custom PreloadingStrategy. Bandwidth is saved until actually needed.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of users(); track user.id) {
+              <tr>
+                <td>
+                  <a [routerLink]="['/advanced/example12/user-form']" (mouseenter)="preloadUserForm()">{{ user.id }}</a>
+                </td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+        <ul class="checklist">
+          <li>1. Open your browser's <strong>DevTools</strong> and go to the <strong>Network</strong> tab.</li>
+          <li>2. Make sure you are on the <strong>User List</strong> page. The user form module should NOT be loaded yet.</li>
+          <li>3. <strong>Hover</strong> over any user ID link in the table above.</li>
+          <li>4. Watch the <strong>Network</strong> tab: you should see a new JS chunk (the user form module) being loaded in the background.</li>
+          <li>5. Clicking the user ID link will navigate instantly to the form, since it was preloaded.</li>
+          <li>6. If you never hover, the module is never loaded—saving bandwidth.</li>
+        </ul>
+
+        <div class="setup-instructions">
+            <h3>Setup Instructions: On-Demand Preloading in Angular</h3>
+            <ol>
+                <li>
+                  <strong>Custom Preloading Strategy:</strong> Implement a class that extends <code>PreloadingStrategy</code>. In the <code>preload</code> method, check for a custom route data property (e.g., <code>preloadOnDemand</code>) and return an observable that triggers when your service requests preloading.
+                </li>
+                <li>
+                  <strong>Preloading Service:</strong> Create a service with a method (e.g., <code>triggerPreload(path: string)</code>) that signals your strategy to preload a specific route/module. Use RxJS <code>Subject</code> or <code>BehaviorSubject</code> for communication.
+                </li>
+                <li>
+                  <strong>Router Configuration:</strong> In your router setup, provide your custom preloading strategy using <code>withPreloading(CustomPreloadingStrategy)</code> and set <code>data: {{ '{' }} preloadOnDemand: true {{ '}' }}</code> on routes you want to support on-demand loading.
+                </li>
+                <li>
+                  <strong>Component Integration:</strong> Inject your preloading service in the relevant component (e.g., user list). Call the service’s method on a user action (like <code>mouseenter</code> on a link) to trigger preloading for the target route.
+                </li>
+                <li>
+                  <strong>Testing:</strong> Use browser DevTools to monitor network requests. Verify that the module is only loaded when you trigger the event (hover/click), not on initial navigation.
+                </li>
+                <li>
+                  <strong>Best Practices:</strong> Only preload modules that are likely to be needed soon. Avoid preloading everything to preserve bandwidth and performance.
+                </li>
+            </ol>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="PreLoad Strategy">
+      <markdown src="assets/examples/advanced/example12/preload-strategy.ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="Service">
+      <markdown src="assets/examples/advanced/example12/preload-service.ts.md"></markdown>
+    </mat-tab>
+    <mat-tab label="HTML">
+      <markdown src="assets/examples/advanced/example12/user-list.component.html.md"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown src="assets/examples/advanced/example12/user-list.component.ts.md"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
