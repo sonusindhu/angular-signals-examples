@@ -51,4 +51,14 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         content: 'A real-time collaborative list using Angular signals and the browser storage event. Add, edit, or remove items and see changes sync instantly across tabs/windows—no backend required.',
         routerLink: 'example10',
     },
+    {
+        title: 'Modal Service with ViewContainerRef',
+        content: 'Open a modal using a service and ViewContainerRef. Demonstrates dynamic component creation and service-driven modals.',
+        routerLink: 'example11',
+    },
+    {
+        title: 'On-Demand Preloading via Service & Custom Strategy',
+        content: 'Preload modules only when triggered (e.g., on hover) using a service and custom PreloadingStrategy. Demonstrates bandwidth savings and modern Angular routing.',
+        routerLink: 'example12',
+    },
 ];

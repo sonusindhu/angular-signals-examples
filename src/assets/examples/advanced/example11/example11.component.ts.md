@@ -1,20 +1,12 @@
+```typescript
 import { Component, inject } from '@angular/core';
 import { ModalService } from './custom-model/modal.service';
 import { ConfirmModalComponent } from './custom-model/modal.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
-import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-advanced-example11',
   standalone: true,
-  imports: [
-    MatTabsModule,
-    MatButtonModule,
-    RouterModule,
-    MarkdownModule,
-  ],
+  imports: [],
   templateUrl: './example11.component.html',
   styleUrls: ['./example11.component.scss']
 })
@@ -37,3 +29,4 @@ export class Example11Component {
 
   }
 }
+```
