@@ -1,3 +1,4 @@
+```typescript
 import { Component, Input, ViewChild, ViewContainerRef, ComponentRef, Type, OnDestroy } from '@angular/core';
 import { ModalRef } from './model.ref';
 
@@ -52,20 +53,19 @@ export class ModalContainerComponent implements OnDestroy {
     }
   }
 
-  onBackdropClick() {
-    this.modalRef.close();
-  }
-
   removeModal() {
-    this.childRef?.destroy();
-    // Remove modal container from DOM
-    const el = (this.vc.element.nativeElement as HTMLElement).parentElement?.parentElement;
-    if (el && el.parentElement) {
-      el.parentElement.removeChild(el);
+    if (this.childRef) {
+      this.childRef.destroy();
+      this.childRef = undefined;
     }
   }
 
+  onBackdropClick() {
+    this.modalRef?.onClose.emit();
+  }
+
   ngOnDestroy() {
-    this.childRef?.destroy();
+    this.removeModal();
   }
 }
+```

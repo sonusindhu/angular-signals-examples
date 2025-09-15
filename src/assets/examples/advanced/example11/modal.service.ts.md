@@ -1,3 +1,4 @@
+```typescript
 import {
   Injectable, Type, ApplicationRef, Injector,
   EnvironmentInjector, createComponent
@@ -48,18 +49,8 @@ export class ModalService {
 
     // 3. Build ModalRef for inner component
     const modalRef = new ModalRef(cmpRef);
-    (cmpRef.instance as any).modalRef = modalRef;
-
-    // Remove modal and container from DOM on close/confirm
-    const removeModal = () => {
-      this.appRef.detachView(containerRef.hostView);
-      if (this.modalContainer.parentNode) {
-        this.modalContainer.parentNode.removeChild(this.modalContainer);
-      }
-    };
-    modalRef.onClose.subscribe(removeModal);
-    modalRef.onConfirm.subscribe(removeModal);
 
     return modalRef;
   }
 }
+```
