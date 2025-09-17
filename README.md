@@ -23,10 +23,10 @@ Each major example category has its own dedicated README with detailed examples 
 
 - [Signal Examples](src/app/examples/signal/README.md) — Core signal patterns and usage (**16 examples**)
 - [Linked Signal Examples](src/app/examples/linked-signal/README.md) — Linked signals and computed state (**9 examples**)
-- [Defer Block Examples](src/app/examples/defer-block/README.md) — Lazy loading and performance (**11 examples**)
-- [Control Flow Examples](src/app/examples/control-flow/README.md) — @if, @for, @switch blocks (**7 examples**)
+- [Defer Block Examples](src/app/examples/defer-block/README.md) — Lazy loading and performance (**12 examples**)
+- [Control Flow Examples](src/app/examples/control-flow/README.md) — @if, @for, @switch blocks (**3 examples**)
 - [Resource API Examples](src/app/examples/resource-api/README.md) — Data fetching and resource patterns (**9 examples**)
-- [Advanced Examples](src/app/examples/advanced/README.md) — Real-world and advanced patterns (**10 examples**, including collaborative list, undo/redo, zoneless change detection demo, and more)
+- [Advanced Examples](src/app/examples/advanced/README.md) — Real-world and advanced patterns (**13 examples**, including collaborative list, undo/redo, zoneless change detection demo, modal service, preloading, and custom toggle control)
 - [Signal Forms Examples](src/app/examples/signal-form/README.md) — Reactive forms with signals (**6 examples**)
 
 Jump into any category above to explore all the examples and details!

@@ -61,4 +61,9 @@ export const ADVANCED_EXAMPLES: ExampleModel[] = [
         content: 'Preload modules only when triggered (e.g., on hover) using a service and custom PreloadingStrategy. Demonstrates bandwidth savings and modern Angular routing.',
         routerLink: 'example12',
     },
+    {
+        title: 'Custom Toggle Form Control (ControlValueAccessor)',
+        content: 'A fully reactive, typed, and form-friendly custom toggle control using ControlValueAccessor. Works with both reactive and template-driven forms.',
+        routerLink: 'example13',
+    },
 ];

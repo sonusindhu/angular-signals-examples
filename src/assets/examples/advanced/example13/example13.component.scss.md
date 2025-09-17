@@ -1,0 +1,5 @@
+```scss
+:host{
+    display: contents;
+}
+```
