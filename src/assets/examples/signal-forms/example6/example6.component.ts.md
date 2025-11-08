@@ -1,7 +1,7 @@
 ```typescript
 import { JsonPipe } from '@angular/common';
 import { Component, signal, effect } from '@angular/core';
-import { form, required, minLength, schema, applyEach, Control, customError, validateTree, ValidationError } from '@angular/forms/signals';
+import { form, required, minLength, schema, applyEach, Field, customError, validateTree, ValidationError } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
@@ -65,7 +65,7 @@ const userProjectsSchema = schema<UserProjects>((f) => {
   imports: [
     MatButtonModule,
     MatTabsModule,
-    Control,
+    Field,
     JsonPipe
   ],
 })

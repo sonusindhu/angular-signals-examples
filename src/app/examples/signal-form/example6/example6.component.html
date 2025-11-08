@@ -17,7 +17,7 @@
             <form (ngSubmit)="onSubmit()" class="space-y-6">
               <!-- Username field -->
               <div>
-                <input placeholder="Username" [control]="userProjectsForm.username" class="input input-bordered w-full" />
+                <input placeholder="Username" [field]="userProjectsForm.username" class="input input-bordered w-full" />
                 @if(userProjectsForm.username().touched() || userProjectsForm.username().dirty()) {
                   @for (err of userProjectsForm.username().errors(); track err.kind) {
                     <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
@@ -32,7 +32,7 @@
                   <div class="project-card border border-gray-200 rounded-lg p-4 mb-4 bg-gray-50">
                     <div class="flex gap-2 items-center mb-2">
                       <div class="flex-1">
-                        <input [control]="project.name" placeholder="Project Name" class="input input-bordered w-full" />
+                        <input [field]="project.name" placeholder="Project Name" class="input input-bordered w-full" />
                         @if(project.name().touched() || project.name().dirty()) {
                           @for (err of project.name().errors(); track err.kind) {
                             <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
@@ -40,13 +40,13 @@
                         }
                       </div>
                       <div class="flex flex-col gap-2 ml-4">
-                        <input type="date" [control]="project.deadline" class="input input-bordered" placeholder="Deadline" />
+                        <input type="date" [field]="project.deadline" class="input input-bordered" placeholder="Deadline" />
                         @if(project.deadline().touched() || project.deadline().dirty()) {
                           @for (err of project.deadline().errors(); track err.kind) {
                             <p class="text-red-500 text-sm mt-1">{{ err.message }}</p>
                           }
                         }
-                        <select [control]="project.status" class="input input-bordered">
+                        <select [field]="project.status" class="input input-bordered">
                           <option value="Not Started">Not Started</option>
                           <option value="In Progress">In Progress</option>
                           <option value="Completed">Completed</option>
@@ -68,14 +68,14 @@
                       <h4 class="font-medium mb-2">Tasks</h4>
                       @for (task of project.tasks; track task; let j = $index) {
                         <div class="flex gap-2 items-center mb-2">
-                          <input [control]="task.title" placeholder="Task Title" class="input input-bordered w-64" />
-                          <select [control]="task.priority" class="input input-bordered">
+                          <input [field]="task.title" placeholder="Task Title" class="input input-bordered w-64" />
+                          <select [field]="task.priority" class="input input-bordered">
                             <option value="Low">Low</option>
                             <option value="Medium">Medium</option>
                             <option value="High">High</option>
                           </select>
-                          <input type="date" [control]="task.dueDate" class="input input-bordered w-40" placeholder="Due Date" />
-                          <label class="flex items-center gap-1"><input type="checkbox" [control]="task.done" /> <span>Done</span></label>
+                          <input type="date" [field]="task.dueDate" class="input input-bordered w-40" placeholder="Due Date" />
+                          <label class="flex items-center gap-1"><input type="checkbox" [field]="task.done" /> <span>Done</span></label>
                           <button mat-flat-button color="warn" type="button" (click)="removeTask(i, j)">Remove Task</button>
                         </div>
                         @if(task.title().touched() || task.title().dirty()) {

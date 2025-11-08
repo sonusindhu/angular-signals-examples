@@ -22,8 +22,7 @@ import { CommonModule } from '@angular/common';
     MatTabsModule,
     MatButtonModule,
     MarkdownComponent,
-    JsonPipe,
-    NgClass
+    JsonPipe
   ],
   templateUrl: './example13.component.html',
   styleUrl: './example13.component.scss'

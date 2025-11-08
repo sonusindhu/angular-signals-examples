@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { PreloadService } from '../../../../core/preloading/preload.service';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownModule } from 'ngx-markdown';
@@ -23,7 +23,7 @@ const DUMMY_USERS: User[] = [
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
-  imports: [CommonModule, RouterModule, MatTabsModule, MarkdownModule, MatButtonModule, MatIconModule],
+  imports: [RouterModule, MatTabsModule, MarkdownModule, MatButtonModule, MatIconModule],
 })
 export class UserListComponent {
   users = signal(DUMMY_USERS);

@@ -1,5 +1,5 @@
 import { Component, effect, signal } from '@angular/core';
-import { form, required, email, minLength, pattern, schema, Control, FieldPath, validate, customError, FieldValidator, PathKind } from '@angular/forms/signals';
+import { form, required, email, minLength, pattern, schema, Field, FieldPath, validate, customError, FieldValidator, PathKind } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -42,7 +42,7 @@ const signupSchema = schema<{ name: string; email: string; password: string; con
     MatCardModule,
     MarkdownComponent,
     RouterModule,
-    Control,
+    Field,
     JsonPipe
   ],
   templateUrl: './example3.component.html',

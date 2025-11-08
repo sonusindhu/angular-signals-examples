@@ -1,5 +1,5 @@
 import { Component, signal, effect } from '@angular/core';
-import { form, required, minLength, schema, applyEach, Control, customError, validateTree, ValidationError } from '@angular/forms/signals';
+import { form, required, minLength, schema, applyEach, Field, customError, validateTree, ValidationError } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -73,7 +73,7 @@ const userProjectsSchema = schema<UserProjects>((f) => {
     MatCardModule,
     MarkdownComponent,
     RouterModule,
-    Control,
+    Field,
     JsonPipe
   ],
 })

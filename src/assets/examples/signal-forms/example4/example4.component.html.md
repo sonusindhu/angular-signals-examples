@@ -5,7 +5,7 @@
       <form (ngSubmit)="onSubmit()">
         <!-- name -->
         <div>
-          <input placeholder="Name" [control]="userForm.name" />
+          <input placeholder="Name" [field]="userForm.name" />
           @if(userForm.name().touched() || userForm.name().dirty()) {
             @for (err of userForm.name().errors(); track err.kind) {
               <p style="color:red">{{ err.message }}</p>
@@ -15,7 +15,7 @@
 
         <!-- email -->
         <div>
-          <input placeholder="Email" [control]="userForm.email" />
+          <input placeholder="Email" [field]="userForm.email" />
           @if(userForm.email().touched() || userForm.email().dirty()) {
             @for (err of userForm.email().errors(); track err.kind) {
               <p style="color:red">{{ err.message }}</p>
@@ -28,7 +28,7 @@
           <h3>Hobbies</h3>
           @for (hobby of userForm.hobbies; track hobby; let i = $index) {
             <div>
-              <input [control]="hobby.name" placeholder="Enter hobby" />
+              <input [field]="hobby.name" placeholder="Enter hobby" />
               @if(hobby.name().touched() || hobby.name().dirty()) {
                 @for (err of hobby.name().errors(); track err.kind) {
                   <p style="color:red">{{ err.message }}</p>

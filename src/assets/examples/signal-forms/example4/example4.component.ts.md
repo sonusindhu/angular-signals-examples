@@ -1,6 +1,6 @@
 ```typescript
 import { Component, effect, signal } from '@angular/core';
-import { form, required, email, minLength, pattern, schema, Control, FieldPath, validate, customError, applyEach, validateTree } from '@angular/forms/signals';
+import { form, required, email, minLength, pattern, schema, Field, FieldPath, validate, customError, applyEach, validateTree } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
@@ -34,7 +34,7 @@ export const userSchema = schema<User>((f) => {
     MatButtonModule,
     MatCardModule,
     RouterModule,
-    Control,
+    Field,
     JsonPipe
   ],
   templateUrl: './example4.component.html',
