@@ -2,11 +2,11 @@
 <form>
 
   <div>
-    <input type="text" placeholder="Enter name" [control]="userForm.name" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
+    <input type="text" placeholder="Enter name" [field]="userForm.name" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
   </div>
 
   <div>
-    <input type="email" placeholder="Enter email" [control]="userForm.email" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
+    <input type="email" placeholder="Enter email" [field]="userForm.email" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
   </div>
 
   <div>

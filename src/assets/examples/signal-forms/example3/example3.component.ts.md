@@ -1,7 +1,7 @@
 ```typescript
 import { Component } from '@angular/core';
 import { effect, signal } from '@angular/core';
-import { form, required, email, minLength, pattern, schema, FieldPath, validate, customError, Control } from '@angular/forms/signals';
+import { form, required, email, minLength, pattern, schema, FieldPath, validate, customError, Field } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
@@ -62,7 +62,7 @@ const signupSchema = schema<{ name: string; email: string; password: string; con
 @Component({
   selector: 'app-form-example3',
   standalone: true,
-  imports: [Control, JsonPipe, MatCardModule],
+  imports: [Field, JsonPipe, MatCardModule],
   templateUrl: './example3.component.html',
   styleUrls: ['./example3.component.scss']
 })

@@ -1,6 +1,6 @@
 ```ts
 import { Component, effect, signal } from '@angular/core';
-import { form, Control, required, pattern, email, schema } from '@angular/forms/signals';
+import { form, Field, required, pattern, email, schema } from '@angular/forms/signals';
 
 const formSchema = schema<{name: string, email: string}>((form) => {
   required(form.name, { message: 'please enter your name' });

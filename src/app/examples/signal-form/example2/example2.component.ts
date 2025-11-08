@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { RouterModule } from '@angular/router';
 
-import { form, Control, required, pattern, email, schema } from '@angular/forms/signals';
+import { form, Field, required, pattern, email, schema } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 
 
@@ -28,8 +28,7 @@ const formSchema = schema<{name: string, email: string}>((form) => {
     MatIconModule, 
     MarkdownComponent, 
     RouterModule, 
-    Control,
-    JsonPipe,
+    Field
   ],
   templateUrl: './example2.component.html',
   styleUrl: './example2.component.scss'

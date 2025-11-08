@@ -17,7 +17,7 @@
             <form (ngSubmit)="onSubmit()">
               <!-- User fields -->
               <div>
-                <input placeholder="Name" [control]="userForm.name" />
+                <input placeholder="Name" [field]="userForm.name" />
                 @if(userForm.name().touched() || userForm.name().dirty()) {
                   @for (err of userForm.name().errors(); track err.kind) {
                     <p style="color:red">{{ err.message }}</p>
@@ -25,7 +25,7 @@
                 }
               </div>
               <div>
-                <input placeholder="Age" type="number" [control]="userForm.age" />
+                <input placeholder="Age" type="number" [field]="userForm.age" />
                 @if(userForm.age().touched() || userForm.age().dirty()) {
                   @for (err of userForm.age().errors(); track err.kind) {
                     <p style="color:red">{{ err.message }}</p>
@@ -33,7 +33,7 @@
                 }
               </div>
               <div>
-                <input placeholder="Email" [control]="userForm.email" />
+                <input placeholder="Email" [field]="userForm.email" />
                 @if(userForm.email().touched() || userForm.email().dirty()) {
                   @for (err of userForm.email().errors(); track err.kind) {
                     <p style="color:red">{{ err.message }}</p>
@@ -45,9 +45,12 @@
               <div>
                 <label>Gender:</label>
                 <div class="flex gap-2 items-center mb-2">
-                  <label><input type="radio" [control]="userForm.gender" value="male" /> Male</label>
-                  <label><input type="radio" [control]="userForm.gender" value="female" /> Female</label>
-                  <label><input type="radio" [control]="userForm.gender" value="other" /> Other</label>
+                  <select [field]="userForm.gender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
                 </div>
                 @if(userForm.gender().touched() || userForm.gender().dirty()) {
                   @for (err of userForm.gender().errors(); track err.kind) {
@@ -57,7 +60,7 @@
               </div>
               <div>
                 <label>
-                    <input type="checkbox" [control]="userForm.subscribe" /> Subscribe to newsletter:
+                    <input type="checkbox" [field]="userForm.subscribe" /> Subscribe to newsletter:
                 </label>
               </div>
 
@@ -66,7 +69,7 @@
                 <h3>Address</h3>
                 <div class="flex gap-2 mb-4">
                     <div>
-                        <input placeholder="Street" [control]="userForm.address.street" />
+                        <input placeholder="Street" [field]="userForm.address.street" />
                         @if(userForm.address.street().touched() || userForm.address.street().dirty()) {
                             @for (err of userForm.address.street().errors(); track err.kind) {
                                 <p style="color:red">{{ err.message }}</p>
@@ -74,7 +77,7 @@
                         }
                     </div>
                     <div>
-                        <input placeholder="City" [control]="userForm.address.city" />
+                        <input placeholder="City" [field]="userForm.address.city" />
                         @if(userForm.address.city().touched() || userForm.address.city().dirty()) {
                             @for (err of userForm.address.city().errors(); track err.kind) {
                                 <p style="color:red">{{ err.message }}</p>
@@ -82,7 +85,7 @@
                         }
                     </div>
                     <div>
-                        <input placeholder="Zip" [control]="userForm.address.zip" />
+                        <input placeholder="Zip" [field]="userForm.address.zip" />
                         @if(userForm.address.zip().touched() || userForm.address.zip().dirty()) {
                             @for (err of userForm.address.zip().errors(); track err.kind) {
                                 <p style="color:red">{{ err.message }}</p>
@@ -90,7 +93,7 @@
                         }
                     </div>
                     <div>
-                        <select [control]="userForm.address.country">
+                        <select [field]="userForm.address.country">
                             <option value="">Select Country</option>
                             <option value="India">India</option>
                             <option value="USA">USA</option>
@@ -113,7 +116,7 @@
                   <div class="contact-card">
                     <div class="flex gap-2 items-center mb-2">
                       <div>
-                        <input [control]="contact.type" placeholder="Type (e.g. phone, email)" />
+                        <input [field]="contact.type" placeholder="Type (e.g. phone, email)" />
                         @if(contact.type().touched() || contact.type().dirty()) {
                           @for (err of contact.type().errors(); track err.kind) {
                             <p style="color:red">{{ err.message }}</p>
@@ -121,7 +124,7 @@
                         }
                       </div>
                       <div>
-                        <input [control]="contact.value" placeholder="Value" />
+                        <input [field]="contact.value" placeholder="Value" />
                         @if(contact.value().touched() || contact.value().dirty()) {
                           @for (err of contact.value().errors(); track err.kind) {
                             <p style="color:red">{{ err.message }}</p>
@@ -135,7 +138,7 @@
                       <h4>Tags</h4>
                       @for (tag of contact.tags; track tag; let j = $index) {
                         <div class="flex gap-2 items-center mb-2">
-                          <input [control]="tag" placeholder="Tag" />
+                          <input [field]="tag" placeholder="Tag" />
                           <button mat-flat-button color="warn" type="button" (click)="removeTag(i, j)">Remove Tag</button>
                         </div>
                         

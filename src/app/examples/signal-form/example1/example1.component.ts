@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { RouterModule } from '@angular/router';
 
-import { form, Control } from '@angular/forms/signals';
+import { form, Field } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -18,7 +18,7 @@ import { JsonPipe } from '@angular/common';
     MatIconModule, 
     MarkdownComponent, 
     RouterModule, 
-    Control,
+    Field,
     JsonPipe
   ],
   templateUrl: './example1.component.html',

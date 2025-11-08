@@ -1,5 +1,5 @@
 import { Component, effect, signal } from '@angular/core';
-import { form, required, email, minLength, pattern, schema, Control, FieldPath, validate, customError, applyEach, validateTree } from '@angular/forms/signals';
+import { form, required, email, minLength, pattern, schema, Field, FieldPath, validate, customError, applyEach, validateTree } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -39,7 +39,7 @@ const userSchema = schema<User>((f) => {
     MatCardModule,
     MarkdownComponent,
     RouterModule,
-    Control,
+    Field,
     JsonPipe
   ],
   templateUrl: './example4.component.html',

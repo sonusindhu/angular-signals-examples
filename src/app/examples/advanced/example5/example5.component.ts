@@ -22,7 +22,6 @@ import { AutoSaveFormDemoComponent } from './auto-save-form-demo.component';
     MatIconModule,
     MarkdownComponent,
     RouterModule,
-    AutoSaveFormDirective,
     AutoSaveFormDemoComponent
 ],
   templateUrl: './example5.component.html',
