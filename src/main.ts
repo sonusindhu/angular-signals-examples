@@ -2,7 +2,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { provideRouter, withPreloading } from '@angular/router';
 import { ROUTES } from './app-routings';
-import { provideZoneChangeDetection, SecurityContext } from '@angular/core';
+import { provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CLIPBOARD_OPTIONS, provideMarkdown } from 'ngx-markdown';
 import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
@@ -20,7 +20,6 @@ bootstrapApplication(AppComponent, {
     provideZoneChangeDetection(),
     provideAnimationsAsync(),
     provideMarkdown({
-      sanitize: SecurityContext.NONE,
       loader: HttpClient,
       clipboardOptions: {
       provide: CLIPBOARD_OPTIONS,

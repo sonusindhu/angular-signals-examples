@@ -33,11 +33,11 @@ const userProjectsSchema = schema<UserProjects>((f) => {
     minLength(project.name, 3, { message: 'Project name must be at least 3 characters' });
     required(project.deadline, { message: 'Deadline is required' });
     required(project.status, { message: 'Status is required' });
-    validateTree(project.deadline, ({ value, fieldOf }) => {
+    validateTree(project.deadline, ({ value, fieldTreeOf }) => {
       const errors: ValidationError[] = [];
       const isNotValid = value() && new Date(value()) < new Date();
       if (isNotValid) {
-        errors.push(customError({ kind: 'deadlinePast', field: fieldOf(project.deadline), message: 'Deadline must be in the future' }));
+        errors.push(customError({ kind: 'deadlinePast', field: fieldTreeOf(project.deadline), message: 'Deadline must be in the future' }));
       }
       return errors;
     });
@@ -46,11 +46,11 @@ const userProjectsSchema = schema<UserProjects>((f) => {
       minLength(task.title, 2, { message: 'Task title must be at least 2 characters' });
       required(task.priority, { message: 'Priority is required' });
       required(task.dueDate, { message: 'Due date is required' });
-      validateTree(task.dueDate, ({ value, fieldOf }) => {
+      validateTree(task.dueDate, ({ value, fieldTreeOf }) => {
         const errors: ValidationError[] = [];
         const isNotValid = value() && new Date(value()) < new Date();
         if (isNotValid) {
-          errors.push(customError({ kind: 'dueDatePast', field: fieldOf(task.dueDate), message: 'Due date must be in the future' }));
+          errors.push(customError({ kind: 'dueDatePast', field: fieldTreeOf(task.dueDate), message: 'Due date must be in the future' }));
         }
         return errors;
       });
