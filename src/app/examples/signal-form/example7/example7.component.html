@@ -1,0 +1,79 @@
+<div class="example-container">
+  <div class="flex flex-wrap gap-2 items-center justify-start mt-4 mb-4">
+    <button mat-stroked-button color="primary" routerLink="/signal-forms">Go to List</button>
+    <button mat-stroked-button color="primary" routerLink="/signal-forms/example6">Prev</button>
+    <button mat-stroked-button color="primary" disabled>Next</button>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Demo">
+      <div class="content-area">
+        <h2>Example 7: Custom Form Field</h2>
+        <p>This example demonstrates the use of Custom Form Field in  Angular signals Forms.</p>
+      </div>
+
+      <div class="demo-section">
+        <mat-card>
+          <mat-card-content>
+            
+
+            <form>
+
+              <div>
+                <input type="text" placeholder="Enter name" [field]="userForm.name" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
+              </div>
+
+              <div>
+                <input type="email" placeholder="Enter email" [field]="userForm.email" class="w-full p-2 border border-gray-300 rounded-md text-base mb-4" />
+              </div>
+
+              <div>
+                <ngx-rating [field]="userForm.rating" />
+              </div>
+
+              <div>
+                Name: {{ userForm().value().name }} <br />
+                Email: {{ userForm().value().email }} <br />
+                Rating: {{ userForm().value().rating }} <br />
+                Form Value: {{ userForm().value() | json }}<br />
+                Form Validity: {{ userForm().valid() }}
+                Form Validity: {{ userForm().touched() }}
+              </div>
+
+            </form>
+
+
+          </mat-card-content>
+        </mat-card>
+
+        <h3>Key Features</h3>
+        <mat-card>
+          <mat-card-content>
+            <ul>
+              <li>🎨 Custom form field components with signal-based forms</li>
+              <li>🔌 Reusable rating component with two-way binding</li>
+              <li>⚡ Seamless integration of custom fields with signal forms</li>
+              <li>🔄 Automatic state synchronization across custom components</li>
+              <li>🧩 Modular and composable form architecture</li>
+            </ul>
+            <p>This example demonstrates how to create custom form field components that integrate seamlessly with signal-based forms, enabling reusable and encapsulated form controls.</p>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="HTML">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example7/example7.component.html.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="TS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example7/example7.component.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="Custom Field">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example7/ngx-rating.ts.md'"></markdown>
+    </mat-tab>
+    <mat-tab label="SCSS">
+      <markdown clipboard [src]="'assets/examples/signal-forms/example7/example7.component.scss.md'"></markdown>
+    </mat-tab>
+  </mat-tab-group>
+</div>
