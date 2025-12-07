@@ -30,5 +30,10 @@ export const SIGNAL_FORM_EXAMPLES: ExampleModel[] = [
         title: 'Example 6: Dynamic Projects & Tasks Signal Form',
         content: 'Dynamic array of projects, each with tasks. Demonstrates nested array management, schema-based validation, and instant error feedback using Angular signals.',
         routerLink: '/signal-forms/example6'
+    },
+    {
+        title: 'Example 7: Custom Form Field',
+        content: 'Demonstrates creating custom form field components that integrate seamlessly with signal-based forms. Features a reusable rating component with two-way binding and automatic state synchronization.',
+        routerLink: '/signal-forms/example7'
     }
 ];
