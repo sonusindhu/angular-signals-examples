@@ -1,5 +1,5 @@
 import { Component, effect, signal } from '@angular/core';
-import { form, required, email, minLength, pattern, schema, Field, validate, customError, FieldValidator, PathKind } from '@angular/forms/signals';
+import { form, required, email, minLength, pattern, schema, FormField, validate } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -25,7 +25,7 @@ const signupSchema = schema<{ name: string; email: string; password: string; con
     validate(form.confirm_password, ({ value, valueOf }) => {
         // if when condition is false, return null
         if(valueOf(form.password) !== value()){
-            return customError({ kind: 'notMatched', message: 'Passwords do not match' });
+            return { kind: 'notMatched', message: 'Passwords do not match' };
         }
 
         return null;
@@ -42,7 +42,7 @@ const signupSchema = schema<{ name: string; email: string; password: string; con
     MatCardModule,
     MarkdownComponent,
     RouterModule,
-    Field,
+    FormField,
     JsonPipe
   ],
   templateUrl: './example3.component.html',

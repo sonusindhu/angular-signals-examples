@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
-import { form, Field } from '@angular/forms/signals';
+import { form, FormField } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -14,7 +14,7 @@ import { JsonPipe } from '@angular/common';
     MatCardModule, 
     MatIconModule, 
     RouterModule, 
-    Field,
+    FormField,
     JsonPipe
   ],
   templateUrl: './example7.component.html',

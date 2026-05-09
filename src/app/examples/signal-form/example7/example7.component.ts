@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MarkdownComponent } from 'ngx-markdown';
 import { RouterModule } from '@angular/router';
 
-import { form, Field } from '@angular/forms/signals';
+import { form, FormField } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 import { NgxRatingComponent } from "./ngx-rating";
 
@@ -19,7 +19,7 @@ import { NgxRatingComponent } from "./ngx-rating";
     MatIconModule,
     MarkdownComponent,
     RouterModule,
-    Field,
+    FormField,
     JsonPipe,
     NgxRatingComponent
 ],

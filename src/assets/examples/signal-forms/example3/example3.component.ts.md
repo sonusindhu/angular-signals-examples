@@ -1,7 +1,7 @@
 ```typescript
 import { Component } from '@angular/core';
 import { effect, signal } from '@angular/core';
-import { form, required, email, minLength, pattern, schema, FieldPath, validate, customError, Field } from '@angular/forms/signals';
+import { form, required, email, minLength, pattern, schema, FieldPath, validate, FormField } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
@@ -15,7 +15,7 @@ function matchPassword(
         
         // if when condition is false, return null
         if(formValue.password !== formValue.confirm_password){
-            return customError({ kind: 'notMatched', message: 'Passwords do not match' });
+            return { kind: 'notMatched', message: 'Passwords do not match' };
         }
 
         return null;
@@ -33,7 +33,7 @@ function matchConfirmPassword(path: FieldPath<string>) {
 
         // if when condition is false, return null
         if(password !== confirmPassword.value()){
-            return customError({ kind: 'notMatched', message: 'Passwords do not match' });
+            return { kind: 'notMatched', message: 'Passwords do not match' };
         }
 
         return null;
@@ -62,7 +62,7 @@ const signupSchema = schema<{ name: string; email: string; password: string; con
 @Component({
   selector: 'app-form-example3',
   standalone: true,
-  imports: [Field, JsonPipe, MatCardModule],
+  imports: [FormField, JsonPipe, MatCardModule],
   templateUrl: './example3.component.html',
   styleUrls: ['./example3.component.scss']
 })

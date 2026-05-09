@@ -2,7 +2,7 @@
 <form (ngSubmit)="onSubmit()">
   <!-- User fields -->
   <div>
-    <input placeholder="Name" [field]="userForm.name" />
+    <input placeholder="Name" [formField]="userForm.name" />
     @if(userForm.name().touched() || userForm.name().dirty()) {
       @for (err of userForm.name().errors(); track err.kind) {
         <p style="color:red">{{ err.message }}</p>
@@ -10,7 +10,7 @@
     }
   </div>
   <div>
-    <input placeholder="Age" type="number" [field]="userForm.age" />
+    <input placeholder="Age" type="number" [formField]="userForm.age" />
     @if(userForm.age().touched() || userForm.age().dirty()) {
       @for (err of userForm.age().errors(); track err.kind) {
         <p style="color:red">{{ err.message }}</p>
@@ -18,7 +18,7 @@
     }
   </div>
   <div>
-    <input placeholder="Email" [field]="userForm.email" />
+    <input placeholder="Email" [formField]="userForm.email" />
     @if(userForm.email().touched() || userForm.email().dirty()) {
       @for (err of userForm.email().errors(); track err.kind) {
         <p style="color:red">{{ err.message }}</p>
@@ -28,9 +28,9 @@
   <div>
     <label>Gender:</label>
     <div class="flex gap-2 items-center mb-2">
-      <label><input type="radio" [field]="userForm.gender" value="male" /> Male</label>
-      <label><input type="radio" [field]="userForm.gender" value="female" /> Female</label>
-      <label><input type="radio" [field]="userForm.gender" value="other" /> Other</label>
+      <label><input type="radio" [formField]="userForm.gender" value="male" /> Male</label>
+      <label><input type="radio" [formField]="userForm.gender" value="female" /> Female</label>
+      <label><input type="radio" [formField]="userForm.gender" value="other" /> Other</label>
     </div>
     @if(userForm.gender().touched() || userForm.gender().dirty()) {
       @for (err of userForm.gender().errors(); track err.kind) {
@@ -40,7 +40,7 @@
   </div>
   <div>
     <label>
-      <input type="checkbox" [field]="userForm.subscribe" /> Subscribe to newsletter:
+      <input type="checkbox" [formField]="userForm.subscribe" /> Subscribe to newsletter:
     </label>
   </div>
   <!-- Address fields -->
@@ -48,16 +48,16 @@
     <h3>Address</h3>
     <div class="flex gap-2 mb-4">
       <div>
-        <input placeholder="Street" [field]="userForm.address.street" />
+        <input placeholder="Street" [formField]="userForm.address.street" />
       </div>
       <div>
-        <input placeholder="City" [field]="userForm.address.city" />
+        <input placeholder="City" [formField]="userForm.address.city" />
       </div>
       <div>
-        <input placeholder="Zip" [field]="userForm.address.zip" />
+        <input placeholder="Zip" [formField]="userForm.address.zip" />
       </div>
       <div>
-        <select [field]="userForm.address.country">
+        <select [formField]="userForm.address.country">
           <option value="">Select Country</option>
           <option value="India">India</option>
           <option value="USA">USA</option>
@@ -78,8 +78,8 @@
     @for (contact of userForm.address.contacts; track contact; let i = $index) {
       <div class="contact-card">
         <div class="flex gap-2 items-center mb-2">
-          <input [field]="contact.type" placeholder="Type (e.g. phone, email)" />
-          <input [field]="contact.value" placeholder="Value" />
+          <input [formField]="contact.type" placeholder="Type (e.g. phone, email)" />
+          <input [formField]="contact.value" placeholder="Value" />
           <button mat-flat-button color="warn" type="button" (click)="removeContact(i)">Remove Contact</button>
           @if(contact.type().touched() || contact.type().dirty()) {
             @for (err of contact.type().errors(); track err.kind) {
@@ -97,7 +97,7 @@
           <h4>Tags</h4>
           @for (tag of contact.tags; track tag; let j = $index) {
             <div class="flex gap-2 items-center mb-2">
-              <input [field]="tag" placeholder="Tag" />
+              <input [formField]="tag" placeholder="Tag" />
               <button mat-flat-button color="warn" type="button" (click)="removeTag(i, j)">Remove Tag</button>
               @if(tag().touched() || tag().dirty()) {
                 @for (err of tag().errors(); track err.kind) {

@@ -1,5 +1,5 @@
 import { Component, signal, effect } from '@angular/core';
-import { form, required, minLength, schema, applyEach, Field, customError, validateTree, ValidationError } from '@angular/forms/signals';
+import { form, required, minLength, schema, applyEach, FormField, validateTree, ValidationError } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -37,10 +37,10 @@ const userProjectsSchema = schema<UserProjects>((f) => {
     required(project.status, { message: 'Status is required' });
 
     validateTree(project.deadline, ({ value, fieldTreeOf }) => {
-      const errors: ValidationError[] = [];
+      const errors: ValidationError.WithOptionalFieldTree[] = [];
       const isNotValid = value() && new Date(value()) < new Date();
       if (isNotValid) {
-        errors.push(customError({ kind: 'deadlinePast', field: fieldTreeOf(project.deadline), message: 'Deadline must be in the future' }));
+        errors.push({ kind: 'deadlinePast', fieldTree: fieldTreeOf(project.deadline), message: 'Deadline must be in the future' });
       }
       return errors;
     });
@@ -52,10 +52,10 @@ const userProjectsSchema = schema<UserProjects>((f) => {
       required(task.priority, { message: 'Priority is required' });
       required(task.dueDate, { message: 'Due date is required' });
       validateTree(task.dueDate, ({ value, fieldTreeOf }) => {
-        const errors: ValidationError[] = [];
+        const errors: ValidationError.WithOptionalFieldTree[] = [];
         const isNotValid = value() && new Date(value()) < new Date();
         if (isNotValid) {
-          errors.push(customError({ kind: 'dueDatePast', field: fieldTreeOf(task.dueDate), message: 'Due date must be in the future' }));
+          errors.push({ kind: 'dueDatePast', fieldTree: fieldTreeOf(task.dueDate), message: 'Due date must be in the future' });
         }
         return errors;
       });
@@ -73,7 +73,7 @@ const userProjectsSchema = schema<UserProjects>((f) => {
     MatCardModule,
     MarkdownComponent,
     RouterModule,
-    Field,
+    FormField,
     JsonPipe
   ],
 })
